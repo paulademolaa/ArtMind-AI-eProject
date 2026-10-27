@@ -1,4 +1,4 @@
-# ArtMind AI 🎨✨
+# ArtMind AI
 
 **An AI-powered digital art discovery website** — built with React and plain CSS as an Aptech eProject (AI-integrated web development).
 

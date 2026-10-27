@@ -1,8 +1,4 @@
-// ------------------------------------------------------------
-// About Us page
-// Sections: Hero · Stats · Mission · Problem & approach ·
-//           Behind the project (team) · Credits · Contact form
-// ------------------------------------------------------------
+
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import PageLayout from '../components/PageLayout';
@@ -10,6 +6,14 @@ import Icon from '../components/Icon';
 import { getArtwork } from '../data/artworks';
 import { team } from '../data/siteData';
 import './About.css';
+import Paul from "../assets/Paul.jpg";
+import Timi from "../assets/Timi.jpeg";
+import Treasure from "../assets/Treasure.jpeg";
+import James from "../assets/James.jpeg";
+import Loius from "../assets/Loius.jpeg";
+import Isreal from "../assets/Isreal.jpeg";
+
+const teamPhotos = [Paul, Timi, Treasure, James, Loius, Isreal];
 
 const problems = [
   ['Static presentation', 'Endless grids with no context or story.'],
@@ -27,7 +31,7 @@ const solutions = [
 
 const topics = ['The collection', 'AI features', 'Partnerships', 'Press', 'Something else'];
 
-// Turn "Paul Ademola" into "PA" for the round placeholder picture.
+
 function initials(name) {
   return name
     .split(' ')
@@ -37,11 +41,6 @@ function initials(name) {
     .toUpperCase();
 }
 
-// The team photo: the "photo" in siteData.js if there is one,
-// otherwise the person's GitHub profile picture.
-function photoFor(person) {
-  return person.photo || `${person.github}.png?size=400`;
-}
 
 function About() {
   // ---- Contact form state ----
@@ -97,7 +96,7 @@ function About() {
         </div>
       </section>
 
-      {/* ---------- STATS ---------- */}
+      
       <div className="container">
         <div className="stats">
           <div>
@@ -199,12 +198,12 @@ function About() {
 
           <div className="team-grid">
             {team.map((person, index) => (
-              <div className="team-card" key={index}>
+              <div className="team-card" key={person.name || index}>
                 <div className="team-photo">
                   {/* Initials sit behind the photo and show if the photo can't load */}
                   <span className="team-initials">{initials(person.name)}</span>
                   <img
-                    src={photoFor(person)}
+                    src={teamPhotos[index]}
                     alt={person.name}
                     onError={(event) => (event.currentTarget.style.display = 'none')}
                   />
@@ -217,13 +216,11 @@ function About() {
                         <span className="team-link-icon">
                           <Icon name="github" size={22} />
                         </span>
-                        GitHub ↗
                       </a>
                       <a href={person.linkedin} target="_blank" rel="noreferrer" aria-label={`${person.name} on LinkedIn`}>
                         <span className="team-link-icon">
                           <Icon name="linkedin" size={20} />
                         </span>
-                        LinkedIn ↗
                       </a>
                     </div>
                   </div>

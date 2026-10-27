@@ -1,0 +1,563 @@
+/* ============================================================
+   ArtMind AI — GLOBAL STYLES
+   This file holds things every page uses:
+   1. Colour + font variables   2. Basic reset
+   3. Text styles               4. Buttons, chips, badges
+   5. Layout helpers            6. Responsive rules
+   Page-specific styles live next to each page (e.g. Home.css).
+   ============================================================ */
+
+/* ---------- 1. VARIABLES (design tokens from the Figma file) ---------- */
+:root {
+  /* Colours */
+  --white: #ffffff;
+  --ink: #131313; /* main text, buttons, dark sections */
+  --ink-muted: #64615c; /* secondary text */
+  --surface: #f4f2ed; /* warm background for alternate sections */
+  --accent: #1236c4; /* cobalt — links, active states, AI labels */
+  --accent-light: #7d8fe8; /* accent on dark backgrounds */
+  --line: rgba(19, 19, 19, 0.12); /* thin borders and dividers */
+  --line-light: rgba(255, 255, 255, 0.16); /* dividers on dark backgrounds */
+
+  /* Fonts */
+  --font-serif: 'Bodoni Moda', Georgia, serif; /* headings */
+  --font-sans: 'Commissioner', Arial, sans-serif; /* body text, buttons */
+  --font-mono: 'Red Hat Mono', 'Courier New', monospace; /* small labels */
+
+  /* Layout */
+  --max-width: 1248px;
+  --page-padding: 96px;
+}
+
+/* ---------- 2. RESET ---------- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+/* Visible keyboard focus for accessibility */
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ---------- 3. TEXT STYLES ---------- */
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
+
+.display {
+  font-size: 84px;
+}
+h1,
+.h1 {
+  font-size: 56px;
+}
+h2,
+.h2 {
+  font-size: 44px;
+}
+h3,
+.h3 {
+  font-size: 28px;
+}
+h4,
+.h4 {
+  font-size: 22px;
+}
+
+/* The italic blue word at the end of many headings */
+.accent {
+  font-style: italic;
+  color: var(--accent);
+}
+
+/* Small uppercase label above headings, e.g. "— FEATURED THIS WEEK" */
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 16px;
+}
+.eyebrow::before {
+  content: '';
+  width: 32px;
+  height: 1px;
+  background: currentColor;
+}
+
+.mono {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.04em;
+}
+
+.muted {
+  color: var(--ink-muted);
+}
+
+.lead {
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--ink-muted);
+}
+
+/* ---------- 4. BUTTONS, CHIPS, BADGES ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: 50px;
+  padding: 0 24px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border: 1px solid var(--ink);
+  transition: background 0.2s, color 0.2s;
+}
+.btn-dark {
+  background: var(--ink);
+  color: var(--white);
+}
+.btn-dark:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+.btn-outline {
+  background: transparent;
+  color: var(--ink);
+}
+.btn-outline:hover {
+  background: var(--ink);
+  color: var(--white);
+}
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+/* Buttons used on dark backgrounds or over images */
+.btn-light {
+  background: var(--surface);
+  color: var(--ink);
+  border-color: var(--surface);
+}
+.btn-light:hover {
+  background: var(--white);
+}
+.btn-ghost-light {
+  background: transparent;
+  color: var(--white);
+  border-color: rgba(255, 255, 255, 0.55);
+}
+.btn-ghost-light:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* Small light-blue pill, e.g. "✦ Personalised recommendations" */
+.ai-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: rgba(18, 54, 196, 0.1);
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.small {
+  font-size: 14px;
+}
+
+/* Underlined text button, e.g. "Clear all" */
+.text-button {
+  font-size: 14px;
+  color: var(--ink-muted);
+  text-decoration: underline;
+}
+
+
+/* Versions for dark sections */
+.eyebrow-light {
+  color: var(--accent-light);
+}
+.chip.chip-dark {
+  background: transparent;
+  color: var(--white);
+  border-color: rgba(255, 255, 255, 0.32);
+}
+.chip.chip-dark:hover {
+  border-color: var(--white);
+}
+
+/* Text link with an arrow, e.g. "VIEW ALL →" */
+.link-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.link-arrow:hover {
+  color: var(--accent);
+}
+
+/* Rounded filter/suggestion chip */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border: 1px solid rgba(19, 19, 19, 0.2);
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 500;
+  background: var(--white);
+  transition: all 0.2s;
+}
+.chip:hover {
+  border-color: var(--ink);
+}
+.chip.active {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--white);
+}
+
+/* Dark label that marks AI content, e.g. "✦ Warm palette" */
+.ai-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  background: rgba(19, 19, 19, 0.88);
+  color: var(--white);
+  font-size: 12px;
+  font-weight: 500;
+}
+.ai-tag .spark {
+  color: var(--accent-light);
+}
+
+/* Light blue note box for AI explanations */
+.ai-note {
+  display: flex;
+  gap: 10px;
+  padding: 14px 16px;
+  background: rgba(18, 54, 196, 0.06);
+  font-size: 14px;
+}
+.ai-note .spark {
+  color: var(--accent);
+}
+
+/* ---------- 5. LAYOUT HELPERS ---------- */
+.container {
+  width: 100%;
+  max-width: calc(var(--max-width) + var(--page-padding) * 2);
+  margin: 0 auto;
+  padding: 0 var(--page-padding);
+}
+
+.section {
+  padding: 112px 0;
+}
+.section-surface {
+  background: var(--surface);
+}
+.section-dark {
+  background: var(--ink);
+  color: var(--white);
+}
+
+/* Heading on the left, link or text on the right */
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 40px;
+  margin-bottom: 48px;
+}
+.section-header p {
+  max-width: 400px;
+  color: var(--ink-muted);
+}
+
+/* Simple grids */
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+/* Row of figures between thin lines, e.g. "12,400 PAINTINGS" */
+.stats {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.stats div {
+  padding: 24px 0;
+}
+.stats strong {
+  display: block;
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 1.1;
+}
+.stats span {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+/* Form fields */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 500;
+}
+.field input,
+.field textarea,
+.field select {
+  height: 52px;
+  padding: 0 16px;
+  border: 1px solid rgba(19, 19, 19, 0.2);
+  background: var(--white);
+  font-weight: 400;
+  font-size: 16px;
+}
+.field textarea {
+  height: 140px;
+  padding: 14px 16px;
+  resize: vertical;
+}
+.field input:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+.field .error {
+  color: #b3261e;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+/* Big search bar (Home + Smart Search) */
+.search-bar {
+  width: 100%;
+  max-width: 760px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 8px 8px 24px;
+  background: var(--white);
+  color: var(--ink);
+}
+.search-bar-icon {
+  color: var(--accent);
+  flex-shrink: 0;
+}
+.search-bar input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  height: 56px;
+}
+
+/* Round icon used for the AI assistant */
+.chat-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(18, 54, 196, 0.1);
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+/* Loading animations (used by AI pages) */
+.ai-progress-bar {
+  height: 3px;
+  background: var(--line);
+  overflow: hidden;
+}
+.ai-progress-bar span {
+  display: block;
+  width: 40%;
+  height: 100%;
+  background: var(--accent);
+  animation: progress 1s ease-in-out infinite;
+}
+@keyframes progress {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(250%);
+  }
+}
+.skeleton {
+  aspect-ratio: 4 / 5;
+  background: linear-gradient(90deg, #eeece7, #f6f5f1, #eeece7);
+  background-size: 200% 100%;
+  animation: shimmer 1.2s infinite;
+}
+@keyframes shimmer {
+  from {
+    background-position: 200% 0;
+  }
+  to {
+    background-position: -200% 0;
+  }
+}
+
+
+/* ---------- 6. RESPONSIVE ---------- */
+/* Tablet */
+@media (max-width: 1024px) {
+  :root {
+    --page-padding: 40px;
+  }
+  .display {
+    font-size: 64px;
+  }
+  h1,
+  .h1 {
+    font-size: 46px;
+  }
+  h2,
+  .h2 {
+    font-size: 36px;
+  }
+  .section {
+    padding: 80px 0;
+  }
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  :root {
+    --page-padding: 20px;
+  }
+  .display {
+    font-size: 46px;
+  }
+  h1,
+  .h1 {
+    font-size: 38px;
+  }
+  h2,
+  .h2 {
+    font-size: 30px;
+  }
+  h3,
+  .h3 {
+    font-size: 22px;
+  }
+  .section {
+    padding: 56px 0;
+  }
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .grid-2,
+  .grid-3 {
+    grid-template-columns: 1fr;
+  }
+  /* Artwork grids keep two small columns on phones */
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px 16px;
+  }
+  .artwork-card-title {
+    font-size: 17px;
+  }
+  .stats {
+    grid-auto-flow: row;
+    grid-template-columns: 1fr 1fr;
+  }
+  .stats strong {
+    font-size: 30px;
+  }
+}

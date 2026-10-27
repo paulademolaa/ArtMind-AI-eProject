@@ -1,0 +1,227 @@
+/* ============================================================
+   CATEGORIES PAGE
+   ============================================================ */
+.categories-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 80px;
+  padding-top: 88px;
+  padding-bottom: 56px;
+}
+.categories-header .lead {
+  max-width: 560px;
+  margin-top: 20px;
+}
+.categories-tools {
+  width: 400px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.quick-jump {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.quick-jump-inner {
+  display: flex;
+  gap: 32px;
+  height: 60px;
+  align-items: center;
+  overflow-x: auto;
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.quick-jump-inner a:hover {
+  color: var(--accent);
+}
+.quick-jump-inner .mono {
+  font-size: 11px;
+}
+
+/* ---------- Bento grid ---------- */
+/* A 3-column grid. Some tiles span 2 columns or 2 rows. */
+.category-bento {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  padding-top: 56px;
+  padding-bottom: 96px;
+}
+.tile-large {
+  grid-column: span 2;
+  height: 560px;
+}
+.tile-tall {
+  height: 560px;
+}
+.tile-wide {
+  grid-column: span 3;
+  height: 380px;
+}
+.tile-normal {
+  height: 440px;
+}
+
+.category-tile {
+  position: relative;
+  overflow: hidden;
+  color: var(--white);
+  display: block;
+  min-height: 100%;
+}
+.category-tile img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s;
+}
+.category-tile:hover img {
+  transform: scale(1.04);
+}
+.tile-shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 35%, rgba(19, 19, 19, 0.82));
+}
+.tile-styles {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.tile-styles span {
+  padding: 5px 10px;
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 11px;
+}
+.tile-ai {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+}
+.tile-text {
+  position: absolute;
+  left: 24px;
+  right: 24px;
+  bottom: 24px;
+  max-width: 560px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.tile-text .mono {
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-size: 11px;
+  opacity: 0.85;
+}
+.tile-large h2 {
+  font-size: 72px;
+}
+.tile-text .small {
+  opacity: 0.85;
+}
+
+/* ---------- Explore by style ---------- */
+.style-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 16px;
+}
+.style-card img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  margin-bottom: 12px;
+}
+.style-card h4 {
+  font-size: 18px;
+}
+.style-card:hover h4 {
+  color: var(--accent);
+}
+
+/* ---------- AI band ---------- */
+.ai-band {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 48px;
+  padding-top: 64px;
+  padding-bottom: 64px;
+}
+.ai-band h3 {
+  max-width: 620px;
+  margin-top: 12px;
+}
+.ai-band-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1024px) {
+  .categories-header,
+  .ai-band {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .categories-tools {
+    width: 100%;
+  }
+  .category-bento {
+    grid-template-columns: 1fr 1fr;
+  }
+  .tile-large,
+  .tile-wide {
+    grid-column: span 2;
+  }
+  .tile-large,
+  .tile-tall,
+  .tile-normal,
+  .tile-wide {
+    height: 420px;
+  }
+  .style-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .categories-header {
+    padding-top: 40px;
+    gap: 32px;
+  }
+  .category-bento {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .tile-large,
+  .tile-wide {
+    grid-column: span 1;
+  }
+  .tile-large,
+  .tile-tall,
+  .tile-normal,
+  .tile-wide {
+    height: 360px;
+  }
+  .tile-large h2 {
+    font-size: 44px;
+  }
+  .style-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}

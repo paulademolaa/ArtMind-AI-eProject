@@ -1,0 +1,53 @@
+// ------------------------------------------------------------
+// ArtworkCard — picture + title + artist, with a heart to save it.
+// Props:
+//   artwork  - one item from data/artworks.js
+//   tag      - (optional) short AI reason shown on the image, e.g. "Warm palette"
+//   label    - (optional) small blue text above the title, e.g. "98% match"
+// ------------------------------------------------------------
+import { Link } from 'react-router-dom';
+import Icon from './Icon';
+import { imageUrl } from '../data/artworks';
+import { useFavorites } from '../context/FavoritesContext';
+import './ArtworkCard.css';
+
+function ArtworkCard({ artwork, tag, label }) {
+  const { isFavorite, toggleFavorite } = useFavorites();
+  const saved = isFavorite(artwork.id);
+
+  // Clicking the heart should NOT open the artwork page.
+  function handleHeartClick(event) {
+    event.preventDefault();
+    toggleFavorite(artwork.id);
+  }
+
+  return (
+    <Link to={`/artwork/${artwork.id}`} className="artwork-card">
+      <div className="artwork-card-image">
+        <img src={imageUrl(artwork.imageId, 600)} alt={`${artwork.title} by ${artwork.artist}`} loading="lazy" />
+
+        <button
+          className={saved ? 'heart-button saved' : 'heart-button'}
+          onClick={handleHeartClick}
+          aria-label={saved ? 'Remove from favorites' : 'Save to favorites'}
+        >
+          <Icon name="heart" size={18} filled={saved} />
+        </button>
+
+        {tag && (
+          <span className="ai-tag artwork-card-tag">
+            <Icon name="sparkle" size={12} className="spark" /> {tag}
+          </span>
+        )}
+      </div>
+
+      <div className="artwork-card-meta">
+        <p className="artwork-card-label">{label || `${artwork.category} · ${artwork.date}`}</p>
+        <h4 className="artwork-card-title">{artwork.title}</h4>
+        <p className="artwork-card-artist">{artwork.artist}</p>
+      </div>
+    </Link>
+  );
+}
+
+export default ArtworkCard;

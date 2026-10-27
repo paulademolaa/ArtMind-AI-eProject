@@ -21,7 +21,7 @@ const wanted = {
   'painting-with-green-center': ['Green Center', 'Kandinsky'],
   'composition-no-1-gray-red': ['Gray-Red', 'Mondrian Composition No. 1'],
   'landscape-with-two-poplars': ['Two Poplars', 'Kandinsky'],
-  'water-lily-pond': ['Water Lily Pond', 'Claude Monet', 1280, '', '1933.441'],
+  'water-lily-pond': ['Water Lily Pond', 'Monet 1933.441', 1280, '1933.441'],
   'cliff-walk-at-pourville': ['Cliff Walk at Pourville', 'Monet'],
   'auvers-panoramic-view': ['Auvers, Panoramic View', 'Cezanne'],
   'view-of-genoa': ['View of Genoa', 'Corot'],
@@ -48,7 +48,7 @@ const wanted = {
   'saint-martin-and-the-beggar': ['Saint Martin and the Beggar', 'El Greco'],
   'the-crucifixion': ['Crucifixion', 'Carlo Crivelli'],
   'the-adoration-of-the-magi': ['Adoration of the Magi', 'Botticini'],
-  'hero-water-lily-pond': ['Water Lily Pond', 'Monet 1917 1933.441', 1920],
+  'hero-water-lily-pond': ['Water Lily Pond', 'Monet 1917-19 1982.825', 1920, '1982.825'],
 };
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));

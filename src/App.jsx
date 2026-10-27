@@ -25,6 +25,10 @@ import Assistant from './pages/Assistant';
 // Signed-in pages
 import Dashboard from './pages/Dashboard';
 import Favorites from './pages/Favorites';
+import Collections from './pages/Collections';
+import CollectionDetail from './pages/CollectionDetail';
+import RecentlyViewed from './pages/RecentlyViewed';
+import Settings from './pages/Settings';
 
 // Account pages
 import SignIn from './pages/SignIn';
@@ -54,6 +58,10 @@ function App() {
           {/* These pages need an account — visitors are asked to sign up */}
           <Route path="/dashboard" element={<RequireAuth><Dashboard /></RequireAuth>} />
           <Route path="/favorites" element={<RequireAuth><Favorites /></RequireAuth>} />
+          <Route path="/collections" element={<RequireAuth><Collections /></RequireAuth>} />
+          <Route path="/collections/:id" element={<RequireAuth><CollectionDetail /></RequireAuth>} />
+          <Route path="/recently-viewed" element={<RequireAuth><RecentlyViewed /></RequireAuth>} />
+          <Route path="/settings" element={<RequireAuth><Settings /></RequireAuth>} />
 
           <Route path="/signin" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />

@@ -34,7 +34,7 @@ function Footer() {
               <h4 className="footer-heading">Explore</h4>
               <Link to="/explore">Explore Art</Link>
               <Link to="/categories">Categories</Link>
-              <Link to="/favorites">Collections</Link>
+              <Link to="/collections">Collections</Link>
               <Link to="/explore">Trending</Link>
               <Link to="/about">About ArtMind</Link>
             </div>

@@ -6,7 +6,7 @@
 // must check passwords on a server and never store them like this.
 //
 // Usage in any component:
-//   const { user, signUp, signIn, signOut } = useAuth();
+//   const { user, signUp, signIn, signOut, updateProfile, changePassword, deleteAccount } = useAuth();
 //   user is null for visitors, or { name, email, joined } when signed in.
 // ------------------------------------------------------------
 import { createContext, useContext, useState } from 'react';
@@ -30,7 +30,7 @@ export function AuthProvider({ children }) {
   const [user, setUser] = useState(() => load('artmind-user', null));
 
   function startSession(account) {
-    const signedIn = { name: account.name, email: account.email, joined: account.joined };
+    const signedIn = { name: account.name, email: account.email, joined: account.joined, preferences: account.preferences || {} };
     setUser(signedIn);
     save('artmind-user', signedIn);
   }
@@ -58,12 +58,44 @@ export function AuthProvider({ children }) {
     return '';
   }
 
+  // Change the details of the signed-in account (used by Account Settings).
+  // "changes" can include name, email and preferences. Returns an error or ''.
+  function updateProfile(changes) {
+    const accounts = load('artmind-accounts', []);
+    const newEmail = (changes.email || user.email).trim().toLowerCase();
+    if (newEmail !== user.email && accounts.some((account) => account.email === newEmail)) {
+      return 'Another account already uses this email.';
+    }
+    const updated = accounts.map((account) =>
+      account.email === user.email ? { ...account, ...changes, email: newEmail } : account
+    );
+    save('artmind-accounts', updated);
+    startSession(updated.find((account) => account.email === newEmail));
+    return '';
+  }
+
+  // Returns an error message, or '' if the password was changed.
+  function changePassword(currentPassword, newPassword) {
+    const accounts = load('artmind-accounts', []);
+    const account = accounts.find((item) => item.email === user.email);
+    if (!account || account.password !== currentPassword) return 'Your current password is not correct.';
+    save('artmind-accounts', accounts.map((item) => (item === account ? { ...item, password: newPassword } : item)));
+    return '';
+  }
+
+  // Removes the account completely and signs out.
+  function deleteAccount() {
+    const accounts = load('artmind-accounts', []);
+    save('artmind-accounts', accounts.filter((account) => account.email !== user.email));
+    signOut();
+  }
+
   function signOut() {
     setUser(null);
     localStorage.removeItem('artmind-user');
   }
 
-  return <AuthContext.Provider value={{ user, signUp, signIn, signOut }}>{children}</AuthContext.Provider>;
+  return <AuthContext.Provider value={{ user, signUp, signIn, signOut, updateProfile, changePassword, deleteAccount }}>{children}</AuthContext.Provider>;
 }
 
 // The hook pages use to read the signed-in user.

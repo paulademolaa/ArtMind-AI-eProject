@@ -347,7 +347,7 @@ function Home() {
                 <span className="accent">getting lost in.</span>
               </h2>
             </div>
-            <Link to="/favorites" className="link-arrow">
+            <Link to="/collections" className="link-arrow">
               Browse all collections <Icon name="arrowRight" size={14} />
             </Link>
           </div>
@@ -371,7 +371,7 @@ function Home() {
               <div className="ai-note">
                 <Icon name="sparkle" size={14} className="spark" /> Matched on calm composition and blue-green palettes
               </div>
-              <Link to="/favorites" className="btn btn-dark">
+              <Link to={`/collections/${featuredCollection.id}`} className="btn btn-dark">
                 View collection <Icon name="arrowRight" size={14} />
               </Link>
             </div>
@@ -379,7 +379,7 @@ function Home() {
 
           <div className="grid-3 more-collections">
             {collections.slice(1).map((collection) => (
-              <Link to="/favorites" className="collection-card" key={collection.id}>
+              <Link to={`/collections/${collection.id}`} className="collection-card" key={collection.id}>
                 <div className="collection-card-image">
                   <img src={getArtwork(collection.artworkIds[0]).image} alt={collection.title} loading="lazy" />
                   <span className="ai-tag">{collection.label}</span>

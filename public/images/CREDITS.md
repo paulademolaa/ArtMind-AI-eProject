@@ -8,7 +8,6 @@ Downloaded from Wikimedia Commons (public domain).
 | painting-with-green-center.jpg | [Vasily Kandinsky - Painting with Green Center - 1931.510 - Art Institute of Chicago.jpg](https://commons.wikimedia.org/wiki/File:Vasily_Kandinsky_-_Painting_with_Green_Center_-_1931.510_-_Art_Institute_of_Chicago.jpg) |
 | composition-no-1-gray-red.jpg | [Mondrian - Composition (No. 1) Gray-Red, 1935.jpg](https://commons.wikimedia.org/wiki/File:Mondrian_-_Composition_(No._1)_Gray-Red,_1935.jpg) |
 | landscape-with-two-poplars.jpg | [Vasily Kandinsky - Landscape with Two Poplars - 1931.508 - Art Institute of Chicago.jpg](https://commons.wikimedia.org/wiki/File:Vasily_Kandinsky_-_Landscape_with_Two_Poplars_-_1931.508_-_Art_Institute_of_Chicago.jpg) |
-| water-lily-pond.jpg | [Claude Monet - Water Lily Pond - 1933.441 - Art Institute of Chicago.jpg](https://commons.wikimedia.org/wiki/File:Claude_Monet_-_Water_Lily_Pond_-_1933.441_-_Art_Institute_of_Chicago.jpg) |
 | cliff-walk-at-pourville.jpg | [Claude Monet - Cliff Walk at Pourville - Google Art Project.jpg](https://commons.wikimedia.org/wiki/File:Claude_Monet_-_Cliff_Walk_at_Pourville_-_Google_Art_Project.jpg) |
 | auvers-panoramic-view.jpg | [Paul Cézanne - Auvers, Panoramic View - 1933.422 - Art Institute of Chicago.jpg](https://commons.wikimedia.org/wiki/File:Paul_C%C3%A9zanne_-_Auvers,_Panoramic_View_-_1933.422_-_Art_Institute_of_Chicago.jpg) |
 | view-of-genoa.jpg | [Jean-Baptiste-Camille Corot, View of Genoa, 1834 1 27 18 -artinstitutechi (40015172284).jpg](https://commons.wikimedia.org/wiki/File:Jean-Baptiste-Camille_Corot,_View_of_Genoa,_1834_1_27_18_-artinstitutechi_(40015172284).jpg) |
@@ -27,7 +26,7 @@ Downloaded from Wikimedia Commons (public domain).
 | the-herring-net.jpg | [1937.1039 - The Herring Net.jpg](https://commons.wikimedia.org/wiki/File:1937.1039_-_The_Herring_Net.jpg) |
 | two-sisters-on-the-terrace.jpg | [Pierre-Auguste Renoir - Two Sisters (On the Terrace) - 1933.455 - Art Institute of Chicago.jpg](https://commons.wikimedia.org/wiki/File:Pierre-Auguste_Renoir_-_Two_Sisters_(On_the_Terrace)_-_1933.455_-_Art_Institute_of_Chicago.jpg) |
 | the-childs-bath.jpg | [Mary Cassatt - The Child's Bath - 1910.2 - Art Institute of Chicago.jpg](https://commons.wikimedia.org/wiki/File:Mary_Cassatt_-_The_Child%27s_Bath_-_1910.2_-_Art_Institute_of_Chicago.jpg) |
-| la-grande-jatte-oil-sketch.jpg | [A Sunday on La Grande Jatte (1884) by Georges Seurat. Original from The Art Institute of Chicago. Digitally enhanced by rawpixel. (50434734621).jpg](https://commons.wikimedia.org/wiki/File:A_Sunday_on_La_Grande_Jatte_(1884)_by_Georges_Seurat._Original_from_The_Art_Institute_of_Chicago._Digitally_enhanced_by_rawpixel._(50434734621).jpg) |
+| la-grande-jatte-oil-sketch.jpg | [Georges Seurat - Oil Sketch for "La Grande Jatte" - 1981.15 - Art Institute of Chicago.jpg](https://commons.wikimedia.org/wiki/File:Georges_Seurat_-_Oil_Sketch_for_%22La_Grande_Jatte%22_-_1981.15_-_Art_Institute_of_Chicago.jpg) |
 | interrupted-reading.jpg | [Jean Baptiste Camille Corot - Interrupted Reading - 1922.410 - Art Institute of Chicago.jpg](https://commons.wikimedia.org/wiki/File:Jean_Baptiste_Camille_Corot_-_Interrupted_Reading_-_1922.410_-_Art_Institute_of_Chicago.jpg) |
 | on-a-balcony.jpg | [Mary Cassatt - On a Balcony - 1938.18 - Art Institute of Chicago.jpg](https://commons.wikimedia.org/wiki/File:Mary_Cassatt_-_On_a_Balcony_-_1938.18_-_Art_Institute_of_Chicago.jpg) |
 | virgin-and-child-with-two-angels.jpg | [Sandro Botticelli - Virgin and Child with Two Angels - 1954.282 - Art Institute of Chicago.jpg](https://commons.wikimedia.org/wiki/File:Sandro_Botticelli_-_Virgin_and_Child_with_Two_Angels_-_1954.282_-_Art_Institute_of_Chicago.jpg) |
@@ -36,3 +35,5 @@ Downloaded from Wikimedia Commons (public domain).
 | the-crucifixion.jpg | [Carlo Crivelli - The Crucifixion - 1929.862 - Art Institute of Chicago.jpg](https://commons.wikimedia.org/wiki/File:Carlo_Crivelli_-_The_Crucifixion_-_1929.862_-_Art_Institute_of_Chicago.jpg) |
 | the-adoration-of-the-magi.jpg | [Raffaello Botticini - The Adoration of the Magi - 1937.997 - Art Institute of Chicago.jpg](https://commons.wikimedia.org/wiki/File:Raffaello_Botticini_-_The_Adoration_of_the_Magi_-_1937.997_-_Art_Institute_of_Chicago.jpg) |
 | hero-water-lily-pond.jpg | [Claude Monet - Water Lily Pond - 1933.441 - Art Institute of Chicago.jpg](https://commons.wikimedia.org/wiki/File:Claude_Monet_-_Water_Lily_Pond_-_1933.441_-_Art_Institute_of_Chicago.jpg) |
+
+Missing: water-lily-pond

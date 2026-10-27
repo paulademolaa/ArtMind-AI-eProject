@@ -58,6 +58,15 @@ function Home() {
   ];
 
   const featuredCollection = collections[0];
+
+  // Paintings shown one at a time in the hero card.
+  const featuredIds = ['water-lily-pond', 'cliff-walk-at-pourville', 'view-of-cotopaxi', 'valley-of-aosta', 'landscape-sunset', 'view-of-genoa'];
+  const [featuredIndex, setFeaturedIndex] = useState(0);
+  const heroPick = getArtwork(featuredIds[featuredIndex]);
+  // step is -1 (previous) or 1 (next); wraps around at the ends
+  function showFeatured(step) {
+    setFeaturedIndex((featuredIndex + step + featuredIds.length) % featuredIds.length);
+  }
   const [following, setFollowing] = useState(false); // "Follow" button on the collection
 
   return (
@@ -104,23 +113,39 @@ function Home() {
               </div>
             </div>
 
-            <Link to="/artwork/water-lily-pond" className="hero-card">
+            {/* Featured painting card with previous / next (as in Figma) */}
+            <div className="hero-card">
               <div className="hero-card-top">
-                <span>Featured · Landscape</span>
-                <span>01 / 06</span>
+                <span>Featured · {heroPick.category}</span>
+                <span>
+                  {String(featuredIndex + 1).padStart(2, '0')} / {String(featuredIds.length).padStart(2, '0')}
+                </span>
               </div>
-              <p className="hero-card-artist">Claude Monet</p>
+              <p className="hero-card-artist">{heroPick.artist}</p>
               <p className="hero-card-title">
-                <em>Water Lily Pond</em> 1900
+                <em>{heroPick.title}</em> {heroPick.date}
               </p>
-              <p className="muted small">Oil on canvas · Art Institute of Chicago</p>
+              <p className="muted small">{heroPick.medium} · Art Institute of Chicago</p>
               <div className="hero-card-match">
                 <span className="mono">
-                  <Icon name="sparkle" size={13} /> 94% match for you
+                  <Icon name="sparkle" size={13} /> {96 - featuredIndex * 3}% match for you
                 </span>
-                <span className="hero-card-link">View artwork</span>
+                <Link to={`/artwork/${heroPick.id}`} className="hero-card-link">
+                  View artwork
+                </Link>
               </div>
-            </Link>
+              <div className="hero-card-nav">
+                <button onClick={() => showFeatured(-1)} aria-label="Previous painting">
+                  <Icon name="arrowLeft" size={14} />
+                </button>
+                <div className="hero-card-progress">
+                  <span style={{ width: ((featuredIndex + 1) / featuredIds.length) * 100 + '%' }} />
+                </div>
+                <button onClick={() => showFeatured(1)} aria-label="Next painting">
+                  <Icon name="arrowRight" size={14} />
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </section>

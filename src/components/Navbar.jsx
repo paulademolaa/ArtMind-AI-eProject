@@ -60,6 +60,7 @@ function Navbar({ transparent = false }) {
                 <button className="nav-profile-button" onClick={() => setProfileOpen(!profileOpen)} aria-expanded={profileOpen}>
                   <span className="nav-avatar">{initialsOf(user.name)}</span>
                   <span className="nav-profile-name">{firstNameOf(user.name)}</span>
+                  <Icon name="chevronDown" size={14} />
                 </button>
                 {profileOpen && (
                   <div className="nav-profile-menu">

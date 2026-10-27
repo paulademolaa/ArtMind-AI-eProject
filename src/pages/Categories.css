@@ -41,6 +41,21 @@
 .quick-jump-inner .mono {
   font-size: 11px;
 }
+.quick-jump-all {
+  font-weight: 600;
+}
+.quick-jump-sort {
+  margin-left: auto;
+  border: none;
+  background: transparent;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.categories-search {
+  width: 100%;
+  height: 48px;
+}
 
 /* ---------- Bento grid ---------- */
 /* A 3-column grid. Some tiles span 2 columns or 2 rows. */

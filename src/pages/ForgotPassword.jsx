@@ -20,6 +20,8 @@ function ForgotPassword() {
     }
     setError('');
     setSent(true);
+    // Remember the email for the Reset Password page (there is no real email yet).
+    sessionStorage.setItem('artmind-reset-email', email);
   }
 
   return (
@@ -42,6 +44,12 @@ function ForgotPassword() {
         {sent && (
           <p className="success-box">
             <Icon name="check" size={18} /> If an account exists for {email}, a reset link is on its way. It expires in 30 minutes.
+          </p>
+        )}
+        {sent && (
+          // No emails are sent in this demo, so we link straight to the reset page.
+          <p className="auth-switch">
+            Demo: <Link to="/reset-password">open the reset password page</Link>
           </p>
         )}
       </form>

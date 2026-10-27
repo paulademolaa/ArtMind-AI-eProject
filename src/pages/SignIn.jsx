@@ -54,7 +54,7 @@ function SignIn() {
         <div className="field">
           Password
           <PasswordInput value={password} onChange={(event) => setPassword(event.target.value)} />
-          {errors.password && <span className="error">{errors.password}</span>}
+          {errors.password ? <span className="error">{errors.password}</span> : <span className="field-hint">At least 8 characters.</span>}
         </div>
 
         <div className="auth-row">
@@ -68,6 +68,14 @@ function SignIn() {
           Sign in <Icon name="arrowRight" size={14} />
         </button>
       </form>
+
+      {/* Placeholder for a future "Sign in with Google" (as in the Figma design) */}
+      <div className="auth-divider">
+        <span>Optional · future integration</span>
+      </div>
+      <button type="button" className="btn btn-outline auth-google" disabled>
+        Continue with Google
+      </button>
 
       <p className="auth-switch">
         New to ArtMind? <Link to="/signup" state={location.state}>Create an account</Link>

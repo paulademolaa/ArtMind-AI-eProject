@@ -319,6 +319,14 @@
     flex-direction: column;
     align-items: flex-start;
   }
+  .results-actions {
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  .results-actions .sort-select {
+    flex: 1;
+    min-width: 0;
+  }
   .results-grid {
     column-gap: 16px;
   }

@@ -190,10 +190,27 @@ function About() {
                 <span className="accent">one eProject.</span>
               </h2>
             </div>
-            <p>
-              ArtMind AI was created by a team of six as an Aptech eProject on AI-integrated web development — designed in
-              Figma and built as a React single-page app.
-            </p>
+            <div className="team-intro">
+              <p>
+                ArtMind AI was created by a team of six as an Aptech eProject on AI-integrated web development — designed in
+                Figma and built as a React single-page app.
+              </p>
+              {/* Small project figures (as in the Figma design) */}
+              <div className="team-figures">
+                <div>
+                  <strong>45</strong>
+                  <span>Screens designed</span>
+                </div>
+                <div>
+                  <strong>23</strong>
+                  <span>Reusable components</span>
+                </div>
+                <div>
+                  <strong>6</strong>
+                  <span>Prototype flows</span>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div className="team-grid">

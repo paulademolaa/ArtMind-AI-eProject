@@ -83,6 +83,16 @@ export function AuthProvider({ children }) {
     return '';
   }
 
+  // Set a new password for an email (used by the Reset Password page).
+  // Returns an error message, or '' if it worked.
+  function resetPassword(email, newPassword) {
+    const accounts = load('artmind-accounts', []);
+    const cleanEmail = email.trim().toLowerCase();
+    if (!accounts.some((account) => account.email === cleanEmail)) return 'No account found with this email.';
+    save('artmind-accounts', accounts.map((account) => (account.email === cleanEmail ? { ...account, password: newPassword } : account)));
+    return '';
+  }
+
   // Removes the account completely and signs out.
   function deleteAccount() {
     const accounts = load('artmind-accounts', []);
@@ -95,7 +105,7 @@ export function AuthProvider({ children }) {
     localStorage.removeItem('artmind-user');
   }
 
-  return <AuthContext.Provider value={{ user, signUp, signIn, signOut, updateProfile, changePassword, deleteAccount }}>{children}</AuthContext.Provider>;
+  return <AuthContext.Provider value={{ user, signUp, signIn, signOut, updateProfile, changePassword, deleteAccount, resetPassword }}>{children}</AuthContext.Provider>;
 }
 
 // The hook pages use to read the signed-in user.

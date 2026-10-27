@@ -20,18 +20,22 @@ function Dashboard() {
   const { user } = useAuth();
   const saved = artworks.filter((art) => favorites.includes(art.id));
   const recommended = getRecommendations(favorites, 3);
-  // The last 4 paintings this user opened (saved by the Artwork Details page).
-  const recentlyViewed = getRecentlyViewed()
+  // Every painting this user opened (saved by the Artwork Details page).
+  const viewed = getRecentlyViewed()
     .map((item) => getArtwork(item.id))
-    .filter(Boolean)
-    .slice(0, 4);
+    .filter(Boolean);
+  const recentlyViewed = viewed.slice(0, 5); // the last 5 for this page
 
-  // Count how many saved artworks are in each category (for the bars).
+  // Favourite categories = share of the paintings you viewed or saved,
+  // shown as "42% of views" (biggest first).
   const categoryCounts = {};
-  saved.forEach((art) => {
+  [...viewed, ...saved].forEach((art) => {
     categoryCounts[art.category] = (categoryCounts[art.category] || 0) + 1;
   });
-  const maxCount = Math.max(1, ...Object.values(categoryCounts));
+  const total = Object.values(categoryCounts).reduce((sum, count) => sum + count, 0);
+  const categoryShares = Object.entries(categoryCounts)
+    .map(([category, count]) => [category, Math.round((count / total) * 100)])
+    .sort((a, b) => b[1] - a[1]);
 
   const today = new Date().toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long' });
 
@@ -71,13 +75,16 @@ function Dashboard() {
 
       <section>
         <div className="section-header">
-          <h3>Recently viewed</h3>
+          <div>
+            <p className="eyebrow">Pick up where you left off</p>
+            <h3>Recently viewed</h3>
+          </div>
           <Link to="/recently-viewed" className="link-arrow">
-            See all <Icon name="arrowRight" size={14} />
+            History <Icon name="arrowRight" size={14} />
           </Link>
         </div>
         {recentlyViewed.length > 0 ? (
-          <div className="grid-4">
+          <div className="grid-5">
             {recentlyViewed.map((art) => (
               <ArtworkCard key={art.id} artwork={art} />
             ))}
@@ -92,15 +99,15 @@ function Dashboard() {
       <div className="dashboard-two">
         <section className="fav-categories">
           <h4>Favorite categories</h4>
-          {Object.keys(categoryCounts).length === 0 && <p className="muted small">Save some paintings to see your favourite categories.</p>}
-          {Object.entries(categoryCounts).map(([category, count]) => (
+          {categoryShares.length === 0 && <p className="muted small">View or save some paintings to see your favourite categories.</p>}
+          {categoryShares.map(([category, percent]) => (
             <div key={category} className="bar-row">
               <div className="bar-label">
                 <span>{category}</span>
-                <span className="muted">{count} saved</span>
+                <span className="mono muted">{percent}% of views</span>
               </div>
               <div className="bar-track">
-                <span style={{ width: (count / maxCount) * 100 + '%' }} />
+                <span style={{ width: percent + '%' }} />
               </div>
             </div>
           ))}
@@ -108,7 +115,10 @@ function Dashboard() {
 
         <section>
           <div className="section-header">
-            <h3>Fresh picks</h3>
+            <div>
+              <p className="eyebrow">Recommended for you</p>
+              <h3>Fresh picks</h3>
+            </div>
             <Link to="/ai/recommendations" className="link-arrow">
               See all <Icon name="arrowRight" size={14} />
             </Link>
@@ -123,7 +133,10 @@ function Dashboard() {
 
       <section>
         <div className="section-header">
-          <h3>AI-curated collections</h3>
+          <div>
+            <p className="eyebrow">Made for you</p>
+            <h3>AI-curated collections</h3>
+          </div>
           <Link to="/collections" className="link-arrow">
             All collections <Icon name="arrowRight" size={14} />
           </Link>
@@ -145,14 +158,17 @@ function Dashboard() {
 
       <section>
         <div className="section-header">
-          <h3>Saved artworks</h3>
+          <div>
+            <p className="eyebrow">Your favourites</p>
+            <h3>Saved artworks</h3>
+          </div>
           <Link to="/favorites" className="link-arrow">
             Open favorites <Icon name="arrowRight" size={14} />
           </Link>
         </div>
         {saved.length > 0 ? (
-          <div className="grid-4">
-            {saved.slice(0, 4).map((art) => (
+          <div className="grid-5">
+            {saved.slice(0, 5).map((art) => (
               <ArtworkCard key={art.id} artwork={art} />
             ))}
           </div>

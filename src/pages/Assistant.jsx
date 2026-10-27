@@ -19,6 +19,15 @@ const starterQuestions = [
   'Recommend landscape paintings.',
 ];
 
+// Earlier conversations shown in the left column (click one to ask it again).
+const pastChats = {
+  Today: ['Blue colour themes', 'Oil vs watercolour'],
+  'This week': ['Abstract expressionism', 'Landscapes for a living room', 'Who was Mary Cassatt?'],
+};
+
+// The time now, e.g. "10:42" (shown under each message)
+const timeNow = () => new Date().toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
+
 function Assistant() {
   const [searchParams] = useSearchParams();
   const [messages, setMessages] = useState([]);
@@ -28,7 +37,7 @@ function Assistant() {
 
   function sendMessage(text) {
     if (!text.trim() || typing) return;
-    const userMessage = { from: 'user', text };
+    const userMessage = { from: 'user', text, time: timeNow() };
     setMessages((old) => [...old, userMessage]);
     setInput('');
     setTyping(true);
@@ -36,7 +45,7 @@ function Assistant() {
     // Pretend the AI is thinking for 1 second.
     setTimeout(() => {
       const reply = getAssistantReply(text);
-      setMessages((old) => [...old, { from: 'ai', text: reply.text, artworks: reply.artworks }]);
+      setMessages((old) => [...old, { from: 'ai', text: reply.text, artworks: reply.artworks, question: text, time: timeNow() }]);
       setTyping(false);
     }, 1000);
   }
@@ -62,6 +71,16 @@ function Assistant() {
     sendMessage(input);
   }
 
+  const [copied, setCopied] = useState(false);
+
+  // Copy the conversation as text so it can be shared.
+  function shareChat() {
+    const text = messages.map((message) => (message.from === 'user' ? 'You: ' : 'ArtMind: ') + message.text).join('\n\n');
+    navigator.clipboard?.writeText(text);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  }
+
   // All artworks mentioned in the conversation (for the side panel).
   const mentioned = messages.flatMap((message) => message.artworks || []);
 
@@ -77,13 +96,16 @@ function Assistant() {
           <p className="history-item active">
             <Icon name="chat" size={14} /> {messages[0] ? messages[0].text.slice(0, 28) + '…' : 'New conversation'}
           </p>
-          <p className="side-label">This week</p>
-          <p className="history-item">
-            <Icon name="chat" size={14} /> Who was Mary Cassatt?
-          </p>
-          <p className="history-item">
-            <Icon name="chat" size={14} /> Landscapes for a living room
-          </p>
+          {Object.entries(pastChats).map(([day, chats]) => (
+            <div key={day}>
+              {day !== 'Today' && <p className="side-label">{day}</p>}
+              {chats.map((chat) => (
+                <button key={chat} className="history-item" onClick={() => sendMessage(chat)}>
+                  <Icon name="chat" size={14} /> {chat}
+                </button>
+              ))}
+            </div>
+          ))}
         </aside>
 
         {/* ---- Middle: the chat ---- */}
@@ -96,6 +118,16 @@ function Assistant() {
               <strong>ArtMind Assistant</strong>
               <p className="muted small">Answers about paintings, artists, styles and techniques</p>
             </div>
+            {messages.length > 0 && (
+              <div className="chat-header-actions">
+                <button onClick={shareChat} aria-label="Share conversation" title={copied ? 'Copied!' : 'Share'}>
+                  <Icon name={copied ? 'check' : 'send'} size={18} />
+                </button>
+                <button onClick={() => setMessages([])} aria-label="Delete conversation" title="Delete">
+                  <Icon name="trash" size={18} />
+                </button>
+              </div>
+            )}
           </header>
 
           <div className="chat-thread">
@@ -119,9 +151,10 @@ function Assistant() {
 
             {messages.map((message, index) =>
               message.from === 'user' ? (
-                <p key={index} className="msg-user">
-                  {message.text}
-                </p>
+                <div key={index} className="msg-user-wrap">
+                  <p className="msg-user">{message.text}</p>
+                  <span className="msg-time">You · {message.time}</span>
+                </div>
               ) : (
                 <div key={index} className="msg-ai">
                   <span className="chat-avatar">
@@ -140,6 +173,12 @@ function Assistant() {
                         ))}
                       </div>
                     )}
+                    {message.artworks.length > 0 && (
+                      <Link to={`/ai/search?q=${encodeURIComponent(message.question)}`} className="msg-see-all">
+                        See all matching paintings <Icon name="arrowRight" size={14} />
+                      </Link>
+                    )}
+                    <span className="msg-time">ArtMind Assistant · {message.time}</span>
                   </div>
                 </div>
               )
@@ -198,8 +237,16 @@ function Assistant() {
                   {art.artist} · {art.date}
                 </p>
               </div>
+              <Icon name="arrowUpRight" size={16} className="context-arrow" />
             </Link>
           ))}
+          <div className="chat-tip">
+            <strong>Tip</strong>
+            <p>
+              Upload a photo in <Link to="/ai/recognition">Image Recognition</Link> to ask “what style is this?” — it uses the same AI as
+              this assistant.
+            </p>
+          </div>
         </aside>
       </div>
     </PageLayout>

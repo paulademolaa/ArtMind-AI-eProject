@@ -3,6 +3,7 @@
 // Shows one painting: big image, facts, description,
 // colour palette, save + download buttons, similar artworks.
 // ------------------------------------------------------------
+import { useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import PageLayout from '../components/PageLayout';
 import ArtworkCard from '../components/ArtworkCard';
@@ -10,6 +11,7 @@ import Icon from '../components/Icon';
 import { getArtwork, getSimilar } from '../data/artworks';
 import { useFavorites } from '../context/FavoritesContext';
 import { getRecommendations } from '../utils/fakeAI';
+import { addRecentlyViewed } from '../utils/recentlyViewed';
 import './ArtworkDetails.css';
 
 // Names for the palette swatches (in the same order as artwork.palette).
@@ -19,6 +21,11 @@ function ArtworkDetails() {
   const { id } = useParams(); // the ":id" part of the address
   const artwork = getArtwork(id);
   const { isFavorite, toggleFavorite, favorites } = useFavorites();
+
+  // Remember this painting for the "Recently viewed" page.
+  useEffect(() => {
+    if (artwork) addRecentlyViewed(artwork.id);
+  }, [id]);
 
   // If someone types a wrong address, show a friendly message.
   if (!artwork) {

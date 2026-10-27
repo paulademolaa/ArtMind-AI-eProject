@@ -88,6 +88,9 @@ export const collections = [
 ];
 
 // The project team. Replace the placeholder entries with real details.
+// Photos: by default each card shows the person's GitHub profile picture.
+// To use another photo, put it in public/images/team/ and add for example
+//   photo: '/images/team/paul.jpg'
 export const team = [
   {
     name: 'Paul Ademola',

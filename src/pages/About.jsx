@@ -7,7 +7,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import PageLayout from '../components/PageLayout';
 import Icon from '../components/Icon';
-import { getArtwork, imageUrl } from '../data/artworks';
+import { getArtwork } from '../data/artworks';
 import { team } from '../data/siteData';
 import './About.css';
 
@@ -86,8 +86,8 @@ function About() {
           </div>
         </div>
         <div className="about-hero-images">
-          <img className="about-img-main" src={imageUrl(getArtwork('la-grande-jatte-oil-sketch').imageId, 900)} alt="Seurat, Oil Sketch for A Sunday on La Grande Jatte" />
-          <img className="about-img-small" src={imageUrl(getArtwork('two-sisters-on-the-terrace').imageId, 500)} alt="Renoir, Two Sisters (On the Terrace)" />
+          <img className="about-img-main" src={getArtwork('la-grande-jatte-oil-sketch').image} alt="Seurat, Oil Sketch for A Sunday on La Grande Jatte" />
+          <img className="about-img-small" src={getArtwork('two-sisters-on-the-terrace').image} alt="Renoir, Two Sisters (On the Terrace)" />
         </div>
       </section>
 
@@ -231,7 +231,7 @@ function About() {
       <div className="container credits">
         <div className="credits-strip">
           {['water-lily-pond', 'the-adoration-of-the-magi', 'improvisation-no-30', 'bouquet-in-earthenware-vase', 'distant-view-of-niagara-falls', 'the-childs-bath'].map((id) => (
-            <img key={id} src={imageUrl(getArtwork(id).imageId, 400)} alt={getArtwork(id).title} loading="lazy" />
+            <img key={id} src={getArtwork(id).image} alt={getArtwork(id).title} loading="lazy" />
           ))}
         </div>
         <p className="mono muted">

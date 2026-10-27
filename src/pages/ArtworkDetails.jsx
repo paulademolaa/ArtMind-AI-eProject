@@ -1,13 +1,13 @@
 // ------------------------------------------------------------
 // Artwork Details page — /artwork/:id
-// Shows one painting: big image, facts, description, AI summary,
-// dominant colours, save + download buttons, similar artworks.
+// Shows one painting: big image, facts, description,
+// colour palette, save + download buttons, similar artworks.
 // ------------------------------------------------------------
 import { Link, useParams } from 'react-router-dom';
 import PageLayout from '../components/PageLayout';
 import ArtworkCard from '../components/ArtworkCard';
 import Icon from '../components/Icon';
-import { getArtwork, getSimilar, imageUrl } from '../data/artworks';
+import { getArtwork, getSimilar } from '../data/artworks';
 import { useFavorites } from '../context/FavoritesContext';
 import { getRecommendations } from '../utils/fakeAI';
 import './ArtworkDetails.css';
@@ -38,9 +38,6 @@ function ArtworkDetails() {
   const similar = getSimilar(artwork, 4);
   const recommended = getRecommendations([...favorites, artwork.id], 4);
 
-  // A short "AI summary" built from the artwork's details.
-  const aiSummary = `This ${artwork.category.toLowerCase()} painting shows the typical features of ${artwork.style}, painted in ${artwork.medium.toLowerCase()}. Visitors who like it tend to enjoy other ${artwork.style} works and similar colour palettes.`;
-
   // ---- Downloads ----
   // Word: we build a small HTML document and save it with a .doc ending.
   function downloadWord() {
@@ -54,7 +51,6 @@ function ArtworkDetails() {
         <b>Medium:</b> ${artwork.medium}<br/>
         <b>Surface:</b> ${artwork.surface}</p>
         <p>${artwork.description}</p>
-        <p><i>AI summary (may contain mistakes):</i> ${aiSummary}</p>
         <p>Image: Art Institute of Chicago, CC0.</p>
       </body></html>`;
     const file = new Blob([html], { type: 'application/msword' });
@@ -84,7 +80,7 @@ function ArtworkDetails() {
       <section className="container details">
         {/* ---- Big image ---- */}
         <div className="details-stage">
-          <img src={imageUrl(artwork.imageId, 1200)} alt={`${artwork.title} by ${artwork.artist}`} />
+          <img src={artwork.image} alt={`${artwork.title} by ${artwork.artist}`} />
         </div>
 
         {/* ---- Information ---- */}
@@ -134,7 +130,7 @@ function ArtworkDetails() {
             <div>
               <dt>Collection</dt>
               <dd>
-                <a href={`https://www.artic.edu/artworks/${artwork.aicId}`} target="_blank" rel="noreferrer">
+                <a href={artwork.sourceUrl} target="_blank" rel="noreferrer">
                   Art Institute of Chicago ↗
                 </a>
               </dd>
@@ -143,22 +139,14 @@ function ArtworkDetails() {
 
           <p className="details-description">{artwork.description}</p>
 
-          {/* AI content is always clearly labelled */}
-          <div className="ai-summary">
-            <span className="ai-tag">
-              <Icon name="sparkle" size={12} className="spark" /> AI-generated summary
-            </span>
-            <p>{aiSummary}</p>
-            <h4 className="details-subtitle">Dominant colours</h4>
-            <div className="swatches">
-              {artwork.palette.map((hex, index) => (
-                <div key={hex + index} className="swatch">
-                  <span style={{ background: hex }} />
-                  <small>{colourNames[index]}</small>
-                </div>
-              ))}
-            </div>
-            <p className="muted small">AI interpretation — may not reflect the artist’s intent. Catalogue facts above are verified.</p>
+          <h4 className="details-subtitle">Colour palette</h4>
+          <div className="swatches">
+            {artwork.palette.map((hex, index) => (
+              <div key={hex + index} className="swatch">
+                <span style={{ background: hex }} />
+                <small>{colourNames[index]}</small>
+              </div>
+            ))}
           </div>
         </div>
       </section>

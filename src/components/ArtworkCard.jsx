@@ -7,7 +7,6 @@
 // ------------------------------------------------------------
 import { Link } from 'react-router-dom';
 import Icon from './Icon';
-import { imageUrl } from '../data/artworks';
 import { useFavorites } from '../context/FavoritesContext';
 import './ArtworkCard.css';
 
@@ -24,7 +23,7 @@ function ArtworkCard({ artwork, tag, label }) {
   return (
     <Link to={`/artwork/${artwork.id}`} className="artwork-card">
       <div className="artwork-card-image">
-        <img src={imageUrl(artwork.imageId, 600)} alt={`${artwork.title} by ${artwork.artist}`} loading="lazy" />
+        <img src={artwork.image} alt={`${artwork.title} by ${artwork.artist}`} loading="lazy" />
 
         <button
           className={saved ? 'heart-button saved' : 'heart-button'}

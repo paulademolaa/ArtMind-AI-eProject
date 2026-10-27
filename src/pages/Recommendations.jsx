@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 import PageLayout from '../components/PageLayout';
 import ArtworkCard from '../components/ArtworkCard';
 import Icon from '../components/Icon';
-import artworks, { getArtwork, imageUrl } from '../data/artworks';
+import artworks, { getArtwork } from '../data/artworks';
 import { collections } from '../data/siteData';
 import { useFavorites } from '../context/FavoritesContext';
 import { getRecommendations } from '../utils/fakeAI';
@@ -71,7 +71,7 @@ function Recommendations() {
                 const selected = interests.includes(category);
                 return (
                   <button key={category} className={selected ? 'interest selected' : 'interest'} onClick={() => toggleInterest(category)}>
-                    <img src={imageUrl(cover.imageId, 300)} alt="" />
+                    <img src={cover.image} alt="" />
                     {selected && (
                       <span className="interest-check">
                         <Icon name="check" size={14} />
@@ -162,7 +162,7 @@ function Recommendations() {
               <div className="theme-images">
                 {theme.ids.map((id) => (
                   <Link key={id} to={`/artwork/${id}`}>
-                    <img src={imageUrl(getArtwork(id).imageId, 400)} alt={getArtwork(id).title} />
+                    <img src={getArtwork(id).image} alt={getArtwork(id).title} />
                   </Link>
                 ))}
               </div>
@@ -180,7 +180,7 @@ function Recommendations() {
             {trending.map((art, index) => (
               <Link key={art.id} to={`/artwork/${art.id}`} className="trend">
                 <span className="trend-number">0{index + 1}</span>
-                <img src={imageUrl(art.imageId, 200)} alt="" />
+                <img src={art.image} alt="" />
                 <div>
                   <strong>{art.title}</strong>
                   <p className="small">{art.artist}</p>
@@ -201,7 +201,7 @@ function Recommendations() {
         <div className="grid-3">
           {collections.slice(0, 3).map((collection) => (
             <Link to="/favorites" key={collection.id} className="collection-mini">
-              <img src={imageUrl(getArtwork(collection.artworkIds[0]).imageId, 600)} alt="" />
+              <img src={getArtwork(collection.artworkIds[0]).image} alt="" />
               <h4>{collection.title}</h4>
               <p className="mono muted">
                 {collection.artworkIds.length} works · {collection.label}

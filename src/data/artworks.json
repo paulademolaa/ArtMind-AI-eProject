@@ -1,0 +1,936 @@
+{
+  "hero": {
+    "id": "hero-water-lily-pond",
+    "image": "/images/hero-water-lily-pond.jpg",
+    "title": "Water Lily Pond",
+    "artist": "Claude Monet",
+    "date": "1917–19",
+    "medium": "Oil on canvas",
+    "sourceUrl": "https://www.artic.edu/artworks/97933"
+  },
+  "artworks": [
+    {
+      "id": "improvisation-no-30",
+      "image": "/images/improvisation-no-30.jpg",
+      "title": "Improvisation No. 30 (Cannons)",
+      "artist": "Vasily Kandinsky",
+      "date": "1913",
+      "medium": "Oil on canvas",
+      "surface": "Canvas",
+      "category": "Abstract",
+      "style": "Expressionism",
+      "palette": [
+        "#C8432B",
+        "#2F5D9B",
+        "#E9C46A",
+        "#3B3B3B",
+        "#EDE6D6"
+      ],
+      "tags": [
+        "abstract",
+        "colour",
+        "bold",
+        "red",
+        "blue",
+        "modern",
+        "oil",
+        "canvas"
+      ],
+      "description": "Swirling lines and bursts of colour fill the canvas. In the lower right, two cannons can be made out among the shapes, a rare hint of a real subject in Kandinsky’s early abstract work.",
+      "sourceUrl": "https://www.artic.edu/artworks/8991"
+    },
+    {
+      "id": "painting-with-green-center",
+      "image": "/images/painting-with-green-center.jpg",
+      "title": "Painting with Green Center",
+      "artist": "Vasily Kandinsky",
+      "date": "1913",
+      "medium": "Oil on canvas",
+      "surface": "Canvas",
+      "category": "Abstract",
+      "style": "Expressionism",
+      "palette": [
+        "#3E7D4A",
+        "#D9472B",
+        "#2C4F8C",
+        "#F0D27A",
+        "#1D1D1D"
+      ],
+      "tags": [
+        "abstract",
+        "green",
+        "colour",
+        "modern",
+        "oil",
+        "canvas"
+      ],
+      "description": "A green shape sits at the centre of a crowded, energetic composition of colour and line. The painting shows Kandinsky moving away from recognisable subjects altogether.",
+      "sourceUrl": "https://www.artic.edu/artworks/8987"
+    },
+    {
+      "id": "composition-no-1-gray-red",
+      "image": "/images/composition-no-1-gray-red.jpg",
+      "title": "Composition (No. 1) Gray-Red",
+      "artist": "Piet Mondrian",
+      "date": "1935",
+      "medium": "Oil on canvas",
+      "surface": "Canvas",
+      "category": "Abstract",
+      "style": "De Stijl",
+      "palette": [
+        "#E6E3DC",
+        "#C8C5BE",
+        "#B3261E",
+        "#141414",
+        "#FFFFFF"
+      ],
+      "tags": [
+        "abstract",
+        "geometric",
+        "grid",
+        "minimal",
+        "red",
+        "grey",
+        "modern",
+        "oil",
+        "canvas"
+      ],
+      "description": "Black lines divide a pale surface into rectangles, with a single block of red. Mondrian used only straight lines and a few colours to create balance.",
+      "sourceUrl": "https://www.artic.edu/artworks/65821"
+    },
+    {
+      "id": "landscape-with-two-poplars",
+      "image": "/images/landscape-with-two-poplars.jpg",
+      "title": "Landscape with Two Poplars",
+      "artist": "Vasily Kandinsky",
+      "date": "1912",
+      "medium": "Oil on canvas",
+      "surface": "Canvas",
+      "category": "Abstract",
+      "style": "Expressionism",
+      "palette": [
+        "#3C6E8F",
+        "#E4B84A",
+        "#B5442E",
+        "#4F7A3A",
+        "#F2EBDD"
+      ],
+      "tags": [
+        "abstract",
+        "landscape",
+        "trees",
+        "colour",
+        "oil",
+        "canvas"
+      ],
+      "description": "Two tall poplar trees still anchor this landscape, but the hills, sky and figures are dissolving into bright, free patches of colour.",
+      "sourceUrl": "https://www.artic.edu/artworks/8980"
+    },
+    {
+      "id": "water-lily-pond",
+      "image": "/images/water-lily-pond.jpg",
+      "title": "Water Lily Pond",
+      "artist": "Claude Monet",
+      "date": "1900",
+      "medium": "Oil on canvas",
+      "surface": "Canvas",
+      "category": "Landscape",
+      "style": "Impressionism",
+      "palette": [
+        "#4A6141",
+        "#788C6A",
+        "#8C7895",
+        "#C09E99",
+        "#2E3B2D"
+      ],
+      "tags": [
+        "landscape",
+        "water",
+        "pond",
+        "garden",
+        "bridge",
+        "green",
+        "calm",
+        "impressionism",
+        "oil",
+        "canvas"
+      ],
+      "description": "Monet painted the Japanese footbridge over the water-lily pond in his garden at Giverny many times. Here the bridge, foliage and lilies melt into soft strokes of green, violet and rose.",
+      "sourceUrl": "https://www.artic.edu/artworks/87088"
+    },
+    {
+      "id": "cliff-walk-at-pourville",
+      "image": "/images/cliff-walk-at-pourville.jpg",
+      "title": "Cliff Walk at Pourville",
+      "artist": "Claude Monet",
+      "date": "1882",
+      "medium": "Oil on canvas",
+      "surface": "Canvas",
+      "category": "Landscape",
+      "style": "Impressionism",
+      "palette": [
+        "#7399BF",
+        "#5C8054",
+        "#DBD1B3",
+        "#B38C66",
+        "#404D59"
+      ],
+      "tags": [
+        "landscape",
+        "sea",
+        "coast",
+        "cliff",
+        "blue",
+        "sky",
+        "impressionism",
+        "oil",
+        "canvas"
+      ],
+      "description": "Two figures stand on a windy clifftop above the sea on the Normandy coast. Quick, broken brushstrokes capture moving grass, light and air.",
+      "sourceUrl": "https://www.artic.edu/artworks/14620"
+    },
+    {
+      "id": "auvers-panoramic-view",
+      "image": "/images/auvers-panoramic-view.jpg",
+      "title": "Auvers, Panoramic View",
+      "artist": "Paul Cezanne",
+      "date": "1873–75",
+      "medium": "Oil on canvas",
+      "surface": "Canvas",
+      "category": "Landscape",
+      "style": "Impressionism",
+      "palette": [
+        "#6E8B5A",
+        "#C9B98F",
+        "#A15E3B",
+        "#8FA7B8",
+        "#3F4A35"
+      ],
+      "tags": [
+        "landscape",
+        "village",
+        "rooftops",
+        "green",
+        "oil",
+        "canvas"
+      ],
+      "description": "A view over the rooftops of a French village, built up from blocks of colour. Cezanne’s careful structure points towards later modern painting.",
+      "sourceUrl": "https://www.artic.edu/artworks/14556"
+    },
+    {
+      "id": "view-of-genoa",
+      "image": "/images/view-of-genoa.jpg",
+      "title": "View of Genoa",
+      "artist": "Jean Baptiste Camille Corot",
+      "date": "1834",
+      "medium": "Oil on paper, mounted on canvas",
+      "surface": "Paper",
+      "category": "Landscape",
+      "style": "Realism",
+      "palette": [
+        "#9FB4C7",
+        "#D8C9A6",
+        "#B08A5B",
+        "#6F7D63",
+        "#F1EADB"
+      ],
+      "tags": [
+        "landscape",
+        "city",
+        "coast",
+        "sea",
+        "italy",
+        "light",
+        "oil"
+      ],
+      "description": "A bright, quiet view of the Italian port city of Genoa, painted outdoors. Corot’s clear light and simple shapes influenced the Impressionists.",
+      "sourceUrl": "https://www.artic.edu/artworks/25806"
+    },
+    {
+      "id": "landscape-sunset",
+      "image": "/images/landscape-sunset.jpg",
+      "title": "Landscape, Sunset",
+      "artist": "George Inness",
+      "date": "1887–89",
+      "medium": "Oil on canvas",
+      "surface": "Canvas",
+      "category": "Landscape",
+      "style": "Tonalism",
+      "palette": [
+        "#C8873A",
+        "#5A4A2E",
+        "#8E6F3F",
+        "#2E2A1E",
+        "#E2B66D"
+      ],
+      "tags": [
+        "landscape",
+        "sunset",
+        "warm",
+        "golden",
+        "earthy",
+        "calm",
+        "oil",
+        "canvas"
+      ],
+      "description": "Warm evening light glows behind soft, dark trees. Inness used hazy tones to create a peaceful, almost dreamlike mood.",
+      "sourceUrl": "https://www.artic.edu/artworks/64740"
+    },
+    {
+      "id": "valley-of-aosta",
+      "image": "/images/valley-of-aosta.jpg",
+      "title": "Valley of Aosta: Snowstorm, Avalanche, and Thunderstorm",
+      "artist": "Joseph Mallord William Turner",
+      "date": "1836–37",
+      "medium": "Oil on canvas",
+      "surface": "Canvas",
+      "category": "Landscape",
+      "style": "Romanticism",
+      "palette": [
+        "#8A8A80",
+        "#D9CDA8",
+        "#4E4A42",
+        "#B59B67",
+        "#F2EEE3"
+      ],
+      "tags": [
+        "landscape",
+        "mountains",
+        "storm",
+        "dramatic",
+        "romantic",
+        "oil",
+        "canvas"
+      ],
+      "description": "A storm, an avalanche and a thunderstorm sweep through an Alpine valley. Turner turns the power of nature into whirling light and colour.",
+      "sourceUrl": "https://www.artic.edu/artworks/109938"
+    },
+    {
+      "id": "still-life-with-flowers",
+      "image": "/images/still-life-with-flowers.jpg",
+      "title": "Still Life with Flowers",
+      "artist": "Odilon Redon",
+      "date": "1905",
+      "medium": "Oil on canvas",
+      "surface": "Canvas",
+      "category": "Flower",
+      "style": "Post-Impressionism",
+      "palette": [
+        "#6B6255",
+        "#C7A46B",
+        "#B5503C",
+        "#8DA0B5",
+        "#E9DFC9"
+      ],
+      "tags": [
+        "flower",
+        "flowers",
+        "still life",
+        "vase",
+        "dreamy",
+        "oil",
+        "canvas"
+      ],
+      "description": "A loose bouquet seems to float against a soft, glowing background. Redon’s flowers feel more like a dream than a careful record.",
+      "sourceUrl": "https://www.artic.edu/artworks/110982"
+    },
+    {
+      "id": "bouquet-in-earthenware-vase",
+      "image": "/images/bouquet-in-earthenware-vase.jpg",
+      "title": "Bouquet of Flowers in an Earthenware Vase",
+      "artist": "Jan Brueghel the Elder",
+      "date": "c. 1610",
+      "medium": "Oil on panel",
+      "surface": "Panel",
+      "category": "Flower",
+      "style": "Baroque",
+      "palette": [
+        "#1A1A16",
+        "#C9A13E",
+        "#B8432F",
+        "#F2E6CC",
+        "#4F6B3A"
+      ],
+      "tags": [
+        "flower",
+        "flowers",
+        "bouquet",
+        "still life",
+        "dark",
+        "dutch",
+        "flemish",
+        "oil",
+        "panel"
+      ],
+      "description": "Dozens of flowers, many blooming at different times of year, are gathered into one impossible bouquet against a dark background.",
+      "sourceUrl": "https://www.artic.edu/artworks/64029"
+    },
+    {
+      "id": "chrysanthemums",
+      "image": "/images/chrysanthemums.jpg",
+      "title": "Chrysanthemums",
+      "artist": "Pierre-Auguste Renoir",
+      "date": "1881–82",
+      "medium": "Oil on canvas",
+      "surface": "Canvas",
+      "category": "Flower",
+      "style": "Impressionism",
+      "palette": [
+        "#E8D9A8",
+        "#C7653F",
+        "#4E7B9B",
+        "#F3EEDF",
+        "#6E7F4C"
+      ],
+      "tags": [
+        "flower",
+        "flowers",
+        "bright",
+        "warm",
+        "impressionism",
+        "oil",
+        "canvas"
+      ],
+      "description": "A full vase of chrysanthemums painted with soft, feathery strokes of warm colour.",
+      "sourceUrl": "https://www.artic.edu/artworks/16617"
+    },
+    {
+      "id": "magnolias-on-blue-velvet",
+      "image": "/images/magnolias-on-blue-velvet.jpg",
+      "title": "Magnolias on Light Blue Velvet Cloth",
+      "artist": "Martin Johnson Heade",
+      "date": "1885–95",
+      "medium": "Oil on canvas",
+      "surface": "Canvas",
+      "category": "Flower",
+      "style": "Realism",
+      "palette": [
+        "#F3EFE6",
+        "#9FB7C9",
+        "#3E4F2E",
+        "#C9B79A",
+        "#1E2418"
+      ],
+      "tags": [
+        "flower",
+        "flowers",
+        "magnolia",
+        "white",
+        "blue",
+        "calm",
+        "oil",
+        "canvas"
+      ],
+      "description": "Large white magnolia blossoms lie on a soft blue cloth, painted with smooth, careful detail.",
+      "sourceUrl": "https://www.artic.edu/artworks/100829"
+    },
+    {
+      "id": "roses-in-a-bowl",
+      "image": "/images/roses-in-a-bowl.jpg",
+      "title": "Roses in a Bowl",
+      "artist": "Henri Fantin-Latour",
+      "date": "1881",
+      "medium": "Oil on canvas",
+      "surface": "Canvas",
+      "category": "Flower",
+      "style": "Realism",
+      "palette": [
+        "#2E2A24",
+        "#E6C9B8",
+        "#C0566A",
+        "#F2EDE2",
+        "#6E7A4F"
+      ],
+      "tags": [
+        "flower",
+        "flowers",
+        "roses",
+        "bowl",
+        "still life",
+        "pink",
+        "oil",
+        "canvas"
+      ],
+      "description": "Soft pink and white roses spill over a simple bowl against a dark, plain background, painted with the quiet realism Fantin-Latour was famous for.",
+      "sourceUrl": "https://www.artic.edu/collection?q=Fantin-Latour%20Roses%20in%20a%20Bowl"
+    },
+    {
+      "id": "view-of-cotopaxi",
+      "image": "/images/view-of-cotopaxi.jpg",
+      "title": "View of Cotopaxi",
+      "artist": "Frederic Edwin Church",
+      "date": "1857",
+      "medium": "Oil on canvas",
+      "surface": "Canvas",
+      "category": "Nature",
+      "style": "Hudson River School",
+      "palette": [
+        "#C9B48A",
+        "#5E6E4A",
+        "#8EA6B8",
+        "#3C3A2C",
+        "#EDE3C8"
+      ],
+      "tags": [
+        "nature",
+        "volcano",
+        "mountain",
+        "waterfall",
+        "tropical",
+        "dramatic",
+        "oil",
+        "canvas"
+      ],
+      "description": "The Cotopaxi volcano in Ecuador rises above a lush tropical valley. Church travelled to South America to paint its scenery.",
+      "sourceUrl": "https://www.artic.edu/artworks/76571"
+    },
+    {
+      "id": "home-of-the-heron",
+      "image": "/images/home-of-the-heron.jpg",
+      "title": "The Home of the Heron",
+      "artist": "George Inness",
+      "date": "1893",
+      "medium": "Oil on canvas",
+      "surface": "Canvas",
+      "category": "Nature",
+      "style": "Tonalism",
+      "palette": [
+        "#C77F3A",
+        "#3E3A2A",
+        "#8C6A3C",
+        "#D9A55A",
+        "#1E1C16"
+      ],
+      "tags": [
+        "nature",
+        "bird",
+        "heron",
+        "marsh",
+        "sunset",
+        "warm",
+        "golden",
+        "earthy",
+        "calm",
+        "oil",
+        "canvas"
+      ],
+      "description": "A lone heron stands in a misty marsh at dusk. Soft golden light and dark trees create a quiet, thoughtful mood.",
+      "sourceUrl": "https://www.artic.edu/artworks/64724"
+    },
+    {
+      "id": "distant-view-of-niagara-falls",
+      "image": "/images/distant-view-of-niagara-falls.jpg",
+      "title": "Distant View of Niagara Falls",
+      "artist": "Thomas Cole",
+      "date": "1830",
+      "medium": "Oil on wood panel",
+      "surface": "Panel",
+      "category": "Nature",
+      "style": "Hudson River School",
+      "palette": [
+        "#5C7A5A",
+        "#BFB59A",
+        "#8BA4B5",
+        "#3A3A2C",
+        "#E5DCC3"
+      ],
+      "tags": [
+        "nature",
+        "waterfall",
+        "water",
+        "trees",
+        "american",
+        "oil",
+        "panel"
+      ],
+      "description": "Niagara Falls appears in the distance beyond wild trees and rocks, as it might have looked before towns grew up around it.",
+      "sourceUrl": "https://www.artic.edu/artworks/90048"
+    },
+    {
+      "id": "pond-in-the-woods",
+      "image": "/images/pond-in-the-woods.jpg",
+      "title": "Pond in the Woods",
+      "artist": "Narcisse Virgile Diaz de la Peña",
+      "date": "1862",
+      "medium": "Oil on canvas",
+      "surface": "Canvas",
+      "category": "Nature",
+      "style": "Barbizon School",
+      "palette": [
+        "#3C4A2C",
+        "#8C8A5C",
+        "#C9C19A",
+        "#5E6B4A",
+        "#1E2216"
+      ],
+      "tags": [
+        "nature",
+        "forest",
+        "woods",
+        "pond",
+        "water",
+        "trees",
+        "green",
+        "calm",
+        "oil",
+        "canvas"
+      ],
+      "description": "Light breaks through the trees onto a still pond deep in the forest. Barbizon painters loved working outdoors in the woods near Paris.",
+      "sourceUrl": "https://www.artic.edu/artworks/95993"
+    },
+    {
+      "id": "mist-rising-in-the-catskills",
+      "image": "/images/mist-rising-in-the-catskills.jpg",
+      "title": "Mist Rising at Sunset in the Catskills",
+      "artist": "Sanford Robinson Gifford",
+      "date": "c. 1861",
+      "medium": "Oil on canvas",
+      "surface": "Canvas",
+      "category": "Nature",
+      "style": "Hudson River School",
+      "palette": [
+        "#D9A55A",
+        "#7A5A3A",
+        "#3F4A5C",
+        "#C9B48A",
+        "#F0D9A8"
+      ],
+      "tags": [
+        "nature",
+        "mountains",
+        "sunset",
+        "mist",
+        "warm",
+        "golden",
+        "calm",
+        "oil",
+        "canvas"
+      ],
+      "description": "Golden mist fills a mountain valley at sunset. Gifford was known for paintings full of glowing, hazy light.",
+      "sourceUrl": "https://www.artic.edu/artworks/71971"
+    },
+    {
+      "id": "the-herring-net",
+      "image": "/images/the-herring-net.jpg",
+      "title": "The Herring Net",
+      "artist": "Winslow Homer",
+      "date": "1885",
+      "medium": "Oil on canvas",
+      "surface": "Canvas",
+      "category": "Nature",
+      "style": "Realism",
+      "palette": [
+        "#4A5A6A",
+        "#8C8A7A",
+        "#C9B88A",
+        "#2A2E30",
+        "#D9D2BE"
+      ],
+      "tags": [
+        "nature",
+        "sea",
+        "ocean",
+        "fishermen",
+        "boat",
+        "blue",
+        "grey",
+        "oil",
+        "canvas"
+      ],
+      "description": "Two fishermen haul a heavy net full of herring into their small boat on a rough grey sea.",
+      "sourceUrl": "https://www.artic.edu/artworks/25865"
+    },
+    {
+      "id": "two-sisters-on-the-terrace",
+      "image": "/images/two-sisters-on-the-terrace.jpg",
+      "title": "Two Sisters (On the Terrace)",
+      "artist": "Pierre-Auguste Renoir",
+      "date": "1881",
+      "medium": "Oil on canvas",
+      "surface": "Canvas",
+      "category": "Figurative",
+      "style": "Impressionism",
+      "palette": [
+        "#2E3F6B",
+        "#C93A2E",
+        "#6E8B4A",
+        "#E9D9B5",
+        "#9FB4C7"
+      ],
+      "tags": [
+        "figurative",
+        "people",
+        "portrait",
+        "girls",
+        "garden",
+        "colourful",
+        "impressionism",
+        "oil",
+        "canvas"
+      ],
+      "description": "A young woman and a little girl sit on a terrace above the river, surrounded by flowers and greenery.",
+      "sourceUrl": "https://www.artic.edu/artworks/14655"
+    },
+    {
+      "id": "the-childs-bath",
+      "image": "/images/the-childs-bath.jpg",
+      "title": "The Child’s Bath",
+      "artist": "Mary Cassatt",
+      "date": "1893",
+      "medium": "Oil on canvas",
+      "surface": "Canvas",
+      "category": "Figurative",
+      "style": "Impressionism",
+      "palette": [
+        "#E8D9C4",
+        "#6B8A9C",
+        "#B5784E",
+        "#3E5A4A",
+        "#F3EEE6"
+      ],
+      "tags": [
+        "figurative",
+        "people",
+        "mother",
+        "child",
+        "tender",
+        "impressionism",
+        "oil",
+        "canvas"
+      ],
+      "description": "A woman gently washes a child’s feet. Seen from above, the scene feels close and tender.",
+      "sourceUrl": "https://www.artic.edu/artworks/111442"
+    },
+    {
+      "id": "la-grande-jatte-oil-sketch",
+      "image": "/images/la-grande-jatte-oil-sketch.jpg",
+      "title": "Oil Sketch for “A Sunday on La Grande Jatte — 1884”",
+      "artist": "Georges Seurat",
+      "date": "1884",
+      "medium": "Oil on panel",
+      "surface": "Panel",
+      "category": "Figurative",
+      "style": "Post-Impressionism",
+      "palette": [
+        "#6E8B4A",
+        "#3E5A2E",
+        "#C9B88A",
+        "#7A8FB5",
+        "#E5DCC3"
+      ],
+      "tags": [
+        "figurative",
+        "people",
+        "park",
+        "river",
+        "pointillism",
+        "oil",
+        "panel"
+      ],
+      "description": "A small study for Seurat’s famous painting of Parisians relaxing on an island in the River Seine, made with short dabs of colour.",
+      "sourceUrl": "https://www.artic.edu/artworks/61616"
+    },
+    {
+      "id": "interrupted-reading",
+      "image": "/images/interrupted-reading.jpg",
+      "title": "Interrupted Reading",
+      "artist": "Jean Baptiste Camille Corot",
+      "date": "c. 1870",
+      "medium": "Oil on canvas, mounted on board",
+      "surface": "Canvas",
+      "category": "Figurative",
+      "style": "Realism",
+      "palette": [
+        "#7A5A3A",
+        "#D9C9A6",
+        "#3E3428",
+        "#B5946B",
+        "#1E1A14"
+      ],
+      "tags": [
+        "figurative",
+        "people",
+        "woman",
+        "reading",
+        "book",
+        "quiet",
+        "earthy",
+        "oil",
+        "canvas"
+      ],
+      "description": "A young woman rests her head on her hand, a book open on her lap, lost in thought.",
+      "sourceUrl": "https://www.artic.edu/artworks/81512"
+    },
+    {
+      "id": "on-a-balcony",
+      "image": "/images/on-a-balcony.jpg",
+      "title": "On a Balcony",
+      "artist": "Mary Cassatt",
+      "date": "1878–79",
+      "medium": "Oil on canvas",
+      "surface": "Canvas",
+      "category": "Figurative",
+      "style": "Impressionism",
+      "palette": [
+        "#E9E2D3",
+        "#5E7B4A",
+        "#C9A06B",
+        "#3E4A3A",
+        "#F3EEE3"
+      ],
+      "tags": [
+        "figurative",
+        "people",
+        "woman",
+        "reading",
+        "garden",
+        "impressionism",
+        "oil",
+        "canvas"
+      ],
+      "description": "A woman in a pale dress reads a newspaper on a balcony full of plants and soft daylight.",
+      "sourceUrl": "https://www.artic.edu/artworks/26650"
+    },
+    {
+      "id": "virgin-and-child-with-two-angels",
+      "image": "/images/virgin-and-child-with-two-angels.jpg",
+      "title": "Virgin and Child with Two Angels",
+      "artist": "Sandro Botticelli",
+      "date": "1485–95",
+      "medium": "Tempera on panel",
+      "surface": "Panel",
+      "category": "Religious",
+      "style": "Early Renaissance",
+      "palette": [
+        "#2E4A7A",
+        "#C9A04A",
+        "#B5443A",
+        "#E9DCC0",
+        "#1A1A1A"
+      ],
+      "tags": [
+        "religious",
+        "renaissance",
+        "madonna",
+        "angels",
+        "gold",
+        "tempera",
+        "panel"
+      ],
+      "description": "Mary holds the infant Christ, with two angels beside them, in a round painting from Renaissance Florence.",
+      "sourceUrl": "https://www.artic.edu/artworks/80526"
+    },
+    {
+      "id": "the-annunciation",
+      "image": "/images/the-annunciation.jpg",
+      "title": "The Annunciation",
+      "artist": "George Hitchcock",
+      "date": "1887",
+      "medium": "Oil on canvas",
+      "surface": "Canvas",
+      "category": "Religious",
+      "style": "Impressionism",
+      "palette": [
+        "#E9E6DC",
+        "#6E8B5A",
+        "#B5C9D9",
+        "#3E4A3A",
+        "#F3F0E8"
+      ],
+      "tags": [
+        "religious",
+        "lilies",
+        "garden",
+        "white",
+        "light",
+        "oil",
+        "canvas"
+      ],
+      "description": "A bible story set in a sunlit field of white lilies, painted by an American artist working in the Netherlands.",
+      "sourceUrl": "https://www.artic.edu/artworks/7503"
+    },
+    {
+      "id": "saint-martin-and-the-beggar",
+      "image": "/images/saint-martin-and-the-beggar.jpg",
+      "title": "Saint Martin and the Beggar",
+      "artist": "El Greco",
+      "date": "c. 1597–1600",
+      "medium": "Oil on canvas",
+      "surface": "Canvas",
+      "category": "Religious",
+      "style": "Mannerism",
+      "palette": [
+        "#3E5A7A",
+        "#E9E6DC",
+        "#7A4A2E",
+        "#C9A04A",
+        "#1E1E24"
+      ],
+      "tags": [
+        "religious",
+        "saint",
+        "horse",
+        "dramatic",
+        "oil",
+        "canvas"
+      ],
+      "description": "Saint Martin, on a white horse, cuts his cloak in half to share it with a beggar. El Greco stretches the figures to make them feel spiritual.",
+      "sourceUrl": "https://www.artic.edu/artworks/67362"
+    },
+    {
+      "id": "the-crucifixion",
+      "image": "/images/the-crucifixion.jpg",
+      "title": "The Crucifixion",
+      "artist": "Carlo Crivelli",
+      "date": "c. 1487",
+      "medium": "Tempera on panel",
+      "surface": "Panel",
+      "category": "Religious",
+      "style": "Early Renaissance",
+      "palette": [
+        "#C9A04A",
+        "#7A2E2E",
+        "#2E3A5C",
+        "#E9DCC0",
+        "#1A1A1A"
+      ],
+      "tags": [
+        "religious",
+        "renaissance",
+        "gold",
+        "tempera",
+        "panel"
+      ],
+      "description": "A gold-background panel from the Italian Renaissance, painted with sharp detail and rich colour.",
+      "sourceUrl": "https://www.artic.edu/artworks/111622"
+    },
+    {
+      "id": "the-adoration-of-the-magi",
+      "image": "/images/the-adoration-of-the-magi.jpg",
+      "title": "The Adoration of the Magi",
+      "artist": "Raffaello Botticini",
+      "date": "c. 1495",
+      "medium": "Tempera on panel",
+      "surface": "Panel",
+      "category": "Religious",
+      "style": "Early Renaissance",
+      "palette": [
+        "#C9A04A",
+        "#3E5A7A",
+        "#B5443A",
+        "#E9DCC0",
+        "#2A2418"
+      ],
+      "tags": [
+        "religious",
+        "renaissance",
+        "kings",
+        "gold",
+        "tempera",
+        "panel"
+      ],
+      "description": "The three kings bring gifts to the infant Christ, surrounded by a crowd of richly dressed followers.",
+      "sourceUrl": "https://www.artic.edu/artworks/25743"
+    }
+  ]
+}

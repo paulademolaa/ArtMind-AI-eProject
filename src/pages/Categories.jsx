@@ -5,7 +5,7 @@
 import { Link } from 'react-router-dom';
 import PageLayout from '../components/PageLayout';
 import Icon from '../components/Icon';
-import artworks, { getArtwork, imageUrl } from '../data/artworks';
+import artworks, { getArtwork } from '../data/artworks';
 import { categories } from '../data/siteData';
 import './Categories.css';
 
@@ -24,7 +24,7 @@ function CategoryTile({ category, size, topTag }) {
   const cover = getArtwork(category.coverId);
   return (
     <Link to={`/categories/${category.name.toLowerCase()}`} className={`category-tile tile-${size}`}>
-      <img src={imageUrl(cover.imageId, 1000)} alt={`${category.name} — ${cover.title}`} loading="lazy" />
+      <img src={cover.image} alt={`${category.name} — ${cover.title}`} loading="lazy" />
       <div className="tile-shade" />
       <div className="tile-styles">
         {category.styles.map((style) => (
@@ -129,7 +129,7 @@ function Categories() {
               const count = artworks.filter((a) => a.style === style.name).length;
               return (
                 <Link to="/explore" key={style.name} className="style-card">
-                  <img src={imageUrl(art.imageId, 400)} alt={style.name} loading="lazy" />
+                  <img src={art.image} alt={style.name} loading="lazy" />
                   <h4>{style.name}</h4>
                   <p className="mono muted">{count} works</p>
                 </Link>

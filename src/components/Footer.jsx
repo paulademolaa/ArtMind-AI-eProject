@@ -35,7 +35,7 @@ function Footer() {
               <Link to="/explore">Explore Art</Link>
               <Link to="/categories">Categories</Link>
               <Link to="/favorites">Collections</Link>
-              <Link to="/analytics">Trending</Link>
+              <Link to="/explore">Trending</Link>
               <Link to="/about">About ArtMind</Link>
             </div>
             <div>

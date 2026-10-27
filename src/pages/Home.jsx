@@ -8,7 +8,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import PageLayout from '../components/PageLayout';
 import ArtworkCard from '../components/ArtworkCard';
 import Icon from '../components/Icon';
-import artworks, { getArtwork, heroArtwork, imageUrl } from '../data/artworks';
+import artworks, { getArtwork, heroArtwork } from '../data/artworks';
 import { categories, collections } from '../data/siteData';
 import './Home.css';
 
@@ -62,7 +62,7 @@ function Home() {
   return (
     <PageLayout transparentNav>
       {/* ---------- HERO ---------- */}
-      <section className="hero" style={{ backgroundImage: `url(${imageUrl(heroArtwork.imageId, 1686)})` }}>
+      <section className="hero" style={{ backgroundImage: `url(${heroArtwork.image})` }}>
         <div className="hero-overlay" />
         <div className="container hero-content">
           <div className="hero-top">
@@ -160,7 +160,7 @@ function Home() {
             {categories.map((cat) => (
               <Link to={`/categories/${cat.name.toLowerCase()}`} className="category-card" key={cat.name}>
                 <div className="category-card-image">
-                  <img src={imageUrl(getArtwork(cat.coverId).imageId, 600)} alt={cat.name} loading="lazy" />
+                  <img src={getArtwork(cat.coverId).image} alt={cat.name} loading="lazy" />
                 </div>
                 <div className="category-card-row">
                   <div>
@@ -213,7 +213,7 @@ function Home() {
               return (
                 <Link to={`/artwork/${art.id}`} className="rec-card" key={art.id}>
                   <div className="rec-card-image">
-                    <img src={imageUrl(art.imageId, 500)} alt={art.title} loading="lazy" />
+                    <img src={art.image} alt={art.title} loading="lazy" />
                     <span className="ai-tag rec-card-tag">
                       <Icon name="sparkle" size={12} className="spark" /> {pick.tag}
                     </span>
@@ -293,9 +293,9 @@ function Home() {
                 <div className={`step-visual step-visual-${index + 1}`}>
                   {index === 0 && (
                     <>
-                      <img src={imageUrl(getArtwork('cliff-walk-at-pourville').imageId, 400)} alt="" className="fan fan-1" />
-                      <img src={imageUrl(getArtwork('bouquet-in-earthenware-vase').imageId, 400)} alt="" className="fan fan-3" />
-                      <img src={imageUrl(getArtwork('improvisation-no-30').imageId, 400)} alt="" className="fan fan-2" />
+                      <img src={getArtwork('cliff-walk-at-pourville').image} alt="" className="fan fan-1" />
+                      <img src={getArtwork('bouquet-in-earthenware-vase').image} alt="" className="fan fan-3" />
+                      <img src={getArtwork('improvisation-no-30').image} alt="" className="fan fan-2" />
                     </>
                   )}
                   {index === 1 && (
@@ -304,14 +304,14 @@ function Home() {
                         <Icon name="sparkle" size={14} /> Calm blue seascapes
                       </span>
                       <div className="mini-results">
-                        <img src={imageUrl(getArtwork('the-herring-net').imageId, 400)} alt="" />
-                        <img src={imageUrl(getArtwork('cliff-walk-at-pourville').imageId, 400)} alt="" />
+                        <img src={getArtwork('the-herring-net').image} alt="" />
+                        <img src={getArtwork('cliff-walk-at-pourville').image} alt="" />
                       </div>
                     </div>
                   )}
                   {index === 2 && (
                     <div className="mini-save">
-                      <img src={imageUrl(getArtwork('water-lily-pond').imageId, 400)} alt="" />
+                      <img src={getArtwork('water-lily-pond').image} alt="" />
                       <span className="mini-heart">
                         <Icon name="heart" size={18} filled />
                       </span>
@@ -354,7 +354,7 @@ function Home() {
 
           <div className="featured-collection">
             <div className="featured-collection-image">
-              <img src={imageUrl(getArtwork('water-lily-pond').imageId, 900)} alt="Water Lily Pond by Claude Monet" />
+              <img src={getArtwork('water-lily-pond').image} alt="Water Lily Pond by Claude Monet" />
               <span className="ai-tag">
                 <Icon name="sparkle" size={12} className="spark" /> {featuredCollection.label}
               </span>
@@ -365,7 +365,7 @@ function Home() {
               <p className="muted">{featuredCollection.description}</p>
               <div className="collection-thumbs">
                 {featuredCollection.artworkIds.slice(1, 5).map((id) => (
-                  <img key={id} src={imageUrl(getArtwork(id).imageId, 200)} alt={getArtwork(id).title} />
+                  <img key={id} src={getArtwork(id).image} alt={getArtwork(id).title} />
                 ))}
               </div>
               <div className="ai-note">
@@ -381,7 +381,7 @@ function Home() {
             {collections.slice(1).map((collection) => (
               <Link to="/favorites" className="collection-card" key={collection.id}>
                 <div className="collection-card-image">
-                  <img src={imageUrl(getArtwork(collection.artworkIds[0]).imageId, 600)} alt={collection.title} loading="lazy" />
+                  <img src={getArtwork(collection.artworkIds[0]).image} alt={collection.title} loading="lazy" />
                   <span className="ai-tag">{collection.label}</span>
                 </div>
                 <h3>{collection.title}</h3>
@@ -395,7 +395,7 @@ function Home() {
       {/* ---------- AI ART ASSISTANT ---------- */}
       <section className="section">
         <div className="container assistant-preview">
-          <div className="chat-preview" style={{ backgroundImage: `url(${imageUrl(getArtwork('la-grande-jatte-oil-sketch').imageId, 900)})` }}>
+          <div className="chat-preview" style={{ backgroundImage: `url(${getArtwork('la-grande-jatte-oil-sketch').image})` }}>
             <div className="chat-window">
               <div className="chat-window-header">
                 <span className="chat-avatar">

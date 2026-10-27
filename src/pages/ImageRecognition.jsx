@@ -12,7 +12,7 @@ import { Link } from 'react-router-dom';
 import PageLayout from '../components/PageLayout';
 import ArtworkCard from '../components/ArtworkCard';
 import Icon from '../components/Icon';
-import { getArtwork, imageUrl } from '../data/artworks';
+import { getArtwork } from '../data/artworks';
 import { analyseImage } from '../utils/fakeAI';
 import './ImageRecognition.css';
 
@@ -50,7 +50,7 @@ function ImageRecognition() {
   // "Try a sample" uses a painting from our own collection.
   function useSample() {
     const sample = getArtwork('cliff-walk-at-pourville');
-    setFile({ name: 'cliff-walk.jpg', size: '3.7 MB', url: imageUrl(sample.imageId, 900) });
+    setFile({ name: 'cliff-walk.jpg', size: '3.7 MB', url: sample.image });
     setStep('ready');
   }
 
@@ -331,7 +331,7 @@ function ImageRecognition() {
         <>
           <section className="section section-surface">
             <div className="container closest-match">
-              <img src={imageUrl(getArtwork(result.closestMatchId).imageId, 900)} alt="Closest match" />
+              <img src={getArtwork(result.closestMatchId).image} alt="Closest match" />
               <div>
                 <p className="eyebrow">Closest match in the collection</p>
                 <h2 className="accent-ink">{getArtwork(result.closestMatchId).title}</h2>

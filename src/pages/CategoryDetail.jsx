@@ -1,0 +1,76 @@
+// ------------------------------------------------------------
+// Category Detail page — /categories/:name  (e.g. /categories/landscape)
+// A banner for the category, style chips and the artworks in it.
+// ------------------------------------------------------------
+import { useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
+import PageLayout from '../components/PageLayout';
+import ArtworkCard from '../components/ArtworkCard';
+import { getArtwork, getByCategory, imageUrl } from '../data/artworks';
+import { categories } from '../data/siteData';
+import './Explore.css';
+import './CategoryDetail.css';
+
+function CategoryDetail() {
+  const { name } = useParams();
+  const [style, setStyle] = useState('All styles');
+
+  // Match the address (e.g. "landscape") to a category ("Landscape").
+  const category = categories.find((cat) => cat.name.toLowerCase() === name);
+
+  if (!category) {
+    return (
+      <PageLayout>
+        <div className="container" style={{ padding: '120px 0' }}>
+          <h1>Category not found</h1>
+          <Link to="/categories" className="btn btn-dark" style={{ marginTop: 24 }}>
+            See all categories
+          </Link>
+        </div>
+      </PageLayout>
+    );
+  }
+
+  const allInCategory = getByCategory(category.name);
+  const styles = ['All styles', ...new Set(allInCategory.map((art) => art.style))];
+  const shown = style === 'All styles' ? allInCategory : allInCategory.filter((art) => art.style === style);
+  const cover = getArtwork(category.coverId);
+
+  return (
+    <PageLayout>
+      <section className="category-banner" style={{ backgroundImage: `url(${imageUrl(cover.imageId, 1686)})` }}>
+        <div className="category-banner-shade" />
+        <div className="container category-banner-text">
+          <p className="breadcrumb">
+            <Link to="/categories">Categories</Link> / {category.name}
+          </p>
+          <h1 className="display">{category.name} Paintings</h1>
+          <p>
+            {category.count} artworks · {category.description}
+          </p>
+        </div>
+      </section>
+
+      <div className="container style-chips">
+        {styles.map((option) => (
+          <button key={option} className={style === option ? 'chip active' : 'chip'} onClick={() => setStyle(option)}>
+            {option}
+          </button>
+        ))}
+      </div>
+
+      <section className="container category-results">
+        <p className="muted small">
+          Showing {shown.length} of {allInCategory.length} artworks in this sample collection
+        </p>
+        <div className="results-grid category-grid-4">
+          {shown.map((art) => (
+            <ArtworkCard key={art.id} artwork={art} label={`${art.style} · ${art.date}`} />
+          ))}
+        </div>
+      </section>
+    </PageLayout>
+  );
+}
+
+export default CategoryDetail;

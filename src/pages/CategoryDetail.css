@@ -1,0 +1,64 @@
+/* ============================================================
+   CATEGORY DETAIL PAGE
+   ============================================================ */
+.category-banner {
+  position: relative;
+  height: 520px;
+  background-size: cover;
+  background-position: center 60%;
+  color: var(--white);
+  display: flex;
+  align-items: flex-end;
+}
+.category-banner-shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent, rgba(19, 19, 19, 0.72));
+}
+.category-banner-text {
+  position: relative;
+  padding-bottom: 64px;
+}
+.category-banner .breadcrumb {
+  color: var(--white);
+  opacity: 0.85;
+}
+.category-banner-text p:last-child {
+  margin-top: 12px;
+  max-width: 640px;
+  opacity: 0.8;
+}
+
+.style-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding-top: 32px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--line);
+}
+
+.category-results {
+  padding-top: 32px;
+  padding-bottom: 96px;
+}
+.category-results > p {
+  margin-bottom: 24px;
+}
+.category-grid-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+@media (max-width: 1024px) {
+  .category-grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 640px) {
+  .category-banner {
+    height: 380px;
+  }
+  .category-banner-text {
+    padding-bottom: 32px;
+  }
+}

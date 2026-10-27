@@ -1,11 +1,3 @@
-// ------------------------------------------------------------
-// Navbar — the header at the top of every page.
-// Props:
-//   transparent  - true on the Home page, where it sits over the hero image
-// On small screens the links move into a full-screen menu.
-// Visitors see "Sign In" and "Get Started"; signed-in users see
-// their profile (initials + first name) with a small menu.
-// ------------------------------------------------------------
 import { useState } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import Icon from './Icon';

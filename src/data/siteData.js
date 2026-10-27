@@ -1,8 +1,3 @@
-// ------------------------------------------------------------
-// Other content used across the site: categories, collections, team.
-// Counts like "3,912 artworks" are sample numbers for the design.
-// ------------------------------------------------------------
-
 export const categories = [
   {
     name: 'Abstract',
@@ -87,21 +82,17 @@ export const collections = [
   },
 ];
 
-// The project team. Replace the placeholder entries with real details.
-// Photos: by default each card shows the person's GitHub profile picture.
-// To use another photo, put it in public/images/team/ and add for example
-//   photo: '/images/team/paul.jpg'
 export const team = [
   {
     name: 'Paul Ademola',
-    role: 'Product designer & front-end developer',
-    skills: 'Nigeria · React · CSS',
+    role: 'Team Leader | Front-end developer',
+    skills: 'Figma · React · CSS',
     github: 'https://github.com/paulademolaa',
     linkedin: 'https://www.linkedin.com/in/paul-ademola-68697226b',
   },
-  { name: 'Team member', role: 'Role on the project', skills: 'Skills · Tools', github: 'https://github.com/ji-blaq', linkedin: '#' },
-  { name: 'Treasure Amao', role: 'Role on the project', skills: 'Skills · Tools', github: 'https://github.com/temzycodes', linkedin: '#' },
-  { name: 'Team member', role: 'Role on the project', skills: 'Skills · Tools', github: 'https://github.com/sno-div', linkedin: '#' },
-  { name: 'Louis', role: 'Role on the project', skills: 'Skills · Tools', github: 'https://github.com/louis-d-great', linkedin: '#' },
-  { name: 'Team member', role: 'Role on the project', skills: 'Skills · Tools', github: 'https://github.com/olagunjupopizzy-coder', linkedin: '#' },
+  { name: 'Ajimati Oluwatimilehin', role: 'Front-end developer', skills: 'React · CSS', github: 'https://github.com/ji-blaq', linkedin: '#' },
+  { name: 'Treasure Amao', role: 'Class Rep. | Front-end developer', skills: 'React · CSS', github: 'https://github.com/temzycodes', linkedin: '#' },
+  { name: 'Emeje James', role: 'Front-end developer', skills: 'React · CSS', github: 'https://github.com/sno-div', linkedin: '#' },
+  { name: 'Arogundade Louis', role: 'Front-end developer', skills: 'React · CSS', github: 'https://github.com/louis-d-great', linkedin: '#' },
+  { name: 'Olagunju Isreal', role: 'Front-end developer', skills: 'React · CSS', github: 'https://github.com/olagunjupopizzy-coder', linkedin: '#' },
 ];

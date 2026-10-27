@@ -10,6 +10,7 @@ const paths = {
   arrowRight: <path d="M5 12h14M13 6l6 6-6 6" />,
   arrowLeft: <path d="M19 12H5M11 6l-6 6 6 6" />,
   arrowUpRight: <path d="M7 17L17 7M8 7h9v9" />,
+  chevronDown: <path d="M6 9l6 6 6-6" />,
   arrowUp: <path d="M12 19V5M6 11l6-6 6 6" />,
   menu: <path d="M4 7h16M4 12h16M4 17h16" />,
   close: <path d="M6 6l12 12M18 6L6 18" />,

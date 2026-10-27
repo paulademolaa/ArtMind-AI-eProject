@@ -26,8 +26,6 @@
 
 /* Grey "wall" behind the painting */
 .details-stage {
-  position: sticky;
-  top: 24px;
   background: var(--surface);
   padding: 48px;
   display: flex;
@@ -40,9 +38,130 @@
 }
 
 .details-artist {
-  margin: 12px 0 28px;
-  font-size: 18px;
-  color: var(--ink-muted);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 16px 0 28px;
+}
+.details-artist strong {
+  font-weight: 500;
+}
+.details-artist-badge {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(18, 54, 196, 0.1);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+.details-view-artist {
+  margin-left: auto;
+  font-size: 14px;
+  text-decoration: underline;
+}
+
+/* Image + thumbnails + tools (left column) */
+.details-media {
+  position: sticky;
+  top: 24px;
+}
+.details-stage {
+  overflow: hidden;
+}
+.details-stage img {
+  transition: transform 0.4s ease;
+}
+.details-tools {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-top: 16px;
+}
+.details-thumbs {
+  display: flex;
+  gap: 8px;
+}
+.details-thumbs button {
+  width: 56px;
+  height: 56px;
+  border: 2px solid transparent;
+  padding: 0;
+}
+.details-thumbs button.active {
+  border-color: var(--accent);
+}
+.details-thumbs img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.details-tool-buttons {
+  display: flex;
+  gap: 18px;
+}
+.details-tool-buttons button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+}
+.details-tool-buttons button:hover {
+  color: var(--accent);
+}
+
+/* Full-screen Zoom / View in room */
+.details-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(19, 19, 19, 0.94);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  cursor: zoom-out;
+}
+.details-overlay img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+.details-overlay.room {
+  background: linear-gradient(#e9e4da 72%, #b9a58a 72%);
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-top: 8vh;
+}
+.details-overlay.room img {
+  max-height: 46vh;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.3);
+  border: 10px solid #2a2520;
+}
+.room-sofa {
+  width: min(560px, 70vw);
+  height: 90px;
+  margin-top: 6vh;
+  background: #44506a;
+  border-radius: 24px 24px 8px 8px;
+}
+.details-overlay-close {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .details-actions {
@@ -120,7 +239,7 @@
   .details {
     grid-template-columns: 1fr;
   }
-  .details-stage {
+  .details-media {
     position: static;
   }
 }
@@ -131,7 +250,7 @@
     grid-template-columns: 1fr;
     gap: 40px;
   }
-  .details-stage {
+  .details-media {
     position: static;
   }
 }

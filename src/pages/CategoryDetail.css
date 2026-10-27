@@ -31,8 +31,9 @@
 
 .style-chips {
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
   padding-top: 32px;
   padding-bottom: 32px;
   border-bottom: 1px solid var(--line);
@@ -42,16 +43,23 @@
   padding-top: 32px;
   padding-bottom: 96px;
 }
-.category-results > p {
-  margin-bottom: 24px;
+.style-chips-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
+/* 4-column masonry (the grid itself is .results-grid in Explore.css) */
 .category-grid-4 {
-  grid-template-columns: repeat(4, 1fr);
+  columns: 4;
 }
 
 @media (max-width: 1024px) {
   .category-grid-4 {
-    grid-template-columns: repeat(2, 1fr);
+    columns: 2;
+  }
+  .style-chips {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
 @media (max-width: 640px) {

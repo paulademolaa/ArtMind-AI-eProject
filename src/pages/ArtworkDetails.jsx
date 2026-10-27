@@ -3,24 +3,33 @@
 // Shows one painting: big image, facts, description,
 // colour palette, save + download buttons, similar artworks.
 // ------------------------------------------------------------
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import PageLayout from '../components/PageLayout';
 import ArtworkCard from '../components/ArtworkCard';
 import Icon from '../components/Icon';
-import { getArtwork, getSimilar } from '../data/artworks';
+import artworks, { getArtwork, getSimilar } from '../data/artworks';
+import { initialsOf } from '../context/AuthContext';
 import { useFavorites } from '../context/FavoritesContext';
 import { getRecommendations } from '../utils/fakeAI';
 import { addRecentlyViewed } from '../utils/recentlyViewed';
 import './ArtworkDetails.css';
 
-// Names for the palette swatches (in the same order as artwork.palette).
-const colourNames = ['Main tone', 'Second tone', 'Accent', 'Highlight', 'Shadow'];
+// The three thumbnails under the image: whole painting + two close-ups.
+// "position" decides which part of the painting the close-up shows.
+const views = [
+  { label: 'Whole painting', zoom: 1, position: 'center' },
+  { label: 'Detail, left', zoom: 2.2, position: '20% 40%' },
+  { label: 'Detail, right', zoom: 2.2, position: '80% 60%' },
+];
 
 function ArtworkDetails() {
   const { id } = useParams(); // the ":id" part of the address
   const artwork = getArtwork(id);
   const { isFavorite, toggleFavorite, favorites } = useFavorites();
+  const [view, setView] = useState(0); // which thumbnail is selected
+  const [overlay, setOverlay] = useState(null); // 'zoom' | 'room' | null
+  const [copied, setCopied] = useState(false);
 
   // Remember this painting for the "Recently viewed" page.
   useEffect(() => {
@@ -43,7 +52,16 @@ function ArtworkDetails() {
 
   const saved = isFavorite(artwork.id);
   const similar = getSimilar(artwork, 4);
-  const recommended = getRecommendations([...favorites, artwork.id], 4);
+  // Recommendations that are NOT already shown in "similar"
+  const recommended = getRecommendations([...favorites, artwork.id, ...similar.map((art) => art.id)], 4);
+  const worksByArtist = artworks.filter((art) => art.artist === artwork.artist).length;
+
+  // Copy the page address so it can be shared.
+  function share() {
+    navigator.clipboard?.writeText(window.location.href);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  }
 
   // ---- Downloads ----
   // Word: we build a small HTML document and save it with a .doc ending.
@@ -86,9 +104,52 @@ function ArtworkDetails() {
 
       <section className="container details">
         {/* ---- Big image ---- */}
-        <div className="details-stage">
-          <img src={artwork.image} alt={`${artwork.title} by ${artwork.artist}`} />
+        <div className="details-media">
+          <div className="details-stage">
+            <img
+              src={artwork.image}
+              alt={`${artwork.title} by ${artwork.artist}`}
+              style={{ transform: `scale(${views[view].zoom})`, transformOrigin: views[view].position }}
+            />
+          </div>
+
+          <div className="details-tools">
+            <div className="details-thumbs">
+              {views.map((item, index) => (
+                <button
+                  key={item.label}
+                  className={view === index ? 'active' : ''}
+                  onClick={() => setView(index)}
+                  aria-label={item.label}
+                >
+                  <img src={artwork.image} alt="" style={{ objectPosition: item.position }} />
+                </button>
+              ))}
+            </div>
+            <div className="details-tool-buttons">
+              <button onClick={() => setOverlay('zoom')}>
+                <Icon name="search" size={14} /> Zoom
+              </button>
+              <button onClick={() => setOverlay('room')}>
+                <Icon name="eye" size={14} /> View in room
+              </button>
+              <button onClick={share}>
+                <Icon name="send" size={14} /> {copied ? 'Link copied' : 'Share'}
+              </button>
+            </div>
+          </div>
         </div>
+
+        {/* Full-screen view: "Zoom" or "View in room" (click anywhere to close) */}
+        {overlay && (
+          <div className={overlay === 'room' ? 'details-overlay room' : 'details-overlay'} onClick={() => setOverlay(null)}>
+            <img src={artwork.image} alt={artwork.title} />
+            {overlay === 'room' && <div className="room-sofa" />}
+            <button className="details-overlay-close" aria-label="Close">
+              <Icon name="close" size={22} />
+            </button>
+          </div>
+        )}
 
         {/* ---- Information ---- */}
         <div className="details-info">
@@ -96,9 +157,18 @@ function ArtworkDetails() {
             {artwork.category} · {artwork.style}
           </p>
           <h1>{artwork.title}</h1>
-          <p className="details-artist">
-            {artwork.artist} · {artwork.date}
-          </p>
+          <div className="details-artist">
+            <span className="details-artist-badge">{initialsOf(artwork.artist)}</span>
+            <div>
+              <strong>{artwork.artist}</strong>
+              <p className="muted small">
+                {artwork.date} · {worksByArtist} {worksByArtist === 1 ? 'work' : 'works'} in this collection
+              </p>
+            </div>
+            <Link to={`/ai/search?q=${encodeURIComponent(artwork.artist)}`} className="details-view-artist">
+              View artist
+            </Link>
+          </div>
 
           <div className="details-actions">
             <button className={saved ? 'btn btn-saved' : 'btn btn-dark'} onClick={() => toggleFavorite(artwork.id)}>
@@ -146,15 +216,6 @@ function ArtworkDetails() {
 
           <p className="details-description">{artwork.description}</p>
 
-          <h4 className="details-subtitle">Colour palette</h4>
-          <div className="swatches">
-            {artwork.palette.map((hex, index) => (
-              <div key={hex + index} className="swatch">
-                <span style={{ background: hex }} />
-                <small>{colourNames[index]}</small>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -163,8 +224,11 @@ function ArtworkDetails() {
           <div className="section-header">
             <div>
               <p className="eyebrow">Similar artworks</p>
-              <h2>Same style, palette or subject</h2>
+              <h2>Because it shares style, palette and subject</h2>
             </div>
+            <Link to={`/categories/${artwork.category.toLowerCase()}`} className="link-arrow">
+              See more <Icon name="arrowRight" size={14} />
+            </Link>
           </div>
           <div className="grid-4">
             {similar.map((art) => (

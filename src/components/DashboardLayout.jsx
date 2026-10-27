@@ -13,8 +13,8 @@ const menu = [
   { to: '/dashboard', label: 'Overview', icon: 'home' },
   { to: '/favorites', label: 'Favorites', icon: 'heart' },
   { to: '/collections', label: 'Collections', icon: 'layers' },
-  { to: '/recently-viewed', label: 'Recently viewed', icon: 'clock' },
   { to: '/ai/recommendations', label: 'Recommendations', icon: 'sparkle' },
+  { to: '/recently-viewed', label: 'Recently viewed', icon: 'clock' },
   { to: '/settings', label: 'Account settings', icon: 'settings' },
 ];
 

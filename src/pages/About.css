@@ -357,3 +357,32 @@
     align-items: stretch;
   }
 }
+
+/* "45 screens designed · 23 components · 6 flows" under the team intro */
+.team-intro {
+  max-width: 400px;
+}
+.team-intro p {
+  color: var(--ink-muted);
+}
+.team-figures {
+  display: flex;
+  gap: 32px;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+.team-figures strong {
+  display: block;
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 1.1;
+}
+.team-figures span {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}

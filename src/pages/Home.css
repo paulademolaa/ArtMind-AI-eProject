@@ -140,6 +140,36 @@
   padding-top: 14px;
   border-top: 1px solid var(--line);
 }
+.hero-card-nav {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 14px;
+}
+.hero-card-nav button {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--line);
+}
+.hero-card-nav button:last-child {
+  background: var(--ink);
+  color: var(--white);
+  border-color: var(--ink);
+}
+.hero-card-progress {
+  flex: 1;
+  height: 2px;
+  background: var(--line);
+}
+.hero-card-progress span {
+  display: block;
+  height: 100%;
+  background: var(--ink);
+  transition: width 0.3s;
+}
 .hero-card-link {
   font-size: 12px;
   font-weight: 600;

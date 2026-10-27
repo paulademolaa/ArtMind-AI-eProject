@@ -55,3 +55,27 @@
     gap: 20px;
   }
 }
+
+/* ---------- Collection Detail header (Figma 11a) ---------- */
+.collection-head {
+  display: grid;
+  grid-template-columns: 240px 1fr auto;
+  gap: 32px;
+  align-items: center;
+}
+.collection-head-mosaic {
+  height: 150px;
+  margin: 0;
+}
+.collection-head-text h1 {
+  margin: 12px 0 8px;
+}
+.collection-head-actions {
+  display: flex;
+  gap: 12px;
+}
+@media (max-width: 1024px) {
+  .collection-head {
+    grid-template-columns: 1fr;
+  }
+}

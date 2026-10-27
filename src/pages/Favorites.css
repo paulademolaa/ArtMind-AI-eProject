@@ -111,3 +111,123 @@
     display: none;
   }
 }
+
+/* ---------- Figma layout additions ---------- */
+/* Tabs reuse .settings-tabs styles */
+.settings-tabs {
+  display: flex;
+  gap: 28px;
+  border-bottom: 1px solid var(--line);
+  overflow-x: auto;
+}
+.settings-tabs button {
+  padding: 12px 0;
+  font-size: 14px;
+  color: var(--ink-muted);
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+}
+.settings-tabs button.active {
+  color: var(--ink);
+  border-bottom-color: var(--ink);
+}
+
+.fav-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+.fav-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* 4-column masonry */
+.fav-masonry {
+  columns: 4;
+  column-gap: 20px;
+}
+.fav-masonry .artwork-card {
+  break-inside: avoid;
+  margin-bottom: 28px;
+}
+.fav-masonry .artwork-card-image {
+  aspect-ratio: auto;
+}
+.fav-masonry .artwork-card-image img {
+  height: auto;
+}
+
+/* Collection tile: one picture + name */
+.collection-tile img,
+.collection-tile-empty {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  margin-bottom: 12px;
+}
+.collection-tile-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--surface);
+  color: var(--accent);
+}
+.collection-tile:hover h4 {
+  color: var(--accent);
+}
+
+/* Favorite category row */
+.fav-category {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px;
+  border: 1px solid var(--line);
+}
+.fav-category img {
+  width: 56px;
+  height: 56px;
+  object-fit: cover;
+}
+.fav-category h4 {
+  font-style: italic;
+  font-size: 20px;
+}
+.fav-follow {
+  margin-left: auto;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.fav-follow.active {
+  background: var(--ink);
+  color: var(--white);
+  border-color: var(--ink);
+}
+.fav-note {
+  margin-bottom: 16px;
+}
+
+@media (max-width: 1024px) {
+  .fav-masonry {
+    columns: 3;
+  }
+}
+@media (max-width: 640px) {
+  .fav-masonry {
+    columns: 2;
+    column-gap: 16px;
+  }
+  .fav-toolbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

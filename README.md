@@ -144,7 +144,7 @@ ArtMind-AI-eProject/
         ├── Recommendations.jsx, Assistant.jsx
         ├── Dashboard.jsx, Favorites.jsx, Collections.jsx, CollectionDetail.jsx
         ├── RecentlyViewed.jsx, Settings.jsx
-        └── SignIn.jsx, SignUp.jsx, ForgotPassword.jsx, NotFound.jsx
+        └── SignIn.jsx, SignUp.jsx, ForgotPassword.jsx, ResetPassword.jsx, NotFound.jsx
 ```
 
 **Tip for beginners:** every file starts with a short comment explaining what it does. A good reading order is `App.jsx` → `components/PageLayout.jsx` → `pages/Home.jsx` → `components/ArtworkCard.jsx` → `data/artworks.json`.
@@ -170,7 +170,7 @@ ArtMind-AI-eProject/
 | `/collections`, `/collections/:id` | All collections, and one collection |
 | `/recently-viewed` | Paintings you opened recently |
 | `/settings` | Account settings (profile, password, preferences, delete account) |
-| `/signin`, `/signup`, `/forgot-password` | Account pages |
+| `/signin`, `/signup`, `/forgot-password`, `/reset-password` | Account pages |
 
 ---
 

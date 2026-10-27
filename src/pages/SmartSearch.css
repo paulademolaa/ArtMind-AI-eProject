@@ -20,14 +20,29 @@
 }
 
 .intent {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
+  width: 100%;
+  max-width: 760px;
   margin-top: 20px;
   padding: 14px 18px;
   background: rgba(18, 54, 196, 0.06);
+  text-align: left;
+}
+.intent-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--ink-muted);
+  margin-bottom: 10px;
+}
+.intent-chips {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+.intent-chips .text-button {
+  margin-left: auto;
 }
 .intent .spark {
   color: var(--accent);
@@ -96,12 +111,59 @@
 }
 
 .results-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px;
   margin-bottom: 24px;
 }
+/* Masonry results (each painting keeps its shape) */
 .results-grid-3 {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px 24px;
+  columns: 3;
+  column-gap: 24px;
+}
+.results-grid-3 > * {
+  break-inside: avoid;
+  margin-bottom: 36px;
+}
+.results-grid-3 .artwork-card-image {
+  aspect-ratio: auto;
+}
+.results-grid-3 .artwork-card-image img {
+  height: auto;
+}
+.results-grid-3 .skeleton {
+  display: block;
+}
+
+.side-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.side-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.refine-chips {
+  margin-bottom: 32px;
+}
+.try-asking {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+.try-asking button {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 16px;
+  color: var(--ink-muted);
+  text-align: left;
+}
+.try-asking button:hover {
+  color: var(--accent);
 }
 
 /* Loading */
@@ -141,9 +203,11 @@
   .search-side {
     order: 2;
   }
-  .suggestion-grid,
-  .results-grid-3 {
+  .suggestion-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+  .results-grid-3 {
+    columns: 2;
   }
 }
 @media (max-width: 640px) {
@@ -154,6 +218,10 @@
     grid-template-columns: 1fr;
   }
   .results-grid-3 {
-    gap: 32px 16px;
+    column-gap: 16px;
+  }
+  .results-title {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }

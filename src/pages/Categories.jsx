@@ -2,7 +2,8 @@
 // Categories page — the six categories as large image tiles,
 // plus "explore by style" and a prompt to take the taste quiz.
 // ------------------------------------------------------------
-import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import PageLayout from '../components/PageLayout';
 import Icon from '../components/Icon';
 import artworks, { getArtwork } from '../data/artworks';
@@ -51,6 +52,22 @@ function CategoryTile({ category, size, topTag }) {
 function Categories() {
   // Find a category by name, e.g. find('Landscape')
   const find = (name) => categories.find((cat) => cat.name === name);
+  const navigate = useNavigate();
+  const [query, setQuery] = useState('');
+  const [sort, setSort] = useState('explored'); // order of the quick-jump links
+
+  // Searching sends you to Smart Search with your words.
+  function handleSearch(event) {
+    event.preventDefault();
+    if (query.trim()) navigate(`/ai/search?q=${encodeURIComponent(query)}`);
+  }
+
+  // "Most explored" = biggest count first ("3,912" -> 3912)
+  const toNumber = (count) => parseInt(count.replace(/,/g, ''));
+  const jumpList =
+    sort === 'explored'
+      ? [...categories].sort((a, b) => toNumber(b.count) - toNumber(a.count))
+      : [...categories].sort((a, b) => a.name.localeCompare(b.name));
 
   return (
     <PageLayout>
@@ -68,6 +85,16 @@ function Categories() {
           </p>
         </div>
         <div className="categories-tools">
+          <form className="search-input categories-search" onSubmit={handleSearch}>
+            <Icon name="search" size={18} />
+            <input
+              type="search"
+              placeholder="Search a category or style…"
+              value={query}
+              onChange={(event) => setQuery(event.target.value)}
+              aria-label="Search a category or style"
+            />
+          </form>
           <div className="stats">
             <div>
               <strong>6</strong>
@@ -91,11 +118,18 @@ function Categories() {
       {/* Quick jump bar */}
       <div className="quick-jump">
         <div className="container quick-jump-inner">
-          {categories.map((cat) => (
+          <Link to="/explore" className="quick-jump-all">
+            All
+          </Link>
+          {jumpList.map((cat) => (
             <Link key={cat.name} to={`/categories/${cat.name.toLowerCase()}`}>
               {cat.name} <span className="mono muted">{cat.count}</span>
             </Link>
           ))}
+          <select className="quick-jump-sort" value={sort} onChange={(event) => setSort(event.target.value)} aria-label="Sort categories">
+            <option value="explored">Sort: Most explored</option>
+            <option value="name">Sort: A–Z</option>
+          </select>
         </div>
       </div>
 

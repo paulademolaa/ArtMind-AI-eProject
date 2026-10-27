@@ -1,0 +1,126 @@
+/* ============================================================
+   ANALYTICS PAGE
+   ============================================================ */
+.kpis {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+.kpi {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 24px;
+  border: 1px solid var(--line);
+}
+.kpi .mono {
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.kpi strong {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 34px;
+  line-height: 1.1;
+}
+
+.charts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.chart-card {
+  padding: 28px;
+  border: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.chart-dark {
+  background: var(--ink);
+  color: var(--white);
+}
+.chart-card .ai-tag {
+  align-self: flex-start;
+}
+
+.hbar {
+  display: grid;
+  grid-template-columns: 100px 1fr 40px;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+}
+.hbar-track span {
+  display: block;
+  height: 12px;
+  background: var(--ink);
+}
+.hbar-track span.top {
+  background: var(--accent);
+}
+
+.trend-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 14px;
+}
+.trend-change {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--accent);
+  font-family: var(--font-mono);
+}
+
+/* Heat map: a CSS grid of little squares */
+.heatmap {
+  display: grid;
+  grid-template-columns: 40px repeat(4, 1fr);
+  gap: 4px;
+}
+.heatmap-label {
+  font-size: 12px;
+  color: var(--ink-muted);
+}
+.heatmap-cell {
+  height: 22px;
+  background: var(--accent);
+}
+
+.insight {
+  display: flex;
+  gap: 12px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line-light);
+  font-size: 14px;
+}
+.insight svg {
+  color: var(--accent-light);
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.explored-img {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  margin-bottom: 12px;
+}
+
+@media (max-width: 1024px) {
+  .kpis {
+    grid-template-columns: 1fr 1fr;
+  }
+  .charts {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 640px) {
+  .kpis {
+    grid-template-columns: 1fr;
+  }
+}

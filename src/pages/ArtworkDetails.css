@@ -1,0 +1,159 @@
+/* ============================================================
+   ARTWORK DETAILS PAGE
+   ============================================================ */
+.details-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+.details-top .breadcrumb {
+  margin: 0;
+}
+.details-top .breadcrumb a:hover {
+  color: var(--accent);
+}
+
+.details {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 72px;
+  padding-bottom: 96px;
+  align-items: start;
+}
+
+/* Grey "wall" behind the painting */
+.details-stage {
+  position: sticky;
+  top: 24px;
+  background: var(--surface);
+  padding: 48px;
+  display: flex;
+  justify-content: center;
+}
+.details-stage img {
+  max-height: 640px;
+  object-fit: contain;
+  box-shadow: 0 12px 32px rgba(19, 19, 19, 0.18);
+}
+
+.details-artist {
+  margin: 12px 0 28px;
+  font-size: 18px;
+  color: var(--ink-muted);
+}
+
+.details-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 36px;
+}
+.btn-saved {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--white);
+}
+
+.details-subtitle {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin: 0 0 8px;
+}
+
+.details-facts div {
+  display: flex;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 14px;
+}
+.details-facts dt {
+  width: 180px;
+  color: var(--ink-muted);
+}
+.details-facts a {
+  color: var(--accent);
+}
+
+.details-description {
+  margin: 28px 0;
+  color: var(--ink-muted);
+}
+
+.ai-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px;
+  background: rgba(18, 54, 196, 0.06);
+}
+.ai-summary .ai-tag {
+  align-self: flex-start;
+}
+
+.swatches {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+}
+.swatch span {
+  display: block;
+  height: 32px;
+}
+.swatch small {
+  font-size: 11px;
+  color: var(--ink-muted);
+}
+
+.not-found-box {
+  padding: 120px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+/* When printing (Save as PDF), hide the menus and footer */
+@media print {
+  .navbar,
+  .footer,
+  .details-actions,
+  .details-top,
+  .section {
+    display: none !important;
+  }
+  .details {
+    grid-template-columns: 1fr;
+  }
+  .details-stage {
+    position: static;
+  }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1024px) {
+  .details {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .details-stage {
+    position: static;
+  }
+}
+@media (max-width: 640px) {
+  .details-top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .details-stage {
+    padding: 20px;
+  }
+  .details-facts dt {
+    width: 130px;
+  }
+}

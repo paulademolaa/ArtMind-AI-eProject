@@ -27,16 +27,16 @@ ArtMind AI turns a traditional online painting gallery into a personal, intellig
 
 | Feature | What it does |
 |---|---|
-| 🖼️ **Smart gallery** | Browse paintings with filters for category, artistic style, surface and medium, plus sorting and "Load more". |
-| 🔎 **AI Smart Search** | Type a sentence like *"oil paintings with nature themes"* — ArtMind shows what it understood and the matching paintings. |
-| 📷 **AI Image Recognition** | Upload (or drag in) a photo of a painting to see its likely style, category, medium, era, dominant colours and the closest match. |
-| 💡 **Personalised recommendations** | Suggestions based on your favourites and chosen interests, each with a short reason ("Warm palette", "Similar style"). |
-| 💬 **AI Art Assistant** | A chatbot that answers questions about styles, techniques and artists, and recommends paintings inside the chat. |
-| ❤️ **Favorites & collections** | Save paintings with the heart button (kept after refresh), view them as a grid or list, remove with confirmation. |
-| 📊 **Dashboard & insights** | Recently viewed, favourite categories, AI picks, and simple charts made with CSS. |
-| 📄 **Artwork details** | Full catalogue details, an AI summary (clearly labelled), colour swatches, and download as **PDF** or **Word**. |
-| 🔐 **Sign in / Sign up** | Forms with validation, password show/hide and a password-strength bar (no real backend yet). |
-| 📱 **Responsive** | Designed for desktop (1440px), tablet (768px) and mobile (390px). |
+| **Smart gallery** | Browse paintings with filters for category, artistic style, surface and medium, plus sorting and "Load more". |
+| **AI Smart Search** | Type a sentence like *"oil paintings with nature themes"* — ArtMind shows what it understood and the matching paintings. |
+| **AI Image Recognition** | Upload (or drag in) a photo of a painting to see its likely style, category, medium, era, dominant colours and the closest match. |
+| **Personalised recommendations** | Suggestions based on your favourites and chosen interests, each with a short reason ("Warm palette", "Similar style"). |
+| **AI Art Assistant** | A chatbot that answers questions about styles, techniques and artists, and recommends paintings inside the chat. |
+| **Favorites & collections** | Save paintings with the heart button (kept after refresh), view them as a grid or list, remove with confirmation. |
+| **Dashboard & insights** | Recently viewed, favourite categories, AI picks, and simple charts made with CSS. |
+| **Artwork details** | Full catalogue details, an AI summary (clearly labelled), colour swatches, and download as **PDF** or **Word**. |
+| **Sign in / Sign up** | Forms with validation, password show/hide and a password-strength bar (no real backend yet). |
+| **Responsive** | Designed for desktop (1440px), tablet (768px) and mobile (390px). |
 
 ---
 

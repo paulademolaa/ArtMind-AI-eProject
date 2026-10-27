@@ -5,6 +5,7 @@
 import { Link, NavLink } from 'react-router-dom';
 import PageLayout from './PageLayout';
 import Icon from './Icon';
+import { useAuth, initialsOf } from '../context/AuthContext';
 import './DashboardLayout.css';
 
 const menu = [
@@ -14,15 +15,17 @@ const menu = [
 ];
 
 function DashboardLayout({ children }) {
+  const { user, signOut } = useAuth();
+
   return (
     <PageLayout>
       <div className="dashboard-layout">
         <aside className="dashboard-sidebar">
           <div className="dashboard-user">
-            <span className="user-avatar">AO</span>
+            <span className="user-avatar">{initialsOf(user.name)}</span>
             <div>
-              <strong>Amara Okafor</strong>
-              <p className="muted small">Member since 2026</p>
+              <strong>{user.name}</strong>
+              <p className="muted small">Member since {user.joined}</p>
             </div>
           </div>
 
@@ -46,6 +49,10 @@ function DashboardLayout({ children }) {
               <Icon name="chat" size={16} /> Ask the Assistant
             </Link>
           </div>
+
+          <button className="text-button dashboard-signout" onClick={signOut}>
+            Sign out
+          </button>
         </aside>
 
         <div className="dashboard-content">{children}</div>

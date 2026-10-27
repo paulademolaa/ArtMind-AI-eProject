@@ -154,11 +154,83 @@
   padding-top: 32px;
 }
 
+/* ---------- Profile (signed-in users) ---------- */
+.nav-profile {
+  position: relative;
+}
+.nav-profile-button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 500;
+}
+.nav-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+.nav-profile-menu {
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+  width: 240px;
+  background: var(--white);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  box-shadow: 0 16px 40px rgba(19, 19, 19, 0.12);
+  padding: 8px;
+  z-index: 50;
+}
+.nav-profile-info {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 12px 12px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 6px;
+}
+.nav-profile-info strong {
+  font-size: 15px;
+}
+.nav-profile-info span {
+  font-size: 13px;
+  color: var(--ink-muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.nav-profile-menu a,
+.nav-profile-menu button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 14px;
+  text-align: left;
+}
+.nav-profile-menu a:hover,
+.nav-profile-menu button:hover {
+  background: var(--surface);
+}
+.mobile-menu-user {
+  font-size: 14px;
+  color: var(--ink-muted);
+}
+
 /* ---------- Responsive ---------- */
 @media (max-width: 1024px) {
   .nav-links,
   .nav-signin,
-  .nav-cta {
+  .nav-cta,
+  .nav-profile-name {
     display: none;
   }
   .menu-button {

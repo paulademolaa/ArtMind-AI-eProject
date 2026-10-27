@@ -10,11 +10,13 @@ import Icon from '../components/Icon';
 import artworks, { getArtwork } from '../data/artworks';
 import { collections } from '../data/siteData';
 import { useFavorites } from '../context/FavoritesContext';
+import { useAuth, firstNameOf } from '../context/AuthContext';
 import { getRecommendations } from '../utils/fakeAI';
 import './Dashboard.css';
 
 function Dashboard() {
   const { favorites } = useFavorites();
+  const { user } = useAuth();
   const saved = artworks.filter((art) => favorites.includes(art.id));
   const recommended = getRecommendations(favorites, 3);
   const recentlyViewed = ['water-lily-pond', 'the-childs-bath', 'distant-view-of-niagara-falls', 'magnolias-on-blue-velvet'].map(getArtwork);
@@ -33,7 +35,7 @@ function Dashboard() {
       <div className="welcome">
         <div>
           <p className="eyebrow">{today}</p>
-          <h1>Welcome back, Amara.</h1>
+          <h1>Welcome back, {firstNameOf(user.name)}.</h1>
           <p className="muted">
             You have {saved.length} saved paintings. {recommended.length} new AI picks are waiting for you.
           </p>

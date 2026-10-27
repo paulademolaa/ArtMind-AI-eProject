@@ -86,11 +86,16 @@
   border-bottom: 1px solid var(--line-light);
   font-family: var(--font-serif);
   font-style: italic;
-  font-size: clamp(90px, 22vw, 330px);
+  font-size: clamp(60px, 17vw, 270px);
   line-height: 1;
   letter-spacing: -0.04em;
   text-align: center;
+  white-space: nowrap;
   overflow: hidden;
+}
+/* The smaller "Ai" after ArtMind (as in the Figma footer) */
+.footer-wordmark span {
+  font-size: 0.74em;
 }
 
 .footer-bottom {

@@ -29,14 +29,15 @@
 
 .logo {
   font-family: var(--font-serif);
-  font-size: 26px;
+  font-size: 28px;
   letter-spacing: -0.02em;
+  white-space: nowrap;
 }
+/* The "Ai" in the logo: same font, bold italic, a little smaller (as in Figma) */
 .logo span {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.24em;
-  opacity: 0.72;
+  font-style: italic;
+  font-weight: 700;
+  font-size: 0.64em;
 }
 
 .navbar-right {

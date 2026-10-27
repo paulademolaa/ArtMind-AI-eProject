@@ -33,8 +33,8 @@ ArtMind AI turns a traditional online painting gallery into a personal, intellig
 | **Personalised recommendations** | Suggestions based on your favourites and chosen interests, each with a short reason ("Warm palette", "Similar style"). |
 | **AI Art Assistant** | A chatbot that answers questions about styles, techniques and artists, and recommends paintings inside the chat. |
 | **Favorites & collections** | Save paintings with the heart button (kept after refresh), view them as a grid or list, remove with confirmation. |
-| **Dashboard & insights** | Recently viewed, favourite categories, AI picks, and simple charts made with CSS. |
-| **Artwork details** | Full catalogue details, an AI summary (clearly labelled), colour swatches, and download as **PDF** or **Word**. |
+| **Dashboard** | Recently viewed, favourite categories, fresh picks and saved artworks. |
+| **Artwork details** | Full catalogue details, description, colour palette, and download as **PDF** or **Word**. |
 | **Sign in / Sign up** | Forms with validation, password show/hide and a password-strength bar (no real backend yet). |
 | **Responsive** | Designed for desktop (1440px), tablet (768px) and mobile (390px). |
 
@@ -80,6 +80,13 @@ npm run dev
 
 Open the address it prints (usually **http://localhost:5173**) in your browser. The page updates automatically when you save a file.
 
+### Adding or changing a painting
+
+1. Put the image in `public/images/` and name it after the painting's id, e.g. `public/images/my-painting.jpg`.
+2. Add an entry to `src/data/artworks.json` with the same `id`, plus `"image": "/images/my-painting.jpg"`.
+
+**Images not showing?** Make sure you have pulled the latest code (`git pull`). The images live in `public/images`, so the site doesn't need any other website to show them.
+
 ### Other commands
 
 | Command | What it does |
@@ -94,6 +101,10 @@ Open the address it prints (usually **http://localhost:5173**) in your browser. 
 ```
 ArtMind-AI-eProject/
 ├── index.html              ← the single HTML page (loads the fonts)
+├── public/
+│   └── images/             ← the painting images (<id>.jpg) + CREDITS.md
+├── scripts/
+│   └── download-images.mjs ← re-downloads the images (run by a GitHub Action)
 ├── package.json            ← project info and packages
 ├── vite.config.js          ← Vite settings
 └── src/
@@ -102,7 +113,8 @@ ArtMind-AI-eProject/
     ├── index.css           ← GLOBAL styles: colours, fonts, buttons, grids
     │
     ├── data/
-    │   ├── artworks.js     ← the 32 paintings (title, artist, image, tags…)
+    │   ├── artworks.json   ← the 31 paintings (title, artist, image, tags…)
+    │   ├── artworks.js     ← small helpers that read artworks.json
     │   └── siteData.js     ← categories, collections and the team
     │
     ├── context/
@@ -127,11 +139,11 @@ ArtMind-AI-eProject/
         ├── Categories.jsx, CategoryDetail.jsx, About.jsx
         ├── SmartSearch.jsx, ImageRecognition.jsx
         ├── Recommendations.jsx, Assistant.jsx
-        ├── Dashboard.jsx, Favorites.jsx, Analytics.jsx
+        ├── Dashboard.jsx, Favorites.jsx
         └── SignIn.jsx, SignUp.jsx, ForgotPassword.jsx, NotFound.jsx
 ```
 
-**Tip for beginners:** every file starts with a short comment explaining what it does. A good reading order is `App.jsx` → `components/PageLayout.jsx` → `pages/Home.jsx` → `components/ArtworkCard.jsx` → `data/artworks.js`.
+**Tip for beginners:** every file starts with a short comment explaining what it does. A good reading order is `App.jsx` → `components/PageLayout.jsx` → `pages/Home.jsx` → `components/ArtworkCard.jsx` → `data/artworks.json`.
 
 ---
 
@@ -151,7 +163,6 @@ ArtMind-AI-eProject/
 | `/ai/assistant` | AI Art Assistant (chat) |
 | `/dashboard` | User dashboard |
 | `/favorites` | Favorites & collections |
-| `/analytics` | Insights and charts |
 | `/signin`, `/signup`, `/forgot-password` | Account pages |
 
 ---
@@ -245,6 +256,6 @@ ArtMind AI was created by a team of six:
 
 ## Credits
 
-- **Artwork images** courtesy of the [Art Institute of Chicago](https://www.artic.edu/) open-access collection, released under [CC0](https://creativecommons.org/publicdomain/zero/1.0/). Titles, artists, dates and mediums are from the museum's records. Short descriptions were written for this project.
+- **Artwork images:** public-domain paintings from the [Art Institute of Chicago](https://www.artic.edu/) collection. The image files in `public/images` were downloaded from [Wikimedia Commons](https://commons.wikimedia.org/), and `public/images/CREDITS.md` lists the source for each one. Titles, artists, dates and mediums come from the museum's records. The short descriptions were written for this project.
 - **Fonts:** Bodoni Moda, Commissioner and Red Hat Mono from [Google Fonts](https://fonts.google.com/).
 - Created for educational purposes as part of an Aptech eProject.

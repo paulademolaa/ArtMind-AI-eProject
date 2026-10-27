@@ -15,7 +15,7 @@ function AuthLayout({ artworkId, quote, children }) {
       <div className="auth-art" style={{ backgroundImage: `url(${art.image})` }}>
         <div className="auth-art-shade" />
         <Link to="/" className="logo auth-logo">
-          ArtMind <span>AI</span>
+          ArtMind <span>Ai</span>
         </Link>
         <div className="auth-quote">
           <p>{quote}</p>

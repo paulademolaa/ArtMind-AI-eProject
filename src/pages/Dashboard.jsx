@@ -12,6 +12,7 @@ import { collections } from '../data/siteData';
 import { useFavorites } from '../context/FavoritesContext';
 import { useAuth, firstNameOf } from '../context/AuthContext';
 import { getRecommendations } from '../utils/fakeAI';
+import { getRecentlyViewed } from '../utils/recentlyViewed';
 import './Dashboard.css';
 
 function Dashboard() {
@@ -19,7 +20,11 @@ function Dashboard() {
   const { user } = useAuth();
   const saved = artworks.filter((art) => favorites.includes(art.id));
   const recommended = getRecommendations(favorites, 3);
-  const recentlyViewed = ['water-lily-pond', 'the-childs-bath', 'distant-view-of-niagara-falls', 'magnolias-on-blue-velvet'].map(getArtwork);
+  // The last 4 paintings this user opened (saved by the Artwork Details page).
+  const recentlyViewed = getRecentlyViewed()
+    .map((item) => getArtwork(item.id))
+    .filter(Boolean)
+    .slice(0, 4);
 
   // Count how many saved artworks are in each category (for the bars).
   const categoryCounts = {};
@@ -67,12 +72,21 @@ function Dashboard() {
       <section>
         <div className="section-header">
           <h3>Recently viewed</h3>
+          <Link to="/recently-viewed" className="link-arrow">
+            See all <Icon name="arrowRight" size={14} />
+          </Link>
         </div>
-        <div className="grid-4">
-          {recentlyViewed.map((art) => (
-            <ArtworkCard key={art.id} artwork={art} />
-          ))}
-        </div>
+        {recentlyViewed.length > 0 ? (
+          <div className="grid-4">
+            {recentlyViewed.map((art) => (
+              <ArtworkCard key={art.id} artwork={art} />
+            ))}
+          </div>
+        ) : (
+          <p className="muted">
+            Paintings you open will show up here. <Link to="/explore">Start exploring →</Link>
+          </p>
+        )}
       </section>
 
       <div className="dashboard-two">
@@ -110,10 +124,13 @@ function Dashboard() {
       <section>
         <div className="section-header">
           <h3>AI-curated collections</h3>
+          <Link to="/collections" className="link-arrow">
+            All collections <Icon name="arrowRight" size={14} />
+          </Link>
         </div>
         <div className="grid-3">
           {collections.slice(0, 3).map((collection) => (
-            <Link to="/favorites" key={collection.id} className="mosaic-card">
+            <Link to={`/collections/${collection.id}`} key={collection.id} className="mosaic-card">
               <div className="mosaic">
                 {collection.artworkIds.slice(0, 3).map((id) => (
                   <img key={id} src={getArtwork(id).image} alt="" />

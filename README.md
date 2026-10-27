@@ -32,10 +32,10 @@ ArtMind AI turns a traditional online painting gallery into a personal, intellig
 | **AI Image Recognition** | Upload (or drag in) a photo of a painting to see its likely style, category, medium, era, dominant colours and the closest match. |
 | **Personalised recommendations** | Suggestions based on your favourites and chosen interests, each with a short reason ("Warm palette", "Similar style"). |
 | **AI Art Assistant** | A chatbot that answers questions about styles, techniques and artists, and recommends paintings inside the chat. |
-| **Favorites & collections** | Save paintings with the heart button (kept after refresh), view them as a grid or list, remove with confirmation. |
+| **Favorites, collections & history** | Save paintings with the heart button, view them as a grid or list, browse curated collections, and see the paintings you viewed recently. |
 | **Dashboard** | Recently viewed, favourite categories, fresh picks and saved artworks. |
 | **Artwork details** | Full catalogue details, description, colour palette, and download as **PDF** or **Word**. |
-| **Accounts** | Sign up and sign in (saved in the browser for this demo). The navbar shows your profile, the dashboard shows your name, and visitors are asked to sign up before opening the dashboard or favourites. |
+| **Accounts** | Sign up and sign in (saved in the browser for this demo). The navbar shows your profile, the dashboard shows your name, and visitors are asked to sign up before opening the dashboard, favourites, collections, recently viewed or account settings. |
 | **Responsive** | Designed for desktop (1440px), tablet (768px) and mobile (390px). |
 
 ---
@@ -122,7 +122,8 @@ ArtMind-AI-eProject/
     │   └── FavoritesContext.jsx  ← shares the saved paintings with every page
     │
     ├── utils/
-    │   └── fakeAI.js       ← the simulated AI (search, recognition, chat…)
+    │   ├── fakeAI.js       ← the simulated AI (search, recognition, chat…)
+    │   └── recentlyViewed.js ← remembers the paintings you opened
     │
     ├── components/         ← reusable pieces used on many pages
     │   ├── Navbar.jsx / .css
@@ -141,7 +142,8 @@ ArtMind-AI-eProject/
         ├── Categories.jsx, CategoryDetail.jsx, About.jsx
         ├── SmartSearch.jsx, ImageRecognition.jsx
         ├── Recommendations.jsx, Assistant.jsx
-        ├── Dashboard.jsx, Favorites.jsx
+        ├── Dashboard.jsx, Favorites.jsx, Collections.jsx, CollectionDetail.jsx
+        ├── RecentlyViewed.jsx, Settings.jsx
         └── SignIn.jsx, SignUp.jsx, ForgotPassword.jsx, NotFound.jsx
 ```
 
@@ -165,6 +167,9 @@ ArtMind-AI-eProject/
 | `/ai/assistant` | AI Art Assistant (chat) |
 | `/dashboard` | User dashboard |
 | `/favorites` | Favorites & collections |
+| `/collections`, `/collections/:id` | All collections, and one collection |
+| `/recently-viewed` | Paintings you opened recently |
+| `/settings` | Account settings (profile, password, preferences, delete account) |
 | `/signin`, `/signup`, `/forgot-password` | Account pages |
 
 ---

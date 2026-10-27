@@ -109,10 +109,13 @@ function Favorites() {
       <section>
         <div className="section-header">
           <h3>Collections</h3>
+          <Link to="/collections" className="link-arrow">
+            All collections <Icon name="arrowRight" size={14} />
+          </Link>
         </div>
         <div className="grid-4">
           {collections.map((collection) => (
-            <div key={collection.id} className="mosaic-card">
+            <Link to={`/collections/${collection.id}`} key={collection.id} className="mosaic-card">
               <div className="mosaic">
                 {collection.artworkIds.slice(0, 3).map((id) => (
                   <img key={id} src={getArtwork(id).image} alt="" />
@@ -122,7 +125,7 @@ function Favorites() {
               <p className="mono muted">
                 {collection.artworkIds.length} works · {collection.label}
               </p>
-            </div>
+            </Link>
           ))}
         </div>
       </section>

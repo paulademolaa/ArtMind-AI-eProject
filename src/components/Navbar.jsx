@@ -81,6 +81,15 @@ function Navbar({ transparent = false }) {
                     <Link to="/favorites" onClick={() => setProfileOpen(false)}>
                       <Icon name="heart" size={16} /> Favorites
                     </Link>
+                    <Link to="/collections" onClick={() => setProfileOpen(false)}>
+                      <Icon name="layers" size={16} /> Collections
+                    </Link>
+                    <Link to="/recently-viewed" onClick={() => setProfileOpen(false)}>
+                      <Icon name="clock" size={16} /> Recently viewed
+                    </Link>
+                    <Link to="/settings" onClick={() => setProfileOpen(false)}>
+                      <Icon name="settings" size={16} /> Account settings
+                    </Link>
                     <button onClick={handleSignOut}>
                       <Icon name="arrowLeft" size={16} /> Sign out
                     </button>

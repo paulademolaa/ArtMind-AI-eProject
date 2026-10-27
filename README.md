@@ -234,7 +234,7 @@ ArtMind AI was created by a team of six:
 
 | Name | GitHub |
 |---|---|
-| Paul Ademola — Product designer & front-end developer | [@paulademolaa](https://github.com/paulademolaa) |
+| Paul Ademola | [@paulademolaa](https://github.com/paulademolaa) |
 | Ajimati  Oluwatimilehin | [@ji-blaq](https://github.com/ji-blaq) |
 | Treasure Amao | [@temzycodes](https://github.com/temzycodes) |
 | Emeje James | [@sno-div](https://github.com/sno-div) |

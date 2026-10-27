@@ -1,8 +1,8 @@
 // ------------------------------------------------------------
-// Account Settings — /settings
-// 1. Profile (name + email)   2. Password
-// 3. Preferences (interests + emails)   4. Delete account
-// Changes are saved through AuthContext (in the browser for now).
+// Account Settings — /settings  (matches Figma "Desktop / 14")
+// Tabs: Profile · Password & security · Personalisation · Notifications
+// "Save changes" saves through AuthContext (in the browser for now)
+// and shows a small "Profile updated" message.
 // ------------------------------------------------------------
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -15,196 +15,231 @@ import './Dashboard.css';
 import './Favorites.css';
 import './Settings.css';
 
+const tabs = ['Profile', 'Password & security', 'Personalisation', 'Notifications'];
+
+// A simple on/off switch built from a checkbox.
+function Toggle({ title, text, checked, onChange }) {
+  return (
+    <label className="settings-toggle">
+      <div>
+        <strong>{title}</strong>
+        <p className="muted small">{text}</p>
+      </div>
+      <input type="checkbox" className="switch" checked={checked} onChange={onChange} />
+    </label>
+  );
+}
+
 function Settings() {
   const { user, updateProfile, changePassword, deleteAccount } = useAuth();
   const navigate = useNavigate();
+  const [tab, setTab] = useState('Profile');
+  const [toast, setToast] = useState(null); // { title, text }
+  const [error, setError] = useState('');
 
-  // ---- 1. Profile ----
-  const [profile, setProfile] = useState({ name: user.name, email: user.email });
-  const [profileMessage, setProfileMessage] = useState({ text: '', error: false });
-
-  function saveProfile(event) {
-    event.preventDefault();
-    if (!profile.name.trim()) return setProfileMessage({ text: 'Please enter your name.', error: true });
-    if (!profile.email.includes('@') || !profile.email.includes('.')) {
-      return setProfileMessage({ text: 'Enter a valid email address.', error: true });
-    }
-    const problem = updateProfile({ name: profile.name.trim(), email: profile.email });
-    setProfileMessage(problem ? { text: problem, error: true } : { text: 'Profile saved.', error: false });
-  }
-
-  // ---- 2. Password ----
+  // Split the saved name into first and last name for the form.
+  const [firstName, ...rest] = user.name.split(' ');
+  const [form, setForm] = useState({ firstName, lastName: rest.join(' '), email: user.email });
   const [passwords, setPasswords] = useState({ current: '', next: '' });
-  const [passwordMessage, setPasswordMessage] = useState({ text: '', error: false });
 
-  function savePassword(event) {
-    event.preventDefault();
-    if (passwords.next.length < 8) {
-      return setPasswordMessage({ text: 'Your new password needs at least 8 characters.', error: true });
-    }
-    const problem = changePassword(passwords.current, passwords.next);
-    if (problem) {
-      setPasswordMessage({ text: problem, error: true });
-    } else {
-      setPasswordMessage({ text: 'Password changed.', error: false });
-      setPasswords({ current: '', next: '' });
-    }
-  }
-
-  // ---- 3. Preferences ----
   const saved = user.preferences || {};
-  const [interests, setInterests] = useState(saved.interests || []);
-  const [emails, setEmails] = useState({
+  const [prefs, setPrefs] = useState({
+    personalised: saved.personalised ?? true,
+    showWhy: saved.showWhy ?? true,
+    communityTrends: saved.communityTrends ?? false,
+    interests: saved.interests || [],
     weeklyPicks: saved.weeklyPicks ?? true,
     newCollections: saved.newCollections ?? true,
     news: saved.news ?? false,
   });
-  const [preferencesMessage, setPreferencesMessage] = useState('');
+  const [confirmDelete, setConfirmDelete] = useState(false);
+
+  // The username is made from the email, e.g. "@amara.okafor".
+  const username = '@' + user.email.split('@')[0];
+
+  function flip(key) {
+    setPrefs({ ...prefs, [key]: !prefs[key] });
+  }
 
   function toggleInterest(name) {
-    setInterests(interests.includes(name) ? interests.filter((item) => item !== name) : [...interests, name]);
+    const list = prefs.interests.includes(name) ? prefs.interests.filter((item) => item !== name) : [...prefs.interests, name];
+    setPrefs({ ...prefs, interests: list });
   }
 
-  function savePreferences() {
-    updateProfile({ preferences: { interests, ...emails } });
-    setPreferencesMessage('Preferences saved.');
+  function showToast(title, text) {
+    setToast({ title, text });
+    setTimeout(() => setToast(null), 3000);
   }
 
-  // ---- 4. Delete account ----
-  const [confirmDelete, setConfirmDelete] = useState(false);
+  // Undo unsaved changes.
+  function handleCancel() {
+    setForm({ firstName, lastName: rest.join(' '), email: user.email });
+    setPasswords({ current: '', next: '' });
+    setError('');
+  }
+
+  function handleSave() {
+    setError('');
+    if (tab === 'Password & security') {
+      if (passwords.next.length < 8) return setError('Your new password needs at least 8 characters.');
+      const problem = changePassword(passwords.current, passwords.next);
+      if (problem) return setError(problem);
+      setPasswords({ current: '', next: '' });
+      return showToast('Password changed', 'Use your new password next time you sign in.');
+    }
+    const name = `${form.firstName} ${form.lastName}`.trim();
+    if (!form.firstName.trim()) return setError('Please enter your first name.');
+    if (!form.email.includes('@') || !form.email.includes('.')) return setError('Enter a valid email address.');
+    const problem = updateProfile({ name, email: form.email, preferences: prefs });
+    if (problem) return setError(problem);
+    showToast('Profile updated', 'Your changes have been saved.');
+  }
 
   function handleDelete() {
     deleteAccount();
     navigate('/');
   }
 
-  const emailOptions = [
-    ['weeklyPicks', 'Weekly AI picks', 'A short email with new paintings chosen for you.'],
-    ['newCollections', 'New collections', 'When our editors publish a new curated collection.'],
-    ['news', 'ArtMind news', 'Occasional updates about new features.'],
-  ];
-
   return (
     <DashboardLayout>
-      <div className="welcome">
-        <div>
-          <h1>Account settings</h1>
-          <p className="muted">Manage your profile, password and preferences.</p>
-        </div>
+      <h1>Account settings</h1>
+
+      {/* ---- Tabs ---- */}
+      <div className="settings-tabs" role="tablist">
+        {tabs.map((name) => (
+          <button key={name} role="tab" className={tab === name ? 'active' : ''} onClick={() => { setTab(name); setError(''); }}>
+            {name}
+          </button>
+        ))}
       </div>
 
-      {/* ---------- 1. PROFILE ---------- */}
-      <section className="settings-card">
-        <div className="settings-intro">
-          <h3>Profile</h3>
-          <p className="muted small">This is how your name appears across ArtMind.</p>
-        </div>
-        <form onSubmit={saveProfile} className="settings-form" noValidate>
-          <div className="settings-avatar">
-            <span className="user-avatar">{initialsOf(profile.name || user.name)}</span>
-            <p className="muted small">Member since {user.joined}</p>
-          </div>
-          <label className="field">
-            Full name
-            <input value={profile.name} onChange={(event) => setProfile({ ...profile, name: event.target.value })} />
-          </label>
-          <label className="field">
-            Email address
-            <input type="email" value={profile.email} onChange={(event) => setProfile({ ...profile, email: event.target.value })} />
-          </label>
-          <div className="settings-actions">
-            {profileMessage.text && <p className={profileMessage.error ? 'settings-error' : 'settings-success'}>{profileMessage.text}</p>}
-            <button type="submit" className="btn btn-dark">
-              Save profile
+      {/* ---- Profile ---- */}
+      {tab === 'Profile' && (
+        <div className="settings-profile">
+          <div className="settings-photo">
+            <span className="settings-avatar">{initialsOf(`${form.firstName} ${form.lastName}` || user.name)}</span>
+            <button className="text-button" type="button">
+              Change photo
             </button>
           </div>
-        </form>
-      </section>
-
-      {/* ---------- 2. PASSWORD ---------- */}
-      <section className="settings-card">
-        <div className="settings-intro">
-          <h3>Password</h3>
-          <p className="muted small">Use at least 8 characters.</p>
+          <div className="settings-fields">
+            <label className="field">
+              First name
+              <input value={form.firstName} onChange={(event) => setForm({ ...form, firstName: event.target.value })} />
+            </label>
+            <label className="field">
+              Last name
+              <input value={form.lastName} onChange={(event) => setForm({ ...form, lastName: event.target.value })} />
+            </label>
+            <label className="field settings-wide">
+              Email address
+              <input type="email" value={form.email} onChange={(event) => setForm({ ...form, email: event.target.value })} />
+            </label>
+            <label className="field settings-wide settings-disabled">
+              Username (cannot be changed)
+              <input value={username} disabled />
+            </label>
+          </div>
         </div>
-        <form onSubmit={savePassword} className="settings-form" noValidate>
+      )}
+
+      {/* ---- Password & security ---- */}
+      {tab === 'Password & security' && (
+        <div className="settings-box">
+          <h3 className="settings-box-title">Change password</h3>
           <div className="field">
             Current password
             <PasswordInput value={passwords.current} onChange={(event) => setPasswords({ ...passwords, current: event.target.value })} />
           </div>
           <div className="field">
-            New password
+            New password (at least 8 characters)
             <PasswordInput value={passwords.next} onChange={(event) => setPasswords({ ...passwords, next: event.target.value })} />
           </div>
-          <div className="settings-actions">
-            {passwordMessage.text && <p className={passwordMessage.error ? 'settings-error' : 'settings-success'}>{passwordMessage.text}</p>}
-            <button type="submit" className="btn btn-dark">
-              Change password
-            </button>
-          </div>
-        </form>
-      </section>
-
-      {/* ---------- 3. PREFERENCES ---------- */}
-      <section className="settings-card">
-        <div className="settings-intro">
-          <h3>Preferences</h3>
-          <p className="muted small">Helps ArtMind pick paintings for you.</p>
         </div>
-        <div className="settings-form">
-          <p className="settings-label">Favourite categories</p>
-          <div className="settings-chips">
-            {categories.map((category) => (
-              <button
-                key={category.name}
-                type="button"
-                className={interests.includes(category.name) ? 'chip active' : 'chip'}
-                onClick={() => toggleInterest(category.name)}
-              >
-                {interests.includes(category.name) && <Icon name="check" size={14} />} {category.name}
-              </button>
-            ))}
-          </div>
+      )}
 
-          <p className="settings-label">Emails</p>
-          {emailOptions.map(([key, title, text]) => (
-            <label key={key} className="settings-toggle">
-              <div>
-                <strong>{title}</strong>
-                <p className="muted small">{text}</p>
+      {/* ---- Personalisation & privacy (shown on Profile and Personalisation tabs, as in Figma) ---- */}
+      {(tab === 'Profile' || tab === 'Personalisation') && (
+        <div className="settings-box">
+          <h3 className="settings-box-title">Personalisation &amp; privacy</h3>
+          <Toggle title="Personalised recommendations" text="Use my views and saves to tailor suggestions" checked={prefs.personalised} onChange={() => flip('personalised')} />
+          <Toggle title="Show why something was recommended" text="Display reasons like “Because you explored abstract art”" checked={prefs.showWhy} onChange={() => flip('showWhy')} />
+          <Toggle title="Include me in community trends" text="Anonymous, aggregated data only" checked={prefs.communityTrends} onChange={() => flip('communityTrends')} />
+          {tab === 'Personalisation' && (
+            <>
+              <p className="settings-label">Favourite categories</p>
+              <div className="settings-chips">
+                {categories.map((category) => (
+                  <button
+                    key={category.name}
+                    type="button"
+                    className={prefs.interests.includes(category.name) ? 'chip active' : 'chip'}
+                    onClick={() => toggleInterest(category.name)}
+                  >
+                    {category.name}
+                  </button>
+                ))}
               </div>
-              <input type="checkbox" checked={emails[key]} onChange={() => setEmails({ ...emails, [key]: !emails[key] })} />
-            </label>
-          ))}
-
-          <div className="settings-actions">
-            {preferencesMessage && <p className="settings-success">{preferencesMessage}</p>}
-            <button type="button" className="btn btn-dark" onClick={savePreferences}>
-              Save preferences
-            </button>
-          </div>
-        </div>
-      </section>
-
-      {/* ---------- 4. DELETE ACCOUNT ---------- */}
-      <section className="settings-card settings-danger">
-        <div className="settings-intro">
-          <h3>Delete account</h3>
-          <p className="muted small">This removes your account from this browser. It can’t be undone.</p>
-        </div>
-        <div className="settings-form">
-          <button type="button" className="btn btn-outline settings-delete" onClick={() => setConfirmDelete(true)}>
-            <Icon name="trash" size={16} /> Delete my account
+            </>
+          )}
+          <button type="button" className="text-button settings-reset" onClick={() => setPrefs({ ...prefs, interests: [] })}>
+            <Icon name="refresh" size={14} /> Reset my taste profile
           </button>
         </div>
-      </section>
+      )}
 
-      {/* Confirmation pop-up */}
+      {/* ---- Notifications ---- */}
+      {tab === 'Notifications' && (
+        <div className="settings-box">
+          <h3 className="settings-box-title">Email notifications</h3>
+          <Toggle title="Weekly AI picks" text="A short email with new paintings chosen for you." checked={prefs.weeklyPicks} onChange={() => flip('weeklyPicks')} />
+          <Toggle title="New collections" text="When our editors publish a new curated collection." checked={prefs.newCollections} onChange={() => flip('newCollections')} />
+          <Toggle title="ArtMind news" text="Occasional updates about new features." checked={prefs.news} onChange={() => flip('news')} />
+        </div>
+      )}
+
+      {/* ---- Save / Cancel ---- */}
+      <div className="settings-actions">
+        {error && <p className="settings-error">{error}</p>}
+        <button className="btn btn-outline" onClick={handleCancel}>
+          Cancel
+        </button>
+        <button className="btn btn-dark" onClick={handleSave}>
+          Save changes
+        </button>
+      </div>
+
+      {/* ---- Delete account ---- */}
+      <div className="settings-box settings-delete-row">
+        <div>
+          <h3 className="settings-box-title">Delete account</h3>
+          <p className="muted small">Permanently removes your favourites, collections and history.</p>
+        </div>
+        <button className="btn btn-outline" onClick={() => setConfirmDelete(true)}>
+          Delete account
+        </button>
+      </div>
+
+      {/* ---- "Profile updated" message ---- */}
+      {toast && (
+        <div className="settings-toast" role="status">
+          <Icon name="check" size={16} />
+          <div>
+            <strong>{toast.title}</strong>
+            <p>{toast.text}</p>
+          </div>
+          <button onClick={() => setToast(null)} aria-label="Close">
+            <Icon name="close" size={14} />
+          </button>
+        </div>
+      )}
+
+      {/* ---- Delete confirmation ---- */}
       {confirmDelete && (
         <div className="modal-backdrop" onClick={() => setConfirmDelete(false)}>
           <div className="modal" onClick={(event) => event.stopPropagation()} role="dialog" aria-modal="true">
             <h3>Delete your account?</h3>
-            <p className="muted">You will be signed out and your account details will be removed.</p>
+            <p className="muted">You will be signed out and your account details will be removed. This can’t be undone.</p>
             <div className="modal-actions">
               <button className="btn btn-outline" onClick={() => setConfirmDelete(false)}>
                 Keep my account

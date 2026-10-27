@@ -58,6 +58,7 @@ function Home() {
   ];
 
   const featuredCollection = collections[0];
+  const [following, setFollowing] = useState(false); // "Follow" button on the collection
 
   return (
     <PageLayout transparentNav>
@@ -185,7 +186,7 @@ function Home() {
               <Icon name="sparkle" size={12} /> Personalised recommendations
             </span>
             <h2>
-              Art That Understands <span className="accent">Your Taste.</span>
+              Art That Understands Your Taste.
             </h2>
             <p className="muted">
               ArtMind learns from what you linger on, save and search — then shows paintings that share their style,
@@ -363,6 +364,24 @@ function Home() {
               <p className="mono muted">Collection of the month</p>
               <h2>{featuredCollection.title}</h2>
               <p className="muted">{featuredCollection.description}</p>
+              {/* Small facts about the collection (as in the Figma design) */}
+              <div className="collection-stats">
+                <div>
+                  <strong>{featuredCollection.artworkIds.length}</strong>
+                  <span>Works</span>
+                </div>
+                <div>
+                  <strong>{new Set(featuredCollection.artworkIds.map((id) => getArtwork(id).artist)).size}</strong>
+                  <span>Artists</span>
+                </div>
+                <div>
+                  <strong>
+                    {Math.min(...featuredCollection.artworkIds.map((id) => parseInt(getArtwork(id).date.match(/\d{4}/)[0])))}–
+                    {Math.max(...featuredCollection.artworkIds.map((id) => parseInt(getArtwork(id).date.match(/\d{4}/)[0])))}
+                  </strong>
+                  <span>Years</span>
+                </div>
+              </div>
               <div className="collection-thumbs">
                 {featuredCollection.artworkIds.slice(1, 5).map((id) => (
                   <img key={id} src={getArtwork(id).image} alt={getArtwork(id).title} />
@@ -371,9 +390,14 @@ function Home() {
               <div className="ai-note">
                 <Icon name="sparkle" size={14} className="spark" /> Matched on calm composition and blue-green palettes
               </div>
-              <Link to={`/collections/${featuredCollection.id}`} className="btn btn-dark">
-                View collection <Icon name="arrowRight" size={14} />
-              </Link>
+              <div className="collection-buttons">
+                <Link to={`/collections/${featuredCollection.id}`} className="btn btn-dark">
+                  View collection <Icon name="arrowRight" size={14} />
+                </Link>
+                <button className="btn btn-outline" onClick={() => setFollowing(!following)}>
+                  <Icon name={following ? 'check' : 'heart'} size={14} /> {following ? 'Following' : 'Follow'}
+                </button>
+              </div>
             </div>
           </div>
 

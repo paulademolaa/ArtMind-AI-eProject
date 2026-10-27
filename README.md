@@ -235,13 +235,11 @@ ArtMind AI was created by a team of six:
 | Name | GitHub |
 |---|---|
 | Paul Ademola — Product designer & front-end developer | [@paulademolaa](https://github.com/paulademolaa) |
-| Team member | [@ji-blaq](https://github.com/ji-blaq) |
+| Ajimati  Oluwatimilehin | [@ji-blaq](https://github.com/ji-blaq) |
 | Treasure Amao | [@temzycodes](https://github.com/temzycodes) |
-| Team member | [@sno-div](https://github.com/sno-div) |
+| Emeje James | [@sno-div](https://github.com/sno-div) |
 | Louis | [@louis-d-great](https://github.com/louis-d-great) |
-| Team member | [@olagunjupopizzy-coder](https://github.com/olagunjupopizzy-coder) |
-
-*Team members: please update your name, role and LinkedIn link in `src/data/siteData.js` and in this table.*
+| Olagunju Israel | [@olagunjupopizzy-coder](https://github.com/olagunjupopizzy-coder) |
 
 ---
 

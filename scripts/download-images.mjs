@@ -15,13 +15,13 @@ import fs from 'node:fs';
 const OUT_DIR = 'public/images';
 const USER_AGENT = 'ArtMindAI-eProject/1.0 (https://github.com/paulademolaa/ArtMind-AI-eProject; student project)';
 
-// id: [words that must be in the file name, artist search words, image width, extra words the file name must have]
+// id: [words that must be in the file name, artist search words, image width, extra words the file name must have, words it must NOT have]
 const wanted = {
   'improvisation-no-30': ['Improvisation No. 30', 'Kandinsky'],
   'painting-with-green-center': ['Green Center', 'Kandinsky'],
   'composition-no-1-gray-red': ['Gray-Red', 'Mondrian Composition No. 1'],
   'landscape-with-two-poplars': ['Two Poplars', 'Kandinsky'],
-  'water-lily-pond': ['Water Lily Pond', 'Monet 1933.1157', 1280, '1933.1157'],
+  'water-lily-pond': ['Water Lily Pond', 'Claude Monet', 1280, '', '1933.441'],
   'cliff-walk-at-pourville': ['Cliff Walk at Pourville', 'Monet'],
   'auvers-panoramic-view': ['Auvers, Panoramic View', 'Cezanne'],
   'view-of-genoa': ['View of Genoa', 'Corot'],
@@ -72,7 +72,7 @@ async function search(text, width) {
 
 const normal = (s) => s.toLowerCase().replace(/[’']/g, "'");
 
-async function findFile(key, who, width, must = '') {
+async function findFile(key, who, width, must = '', avoid = '###') {
   let pages = [];
   for (const q of [`${who} ${key} Art Institute of Chicago`, `${who} ${key}`, key + ' Art Institute of Chicago']) {
     pages = pages.concat(await search(q, width));
@@ -84,6 +84,7 @@ async function findFile(key, who, width, must = '') {
       info &&
       normal(p.title).includes(normal(key)) &&
       normal(p.title).includes(normal(must)) &&
+      !p.title.includes(avoid) &&
       /image\/(jpeg|png)/.test(info.mime) &&
       info.width >= 900 &&
       !/detail|frame/i.test(p.title)
@@ -97,10 +98,10 @@ fs.mkdirSync(OUT_DIR, { recursive: true });
 const credits = ['# Image credits', '', 'Downloaded from Wikimedia Commons (public domain).', '', '| File | Source |', '|---|---|'];
 const missing = [];
 
-for (const [id, [key, who, width = 1280, must]] of Object.entries(wanted)) {
+for (const [id, [key, who, width = 1280, must, avoid]] of Object.entries(wanted)) {
   const target = `${OUT_DIR}/${id}.jpg`;
   try {
-    const file = await findFile(key, who, width, must);
+    const file = await findFile(key, who, width, must, avoid);
     if (!file) {
       missing.push(id);
       console.log('MISSING', id);

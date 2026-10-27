@@ -104,3 +104,14 @@
     padding: 40px var(--page-padding) 80px;
   }
 }
+
+.dashboard-signout {
+  margin-top: 24px;
+  align-self: flex-start;
+}
+/* On small screens "Sign out" is in the navbar menu instead */
+@media (max-width: 1024px) {
+  .dashboard-signout {
+    display: none;
+  }
+}

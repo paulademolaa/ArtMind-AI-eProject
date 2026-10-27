@@ -9,7 +9,6 @@ import { useEffect, useRef, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import PageLayout from '../components/PageLayout';
 import Icon from '../components/Icon';
-import { imageUrl } from '../data/artworks';
 import { getAssistantReply } from '../utils/fakeAI';
 import './Assistant.css';
 
@@ -134,7 +133,7 @@ function Assistant() {
                       <div className="msg-artworks">
                         {message.artworks.map((art) => (
                           <Link key={art.id} to={`/artwork/${art.id}`} className="msg-artwork">
-                            <img src={imageUrl(art.imageId, 300)} alt="" />
+                            <img src={art.image} alt="" />
                             <strong>{art.title}</strong>
                             <span className="muted small">{art.artist}</span>
                           </Link>
@@ -192,7 +191,7 @@ function Assistant() {
           {mentioned.length === 0 && <p className="muted small">Artworks the assistant recommends will appear here.</p>}
           {mentioned.map((art, index) => (
             <Link key={art.id + index} to={`/artwork/${art.id}`} className="context-item">
-              <img src={imageUrl(art.imageId, 150)} alt="" />
+              <img src={art.image} alt="" />
               <div>
                 <strong>{art.title}</strong>
                 <p className="muted small">

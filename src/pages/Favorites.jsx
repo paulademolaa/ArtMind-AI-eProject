@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 import DashboardLayout from '../components/DashboardLayout';
 import ArtworkCard from '../components/ArtworkCard';
 import Icon from '../components/Icon';
-import artworks, { getArtwork, imageUrl } from '../data/artworks';
+import artworks, { getArtwork } from '../data/artworks';
 import { collections } from '../data/siteData';
 import { useFavorites } from '../context/FavoritesContext';
 import './Dashboard.css';
@@ -84,7 +84,7 @@ function Favorites() {
               <tr key={art.id}>
                 <td>
                   <Link to={`/artwork/${art.id}`} className="fav-table-art">
-                    <img src={imageUrl(art.imageId, 150)} alt="" />
+                    <img src={art.image} alt="" />
                     <div>
                       <strong>{art.title}</strong>
                       <p className="muted small">
@@ -115,7 +115,7 @@ function Favorites() {
             <div key={collection.id} className="mosaic-card">
               <div className="mosaic">
                 {collection.artworkIds.slice(0, 3).map((id) => (
-                  <img key={id} src={imageUrl(getArtwork(id).imageId, 300)} alt="" />
+                  <img key={id} src={getArtwork(id).image} alt="" />
                 ))}
               </div>
               <h4>{collection.title}</h4>

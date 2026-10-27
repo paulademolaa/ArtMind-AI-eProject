@@ -4,7 +4,7 @@
 // Props: artworkId (which painting to show), quote, children (the form)
 // ------------------------------------------------------------
 import { Link } from 'react-router-dom';
-import { getArtwork, imageUrl } from '../data/artworks';
+import { getArtwork } from '../data/artworks';
 import './AuthLayout.css';
 
 function AuthLayout({ artworkId, quote, children }) {
@@ -12,7 +12,7 @@ function AuthLayout({ artworkId, quote, children }) {
 
   return (
     <div className="auth">
-      <div className="auth-art" style={{ backgroundImage: `url(${imageUrl(art.imageId, 900)})` }}>
+      <div className="auth-art" style={{ backgroundImage: `url(${art.image})` }}>
         <div className="auth-art-shade" />
         <Link to="/" className="logo auth-logo">
           ArtMind <span>AI</span>

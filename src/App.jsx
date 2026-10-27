@@ -23,7 +23,6 @@ import Assistant from './pages/Assistant';
 // Signed-in pages
 import Dashboard from './pages/Dashboard';
 import Favorites from './pages/Favorites';
-import Analytics from './pages/Analytics';
 
 // Account pages
 import SignIn from './pages/SignIn';
@@ -51,7 +50,6 @@ function App() {
 
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/favorites" element={<Favorites />} />
-          <Route path="/analytics" element={<Analytics />} />
 
           <Route path="/signin" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />

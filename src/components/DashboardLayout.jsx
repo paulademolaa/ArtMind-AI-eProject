@@ -1,7 +1,6 @@
 // ------------------------------------------------------------
 // DashboardLayout — the signed-in area: a sidebar on the left and
-// the page content on the right. Used by Dashboard, Favorites and
-// Analytics.
+// the page content on the right. Used by Dashboard and Favorites.
 // ------------------------------------------------------------
 import { Link, NavLink } from 'react-router-dom';
 import PageLayout from './PageLayout';
@@ -12,7 +11,6 @@ const menu = [
   { to: '/dashboard', label: 'Overview', icon: 'home' },
   { to: '/favorites', label: 'Favorites', icon: 'heart' },
   { to: '/ai/recommendations', label: 'Recommendations', icon: 'sparkle' },
-  { to: '/analytics', label: 'Insights', icon: 'chart' },
 ];
 
 function DashboardLayout({ children }) {

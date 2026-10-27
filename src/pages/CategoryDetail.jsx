@@ -6,7 +6,7 @@ import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import PageLayout from '../components/PageLayout';
 import ArtworkCard from '../components/ArtworkCard';
-import { getArtwork, getByCategory, imageUrl } from '../data/artworks';
+import { getArtwork, getByCategory } from '../data/artworks';
 import { categories } from '../data/siteData';
 import './Explore.css';
 import './CategoryDetail.css';
@@ -38,7 +38,7 @@ function CategoryDetail() {
 
   return (
     <PageLayout>
-      <section className="category-banner" style={{ backgroundImage: `url(${imageUrl(cover.imageId, 1686)})` }}>
+      <section className="category-banner" style={{ backgroundImage: `url(${cover.image})` }}>
         <div className="category-banner-shade" />
         <div className="container category-banner-text">
           <p className="breadcrumb">

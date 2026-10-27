@@ -76,7 +76,7 @@ export const collections = [
     title: 'The Birth of Abstraction',
     label: 'AI-curated',
     description: 'How Kandinsky, Hartley and Mondrian let colour speak for itself.',
-    artworkIds: ['improvisation-no-30', 'painting-with-green-center', 'movement-no-10', 'composition-no-1-gray-red'],
+    artworkIds: ['improvisation-no-30', 'painting-with-green-center', 'composition-no-1-gray-red', 'landscape-with-two-poplars'],
   },
   {
     id: 'mothers-and-daughters',

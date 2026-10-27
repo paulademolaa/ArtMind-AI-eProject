@@ -4,6 +4,8 @@
 // ------------------------------------------------------------
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { FavoritesProvider } from './context/FavoritesContext';
+import { AuthProvider } from './context/AuthContext';
+import RequireAuth from './components/RequireAuth';
 import ScrollToTop from './components/ScrollToTop';
 
 // Public pages
@@ -32,6 +34,7 @@ import NotFound from './pages/NotFound';
 
 function App() {
   return (
+    <AuthProvider>
     <FavoritesProvider>
       <BrowserRouter>
         <ScrollToTop />
@@ -48,8 +51,9 @@ function App() {
           <Route path="/ai/recommendations" element={<Recommendations />} />
           <Route path="/ai/assistant" element={<Assistant />} />
 
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/favorites" element={<Favorites />} />
+          {/* These pages need an account — visitors are asked to sign up */}
+          <Route path="/dashboard" element={<RequireAuth><Dashboard /></RequireAuth>} />
+          <Route path="/favorites" element={<RequireAuth><Favorites /></RequireAuth>} />
 
           <Route path="/signin" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
@@ -60,6 +64,7 @@ function App() {
         </Routes>
       </BrowserRouter>
     </FavoritesProvider>
+    </AuthProvider>
   );
 }
 

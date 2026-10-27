@@ -12,6 +12,7 @@ import Icon from '../components/Icon';
 import artworks, { getArtwork } from '../data/artworks';
 import { collections } from '../data/siteData';
 import { useFavorites } from '../context/FavoritesContext';
+import { useAuth, firstNameOf } from '../context/AuthContext';
 import { getRecommendations } from '../utils/fakeAI';
 import './Recommendations.css';
 
@@ -23,8 +24,17 @@ const colourThemes = [
   { name: 'Golden Hour', colours: ['#C8873A', '#9E4433', '#DCCBA8', '#4C3726'], ids: ['mist-rising-in-the-catskills', 'home-of-the-heron'] },
 ];
 
+// "Good morning" / "Good afternoon" / "Good evening" from the clock
+function greeting() {
+  const hour = new Date().getHours();
+  if (hour < 12) return 'Good morning';
+  if (hour < 18) return 'Good afternoon';
+  return 'Good evening';
+}
+
 function Recommendations() {
   const { favorites } = useFavorites();
+  const { user } = useAuth();
   const [interests, setInterests] = useState(['Landscape', 'Nature']);
   const [panelOpen, setPanelOpen] = useState(false);
   const [tab, setTab] = useState('For You');
@@ -51,7 +61,7 @@ function Recommendations() {
           <span className="ai-badge">
             <Icon name="sparkle" size={12} /> Updated this morning
           </span>
-          <h1>Good afternoon, Amara.</h1>
+          <h1>{user ? `${greeting()}, ${firstNameOf(user.name)}.` : 'Picks chosen for you.'}</h1>
           <p className="lead">Your taste leans toward Impressionist light, quiet water and earthy palettes. Here’s what we picked for you.</p>
         </div>
         <button className="btn btn-outline" onClick={() => setPanelOpen(!panelOpen)}>

@@ -35,7 +35,7 @@ ArtMind AI turns a traditional online painting gallery into a personal, intellig
 | **Favorites & collections** | Save paintings with the heart button (kept after refresh), view them as a grid or list, remove with confirmation. |
 | **Dashboard** | Recently viewed, favourite categories, fresh picks and saved artworks. |
 | **Artwork details** | Full catalogue details, description, colour palette, and download as **PDF** or **Word**. |
-| **Sign in / Sign up** | Forms with validation, password show/hide and a password-strength bar (no real backend yet). |
+| **Accounts** | Sign up and sign in (saved in the browser for this demo). The navbar shows your profile, the dashboard shows your name, and visitors are asked to sign up before opening the dashboard or favourites. |
 | **Responsive** | Designed for desktop (1440px), tablet (768px) and mobile (390px). |
 
 ---
@@ -118,6 +118,7 @@ ArtMind-AI-eProject/
     │   └── siteData.js     ← categories, collections and the team
     │
     ├── context/
+    │   ├── AuthContext.jsx       ← who is signed in (sign up / sign in / sign out)
     │   └── FavoritesContext.jsx  ← shares the saved paintings with every page
     │
     ├── utils/
@@ -130,6 +131,7 @@ ArtMind-AI-eProject/
     │   ├── PageLayout.jsx        ← Navbar + page + Footer
     │   ├── DashboardLayout.jsx   ← sidebar for signed-in pages
     │   ├── AuthLayout.jsx        ← split screen for sign in / sign up
+    │   ├── RequireAuth.jsx       ← sends visitors to Sign Up for account-only pages
     │   ├── PasswordInput.jsx
     │   ├── Icon.jsx              ← simple SVG icons
     │   └── ScrollToTop.jsx

@@ -1,16 +1,22 @@
 // ------------------------------------------------------------
 // Sign In — /signin
-// There is no real backend yet, so any valid-looking email and a
-// password of 8+ characters "signs in" and opens the Dashboard.
+// Checks the email and password against accounts created on the
+// Sign Up page (saved in the browser — see AuthContext.jsx), then
+// opens the Dashboard (or the page the visitor was trying to reach).
 // ------------------------------------------------------------
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import AuthLayout from '../components/AuthLayout';
 import PasswordInput from '../components/PasswordInput';
 import Icon from '../components/Icon';
+import { useAuth } from '../context/AuthContext';
 
 function SignIn() {
   const navigate = useNavigate();
+  const location = useLocation();
+  const { signIn } = useAuth();
+  // Where to go after signing in (the page they wanted, or the dashboard)
+  const goTo = location.state?.from || '/dashboard';
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState({});
@@ -23,7 +29,12 @@ function SignIn() {
     setErrors(newErrors);
 
     if (Object.keys(newErrors).length === 0) {
-      navigate('/dashboard');
+      const problem = signIn(email, password);
+      if (problem) {
+        setErrors({ form: problem });
+      } else {
+        navigate(goTo);
+      }
     }
   }
 
@@ -33,6 +44,7 @@ function SignIn() {
       <p className="muted">Sign in to see your favourites and personalised picks.</p>
 
       <form onSubmit={handleSubmit} noValidate>
+        {errors.form && <p className="auth-alert">{errors.form}</p>}
         <label className="field">
           Email address
           <input type="email" value={email} onChange={(event) => setEmail(event.target.value)} placeholder="you@example.com" />
@@ -58,7 +70,7 @@ function SignIn() {
       </form>
 
       <p className="auth-switch">
-        New to ArtMind? <Link to="/signup">Create an account</Link>
+        New to ArtMind? <Link to="/signup" state={location.state}>Create an account</Link>
       </p>
     </AuthLayout>
   );

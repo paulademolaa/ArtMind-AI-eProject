@@ -39,7 +39,7 @@ function Navbar({ transparent = false }) {
     <header className={transparent ? 'navbar navbar-transparent' : 'navbar'}>
       <div className="navbar-inner">
         <Link to="/" className="logo">
-          ArtMind <span>AI</span>
+          ArtMind <span>Ai</span>
         </Link>
 
         <nav className="navbar-right">
@@ -119,7 +119,7 @@ function Navbar({ transparent = false }) {
         <div className="mobile-menu">
           <div className="mobile-menu-top">
             <Link to="/" className="logo" onClick={() => setMenuOpen(false)}>
-              ArtMind <span>AI</span>
+              ArtMind <span>Ai</span>
             </Link>
             <button onClick={() => setMenuOpen(false)} aria-label="Close menu">
               <Icon name="close" size={24} />

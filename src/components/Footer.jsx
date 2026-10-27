@@ -61,7 +61,7 @@ function Footer() {
         </div>
 
         <p className="footer-wordmark" aria-hidden="true">
-          ArtMind
+          ArtMind <span>Ai</span>
         </p>
 
         <div className="footer-bottom">

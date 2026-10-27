@@ -1,0 +1,29 @@
+# Downloads the painting images into public/images and commits them.
+# Runs when the download script changes, or by hand from the Actions tab.
+name: Download images
+
+on:
+  push:
+    branches: [main]
+    paths: ['scripts/download-images.mjs']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  download:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: node scripts/download-images.mjs
+      - name: Commit images
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git add public/images
+          git diff --cached --quiet || git commit -m "Add painting images to public/images"
+          git push

@@ -37,6 +37,12 @@ function initials(name) {
     .toUpperCase();
 }
 
+// The team photo: the "photo" in siteData.js if there is one,
+// otherwise the person's GitHub profile picture.
+function photoFor(person) {
+  return person.photo || `${person.github}.png?size=400`;
+}
+
 function About() {
   // ---- Contact form state ----
   const [form, setForm] = useState({ name: '', email: '', message: '' });
@@ -195,7 +201,13 @@ function About() {
             {team.map((person, index) => (
               <div className="team-card" key={index}>
                 <div className="team-photo">
-                  {person.photo ? <img src={person.photo} alt={person.name} /> : <span className="team-initials">{initials(person.name)}</span>}
+                  {/* Initials sit behind the photo and show if the photo can't load */}
+                  <span className="team-initials">{initials(person.name)}</span>
+                  <img
+                    src={photoFor(person)}
+                    alt={person.name}
+                    onError={(event) => (event.currentTarget.style.display = 'none')}
+                  />
 
                   {/* Shown when you hover over the card */}
                   <div className="team-links">
@@ -203,13 +215,13 @@ function About() {
                     <div>
                       <a href={person.github} target="_blank" rel="noreferrer" aria-label={`${person.name} on GitHub`}>
                         <span className="team-link-icon">
-                          <Icon name="code" size={22} />
+                          <Icon name="github" size={22} />
                         </span>
                         GitHub ↗
                       </a>
                       <a href={person.linkedin} target="_blank" rel="noreferrer" aria-label={`${person.name} on LinkedIn`}>
                         <span className="team-link-icon">
-                          <Icon name="briefcase" size={22} />
+                          <Icon name="linkedin" size={20} />
                         </span>
                         LinkedIn ↗
                       </a>

@@ -8,6 +8,7 @@
 // the Art Institute of Chicago paintings).
 //
 // Run it with:  node scripts/download-images.mjs
+// (Files that already exist in public/images are skipped.)
 // (It is also run automatically by .github/workflows/download-images.yml)
 // ------------------------------------------------------------
 import fs from 'node:fs';

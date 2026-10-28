@@ -26,4 +26,6 @@ jobs:
           git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
           git add public/images
           git diff --cached --quiet || git commit -m "Add painting images to public/images"
+          # If someone pushed while this was running, add our commit on top of theirs
+          git pull --rebase origin main
           git push

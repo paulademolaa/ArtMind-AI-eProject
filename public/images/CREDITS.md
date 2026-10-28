@@ -38,28 +38,29 @@ Downloaded from Wikimedia Commons (public domain).
 | composition-vii.jpg | [Vassily Kandinsky, 1913 - Composition 7.jpg](https://commons.wikimedia.org/wiki/File:Vassily_Kandinsky,_1913_-_Composition_7.jpg) |
 | composition-viii.jpg | [Kandinsky - Composition 8, July 1923.jpg](https://commons.wikimedia.org/wiki/File:Kandinsky_-_Composition_8,_July_1923.jpg) |
 | edtaonisl.jpg | [Francis Picabia, 1913, Edtaonisl (Ecclesiastic), oil on canvas, 300.4 x 300.7 cm, Art Institute of Chicago.jpg](https://commons.wikimedia.org/wiki/File:Francis_Picabia,_1913,_Edtaonisl_(Ecclesiastic),_oil_on_canvas,_300.4_x_300.7_cm,_Art_Institute_of_Chicago.jpg) |
+| champs-de-mars-red-tower.jpg | [Delaunay - Tour Eiffel.jpeg](https://commons.wikimedia.org/wiki/File:Delaunay_-_Tour_Eiffel.jpeg) |
 | stacks-of-wheat-end-of-summer.jpg | [Claude Monet - Stacks of Wheat (End of Summer) - 1985.1103 - Art Institute of Chicago.jpg](https://commons.wikimedia.org/wiki/File:Claude_Monet_-_Stacks_of_Wheat_(End_of_Summer)_-_1985.1103_-_Art_Institute_of_Chicago.jpg) |
-| the-starry-night.jpg | [VanGogh-starry night ballance1.jpg](https://commons.wikimedia.org/wiki/File:VanGogh-starry_night_ballance1.jpg) |
-| mont-sainte-victoire.jpg | [Mont Sainte-Victoire Philadelphia.JPG](https://commons.wikimedia.org/wiki/File:Mont_Sainte-Victoire_Philadelphia.JPG) |
+| the-starry-night.jpg | [Vincent van Gogh - Starry Night - Google Art Project.jpg](https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg) |
 | impression-sunrise.jpg | [Monet - Impression, Sunrise.jpg](https://commons.wikimedia.org/wiki/File:Monet_-_Impression,_Sunrise.jpg) |
-| the-hay-wain.jpg | [John Constable - The Hay Wain (1821).jpg](https://commons.wikimedia.org/wiki/File:John_Constable_-_The_Hay_Wain_(1821).jpg) |
 | sunflowers.jpg | [Vincent van Gogh - Sunflowers - VGM F458.jpg](https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_Sunflowers_-_VGM_F458.jpg) |
 | irises.jpg | [Vincent van Gogh - Irises (1889).jpg](https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_Irises_(1889).jpg) |
 | flowers-in-a-vase-ruysch.jpg | [Rachel Ruysch - Summer flowers in a vase.jpg](https://commons.wikimedia.org/wiki/File:Rachel_Ruysch_-_Summer_flowers_in_a_vase.jpg) |
 | flowers-in-an-urn.jpg | [Bouquet of Flowers in an Urn2.jpg](https://commons.wikimedia.org/wiki/File:Bouquet_of_Flowers_in_an_Urn2.jpg) |
-| bouquet-of-sunflowers.jpg | [Claude Monet Bouquet of Sunflowers.jpg](https://commons.wikimedia.org/wiki/File:Claude_Monet_Bouquet_of_Sunflowers.jpg) |
+| bouquet-of-sunflowers.jpg | [WLA metmuseum Claude Monet Bouquet of Sunflowers 2.jpg](https://commons.wikimedia.org/wiki/File:WLA_metmuseum_Claude_Monet_Bouquet_of_Sunflowers_2.jpg) |
 | among-the-sierra-nevada.jpg | [Among the Sierra Nevada, California-saam 1977.107.1.jpg](https://commons.wikimedia.org/wiki/File:Among_the_Sierra_Nevada,_California-saam_1977.107.1.jpg) |
 | wanderer-above-the-sea-of-fog.jpg | [Caspar David Friedrich - Wanderer above the sea of fog.jpg](https://commons.wikimedia.org/wiki/File:Caspar_David_Friedrich_-_Wanderer_above_the_sea_of_fog.jpg) |
+| grand-canyon-of-the-yellowstone.jpg | [Thomas Moran - Grand Canyon of the Yellowstone.jpg](https://commons.wikimedia.org/wiki/File:Thomas_Moran_-_Grand_Canyon_of_the_Yellowstone.jpg) |
 | twilight-in-the-wilderness.jpg | [Twilight in the Wilderness by Frederic Edwin Church (3).jpg](https://commons.wikimedia.org/wiki/File:Twilight_in_the_Wilderness_by_Frederic_Edwin_Church_(3).jpg) |
 | the-fighting-temeraire.jpg | [The Fighting Temeraire, JMW Turner, National Gallery.jpg](https://commons.wikimedia.org/wiki/File:The_Fighting_Temeraire,_JMW_Turner,_National_Gallery.jpg) |
-| girl-with-a-pearl-earring.jpg | [Simon Vouet--Young Woman with Pearl Earrings--Art Institute of Chicago.jpg](https://commons.wikimedia.org/wiki/File:Simon_Vouet--Young_Woman_with_Pearl_Earrings--Art_Institute_of_Chicago.jpg) |
+| girl-with-a-pearl-earring.jpg | [1665 Girl with a Pearl Earring.jpg](https://commons.wikimedia.org/wiki/File:1665_Girl_with_a_Pearl_Earring.jpg) |
 | paris-street-rainy-day.jpg | [Gustave Caillebotte - Paris Street, Rainy Day - 1964.336 - Art Institute of Chicago.jpg](https://commons.wikimedia.org/wiki/File:Gustave_Caillebotte_-_Paris_Street,_Rainy_Day_-_1964.336_-_Art_Institute_of_Chicago.jpg) |
-| a-sunday-on-la-grande-jatte.jpg | [A Sunday on La Grande Jatte by Georges Seurat - Joy of Museums - Art Institute of Chicago.jpg](https://commons.wikimedia.org/wiki/File:A_Sunday_on_La_Grande_Jatte_by_Georges_Seurat_-_Joy_of_Museums_-_Art_Institute_of_Chicago.jpg) |
+| a-sunday-on-la-grande-jatte.jpg | [A Sunday on La Grande Jatte, Georges Seurat, 1884.jpg](https://commons.wikimedia.org/wiki/File:A_Sunday_on_La_Grande_Jatte,_Georges_Seurat,_1884.jpg) |
 | luncheon-of-the-boating-party.jpg | [Pierre-Auguste Renoir - Luncheon of the Boating Party - Google Art Project.jpg](https://commons.wikimedia.org/wiki/File:Pierre-Auguste_Renoir_-_Luncheon_of_the_Boating_Party_-_Google_Art_Project.jpg) |
 | van-gogh-self-portrait-1887.jpg | [Vincent van Gogh - Self-Portrait - 1954.326 - Art Institute of Chicago.jpg](https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_Self-Portrait_-_1954.326_-_Art_Institute_of_Chicago.jpg) |
+| annunciation-leonardo.jpg | [Annunciation (Leonardo).jpg](https://commons.wikimedia.org/wiki/File:Annunciation_(Leonardo).jpg) |
 | sistine-madonna.jpg | [Raphael - The Sistine Madonna - Google Arts & Culture.jpg](https://commons.wikimedia.org/wiki/File:Raphael_-_The_Sistine_Madonna_-_Google_Arts_%26_Culture.jpg) |
 | the-assumption-of-the-virgin.jpg | [Domenico Theotokópoulos, called El Greco - The Assumption of the Virgin - 1906.99 - Art Institute of Chicago.jpg](https://commons.wikimedia.org/wiki/File:Domenico_Theotok%C3%B3poulos,_called_El_Greco_-_The_Assumption_of_the_Virgin_-_1906.99_-_Art_Institute_of_Chicago.jpg) |
 | the-calling-of-saint-matthew.jpg | [The Calling of Saint Matthew by Carvaggio.jpg](https://commons.wikimedia.org/wiki/File:The_Calling_of_Saint_Matthew_by_Carvaggio.jpg) |
 | hero-water-lily-pond.jpg | [Monet - Water Lily Pond, 1917-19, 1982.825.jpg](https://commons.wikimedia.org/wiki/File:Monet_-_Water_Lily_Pond,_1917-19,_1982.825.jpg) |
 
-Missing: champs-de-mars-red-tower, amorpha-fugue-in-two-colors, grand-canyon-of-the-yellowstone, annunciation-leonardo
+Missing: amorpha-fugue-in-two-colors, mont-sainte-victoire, the-hay-wain

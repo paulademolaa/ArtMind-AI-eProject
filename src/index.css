@@ -22,7 +22,7 @@
   /* Fonts */
   --font-serif: 'Bodoni Moda', Georgia, serif; /* headings */
   --font-sans: 'Commissioner', Arial, sans-serif; /* body text, buttons */
-  --font-mono: 'Red Hat Mono', 'Courier New', monospace; /* small labels */
+  --font-label: 'Poppins', Arial, sans-serif; /* small labels */
 
   /* Layout */
   --max-width: 1248px;
@@ -117,7 +117,7 @@ h4,
   display: flex;
   align-items: center;
   gap: 12px;
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: 12px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -132,7 +132,7 @@ h4,
 }
 
 .mono {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: 13px;
   letter-spacing: 0.04em;
 }
@@ -369,7 +369,7 @@ h4,
   line-height: 1.1;
 }
 .stats span {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: 11px;
   letter-spacing: 0.16em;
   text-transform: uppercase;

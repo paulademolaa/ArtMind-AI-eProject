@@ -57,7 +57,7 @@
 }
 
 .side-title {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: 12px;
   font-weight: 400;
   letter-spacing: 0.2em;

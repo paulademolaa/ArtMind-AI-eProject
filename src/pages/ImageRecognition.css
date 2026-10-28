@@ -25,7 +25,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: 10px;
 }
 .progress-dot.done,
@@ -40,7 +40,7 @@
   color: var(--white);
 }
 .progress-name {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: 12px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -134,7 +134,7 @@
   padding: 5px 10px;
   background: var(--ink);
   color: var(--white);
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: 11px;
 }
 .preview.scanning img {

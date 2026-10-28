@@ -52,7 +52,7 @@
   padding-top: 14px;
 }
 .artwork-card-label {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: 11px;
   letter-spacing: 0.16em;
   text-transform: uppercase;

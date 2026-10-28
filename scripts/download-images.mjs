@@ -56,11 +56,11 @@ const wanted = {
   'composition-viii': ['Composition 8', 'Vassily Kandinsky 1923 Guggenheim', 1280, '1923'],
   'edtaonisl': ['Edtaonisl', 'Francis Picabia'],
   'champs-de-mars-red-tower': ['Delaunay', 'Robert Delaunay Champs de Mars The Red Tower Art Institute', 1280, 'Champs|Red Tower|Tour', 'detail'],
-  'amorpha-fugue-in-two-colors': ['Kupka', 'Frantisek Kupka Amorpha Fugue in Two Colors', 1280, 'Amorpha|Fugue', 'detail'],
+  'black-square': ['Square', 'Kazimir Malevich 1915 Black Suprematic Square Tretyakov', 1280, 'Malevich', 'detail|Red|1923|1929|copy'],
   // Landscape
   'stacks-of-wheat-end-of-summer': ['Stacks of Wheat', 'Claude Monet', 1280, 'End of Summer'],
   'the-starry-night': ['Starry Night', 'Vincent van Gogh Google Art Project', 1280, 'Google Art Project', 'Rh[oô]ne|detail'],
-  'mont-sainte-victoire': ['Sainte-Victoire', 'Paul Cézanne Mont Sainte-Victoire Google Art Project', 1280, 'Google Art Project|Cézanne|Cezanne', 'detail|photo|\\.JPG|frame'],
+  'wheat-field-with-cypresses': ['Wheat Field with Cypresses', 'Vincent van Gogh 1889', 1280, 'Gogh', 'detail|drawing'],
   'impression-sunrise': ['Impression', 'Claude Monet Sunrise soleil levant', 1280, 'Sunrise|soleil'],
   'the-hay-wain': ['Hay Wain', 'John Constable'],
   // Flower

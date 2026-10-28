@@ -76,7 +76,7 @@ function ArtworkDetails() {
         <b>Medium:</b> ${artwork.medium}<br/>
         <b>Surface:</b> ${artwork.surface}</p>
         <p>${artwork.description}</p>
-        <p>Image: Art Institute of Chicago, CC0.</p>
+        <p>Collection: ${artwork.collection}. Public-domain image.</p>
       </body></html>`;
     const file = new Blob([html], { type: 'application/msword' });
     const link = document.createElement('a');
@@ -208,7 +208,7 @@ function ArtworkDetails() {
               <dt>Collection</dt>
               <dd>
                 <a href={artwork.sourceUrl} target="_blank" rel="noreferrer">
-                  Art Institute of Chicago ↗
+                  {artwork.collection} ↗
                 </a>
               </dd>
             </div>

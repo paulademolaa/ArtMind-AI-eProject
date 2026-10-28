@@ -26,7 +26,7 @@ function Footer() {
             <Link to="/explore" className="btn btn-light">
               Start exploring <Icon name="arrowRight" size={14} />
             </Link>
-            <p className="footer-credit">Artwork images: Art Institute of Chicago, CC0</p>
+            <p className="footer-credit">Artwork images: public domain, via museum open-access collections</p>
           </div>
 
           <div className="footer-columns">

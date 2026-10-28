@@ -125,7 +125,7 @@ function Home() {
               <p className="hero-card-title">
                 <em>{heroPick.title}</em> {heroPick.date}
               </p>
-              <p className="muted small">{heroPick.medium} · Art Institute of Chicago</p>
+              <p className="muted small">{heroPick.medium} · {heroPick.collection}</p>
               <div className="hero-card-match">
                 <span className="mono">
                   <Icon name="sparkle" size={13} /> {96 - featuredIndex * 3}% match for you

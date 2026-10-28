@@ -15,7 +15,8 @@ import fs from 'node:fs';
 const OUT_DIR = 'public/images';
 const USER_AGENT = 'ArtMindAI-eProject/1.0 (https://github.com/paulademolaa/ArtMind-AI-eProject; student project)';
 
-// id: [words that must be in the file name, artist search words, image width, extra words the file name must have, words it must NOT have]
+// id: [words that must be in the file name, artist search words, image width,
+//      pattern the file name must match, pattern it must NOT match]  (patterns are regular expressions)
 const wanted = {
   'improvisation-no-30': ['Improvisation No. 30', 'Kandinsky'],
   'painting-with-green-center': ['Green Center', 'Kandinsky'],
@@ -48,6 +49,43 @@ const wanted = {
   'saint-martin-and-the-beggar': ['Saint Martin and the Beggar', 'El Greco'],
   'the-crucifixion': ['Crucifixion', 'Carlo Crivelli'],
   'the-adoration-of-the-magi': ['Adoration of the Magi', 'Botticini'],
+  // ---- Added to reach 60 paintings ----
+  // Abstract
+  'composition-vii': ['Composition 7', 'Vassily Kandinsky 1913', 1280, '1913'],
+  'composition-viii': ['Composition 8', 'Vassily Kandinsky 1923 Guggenheim', 1280, '1923'],
+  'edtaonisl': ['Edtaonisl', 'Francis Picabia'],
+  'champs-de-mars-red-tower': ['Red Tower', 'Robert Delaunay Champs de Mars'],
+  'amorpha-fugue-in-two-colors': ['Amorpha', 'Frantisek Kupka'],
+  // Landscape
+  'stacks-of-wheat-end-of-summer': ['Stacks of Wheat', 'Claude Monet', 1280, 'End of Summer'],
+  'the-starry-night': ['Starry Night', 'Vincent van Gogh 1889', 1280, '', 'Rh[oô]ne|detail'],
+  'mont-sainte-victoire': ['Sainte-Victoire', 'Paul Cezanne 1902 Philadelphia', 1280, 'Philadelphia|1902|1904|1906'],
+  'impression-sunrise': ['Impression', 'Claude Monet Sunrise soleil levant', 1280, 'Sunrise|soleil'],
+  'the-hay-wain': ['Hay Wain', 'John Constable'],
+  // Flower
+  'sunflowers': ['Sunflowers', 'Vincent van Gogh 1888', 1280, 'Gogh'],
+  'irises': ['Irises', 'Vincent van Gogh 1889 Getty', 1280, 'Gogh'],
+  'flowers-in-a-vase-ruysch': ['Ruysch', 'Rachel Ruysch Flowers in a Vase', 1280, 'Flower'],
+  'flowers-in-an-urn': ['Flowers in an Urn', 'Jan van Huysum'],
+  'bouquet-of-sunflowers': ['Bouquet of Sunflowers', 'Claude Monet'],
+  // Nature
+  'among-the-sierra-nevada': ['Among the Sierra Nevada', 'Albert Bierstadt'],
+  'wanderer-above-the-sea-of-fog': ['Wanderer above the', 'Caspar David Friedrich'],
+  'grand-canyon-of-the-yellowstone': ['Grand Canyon of the Yellowstone', 'Thomas Moran 1872', 1280, '1872'],
+  'twilight-in-the-wilderness': ['Twilight in the Wilderness', 'Frederic Edwin Church'],
+  'the-fighting-temeraire': ['Fighting Temeraire', 'J. M. W. Turner'],
+  // Figurative
+  'girl-with-a-pearl-earring': ['Pearl Earring', 'Johannes Vermeer', 1280, '', 'detail|copy|parody'],
+  'paris-street-rainy-day': ['Rainy Day', 'Gustave Caillebotte Paris Street'],
+  'a-sunday-on-la-grande-jatte': ['Grande Jatte', 'Georges Seurat 1884', 1280, 'Sunday', 'sketch|study|rawpixel|detail|Oil'],
+  'luncheon-of-the-boating-party': ['Luncheon of the Boating Party', 'Pierre-Auguste Renoir'],
+  'van-gogh-self-portrait-1887': ['Self-Portrait', 'Vincent van Gogh 1887 Art Institute of Chicago', 1280, 'Art Institute|1954\\.326'],
+  // Religious
+  'annunciation-leonardo': ['Annunc', 'Leonardo da Vinci Uffizi', 1280, 'Leonardo', 'detail'],
+  'sistine-madonna': ['Madonna', 'Raphael Sistine Madonna Dresden', 1280, 'Sixtin|Sistine', 'detail|cherub|putti'],
+  'the-assumption-of-the-virgin': ['Assumption of the Virgin', 'El Greco Art Institute of Chicago', 1280, 'Greco'],
+  'the-calling-of-saint-matthew': ['Calling of', 'Caravaggio Saint Matthew', 1280, 'Matth', 'detail'],
+
   'hero-water-lily-pond': ['Water Lily Pond', 'Monet 1917-19 1982.825', 1920, '1982.825'],
 };
 
@@ -72,7 +110,7 @@ async function search(text, width) {
 
 const normal = (s) => s.toLowerCase().replace(/[’']/g, "'");
 
-async function findFile(key, who, width, must = '', avoid = '###') {
+async function findFile(key, who, width, must = '', avoid = '') {
   let pages = [];
   for (const q of [`${who} ${key} Art Institute of Chicago`, `${who} ${key}`, key + ' Art Institute of Chicago']) {
     pages = pages.concat(await search(q, width));
@@ -83,8 +121,8 @@ async function findFile(key, who, width, must = '', avoid = '###') {
     return (
       info &&
       normal(p.title).includes(normal(key)) &&
-      normal(p.title).includes(normal(must)) &&
-      !p.title.includes(avoid) &&
+      (!must || new RegExp(must, 'i').test(p.title)) &&
+      (!avoid || !new RegExp(avoid, 'i').test(p.title)) &&
       /image\/(jpeg|png)/.test(info.mime) &&
       info.width >= 900 &&
       !/detail|frame/i.test(p.title)

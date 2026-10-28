@@ -172,26 +172,7 @@ function Categories() {
           </div>
         </div>
       </section>
-
-      {/* AI suggestion band */}
-      <section className="container ai-band">
-        <div>
-          <span className="ai-badge">
-            <Icon name="sparkle" size={12} /> Personalised
-          </span>
-          <h3>Can’t choose? Tell us what you love and AI will open the right door.</h3>
-        </div>
-        <div className="ai-band-actions">
-          {['Calm & quiet', 'Bold colour', 'Stories & people'].map((mood) => (
-            <Link key={mood} to={'/ai/search?q=' + encodeURIComponent(mood)} className="chip">
-              {mood}
-            </Link>
-          ))}
-          <Link to="/ai/recommendations" className="btn btn-dark">
-            Take the taste quiz <Icon name="arrowRight" size={14} />
-          </Link>
-        </div>
-      </section>
+      
     </PageLayout>
   );
 }

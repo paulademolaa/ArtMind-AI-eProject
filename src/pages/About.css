@@ -43,22 +43,48 @@
 }
 
 /* ---------- Mission ---------- */
-.mission .container {
-  text-align: center;
-  max-width: 1000px;
+/* Mission + Vision: two cards side by side */
+.mission-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
 }
-.mission-eyebrow {
+.mission-card {
+  display: flex;
+  flex-direction: column;
+  padding: 48px;
+  border: 1px solid var(--line);
+  background: var(--white);
+}
+.mission-card-dark {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--white);
+}
+.mission-card-dark p:last-child {
+  color: rgba(255, 255, 255, 0.72);
+}
+.mission-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
   justify-content: center;
+  margin-bottom: 28px;
+  background: rgba(18, 54, 196, 0.1);
+  color: var(--accent);
 }
-.mission-eyebrow::before {
-  display: none;
+.mission-card-dark .mission-icon {
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--accent-light);
 }
 .mission blockquote {
   font-family: var(--font-serif);
   font-style: italic;
-  font-size: 52px;
-  line-height: 1.15;
-  margin: 8px 0 24px;
+  font-size: 34px;
+  line-height: 1.2;
+  margin: 4px 0 20px;
 }
 
 /* ---------- Problem & approach ---------- */
@@ -296,7 +322,10 @@
     grid-template-columns: repeat(3, 1fr);
   }
   .mission blockquote {
-    font-size: 40px;
+    font-size: 28px;
+  }
+  .mission-card {
+    padding: 32px;
   }
 }
 
@@ -316,8 +345,14 @@
   .about-img-small {
     display: none;
   }
+  .mission-grid {
+    grid-template-columns: 1fr;
+  }
   .mission blockquote {
-    font-size: 30px;
+    font-size: 26px;
+  }
+  .mission-card {
+    padding: 28px 24px;
   }
   .approach-card,
   .contact-form {

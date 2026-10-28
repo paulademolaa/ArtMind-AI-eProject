@@ -122,12 +122,29 @@ function About() {
         </div>
       </div>
 
-      {/* ---------- MISSION ---------- */}
+      {/* ---------- MISSION + VISION (two cards side by side) ---------- */}
       <section className="section mission">
-        <div className="container">
-          <p className="eyebrow mission-eyebrow">Our mission</p>
-          <blockquote>“Great paintings should be easy to find — and even easier to understand.”</blockquote>
-          <p className="muted">Every feature in ArtMind starts from that idea: less searching, more looking.</p>
+        <div className="container mission-grid">
+          <div className="mission-card">
+            <span className="mission-icon">
+              <Icon name="sparkle" size={20} />
+            </span>
+            <p className="eyebrow">Our mission</p>
+            <blockquote>“Great paintings should be easy to find — and even easier to understand.”</blockquote>
+            <p className="muted">Every feature in ArtMind starts from that idea: less searching, more looking.</p>
+          </div>
+
+          <div className="mission-card mission-card-dark">
+            <span className="mission-icon">
+              <Icon name="eye" size={20} />
+            </span>
+            <p className="eyebrow eyebrow-light">Our vision</p>
+            <blockquote>“A personal museum for everyone — where AI opens the door to great art.”</blockquote>
+            <p>
+              We imagine a world where anyone, anywhere, can discover paintings that move them, and understand the stories
+              behind them.
+            </p>
+          </div>
         </div>
       </section>
 

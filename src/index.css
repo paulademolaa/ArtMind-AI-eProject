@@ -490,6 +490,52 @@ h4,
 }
 
 
+/* ---------- ANIMATIONS (see components/ScrollAnimations.jsx) ---------- */
+/* Hidden and a little lower until it scrolls into view…
+   ([data-reveal] makes these rules stronger than a card's own styles) */
+[data-reveal].reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+/* …then it fades in and slides up into place. */
+[data-reveal].reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Hero text gently fades up when a page opens */
+.hero-content,
+.about-hero > *,
+.categories-header > *,
+.search-hero {
+  animation: fade-up 0.8s ease both;
+}
+.about-hero > *:nth-child(2),
+.categories-header > *:nth-child(2) {
+  animation-delay: 0.15s;
+}
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Turn animations off for people who prefer less motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
 /* ---------- 6. RESPONSIVE ---------- */
 /* Tablet */
 @media (max-width: 1024px) {

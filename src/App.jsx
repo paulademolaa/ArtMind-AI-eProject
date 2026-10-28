@@ -7,6 +7,7 @@ import { FavoritesProvider } from './context/FavoritesContext';
 import { AuthProvider } from './context/AuthContext';
 import RequireAuth from './components/RequireAuth';
 import ScrollToTop from './components/ScrollToTop';
+import ScrollAnimations from './components/ScrollAnimations';
 
 // Public pages
 import Home from './pages/Home';
@@ -43,6 +44,7 @@ function App() {
     <FavoritesProvider>
       <BrowserRouter>
         <ScrollToTop />
+        <ScrollAnimations />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/explore" element={<Explore />} />

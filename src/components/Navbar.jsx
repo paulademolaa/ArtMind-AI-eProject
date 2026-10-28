@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import Icon from './Icon';
+import UserAvatar from './UserAvatar';
 import { useFavorites } from '../context/FavoritesContext';
-import { useAuth, initialsOf, firstNameOf } from '../context/AuthContext';
+import { useAuth, firstNameOf } from '../context/AuthContext';
 import './Navbar.css';
 
 const links = [
@@ -58,7 +59,7 @@ function Navbar({ transparent = false }) {
               // Signed in: profile button with a small dropdown menu
               <div className="nav-profile">
                 <button className="nav-profile-button" onClick={() => setProfileOpen(!profileOpen)} aria-expanded={profileOpen}>
-                  <span className="nav-avatar">{initialsOf(user.name)}</span>
+                  <UserAvatar user={user} className="nav-avatar" />
                   <span className="nav-profile-name">{firstNameOf(user.name)}</span>
                   <Icon name="chevronDown" size={14} />
                 </button>

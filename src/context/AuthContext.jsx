@@ -30,7 +30,13 @@ export function AuthProvider({ children }) {
   const [user, setUser] = useState(() => load('artmind-user', null));
 
   function startSession(account) {
-    const signedIn = { name: account.name, email: account.email, joined: account.joined, preferences: account.preferences || {} };
+    const signedIn = {
+      name: account.name,
+      email: account.email,
+      joined: account.joined,
+      photo: account.photo || '', // profile picture (a small image saved as text)
+      preferences: account.preferences || {},
+    };
     setUser(signedIn);
     save('artmind-user', signedIn);
   }

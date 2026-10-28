@@ -43,6 +43,14 @@
   font-family: var(--font-serif);
   font-size: 40px;
 }
+.settings-remove-photo {
+  font-size: 13px;
+}
+.settings-photo-error {
+  margin: 0;
+  text-align: center;
+  font-size: 13px;
+}
 .settings-fields {
   display: grid;
   grid-template-columns: 1fr 1fr;

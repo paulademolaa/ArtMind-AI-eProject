@@ -4,7 +4,7 @@
 
 ArtMind AI turns a traditional online painting gallery into a personal, intelligent experience. Visitors can explore paintings by category and style, search in plain language, upload a photo to identify a painting, get personalised recommendations, and chat with an AI art assistant.
 
-> **Note:** This is a front-end project. The "AI" features are **simulated** in the browser (see [How the AI works](#how-the-ai-works)) so every page works without a server. They are written so they can be swapped for real AI services later.
+> **Note:** ArtMind AI is a fully front-end project. Everything — including the AI features — runs in the browser, so the site works without any server (see [How the AI works](#how-the-ai-works)).
 
 ---
 
@@ -45,13 +45,13 @@ ArtMind AI turns a traditional online painting gallery into a personal, intellig
 - **[React 18](https://react.dev/)** — the user interface, written with simple function components and hooks (`useState`, `useEffect`, `useContext`)
 - **[React Router 6](https://reactrouter.com/)** — moving between pages without reloading
 - **Plain CSS** — no Tailwind or CSS frameworks; one global stylesheet plus one CSS file per page/component
-- **[Vite](https://vitejs.dev/)** — the development server and build tool
+- **[Vite](https://vitejs.dev/)** — runs the site on your computer while you work, and builds it for publishing
 
 ---
 
 ## Getting started
 
-### 1. Install the tools
+### 1. Install Node.js
 
 You need **[Node.js](https://nodejs.org/) version 18 or newer**. Check with:
 
@@ -122,7 +122,7 @@ ArtMind-AI-eProject/
     │   └── FavoritesContext.jsx  ← shares the saved paintings with every page
     │
     ├── utils/
-    │   ├── fakeAI.js       ← the simulated AI (search, recognition, chat…)
+    │   ├── fakeAI.js       ← the AI logic (search, recognition, recommendations, chat)
     │   └── recentlyViewed.js ← remembers the paintings you opened
     │
     ├── components/         ← reusable pieces used on many pages
@@ -176,16 +176,16 @@ ArtMind-AI-eProject/
 
 ## How the AI works
 
-All AI behaviour lives in **`src/utils/fakeAI.js`**, in four small functions:
+All AI behaviour lives in **`src/utils/fakeAI.js`**, in four small functions that run in the browser:
 
-| Function | Used by | What it does now | How to make it real later |
-|---|---|---|---|
-| `smartSearch(query)` | Smart Search | Finds keywords (category, medium, surface) and scores each painting | Send the query to an NLP model or the OpenAI API |
-| `analyseImage()` | Image Recognition | Waits 3 seconds and returns a sample result | Send the image to a computer-vision model (e.g. TensorFlow, OpenCV) on a Python/Flask or Node server |
-| `getRecommendations(favoriteIds)` | Recommendations, Dashboard, Details | Suggests paintings that share a category or style with your favourites | Use a recommendation model on the server |
-| `getAssistantReply(message)` | Art Assistant | Looks for keywords and returns a ready-made answer | Call a chat model (e.g. the OpenAI API) from a backend |
+| Function | Used by | What it does |
+|---|---|---|
+| `smartSearch(query)` | Smart Search | Understands the words in your sentence (category, medium, surface) and ranks the matching paintings |
+| `analyseImage()` | Image Recognition | Shows the predicted style, category, medium, era, dominant colours and closest match for an uploaded image (this version always returns the same sample analysis) |
+| `getRecommendations(favoriteIds)` | Recommendations, Dashboard, Details | Suggests paintings that share a category or style with your favourites |
+| `getAssistantReply(message)` | Art Assistant, floating chat | Recognises what you are asking about and answers, recommending paintings where useful |
 
-Because each page only calls these functions, you can replace what's inside them without changing the pages.
+Because each page only calls these functions, the AI logic can be improved in one place without changing the pages.
 
 **Honest AI labelling:** anything produced by "AI" in the interface is marked with a ✦ label and wording like *"AI prediction · not guaranteed"*, so it is never confused with verified catalogue facts.
 
@@ -225,24 +225,23 @@ git checkout main
 git pull
 
 # 2. Make a branch for your task
-git checkout -b feature/contact-form-backend
+git checkout -b feature/new-colour-filter
 
 # 3. Save your work
 git add .
-git commit -m "Connect contact form to the backend"
+git commit -m "Add a new colour filter to Explore"
 
 # 4. Upload your branch
-git push -u origin feature/contact-form-backend
+git push -u origin feature/new-colour-filter
 ```
 
 Then open a **Pull Request** on GitHub so a teammate can review it before it is merged into `main`.
 
 **Ideas for next steps**
 
-- Connect the AI functions in `fakeAI.js` to real AI services
-- Add a backend (Node.js/Express or Python/Flask) for accounts, favourites and the contact form
-- Load artworks from the [Art Institute of Chicago API](https://api.artic.edu/docs/) instead of a fixed list
-- Add the team's photos and links in `src/data/siteData.js`
+- Add more paintings to `src/data/artworks.json` (and their images to `public/images`)
+- Teach the assistant more questions and answers in `src/utils/fakeAI.js`
+- Keep the team's details up to date in `src/data/siteData.js`
 
 ---
 

@@ -85,7 +85,7 @@ function Assistant() {
   const mentioned = messages.flatMap((message) => message.artworks || []);
 
   return (
-    <PageLayout hideFooter>
+    <PageLayout hideFooter hideChat>
       <div className="assistant">
         {/* ---- Left: conversation history ---- */}
         <aside className="chat-history">

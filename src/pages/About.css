@@ -87,54 +87,6 @@
   margin: 4px 0 20px;
 }
 
-/* ---------- Problem & approach ---------- */
-.approach-card {
-  padding: 40px;
-  background: var(--white);
-}
-.approach-card-dark {
-  background: var(--ink);
-  color: var(--white);
-}
-.approach-title {
-  font-family: var(--font-label);
-  font-size: 12px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  opacity: 0.72;
-  margin-bottom: 8px;
-}
-.approach-row {
-  display: flex;
-  gap: 16px;
-  padding: 16px 0;
-  border-top: 1px solid var(--line);
-}
-.approach-card-dark .approach-row {
-  border-top-color: var(--line-light);
-}
-.approach-row h4 {
-  font-size: 22px;
-}
-.approach-row p {
-  font-size: 14px;
-  opacity: 0.72;
-}
-.approach-icon {
-  width: 28px;
-  height: 28px;
-  flex-shrink: 0;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(19, 19, 19, 0.06);
-}
-.approach-card-dark .approach-icon {
-  background: rgba(125, 143, 232, 0.2);
-  color: var(--accent-light);
-}
-
 /* ---------- Team ---------- */
 .team-grid {
   display: grid;
@@ -354,7 +306,6 @@
   .mission-card {
     padding: 28px 24px;
   }
-  .approach-card,
   .contact-form {
     padding: 24px;
   }

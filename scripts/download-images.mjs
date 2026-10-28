@@ -59,7 +59,7 @@ const wanted = {
   'black-square': ['Square', 'Kazimir Malevich 1915 Black Suprematic Square Tretyakov', 1280, 'Malevich', 'detail|Red|1923|1929|copy'],
   // Landscape
   'stacks-of-wheat-end-of-summer': ['Stacks of Wheat', 'Claude Monet', 1280, 'End of Summer'],
-  'the-starry-night': ['Starry Night', 'Vincent van Gogh Google Art Project', 1280, 'Google Art Project', 'Rh[oô]ne|detail'],
+  'starry-night-over-the-rhone': ['Starry Night', 'Vincent van Gogh Google Art Project', 1280, 'Google Art Project', 'detail'],
   'wheat-field-with-cypresses': ['Wheat Field with Cypresses', 'Vincent van Gogh 1889', 1280, 'Gogh', 'detail|drawing'],
   'impression-sunrise': ['Impression', 'Claude Monet Sunrise soleil levant', 1280, 'Sunrise|soleil'],
   'the-hay-wain': ['Hay Wain', 'John Constable'],

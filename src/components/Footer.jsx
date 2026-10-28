@@ -52,10 +52,6 @@ function Footer() {
               <h4 className="footer-heading">Contact</h4>
               <a href="mailto:hello@artmind.ai">hello@artmind.ai</a>
               <a href="tel:+2348002786463">+234 800 278 6463</a>
-              <h4 className="footer-heading follow">Follow</h4>
-              <a href="#">Instagram ↗</a>
-              <a href="#">Pinterest ↗</a>
-              <a href="#">X ↗</a>
             </div>
           </div>
         </div>

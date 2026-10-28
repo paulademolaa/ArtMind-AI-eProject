@@ -1,44 +1,65 @@
+import artworks from './artworks';
+
+// How many paintings are in a category, counted from artworks.json
+// (so the numbers always tally with the real collection).
+function countIn(name) {
+  return String(artworks.filter((art) => art.category === name).length);
+}
+
+// The most common styles in a category (up to 3), e.g. ['Impressionism', 'Realism'].
+function stylesIn(name) {
+  const counts = {};
+  artworks
+    .filter((art) => art.category === name)
+    .forEach((art) => {
+      counts[art.style] = (counts[art.style] || 0) + 1;
+    });
+  return Object.keys(counts)
+    .sort((a, b) => counts[b] - counts[a])
+    .slice(0, 3);
+}
+
 export const categories = [
   {
     name: 'Abstract',
+    count: countIn('Abstract'),
+    styles: stylesIn('Abstract'),
     coverId: 'improvisation-no-30',
-    count: '1,248',
-    styles: ['Expressionism', 'De Stijl'],
     description: 'Colour, line and form carry the meaning — Kandinsky to Mondrian.',
   },
   {
     name: 'Landscape',
+    count: countIn('Landscape'),
+    styles: stylesIn('Landscape'),
     coverId: 'cliff-walk-at-pourville',
-    count: '3,912',
-    styles: ['Impressionism', 'Realism', 'Romanticism'],
     description: 'Countryside, coast and city views — from Romantic storms to Impressionist light.',
   },
   {
     name: 'Flower',
+    count: countIn('Flower'),
+    styles: stylesIn('Flower'),
     coverId: 'bouquet-in-earthenware-vase',
-    count: '1,036',
-    styles: ['Baroque', 'Post-Impressionism'],
     description: 'Dutch bouquets, Redon’s dreamlike blooms, Heade’s magnolias.',
   },
   {
     name: 'Nature',
+    count: countIn('Nature'),
+    styles: stylesIn('Nature'),
     coverId: 'view-of-cotopaxi',
-    count: '2,207',
-    styles: ['Hudson River School', 'Tonalism'],
     description: 'Wilderness, water and weather on a grand scale.',
   },
   {
     name: 'Figurative',
+    count: countIn('Figurative'),
+    styles: stylesIn('Figurative'),
     coverId: 'two-sisters-on-the-terrace',
-    count: '2,684',
-    styles: ['Impressionism', 'Realism'],
     description: 'Portraits, everyday scenes and modern life.',
   },
   {
     name: 'Religious',
+    count: countIn('Religious'),
+    styles: stylesIn('Religious'),
     coverId: 'saint-martin-and-the-beggar',
-    count: '1,311',
-    styles: ['Early Renaissance', 'Mannerism'],
     description: 'Devotional and biblical subjects, from gilded Renaissance panels to 19th-century visions.',
   },
 ];

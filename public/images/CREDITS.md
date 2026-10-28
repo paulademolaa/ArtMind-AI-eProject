@@ -41,9 +41,7 @@ Downloaded from Wikimedia Commons (public domain).
 | champs-de-mars-red-tower.jpg | [Delaunay - Tour Eiffel.jpeg](https://commons.wikimedia.org/wiki/File:Delaunay_-_Tour_Eiffel.jpeg) |
 | black-square.jpg | [Kazimir Malevich, 1915, Black Suprematic Square, oil on linen canvas, 79.5 x 79.5 cm, Tretyakov Gallery, Moscow.jpg](https://commons.wikimedia.org/wiki/File:Kazimir_Malevich,_1915,_Black_Suprematic_Square,_oil_on_linen_canvas,_79.5_x_79.5_cm,_Tretyakov_Gallery,_Moscow.jpg) |
 | stacks-of-wheat-end-of-summer.jpg | [Claude Monet - Stacks of Wheat (End of Summer) - 1985.1103 - Art Institute of Chicago.jpg](https://commons.wikimedia.org/wiki/File:Claude_Monet_-_Stacks_of_Wheat_(End_of_Summer)_-_1985.1103_-_Art_Institute_of_Chicago.jpg) |
-| the-starry-night.jpg | [Vincent van Gogh - Starry Night - Google Art Project.jpg](https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg) |
 | wheat-field-with-cypresses.jpg | [Vincent van Gogh - Wheat Field with Cypresses (National Gallery version).jpg](https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_Wheat_Field_with_Cypresses_(National_Gallery_version).jpg) |
-| impression-sunrise.jpg | [Monet - Impression, Sunrise.jpg](https://commons.wikimedia.org/wiki/File:Monet_-_Impression,_Sunrise.jpg) |
 | the-hay-wain.jpg | [John Constable - The Hay Wain (1821).jpg](https://commons.wikimedia.org/wiki/File:John_Constable_-_The_Hay_Wain_(1821).jpg) |
 | sunflowers.jpg | [Vincent van Gogh - Sunflowers - VGM F458.jpg](https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_Sunflowers_-_VGM_F458.jpg) |
 | irises.jpg | [Vincent van Gogh - Irises (1889).jpg](https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_Irises_(1889).jpg) |
@@ -63,5 +61,6 @@ Downloaded from Wikimedia Commons (public domain).
 | annunciation-leonardo.jpg | [Annunciation (Leonardo).jpg](https://commons.wikimedia.org/wiki/File:Annunciation_(Leonardo).jpg) |
 | sistine-madonna.jpg | [Raphael - The Sistine Madonna - Google Arts & Culture.jpg](https://commons.wikimedia.org/wiki/File:Raphael_-_The_Sistine_Madonna_-_Google_Arts_%26_Culture.jpg) |
 | the-assumption-of-the-virgin.jpg | [Domenico Theotokópoulos, called El Greco - The Assumption of the Virgin - 1906.99 - Art Institute of Chicago.jpg](https://commons.wikimedia.org/wiki/File:Domenico_Theotok%C3%B3poulos,_called_El_Greco_-_The_Assumption_of_the_Virgin_-_1906.99_-_Art_Institute_of_Chicago.jpg) |
-| the-calling-of-saint-matthew.jpg | [The Calling of Saint Matthew by Carvaggio.jpg](https://commons.wikimedia.org/wiki/File:The_Calling_of_Saint_Matthew_by_Carvaggio.jpg) |
 | hero-water-lily-pond.jpg | [Monet - Water Lily Pond, 1917-19, 1982.825.jpg](https://commons.wikimedia.org/wiki/File:Monet_-_Water_Lily_Pond,_1917-19,_1982.825.jpg) |
+
+Missing: starry-night-over-the-rhone, impression-sunrise, the-calling-of-saint-matthew

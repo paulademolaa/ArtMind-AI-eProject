@@ -41,7 +41,7 @@
 }
 .fav-table th {
   text-align: left;
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-weight: 400;
   font-size: 11px;
   letter-spacing: 0.16em;

@@ -209,7 +209,7 @@ The site follows the ArtMind AI Figma design (file: *eProject CPISM*). All value
 
 - **Bodoni Moda** — headings (italic for accent words and artwork titles)
 - **Commissioner** — body text, navigation and buttons
-- **Red Hat Mono** — small uppercase labels, prices, dates and counts
+- **Poppins** — small uppercase labels, prices, dates and counts
 
 **Screen sizes:** desktop styles first, then `@media (max-width: 1024px)` for tablet and `@media (max-width: 640px)` for mobile.
 
@@ -264,5 +264,5 @@ ArtMind AI was created by a team of six:
 ## Credits
 
 - **Artwork images:** public-domain paintings from the [Art Institute of Chicago](https://www.artic.edu/) collection. The image files in `public/images` were downloaded from [Wikimedia Commons](https://commons.wikimedia.org/), and `public/images/CREDITS.md` lists the source for each one. Titles, artists, dates and mediums come from the museum's records. The short descriptions were written for this project.
-- **Fonts:** Bodoni Moda, Commissioner and Red Hat Mono from [Google Fonts](https://fonts.google.com/).
+- **Fonts:** Bodoni Moda, Commissioner and Poppins from [Google Fonts](https://fonts.google.com/).
 - Created for educational purposes as part of an Aptech eProject.

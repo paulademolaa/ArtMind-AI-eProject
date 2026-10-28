@@ -24,7 +24,7 @@
   margin-bottom: 24px;
 }
 .side-label {
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: 11px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -288,7 +288,7 @@
 }
 .msg-time {
   display: block;
-  font-family: var(--font-mono);
+  font-family: var(--font-label);
   font-size: 11px;
   color: var(--ink-muted);
   margin-top: 6px;

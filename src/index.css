@@ -434,6 +434,12 @@ h4,
   height: 56px;
 }
 
+/* A profile photo inside a round avatar (see UserAvatar.jsx) */
+.avatar-photo {
+  object-fit: cover;
+  padding: 0;
+}
+
 /* Round icon used for the AI assistant */
 .chat-avatar {
   width: 30px;

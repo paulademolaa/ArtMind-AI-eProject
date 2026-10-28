@@ -6,7 +6,8 @@
 import { Link, NavLink } from 'react-router-dom';
 import PageLayout from './PageLayout';
 import Icon from './Icon';
-import { useAuth, initialsOf } from '../context/AuthContext';
+import UserAvatar from './UserAvatar';
+import { useAuth } from '../context/AuthContext';
 import './DashboardLayout.css';
 
 const menu = [
@@ -26,7 +27,7 @@ function DashboardLayout({ children }) {
       <div className="dashboard-layout">
         <aside className="dashboard-sidebar">
           <div className="dashboard-user">
-            <span className="user-avatar">{initialsOf(user.name)}</span>
+            <UserAvatar user={user} className="user-avatar" />
             <div>
               <strong>{user.name}</strong>
               <p className="muted small">Member since {user.joined}</p>

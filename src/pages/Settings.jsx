@@ -4,13 +4,14 @@
 // "Save changes" saves through AuthContext (in the browser for now)
 // and shows a small "Profile updated" message.
 // ------------------------------------------------------------
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import DashboardLayout from '../components/DashboardLayout';
 import PasswordInput from '../components/PasswordInput';
 import Icon from '../components/Icon';
+import UserAvatar from '../components/UserAvatar';
 import { categories } from '../data/siteData';
-import { useAuth, initialsOf } from '../context/AuthContext';
+import { useAuth } from '../context/AuthContext';
 import './Dashboard.css';
 import './Favorites.css';
 import './Settings.css';
@@ -53,6 +54,47 @@ function Settings() {
     news: saved.news ?? false,
   });
   const [confirmDelete, setConfirmDelete] = useState(false);
+
+  // ---- Profile photo ----
+  const fileInput = useRef(null); // the hidden <input type="file">
+  const [photoError, setPhotoError] = useState('');
+
+  // Turn the chosen picture into a small square image (256 × 256) and save it.
+  // We shrink it so it fits in the browser's storage.
+  function handlePhoto(event) {
+    const file = event.target.files[0];
+    event.target.value = ''; // so choosing the same file again still works
+    if (!file) return;
+    if (!file.type.startsWith('image/')) return setPhotoError('Please choose an image file (JPG, PNG or WebP).');
+    if (file.size > 5 * 1024 * 1024) return setPhotoError('Please choose an image smaller than 5 MB.');
+
+    const reader = new FileReader();
+    reader.onload = () => {
+      const img = new Image();
+      img.onload = () => {
+        const size = 256;
+        const canvas = document.createElement('canvas');
+        canvas.width = size;
+        canvas.height = size;
+        // Crop the middle square of the picture so faces aren't squashed.
+        const side = Math.min(img.width, img.height);
+        const sx = (img.width - side) / 2;
+        const sy = (img.height - side) / 2;
+        canvas.getContext('2d').drawImage(img, sx, sy, side, side, 0, 0, size, size);
+        const photo = canvas.toDataURL('image/jpeg', 0.85);
+        setPhotoError('');
+        updateProfile({ photo });
+        showToast('Photo updated', 'Your new profile picture has been saved.');
+      };
+      img.src = reader.result;
+    };
+    reader.readAsDataURL(file);
+  }
+
+  function removePhoto() {
+    updateProfile({ photo: '' });
+    showToast('Photo removed', 'Your initials will show instead.');
+  }
 
   // The username is made from the email, e.g. "@amara.okafor".
   const username = '@' + user.email.split('@')[0];
@@ -117,10 +159,18 @@ function Settings() {
       {tab === 'Profile' && (
         <div className="settings-profile">
           <div className="settings-photo">
-            <span className="settings-avatar">{initialsOf(`${form.firstName} ${form.lastName}` || user.name)}</span>
-            <button className="text-button" type="button">
+            <UserAvatar user={user} className="settings-avatar" />
+            {/* The real file picker is hidden; the button opens it */}
+            <input ref={fileInput} type="file" accept="image/*" hidden onChange={handlePhoto} />
+            <button className="text-button" type="button" onClick={() => fileInput.current.click()}>
               Change photo
             </button>
+            {user.photo && (
+              <button className="text-button settings-remove-photo" type="button" onClick={removePhoto}>
+                Remove photo
+              </button>
+            )}
+            {photoError && <p className="settings-error settings-photo-error">{photoError}</p>}
           </div>
           <div className="settings-fields">
             <label className="field">

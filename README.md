@@ -113,7 +113,7 @@ ArtMind-AI-eProject/
     ├── index.css           ← GLOBAL styles: colours, fonts, buttons, grids
     │
     ├── data/
-    │   ├── artworks.json   ← the 31 paintings (title, artist, image, tags…)
+    │   ├── artworks.json   ← the 60 paintings (title, artist, image, tags…)
     │   ├── artworks.js     ← small helpers that read artworks.json
     │   └── siteData.js     ← categories, collections and the team
     │
@@ -262,6 +262,6 @@ ArtMind AI was created by a team of six:
 
 ## Credits
 
-- **Artwork images:** public-domain paintings from the [Art Institute of Chicago](https://www.artic.edu/) collection. The image files in `public/images` were downloaded from [Wikimedia Commons](https://commons.wikimedia.org/), and `public/images/CREDITS.md` lists the source for each one. Titles, artists, dates and mediums come from the museum's records. The short descriptions were written for this project.
+- **Artwork images:** public-domain paintings from the [Art Institute of Chicago](https://www.artic.edu/) and other museums (each painting's museum is listed in `artworks.json` and on its details page). The image files in `public/images` were downloaded from [Wikimedia Commons](https://commons.wikimedia.org/), and `public/images/CREDITS.md` lists the source for each one. Titles, artists, dates and mediums come from the museum's records. The short descriptions were written for this project.
 - **Fonts:** Bodoni Moda, Commissioner and Poppins from [Google Fonts](https://fonts.google.com/).
 - Created for educational purposes as part of an Aptech eProject.

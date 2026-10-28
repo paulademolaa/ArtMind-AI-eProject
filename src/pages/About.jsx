@@ -15,20 +15,6 @@ import Isreal from "../assets/Isreal.jpeg";
 
 const teamPhotos = [Paul, Timi, Treasure, James, Loius, Isreal];
 
-const problems = [
-  ['Static presentation', 'Endless grids with no context or story.'],
-  ['Poor personalisation', 'Everyone sees the same paintings, in the same order.'],
-  ['Limited search', 'Keyword boxes that can’t understand “calm blue seascapes”.'],
-  ['Hard to discover', 'No way to explore by style, palette or mood.'],
-];
-
-const solutions = [
-  ['AI recommendations', 'Suggestions that learn from what you view and save.'],
-  ['Natural-language search', 'Describe what you want, in your own words.'],
-  ['Image recognition', 'Upload a photo to identify style, colours and category.'],
-  ['An art assistant', 'Ask about artists, techniques and movements — anytime.'],
-];
-
 const topics = ['The collection', 'AI features', 'Partnerships', 'Press', 'Something else'];
 
 
@@ -85,8 +71,8 @@ function About() {
             <Link to="/explore" className="btn btn-dark">
               Explore the collection <Icon name="arrowRight" size={14} />
             </Link>
-            <a href="#approach" className="link-arrow">
-              Our approach <Icon name="arrowRight" size={14} />
+            <a href="#team" className="link-arrow">
+              Meet the team <Icon name="arrowRight" size={14} />
             </a>
           </div>
         </div>
@@ -148,55 +134,8 @@ function About() {
         </div>
       </section>
 
-      {/* ---------- PROBLEM & APPROACH ---------- */}
-      <section className="section section-surface" id="approach">
-        <div className="container">
-          <div className="section-header">
-            <div>
-              <p className="eyebrow">Why we built it</p>
-              <h2>
-                Static galleries,
-                <br />
-                <span className="accent">meet smart discovery.</span>
-              </h2>
-            </div>
-            <p>Most painting websites are digital catalogues: beautiful, but silent. We set out to make the gallery listen.</p>
-          </div>
-          <div className="grid-2">
-            <div className="approach-card">
-              <h4 className="approach-title">The problem</h4>
-              {problems.map(([title, text]) => (
-                <div className="approach-row" key={title}>
-                  <span className="approach-icon">
-                    <Icon name="close" size={13} />
-                  </span>
-                  <div>
-                    <h4>{title}</h4>
-                    <p>{text}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-            <div className="approach-card approach-card-dark">
-              <h4 className="approach-title">The ArtMind approach</h4>
-              {solutions.map(([title, text]) => (
-                <div className="approach-row" key={title}>
-                  <span className="approach-icon">
-                    <Icon name="check" size={13} />
-                  </span>
-                  <div>
-                    <h4>{title}</h4>
-                    <p>{text}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* ---------- BEHIND THE PROJECT (team) ---------- */}
-      <section className="section">
+      <section className="section" id="team">
         <div className="container">
           <div className="section-header">
             <div>

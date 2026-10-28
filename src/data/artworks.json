@@ -132,6 +132,160 @@
       "sourceUrl": "https://www.artic.edu/artworks/8980"
     },
     {
+      "id": "composition-vii",
+      "image": "/images/composition-vii.jpg",
+      "title": "Composition VII",
+      "artist": "Vasily Kandinsky",
+      "date": "1913",
+      "medium": "Oil on canvas",
+      "surface": "Canvas",
+      "category": "Abstract",
+      "style": "Expressionism",
+      "palette": [
+        "#282C39",
+        "#927B66",
+        "#914131",
+        "#BBA481",
+        "#DBCDB4"
+      ],
+      "tags": [
+        "abstract",
+        "colour",
+        "bold",
+        "energetic",
+        "modern",
+        "kandinsky",
+        "oil",
+        "canvas"
+      ],
+      "description": "Kandinsky’s most complex pre-war painting: a storm of colour, line and shape with no single centre. He made more than thirty studies before painting it in a few days.",
+      "collection": "State Tretyakov Gallery, Moscow",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vassily_Kandinsky,_1913_-_Composition_7.jpg"
+    },
+    {
+      "id": "composition-viii",
+      "image": "/images/composition-viii.jpg",
+      "title": "Composition VIII",
+      "artist": "Vasily Kandinsky",
+      "date": "1923",
+      "medium": "Oil on canvas",
+      "surface": "Canvas",
+      "category": "Abstract",
+      "style": "Geometric abstraction",
+      "palette": [
+        "#A49580",
+        "#C1B29B",
+        "#625347",
+        "#D5C4AD",
+        "#E4D3BD"
+      ],
+      "tags": [
+        "abstract",
+        "geometric",
+        "circles",
+        "lines",
+        "modern",
+        "kandinsky",
+        "oil",
+        "canvas"
+      ],
+      "description": "Painted during his Bauhaus years, it swaps the stormy forms of his earlier work for circles, triangles and crisp lines balanced on a calm, pale ground.",
+      "collection": "Solomon R. Guggenheim Museum, New York",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kandinsky_-_Composition_8,_July_1923.jpg"
+    },
+    {
+      "id": "edtaonisl",
+      "image": "/images/edtaonisl.jpg",
+      "title": "Edtaonisl (Ecclesiastic)",
+      "artist": "Francis Picabia",
+      "date": "1913",
+      "medium": "Oil on canvas",
+      "surface": "Canvas",
+      "category": "Abstract",
+      "style": "Orphism",
+      "palette": [
+        "#8A7256",
+        "#BCAA88",
+        "#353637",
+        "#4B4646",
+        "#744D40"
+      ],
+      "tags": [
+        "abstract",
+        "cubism",
+        "dance",
+        "rhythm",
+        "modern",
+        "oil",
+        "canvas"
+      ],
+      "description": "Inspired by a dancer and a priest Picabia watched on an ocean voyage, the figures break apart into a rhythm of flat, interlocking planes of colour.",
+      "collection": "Art Institute of Chicago",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Francis_Picabia,_1913,_Edtaonisl_(Ecclesiastic"
+    },
+    {
+      "id": "champs-de-mars-red-tower",
+      "image": "/images/champs-de-mars-red-tower.jpg",
+      "title": "Champs de Mars: The Red Tower",
+      "artist": "Robert Delaunay",
+      "date": "1911–23",
+      "medium": "Oil on canvas",
+      "surface": "Canvas",
+      "category": "Abstract",
+      "style": "Orphism",
+      "palette": [
+        "#634C47",
+        "#301B21",
+        "#998D7D",
+        "#C4BBAA",
+        "#D5CFC4"
+      ],
+      "tags": [
+        "abstract",
+        "eiffel tower",
+        "paris",
+        "city",
+        "red",
+        "modern",
+        "oil",
+        "canvas"
+      ],
+      "description": "The Eiffel Tower seems to sway and shatter among fragments of Paris, as Delaunay paints the energy of the modern city seen from many angles at once.",
+      "collection": "Art Institute of Chicago",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Delaunay_-_Tour_Eiffel.jpeg"
+    },
+    {
+      "id": "black-square",
+      "image": "/images/black-square.jpg",
+      "title": "Black Square",
+      "artist": "Kazimir Malevich",
+      "date": "1915",
+      "medium": "Oil on linen",
+      "surface": "Canvas",
+      "category": "Abstract",
+      "style": "Suprematism",
+      "palette": [
+        "#D5D6D1",
+        "#26263C",
+        "#2B2C41",
+        "#333245",
+        "#BBBCB9"
+      ],
+      "tags": [
+        "abstract",
+        "black",
+        "square",
+        "minimal",
+        "geometric",
+        "modern",
+        "oil",
+        "canvas"
+      ],
+      "description": "A single black square on white: Malevich called it the “zero of form”, a starting point for painting made of pure shape and feeling. Age has cracked the black paint.",
+      "collection": "State Tretyakov Gallery, Moscow",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kazimir_Malevich,_1915,_Black_Suprematic_Square,_oil_on_linen_canvas,_79.5_x_79.5_cm,_Tretyakov_Gallery,_Moscow.jpg"
+    },
+    {
       "id": "water-lily-pond",
       "image": "/images/water-lily-pond.jpg",
       "title": "Water Lily Pond",
@@ -317,6 +471,166 @@
       "sourceUrl": "https://www.artic.edu/artworks/109938"
     },
     {
+      "id": "stacks-of-wheat-end-of-summer",
+      "image": "/images/stacks-of-wheat-end-of-summer.jpg",
+      "title": "Stacks of Wheat (End of Summer)",
+      "artist": "Claude Monet",
+      "date": "1890–91",
+      "medium": "Oil on canvas",
+      "surface": "Canvas",
+      "category": "Landscape",
+      "style": "Impressionism",
+      "palette": [
+        "#9C8C7E",
+        "#787F77",
+        "#C9CBB5",
+        "#A6B0A5",
+        "#C3BDA9"
+      ],
+      "tags": [
+        "landscape",
+        "field",
+        "wheat",
+        "summer",
+        "light",
+        "impressionism",
+        "monet",
+        "oil",
+        "canvas"
+      ],
+      "description": "Part of Monet’s famous series painted near his home at Giverny, studying the same stacks of wheat in changing light, season and weather.",
+      "collection": "Art Institute of Chicago",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Claude_Monet_-_Stacks_of_Wheat_(End_of_Summer"
+    },
+    {
+      "id": "starry-night-over-the-rhone",
+      "image": "/images/starry-night-over-the-rhone.jpg",
+      "title": "Starry Night Over the Rhône",
+      "artist": "Vincent van Gogh",
+      "date": "1888",
+      "medium": "Oil on canvas",
+      "surface": "Canvas",
+      "category": "Landscape",
+      "style": "Post-Impressionism",
+      "palette": [
+        "#21292A",
+        "#293332",
+        "#1A1F1F",
+        "#323D38",
+        "#485141"
+      ],
+      "tags": [
+        "landscape",
+        "night",
+        "stars",
+        "river",
+        "blue",
+        "reflection",
+        "van gogh",
+        "oil",
+        "canvas"
+      ],
+      "description": "Gas lamps and stars shimmer on the river at Arles while a couple strolls along the bank — painted outdoors at night, a year before The Starry Night.",
+      "collection": "Musée d'Orsay, Paris",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg"
+    },
+    {
+      "id": "wheat-field-with-cypresses",
+      "image": "/images/wheat-field-with-cypresses.jpg",
+      "title": "Wheat Field with Cypresses",
+      "artist": "Vincent van Gogh",
+      "date": "1889",
+      "medium": "Oil on canvas",
+      "surface": "Canvas",
+      "category": "Landscape",
+      "style": "Post-Impressionism",
+      "palette": [
+        "#A9C4CB",
+        "#A5AA87",
+        "#6D7C57",
+        "#DBDCDD",
+        "#CCC9BD"
+      ],
+      "tags": [
+        "landscape",
+        "wheat",
+        "cypress",
+        "sky",
+        "clouds",
+        "summer",
+        "van gogh",
+        "oil",
+        "canvas"
+      ],
+      "description": "Golden wheat, a dark flame-like cypress and swirling clouds — one of the summer landscapes Van Gogh painted near the asylum at Saint-Rémy.",
+      "collection": "The National Gallery, London",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_Wheat_Field_with_Cypresses_(National_Gallery_version"
+    },
+    {
+      "id": "impression-sunrise",
+      "image": "/images/impression-sunrise.jpg",
+      "title": "Impression, Sunrise",
+      "artist": "Claude Monet",
+      "date": "1872",
+      "medium": "Oil on canvas",
+      "surface": "Canvas",
+      "category": "Landscape",
+      "style": "Impressionism",
+      "palette": [
+        "#6B766B",
+        "#54645A",
+        "#756959",
+        "#827666",
+        "#878371"
+      ],
+      "tags": [
+        "landscape",
+        "harbour",
+        "sunrise",
+        "mist",
+        "water",
+        "orange",
+        "impressionism",
+        "monet",
+        "oil",
+        "canvas"
+      ],
+      "description": "The harbour of Le Havre in morning mist, with an orange sun reflected in the water. A critic mocked its title, and the name “Impressionism” was born.",
+      "collection": "Musée Marmottan Monet, Paris",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Monet_-_Impression,_Sunrise.jpg"
+    },
+    {
+      "id": "the-hay-wain",
+      "image": "/images/the-hay-wain.jpg",
+      "title": "The Hay Wain",
+      "artist": "John Constable",
+      "date": "1821",
+      "medium": "Oil on canvas",
+      "surface": "Canvas",
+      "category": "Landscape",
+      "style": "Romanticism",
+      "palette": [
+        "#A3A5A4",
+        "#231B16",
+        "#4A3720",
+        "#655E48",
+        "#343020"
+      ],
+      "tags": [
+        "landscape",
+        "river",
+        "countryside",
+        "clouds",
+        "cart",
+        "english",
+        "oil",
+        "canvas"
+      ],
+      "description": "A horse-drawn cart crosses the River Stour in Suffolk under a bright, cloud-filled sky — one of the best-loved images of the English countryside.",
+      "collection": "The National Gallery, London",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:John_Constable_-_The_Hay_Wain_(1821"
+    },
+    {
       "id": "still-life-with-flowers",
       "image": "/images/still-life-with-flowers.jpg",
       "title": "Still Life with Flowers",
@@ -469,6 +783,164 @@
       "description": "Soft pink and white roses spill over a simple bowl against a dark, plain background, painted with the quiet realism Fantin-Latour was famous for.",
       "collection": "Art Institute of Chicago",
       "sourceUrl": "https://www.artic.edu/collection?q=Fantin-Latour%20Roses%20in%20a%20Bowl"
+    },
+    {
+      "id": "sunflowers",
+      "image": "/images/sunflowers.jpg",
+      "title": "Sunflowers",
+      "artist": "Vincent van Gogh",
+      "date": "1889",
+      "medium": "Oil on canvas",
+      "surface": "Canvas",
+      "category": "Flower",
+      "style": "Post-Impressionism",
+      "palette": [
+        "#AC8E18",
+        "#926D16",
+        "#CEC142",
+        "#D4CA46",
+        "#C0AB32"
+      ],
+      "tags": [
+        "flower",
+        "flowers",
+        "sunflowers",
+        "yellow",
+        "vase",
+        "still life",
+        "van gogh",
+        "oil",
+        "canvas"
+      ],
+      "description": "Van Gogh’s repetition of his famous Arles still life, painting yellow on yellow to show the sunflowers from full bloom to wilting.",
+      "collection": "Van Gogh Museum, Amsterdam",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_Sunflowers_-_VGM_F458.jpg"
+    },
+    {
+      "id": "irises",
+      "image": "/images/irises.jpg",
+      "title": "Irises",
+      "artist": "Vincent van Gogh",
+      "date": "1889",
+      "medium": "Oil on canvas",
+      "surface": "Canvas",
+      "category": "Flower",
+      "style": "Post-Impressionism",
+      "palette": [
+        "#686F66",
+        "#4A5165",
+        "#768571",
+        "#82997C",
+        "#97AD8C"
+      ],
+      "tags": [
+        "flower",
+        "flowers",
+        "irises",
+        "blue",
+        "garden",
+        "van gogh",
+        "oil",
+        "canvas"
+      ],
+      "description": "Painted in the garden of the asylum at Saint-Rémy in his first week there; a single white iris stands out among a crowd of blue.",
+      "collection": "J. Paul Getty Museum, Los Angeles",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_Irises_(1889"
+    },
+    {
+      "id": "flowers-in-a-vase-ruysch",
+      "image": "/images/flowers-in-a-vase-ruysch.jpg",
+      "title": "Flowers in a Glass Vase",
+      "artist": "Rachel Ruysch",
+      "date": "c. 1700",
+      "medium": "Oil on canvas",
+      "surface": "Canvas",
+      "category": "Flower",
+      "style": "Baroque",
+      "palette": [
+        "#383427",
+        "#22201A",
+        "#30291E",
+        "#4B462F",
+        "#8A8570"
+      ],
+      "tags": [
+        "flower",
+        "flowers",
+        "vase",
+        "still life",
+        "dutch",
+        "roses",
+        "dark",
+        "oil",
+        "canvas"
+      ],
+      "description": "Roses, tulips and lilies glow against a dark background in this carefully arranged bouquet by one of the most celebrated Dutch flower painters.",
+      "collection": "Mauritshuis, The Hague",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rachel_Ruysch_-_Summer_flowers_in_a_vase.jpg"
+    },
+    {
+      "id": "flowers-in-an-urn",
+      "image": "/images/flowers-in-an-urn.jpg",
+      "title": "Bouquet of Flowers in an Urn",
+      "artist": "Jan van Huysum",
+      "date": "1724",
+      "medium": "Oil on canvas",
+      "surface": "Canvas",
+      "category": "Flower",
+      "style": "Baroque",
+      "palette": [
+        "#191E16",
+        "#594E3A",
+        "#3B2D20",
+        "#7C7059",
+        "#B6AC96"
+      ],
+      "tags": [
+        "flower",
+        "flowers",
+        "urn",
+        "still life",
+        "dutch",
+        "colourful",
+        "oil",
+        "canvas"
+      ],
+      "description": "A tumbling bouquet of flowers from every season, with tiny insects hidden among the petals — painted with the fine detail Van Huysum was famous for.",
+      "collection": "Los Angeles County Museum of Art",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bouquet_of_Flowers_in_an_Urn2.jpg"
+    },
+    {
+      "id": "bouquet-of-sunflowers",
+      "image": "/images/bouquet-of-sunflowers.jpg",
+      "title": "Bouquet of Sunflowers",
+      "artist": "Claude Monet",
+      "date": "1881",
+      "medium": "Oil on canvas",
+      "surface": "Canvas",
+      "category": "Flower",
+      "style": "Impressionism",
+      "palette": [
+        "#38454B",
+        "#9EADA1",
+        "#87513C",
+        "#908C6B",
+        "#C9B85D"
+      ],
+      "tags": [
+        "flower",
+        "flowers",
+        "sunflowers",
+        "yellow",
+        "vase",
+        "still life",
+        "monet",
+        "oil",
+        "canvas"
+      ],
+      "description": "Monet’s loose, lively brushwork turns a vase of sunflowers on a red tablecloth into a burst of colour — painted seven years before Van Gogh’s famous versions.",
+      "collection": "The Metropolitan Museum of Art, New York",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:WLA_metmuseum_Claude_Monet_Bouquet_of_Sunflowers_2.jpg"
     },
     {
       "id": "view-of-cotopaxi",
@@ -663,6 +1135,163 @@
       "sourceUrl": "https://www.artic.edu/artworks/25865"
     },
     {
+      "id": "among-the-sierra-nevada",
+      "image": "/images/among-the-sierra-nevada.jpg",
+      "title": "Among the Sierra Nevada, California",
+      "artist": "Albert Bierstadt",
+      "date": "1868",
+      "medium": "Oil on canvas",
+      "surface": "Canvas",
+      "category": "Nature",
+      "style": "Hudson River School",
+      "palette": [
+        "#6B6964",
+        "#AEA893",
+        "#232422",
+        "#383830",
+        "#4B463F"
+      ],
+      "tags": [
+        "nature",
+        "mountains",
+        "lake",
+        "light",
+        "wilderness",
+        "american",
+        "oil",
+        "canvas"
+      ],
+      "description": "Painted in Rome from sketches made in the American West: a sunlit lake, waterfalls and storm clouds make the Sierra Nevada look like an untouched paradise.",
+      "collection": "Smithsonian American Art Museum, Washington, D.C.",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Among_the_Sierra_Nevada,_California-saam_1977.107.1.jpg"
+    },
+    {
+      "id": "wanderer-above-the-sea-of-fog",
+      "image": "/images/wanderer-above-the-sea-of-fog.jpg",
+      "title": "Wanderer above the Sea of Fog",
+      "artist": "Caspar David Friedrich",
+      "date": "c. 1818",
+      "medium": "Oil on canvas",
+      "surface": "Canvas",
+      "category": "Nature",
+      "style": "Romanticism",
+      "palette": [
+        "#17151A",
+        "#B6BBC8",
+        "#C3C7D5",
+        "#777E87",
+        "#CED2E2"
+      ],
+      "tags": [
+        "nature",
+        "mountains",
+        "fog",
+        "mist",
+        "figure",
+        "romantic",
+        "oil",
+        "canvas"
+      ],
+      "description": "A lone figure stands on a rocky peak, his back to us, looking out over a sea of mist — an icon of Romantic awe before nature.",
+      "collection": "Hamburger Kunsthalle, Hamburg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Caspar_David_Friedrich_-_Wanderer_above_the_sea_of_fog.jpg"
+    },
+    {
+      "id": "grand-canyon-of-the-yellowstone",
+      "image": "/images/grand-canyon-of-the-yellowstone.jpg",
+      "title": "The Grand Canyon of the Yellowstone",
+      "artist": "Thomas Moran",
+      "date": "1872",
+      "medium": "Oil on canvas",
+      "surface": "Canvas",
+      "category": "Nature",
+      "style": "Hudson River School",
+      "palette": [
+        "#27171D",
+        "#573F3C",
+        "#BAAC9B",
+        "#967C6F",
+        "#DDD4BE"
+      ],
+      "tags": [
+        "nature",
+        "canyon",
+        "waterfall",
+        "mountains",
+        "yellow",
+        "wilderness",
+        "american",
+        "oil",
+        "canvas"
+      ],
+      "description": "Moran’s huge canvas of the canyon’s glowing cliffs and falling river helped persuade the U.S. Congress to protect Yellowstone as the first national park.",
+      "collection": "Smithsonian American Art Museum, Washington, D.C.",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Thomas_Moran_-_Grand_Canyon_of_the_Yellowstone.jpg"
+    },
+    {
+      "id": "twilight-in-the-wilderness",
+      "image": "/images/twilight-in-the-wilderness.jpg",
+      "title": "Twilight in the Wilderness",
+      "artist": "Frederic Edwin Church",
+      "date": "1860",
+      "medium": "Oil on canvas",
+      "surface": "Canvas",
+      "category": "Nature",
+      "style": "Hudson River School",
+      "palette": [
+        "#3A221A",
+        "#492E26",
+        "#1A150C",
+        "#574038",
+        "#8C7A59"
+      ],
+      "tags": [
+        "nature",
+        "sunset",
+        "sky",
+        "red",
+        "forest",
+        "river",
+        "wilderness",
+        "oil",
+        "canvas"
+      ],
+      "description": "A blazing red and gold sunset over an untouched forest and river, painted on the eve of the American Civil War.",
+      "collection": "Cleveland Museum of Art",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Twilight_in_the_Wilderness_by_Frederic_Edwin_Church_(3"
+    },
+    {
+      "id": "the-fighting-temeraire",
+      "image": "/images/the-fighting-temeraire.jpg",
+      "title": "The Fighting Temeraire",
+      "artist": "J. M. W. Turner",
+      "date": "1839",
+      "medium": "Oil on canvas",
+      "surface": "Canvas",
+      "category": "Nature",
+      "style": "Romanticism",
+      "palette": [
+        "#94866D",
+        "#685641",
+        "#827562",
+        "#9C9480",
+        "#ADA898"
+      ],
+      "tags": [
+        "nature",
+        "sea",
+        "ship",
+        "sunset",
+        "water",
+        "light",
+        "oil",
+        "canvas"
+      ],
+      "description": "A ghostly old warship is towed to be broken up by a small black steam tug under a fiery sunset — Turner’s farewell to the age of sail.",
+      "collection": "The National Gallery, London",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Fighting_Temeraire,_JMW_Turner,_National_Gallery.jpg"
+    },
+    {
       "id": "two-sisters-on-the-terrace",
       "image": "/images/two-sisters-on-the-terrace.jpg",
       "title": "Two Sisters (On the Terrace)",
@@ -819,6 +1448,163 @@
       "sourceUrl": "https://www.artic.edu/artworks/26650"
     },
     {
+      "id": "girl-with-a-pearl-earring",
+      "image": "/images/girl-with-a-pearl-earring.jpg",
+      "title": "Girl with a Pearl Earring",
+      "artist": "Johannes Vermeer",
+      "date": "c. 1665",
+      "medium": "Oil on canvas",
+      "surface": "Canvas",
+      "category": "Figurative",
+      "style": "Baroque",
+      "palette": [
+        "#262115",
+        "#22180C",
+        "#403C31",
+        "#8C7C61",
+        "#C6B399"
+      ],
+      "tags": [
+        "figurative",
+        "portrait",
+        "woman",
+        "pearl",
+        "blue",
+        "dutch",
+        "oil",
+        "canvas"
+      ],
+      "description": "A girl in a blue and yellow turban turns to look over her shoulder, a large pearl catching the light — a study of a face rather than a portrait of a known sitter.",
+      "collection": "Mauritshuis, The Hague",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:1665_Girl_with_a_Pearl_Earring.jpg"
+    },
+    {
+      "id": "paris-street-rainy-day",
+      "image": "/images/paris-street-rainy-day.jpg",
+      "title": "Paris Street; Rainy Day",
+      "artist": "Gustave Caillebotte",
+      "date": "1877",
+      "medium": "Oil on canvas",
+      "surface": "Canvas",
+      "category": "Figurative",
+      "style": "Realism",
+      "palette": [
+        "#282E35",
+        "#959793",
+        "#686869",
+        "#B2B1AC",
+        "#D1CABE"
+      ],
+      "tags": [
+        "figurative",
+        "city",
+        "paris",
+        "rain",
+        "umbrellas",
+        "street",
+        "people",
+        "oil",
+        "canvas"
+      ],
+      "description": "Elegant Parisians with umbrellas cross a wet, newly built boulevard; Caillebotte’s crisp detail and wide view capture modern city life.",
+      "collection": "Art Institute of Chicago",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gustave_Caillebotte_-_Paris_Street,_Rainy_Day_-_1964.336_-_Art_Institute_of_Chicago.jpg"
+    },
+    {
+      "id": "a-sunday-on-la-grande-jatte",
+      "image": "/images/a-sunday-on-la-grande-jatte.jpg",
+      "title": "A Sunday on La Grande Jatte — 1884",
+      "artist": "Georges Seurat",
+      "date": "1884–86",
+      "medium": "Oil on canvas",
+      "surface": "Canvas",
+      "category": "Figurative",
+      "style": "Post-Impressionism",
+      "palette": [
+        "#374643",
+        "#625B61",
+        "#878671",
+        "#B1AB78",
+        "#C3C3A6"
+      ],
+      "tags": [
+        "figurative",
+        "people",
+        "park",
+        "river",
+        "pointillism",
+        "seurat",
+        "oil",
+        "canvas"
+      ],
+      "description": "Seurat’s masterpiece: Parisians relax by the Seine, painted in tiny dots of pure colour that blend in the viewer’s eye. It took him two years.",
+      "collection": "Art Institute of Chicago",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:A_Sunday_on_La_Grande_Jatte,_Georges_Seurat,_1884.jpg"
+    },
+    {
+      "id": "luncheon-of-the-boating-party",
+      "image": "/images/luncheon-of-the-boating-party.jpg",
+      "title": "Luncheon of the Boating Party",
+      "artist": "Pierre-Auguste Renoir",
+      "date": "1880–81",
+      "medium": "Oil on canvas",
+      "surface": "Canvas",
+      "category": "Figurative",
+      "style": "Impressionism",
+      "palette": [
+        "#394246",
+        "#A88E83",
+        "#816257",
+        "#C3AEA5",
+        "#DDD0C9"
+      ],
+      "tags": [
+        "figurative",
+        "people",
+        "friends",
+        "lunch",
+        "river",
+        "impressionism",
+        "renoir",
+        "oil",
+        "canvas"
+      ],
+      "description": "Renoir’s friends share lunch on a restaurant balcony by the Seine, in a joyful scene full of light, conversation and flirtation.",
+      "collection": "The Phillips Collection, Washington, D.C.",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pierre-Auguste_Renoir_-_Luncheon_of_the_Boating_Party_-_Google_Art_Project.jpg"
+    },
+    {
+      "id": "van-gogh-self-portrait-1887",
+      "image": "/images/van-gogh-self-portrait-1887.jpg",
+      "title": "Self-Portrait",
+      "artist": "Vincent van Gogh",
+      "date": "1887",
+      "medium": "Oil on artist's board",
+      "surface": "Board",
+      "category": "Figurative",
+      "style": "Post-Impressionism",
+      "palette": [
+        "#23363E",
+        "#4C3735",
+        "#434E49",
+        "#675D50",
+        "#B59576"
+      ],
+      "tags": [
+        "figurative",
+        "portrait",
+        "self-portrait",
+        "van gogh",
+        "dots",
+        "colour",
+        "oil",
+        "board"
+      ],
+      "description": "Painted in Paris, where Van Gogh discovered Impressionism and Seurat’s dots — his face is built from short, rhythmic strokes of bright colour.",
+      "collection": "Art Institute of Chicago",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_Self-Portrait_-_1954.326_-_Art_Institute_of_Chicago.jpg"
+    },
+    {
       "id": "virgin-and-child-with-two-angels",
       "image": "/images/virgin-and-child-with-two-angels.jpg",
       "title": "Virgin and Child with Two Angels",
@@ -963,6 +1749,130 @@
       "description": "The three kings bring gifts to the infant Christ, surrounded by a crowd of richly dressed followers.",
       "collection": "Art Institute of Chicago",
       "sourceUrl": "https://www.artic.edu/artworks/25743"
+    },
+    {
+      "id": "annunciation-leonardo",
+      "image": "/images/annunciation-leonardo.jpg",
+      "title": "Annunciation",
+      "artist": "Leonardo da Vinci",
+      "date": "c. 1472–76",
+      "medium": "Oil and tempera on panel",
+      "surface": "Panel",
+      "category": "Religious",
+      "style": "Early Renaissance",
+      "palette": [
+        "#472D13",
+        "#1A1511",
+        "#715C3B",
+        "#A7916B",
+        "#CCC4AE"
+      ],
+      "tags": [
+        "religious",
+        "angel",
+        "mary",
+        "annunciation",
+        "garden",
+        "renaissance",
+        "tempera",
+        "oil",
+        "panel"
+      ],
+      "description": "An early work by Leonardo: the angel Gabriel kneels before Mary in a walled garden, with a misty landscape opening up behind them.",
+      "collection": "Uffizi Gallery, Florence",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Annunciation_(Leonardo"
+    },
+    {
+      "id": "sistine-madonna",
+      "image": "/images/sistine-madonna.jpg",
+      "title": "Sistine Madonna",
+      "artist": "Raphael",
+      "date": "1512–13",
+      "medium": "Oil on canvas",
+      "surface": "Canvas",
+      "category": "Religious",
+      "style": "High Renaissance",
+      "palette": [
+        "#30281B",
+        "#563825",
+        "#896B43",
+        "#AF976C",
+        "#D0B885"
+      ],
+      "tags": [
+        "religious",
+        "madonna",
+        "mary",
+        "child",
+        "angels",
+        "renaissance",
+        "oil",
+        "canvas"
+      ],
+      "description": "Mary steps forward on the clouds holding the Christ Child, between Pope Sixtus II and Saint Barbara; the two cherubs below became famous on their own.",
+      "collection": "Gemäldegalerie Alte Meister, Dresden",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Raphael_-_The_Sistine_Madonna_-_Google_Arts_%26_Culture.jpg"
+    },
+    {
+      "id": "the-assumption-of-the-virgin",
+      "image": "/images/the-assumption-of-the-virgin.jpg",
+      "title": "The Assumption of the Virgin",
+      "artist": "El Greco",
+      "date": "1577–79",
+      "medium": "Oil on canvas",
+      "surface": "Canvas",
+      "category": "Religious",
+      "style": "Mannerism",
+      "palette": [
+        "#6B6059",
+        "#938C7D",
+        "#372723",
+        "#403E3B",
+        "#59463B"
+      ],
+      "tags": [
+        "religious",
+        "mary",
+        "assumption",
+        "angels",
+        "heaven",
+        "oil",
+        "canvas"
+      ],
+      "description": "El Greco’s first major commission in Spain: the apostles gather around Mary’s empty tomb as she rises into heaven surrounded by angels.",
+      "collection": "Art Institute of Chicago",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Domenico_Theotok%C3%B3poulos,_called_El_Greco_-_The_Assumption_of_the_Virgin_-_1906.99_-_Art_Institute_of_Chicago.jpg"
+    },
+    {
+      "id": "the-calling-of-saint-matthew",
+      "image": "/images/the-calling-of-saint-matthew.jpg",
+      "title": "The Calling of Saint Matthew",
+      "artist": "Caravaggio",
+      "date": "1599–1600",
+      "medium": "Oil on canvas",
+      "surface": "Canvas",
+      "category": "Religious",
+      "style": "Baroque",
+      "palette": [
+        "#070703",
+        "#1F0F05",
+        "#020402",
+        "#854E13",
+        "#010301"
+      ],
+      "tags": [
+        "religious",
+        "christ",
+        "light",
+        "dark",
+        "drama",
+        "baroque",
+        "oil",
+        "canvas"
+      ],
+      "description": "A beam of light follows Christ’s pointing hand into a dim tax office, where Matthew is called to become a disciple — a landmark of dramatic Baroque lighting.",
+      "collection": "San Luigi dei Francesi, Rome",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Calling_of_Saint_Matthew_by_Carvaggio.jpg"
     }
   ]
 }

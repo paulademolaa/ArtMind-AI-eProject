@@ -19,6 +19,7 @@ function SignIn() {
   const goTo = location.state?.from || '/dashboard';
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [keepSignedIn, setKeepSignedIn] = useState(true);
   const [errors, setErrors] = useState({});
 
   function handleSubmit(event) {
@@ -29,7 +30,7 @@ function SignIn() {
     setErrors(newErrors);
 
     if (Object.keys(newErrors).length === 0) {
-      const problem = signIn(email, password);
+      const problem = signIn(email, password, keepSignedIn);
       if (problem) {
         setErrors({ form: problem });
       } else {
@@ -59,7 +60,7 @@ function SignIn() {
 
         <div className="auth-row">
           <label>
-            <input type="checkbox" defaultChecked /> Keep me signed in
+            <input type="checkbox" checked={keepSignedIn} onChange={() => setKeepSignedIn(!keepSignedIn)} /> Keep me signed in
           </label>
           <Link to="/forgot-password">Forgot password?</Link>
         </div>

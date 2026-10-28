@@ -261,7 +261,7 @@ function About() {
           ))}
         </div>
         <p className="mono muted">
-          Artwork images courtesy of the Art Institute of Chicago open-access collection (CC0). Titles, artists and dates
+          Artwork images are public-domain paintings from the Art Institute of Chicago and other museums' open-access collections. Titles, artists and dates
           are from the museum’s records.
         </p>
       </div>

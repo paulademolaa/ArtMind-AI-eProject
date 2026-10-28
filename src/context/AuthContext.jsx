@@ -22,14 +22,32 @@ function load(key, fallback) {
   }
 }
 function save(key, value) {
-  localStorage.setItem(key, JSON.stringify(value));
+  try {
+    localStorage.setItem(key, JSON.stringify(value));
+  } catch (error) {
+    // Storage can be full or blocked (e.g. some private windows).
+    console.warn('ArtMind could not save to the browser:', error);
+  }
+}
+
+// The signed-in user is kept in:
+//   localStorage   when "Keep me signed in" is ticked (stays after closing the browser)
+//   sessionStorage when it is not ticked (cleared when the browser is closed)
+function loadSession() {
+  try {
+    return JSON.parse(localStorage.getItem('artmind-user') || sessionStorage.getItem('artmind-user')) || null;
+  } catch {
+    return null;
+  }
 }
 
 export function AuthProvider({ children }) {
   // Start with whoever was signed in last time (or nobody).
-  const [user, setUser] = useState(() => load('artmind-user', null));
+  const [user, setUser] = useState(loadSession);
+  // Remember where the current session is kept (see loadSession above).
+  const [remember, setRemember] = useState(() => !sessionStorage.getItem('artmind-user'));
 
-  function startSession(account) {
+  function startSession(account, keep = remember) {
     const signedIn = {
       name: account.name,
       email: account.email,
@@ -38,7 +56,14 @@ export function AuthProvider({ children }) {
       preferences: account.preferences || {},
     };
     setUser(signedIn);
-    save('artmind-user', signedIn);
+    setRemember(keep);
+    if (keep) {
+      save('artmind-user', signedIn);
+      sessionStorage.removeItem('artmind-user');
+    } else {
+      sessionStorage.setItem('artmind-user', JSON.stringify(signedIn));
+      localStorage.removeItem('artmind-user');
+    }
   }
 
   // Create an account. Returns an error message, or '' if it worked.
@@ -50,24 +75,30 @@ export function AuthProvider({ children }) {
     }
     const account = { name: name.trim(), email: cleanEmail, password, joined: new Date().getFullYear() };
     save('artmind-accounts', [...accounts, account]);
-    startSession(account);
+    startSession(account, true); // new accounts stay signed in
     return '';
   }
 
   // Sign in to an existing account. Returns an error message, or ''.
-  function signIn(email, password) {
+  // keepSignedIn comes from the "Keep me signed in" checkbox.
+  function signIn(email, password, keepSignedIn = true) {
     const accounts = load('artmind-accounts', []);
     const account = accounts.find((item) => item.email === email.trim().toLowerCase());
     if (!account) return 'No account found with this email. Please sign up first.';
     if (account.password !== password) return 'That password is not correct.';
-    startSession(account);
+    startSession(account, keepSignedIn);
     return '';
   }
 
   // Change the details of the signed-in account (used by Account Settings).
   // "changes" can include name, email and preferences. Returns an error or ''.
   function updateProfile(changes) {
-    const accounts = load('artmind-accounts', []);
+    let accounts = load('artmind-accounts', []);
+    // If the saved account is missing (e.g. storage was cleared), re-create it
+    // from the signed-in user so nothing is lost.
+    if (!accounts.some((account) => account.email === user.email)) {
+      accounts = [...accounts, { ...user }];
+    }
     const newEmail = (changes.email || user.email).trim().toLowerCase();
     if (newEmail !== user.email && accounts.some((account) => account.email === newEmail)) {
       return 'Another account already uses this email.';
@@ -109,6 +140,7 @@ export function AuthProvider({ children }) {
   function signOut() {
     setUser(null);
     localStorage.removeItem('artmind-user');
+    sessionStorage.removeItem('artmind-user');
   }
 
   return <AuthContext.Provider value={{ user, signUp, signIn, signOut, updateProfile, changePassword, deleteAccount, resetPassword }}>{children}</AuthContext.Provider>;

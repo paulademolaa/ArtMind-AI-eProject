@@ -9,7 +9,8 @@
 //   category  - one of the six ArtMind categories
 //   palette   - sample "dominant colours" (used by the AI features)
 //   tags      - simple keywords the Smart Search looks for
-//   sourceUrl - the painting's page on the Art Institute of Chicago site
+//   collection - the museum that owns the painting
+//   sourceUrl - where the painting's information/image comes from
 // ------------------------------------------------------------
 import data from './artworks.json';
 

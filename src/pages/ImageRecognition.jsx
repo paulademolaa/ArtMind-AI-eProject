@@ -1,12 +1,3 @@
-// ------------------------------------------------------------
-// AI Image Recognition — /ai/recognition
-// The page moves through simple "steps" kept in one state variable:
-//   'upload'  → choose or drop a photo
-//   'ready'   → preview + "Analyze artwork" button
-//   'error'   → wrong file type or too big
-//   'processing' → fake AI is working (3 seconds)
-//   'results' → style, category, colours, closest match, similar
-// ------------------------------------------------------------
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import PageLayout from '../components/PageLayout';
@@ -26,7 +17,6 @@ function ImageRecognition() {
   const [result, setResult] = useState(null);
   const [dragging, setDragging] = useState(false);
 
-  // Check the chosen file, then show the preview (or an error).
   function handleFile(chosenFile) {
     if (!chosenFile) return;
     if (!allowedTypes.includes(chosenFile.type)) {
@@ -47,7 +37,6 @@ function ImageRecognition() {
     setStep('ready');
   }
 
-  // "Try a sample" uses a painting from our own collection.
   function useSample() {
     const sample = getArtwork('cliff-walk-at-pourville');
     setFile({ name: 'cliff-walk.jpg', size: '3.7 MB', url: sample.image });
@@ -67,20 +56,17 @@ function ImageRecognition() {
     setStep('upload');
   }
 
-  // Drag and drop handlers for the drop zone
   function handleDrop(event) {
     event.preventDefault();
     setDragging(false);
     handleFile(event.dataTransfer.files[0]);
   }
 
-  // Progress strip: which step is done / active?
   const stepNames = ['Upload', 'Analyse', 'Results'];
   const activeIndex = step === 'processing' ? 1 : step === 'results' ? 2 : 0;
 
   return (
     <PageLayout>
-      {/* ---- Progress strip ---- */}
       <div className="recognition-progress">
         <div className="container recognition-progress-inner">
           {stepNames.map((name, index) => (
@@ -99,7 +85,6 @@ function ImageRecognition() {
       </div>
 
       <section className="container recognition">
-        {/* ================= LEFT: the picture area ================= */}
         <div className="recognition-left">
           <div className="stage">
             {(step === 'upload' || step === 'error') && (
@@ -120,7 +105,6 @@ function ImageRecognition() {
                 <span className="btn btn-dark">
                   {step === 'error' ? 'Choose another file' : 'Browse files'} <Icon name="arrowRight" size={14} />
                 </span>
-                {/* The real file input is hidden; clicking the label opens it */}
                 <input type="file" accept="image/*" hidden onChange={(event) => handleFile(event.target.files[0])} />
               </label>
             )}
@@ -160,7 +144,6 @@ function ImageRecognition() {
           )}
         </div>
 
-        {/* ================= RIGHT: text for each step ================= */}
         <div className="recognition-right">
           {step === 'upload' && (
             <>
@@ -326,7 +309,6 @@ function ImageRecognition() {
         </div>
       </section>
 
-      {/* ---- Extra result sections ---- */}
       {step === 'results' && result && (
         <>
           <section className="section section-surface">

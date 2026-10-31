@@ -1,8 +1,3 @@
-// ------------------------------------------------------------
-// AuthLayout — split screen for Sign In / Sign Up / Forgot Password.
-// Painting on the left, form on the right.
-// Props: artworkId (which painting to show), quote, children (the form)
-// ------------------------------------------------------------
 import { Link } from 'react-router-dom';
 import { getArtwork } from '../data/artworks';
 import './AuthLayout.css';

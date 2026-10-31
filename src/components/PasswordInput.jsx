@@ -1,6 +1,3 @@
-// ------------------------------------------------------------
-// PasswordInput — a password box with a "show / hide" eye button.
-// ------------------------------------------------------------
 import { useState } from 'react';
 import Icon from './Icon';
 

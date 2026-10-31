@@ -1,7 +1,3 @@
-// ------------------------------------------------------------
-// ScrollToTop — when you move to a new page, start at the top.
-// (Without this, React Router keeps the old scroll position.)
-// ------------------------------------------------------------
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 

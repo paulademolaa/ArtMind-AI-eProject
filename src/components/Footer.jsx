@@ -1,12 +1,8 @@
-// ------------------------------------------------------------
-// Footer — dark footer shown at the bottom of every page.
-// ------------------------------------------------------------
 import { Link } from 'react-router-dom';
 import Icon from './Icon';
 import './Footer.css';
 
 function Footer() {
-  // Scroll smoothly back to the top of the page.
   function backToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }

@@ -1,6 +1,3 @@
-/* ============================================================
-   CATEGORY DETAIL PAGE
-   ============================================================ */
 .category-banner {
   position: relative;
   height: 520px;
@@ -48,7 +45,6 @@
   flex-wrap: wrap;
   gap: 10px;
 }
-/* 4-column masonry (the grid itself is .results-grid in Explore.css) */
 .category-grid-4 {
   columns: 4;
 }

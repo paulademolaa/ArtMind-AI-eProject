@@ -1,8 +1,3 @@
-// ------------------------------------------------------------
-// Recently Viewed — /recently-viewed
-// Every painting you opened, newest first, with how long ago.
-// The list is saved by utils/recentlyViewed.js.
-// ------------------------------------------------------------
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import DashboardLayout from '../components/DashboardLayout';
@@ -14,7 +9,6 @@ import './Dashboard.css';
 import './Favorites.css';
 
 function RecentlyViewed() {
-  // Keep only ids that still exist in the artwork data.
   const [history, setHistory] = useState(() => getRecentlyViewed().filter((item) => getArtwork(item.id)));
 
   function handleClear() {

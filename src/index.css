@@ -1,35 +1,21 @@
-/* ============================================================
-   ArtMind AI — GLOBAL STYLES
-   This file holds things every page uses:
-   1. Colour + font variables   2. Basic reset
-   3. Text styles               4. Buttons, chips, badges
-   5. Layout helpers            6. Responsive rules
-   Page-specific styles live next to each page (e.g. Home.css).
-   ============================================================ */
-
-/* ---------- 1. VARIABLES (design tokens from the Figma file) ---------- */
 :root {
-  /* Colours */
   --white: #ffffff;
-  --ink: #131313; /* main text, buttons, dark sections */
-  --ink-muted: #64615c; /* secondary text */
-  --surface: #f4f2ed; /* warm background for alternate sections */
-  --accent: #1236c4; /* cobalt — links, active states, AI labels */
-  --accent-light: #7d8fe8; /* accent on dark backgrounds */
-  --line: rgba(19, 19, 19, 0.12); /* thin borders and dividers */
-  --line-light: rgba(255, 255, 255, 0.16); /* dividers on dark backgrounds */
+  --ink: #131313;
+  --ink-muted: #64615c;
+  --surface: #f4f2ed;
+  --accent: #1236c4;
+  --accent-light: #7d8fe8;
+  --line: rgba(19, 19, 19, 0.12);
+  --line-light: rgba(255, 255, 255, 0.16);
 
-  /* Fonts */
-  --font-serif: 'Bodoni Moda', Georgia, serif; /* headings */
-  --font-sans: 'Commissioner', Arial, sans-serif; /* body text, buttons */
-  --font-label: 'Poppins', Arial, sans-serif; /* small labels */
+  --font-serif: 'Bodoni Moda', Georgia, serif;
+  --font-sans: 'Commissioner', Arial, sans-serif;
+  --font-label: 'Poppins', Arial, sans-serif;
 
-  /* Layout */
   --max-width: 1248px;
   --page-padding: 96px;
 }
 
-/* ---------- 2. RESET ---------- */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -69,13 +55,11 @@ button {
   border: none;
 }
 
-/* Visible keyboard focus for accessibility */
 :focus-visible {
   outline: 3px solid var(--accent);
   outline-offset: 2px;
 }
 
-/* ---------- 3. TEXT STYLES ---------- */
 h1,
 h2,
 h3,
@@ -106,13 +90,11 @@ h4,
   font-size: 22px;
 }
 
-/* The italic blue word at the end of many headings */
 .accent {
   font-style: italic;
   color: var(--accent);
 }
 
-/* Small uppercase label above headings, e.g. "— FEATURED THIS WEEK" */
 .eyebrow {
   display: flex;
   align-items: center;
@@ -147,7 +129,6 @@ h4,
   color: var(--ink-muted);
 }
 
-/* ---------- 4. BUTTONS, CHIPS, BADGES ---------- */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -182,7 +163,6 @@ h4,
   opacity: 0.4;
   cursor: not-allowed;
 }
-/* Buttons used on dark backgrounds or over images */
 .btn-light {
   background: var(--surface);
   color: var(--ink);
@@ -200,7 +180,6 @@ h4,
   background: rgba(255, 255, 255, 0.12);
 }
 
-/* Small light-blue pill, e.g. "✦ Personalised recommendations" */
 .ai-badge {
   display: inline-flex;
   align-items: center;
@@ -217,15 +196,12 @@ h4,
   font-size: 14px;
 }
 
-/* Underlined text button, e.g. "Clear all" */
 .text-button {
   font-size: 14px;
   color: var(--ink-muted);
   text-decoration: underline;
 }
 
-
-/* Versions for dark sections */
 .eyebrow-light {
   color: var(--accent-light);
 }
@@ -238,7 +214,6 @@ h4,
   border-color: var(--white);
 }
 
-/* Text link with an arrow, e.g. "VIEW ALL →" */
 .link-arrow {
   display: inline-flex;
   align-items: center;
@@ -252,7 +227,6 @@ h4,
   color: var(--accent);
 }
 
-/* Rounded filter/suggestion chip */
 .chip {
   display: inline-flex;
   align-items: center;
@@ -274,7 +248,6 @@ h4,
   color: var(--white);
 }
 
-/* Dark label that marks AI content, e.g. "✦ Warm palette" */
 .ai-tag {
   display: inline-flex;
   align-items: center;
@@ -289,7 +262,6 @@ h4,
   color: var(--accent-light);
 }
 
-/* Light blue note box for AI explanations */
 .ai-note {
   display: flex;
   gap: 10px;
@@ -301,7 +273,6 @@ h4,
   color: var(--accent);
 }
 
-/* ---------- 5. LAYOUT HELPERS ---------- */
 .container {
   width: 100%;
   max-width: calc(var(--max-width) + var(--page-padding) * 2);
@@ -320,7 +291,6 @@ h4,
   color: var(--white);
 }
 
-/* Heading on the left, link or text on the right */
 .section-header {
   display: flex;
   justify-content: space-between;
@@ -333,7 +303,6 @@ h4,
   color: var(--ink-muted);
 }
 
-/* Simple grids */
 .grid-2 {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -350,7 +319,6 @@ h4,
   gap: 24px;
 }
 
-/* Row of figures between thin lines, e.g. "12,400 PAINTINGS" */
 .stats {
   display: grid;
   grid-auto-flow: column;
@@ -376,7 +344,6 @@ h4,
   color: var(--ink-muted);
 }
 
-/* Form fields */
 .field {
   display: flex;
   flex-direction: column;
@@ -410,7 +377,6 @@ h4,
   font-weight: 400;
 }
 
-/* Big search bar (Home + Smart Search) */
 .search-bar {
   width: 100%;
   max-width: 760px;
@@ -434,13 +400,11 @@ h4,
   height: 56px;
 }
 
-/* A profile photo inside a round avatar (see UserAvatar.jsx) */
 .avatar-photo {
   object-fit: cover;
   padding: 0;
 }
 
-/* Round icon used for the AI assistant */
 .chat-avatar {
   width: 30px;
   height: 30px;
@@ -453,7 +417,6 @@ h4,
   flex-shrink: 0;
 }
 
-/* Loading animations (used by AI pages) */
 .ai-progress-bar {
   height: 3px;
   background: var(--line);
@@ -489,22 +452,16 @@ h4,
   }
 }
 
-
-/* ---------- ANIMATIONS (see components/ScrollAnimations.jsx) ---------- */
-/* Hidden and a little lower until it scrolls into view…
-   ([data-reveal] makes these rules stronger than a card's own styles) */
 [data-reveal].reveal {
   opacity: 0;
   transform: translateY(24px);
   transition: opacity 0.6s ease, transform 0.6s ease;
 }
-/* …then it fades in and slides up into place. */
 [data-reveal].reveal.is-visible {
   opacity: 1;
   transform: none;
 }
 
-/* Hero text gently fades up when a page opens */
 .hero-content,
 .about-hero > *,
 .categories-header > *,
@@ -526,7 +483,6 @@ h4,
   }
 }
 
-/* Turn animations off for people who prefer less motion */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -536,8 +492,6 @@ h4,
   }
 }
 
-/* ---------- 6. RESPONSIVE ---------- */
-/* Tablet */
 @media (max-width: 1024px) {
   :root {
     --page-padding: 40px;
@@ -564,7 +518,6 @@ h4,
   }
 }
 
-/* Mobile */
 @media (max-width: 640px) {
   :root {
     --page-padding: 20px;
@@ -597,7 +550,6 @@ h4,
   .grid-3 {
     grid-template-columns: 1fr;
   }
-  /* Artwork grids keep two small columns on phones */
   .grid-4 {
     grid-template-columns: repeat(2, 1fr);
     gap: 32px 16px;

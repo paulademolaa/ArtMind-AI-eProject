@@ -1,9 +1,3 @@
-// ------------------------------------------------------------
-// Collection Detail — /collections/:id  (matches Figma "Desktop / 11a")
-// Header with a picture mosaic, Share + Add artworks buttons,
-// then the paintings as a grid or a list (with Remove).
-// Removed paintings are remembered in the browser.
-// ------------------------------------------------------------
 import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import DashboardLayout from '../components/DashboardLayout';
@@ -15,7 +9,6 @@ import './Dashboard.css';
 import './Favorites.css';
 import './Collections.css';
 
-// Sample "added" dates for the list view (newest first).
 function addedDate(index) {
   const date = new Date();
   date.setDate(date.getDate() - index * 5 - 1);

@@ -200,6 +200,15 @@ h4,
   font-size: 14px;
   color: var(--ink-muted);
   text-decoration: underline;
+  cursor: pointer;
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+.text-button:hover {
+  color: var(--ink);
+}
+.dashboard-signout:hover,
+.nav-profile-menu button:last-child:hover {
+  opacity: 0.75;
 }
 
 .eyebrow-light {

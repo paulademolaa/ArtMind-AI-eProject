@@ -13,8 +13,9 @@ import DashboardLayout from '../components/DashboardLayout';
 import ArtworkCard from '../components/ArtworkCard';
 import Icon from '../components/Icon';
 import artworks, { getArtwork, getByCategory } from '../data/artworks';
-import { collections } from '../data/siteData';
+import { categories, collections } from '../data/siteData';
 import { useFavorites } from '../context/FavoritesContext';
+import { useAuth } from '../context/AuthContext';
 import './Dashboard.css';
 import './Favorites.css';
 
@@ -34,18 +35,23 @@ function saveList(key, list) {
 
 function Favorites() {
   const { favorites, toggleFavorite } = useFavorites();
+  const { user } = useAuth();
+  // Each account keeps its own collections and followed categories.
+  const collectionsKey = 'artmind-my-collections:' + user.email;
+  const followedKey = 'artmind-followed-categories:' + user.email;
   const [tab, setTab] = useState('Saved paintings');
   const [view, setView] = useState('grid'); // 'grid' or 'list'
   const [category, setCategory] = useState('All');
   const [toRemove, setToRemove] = useState(null); // artwork waiting for confirmation
 
   // Your own collections, e.g. [{ name: 'For my living room' }]
-  const [myCollections, setMyCollections] = useState(() => loadList('artmind-my-collections', []));
+  const [myCollections, setMyCollections] = useState(() => loadList(collectionsKey, []));
   const [newName, setNewName] = useState('');
   const [creating, setCreating] = useState(false);
 
   // Categories you follow (the heart on "Favorite categories")
-  const [followed, setFollowed] = useState(() => loadList('artmind-followed-categories', ['Landscape', 'Nature', 'Flower']));
+  // A new account follows no categories yet.
+  const [followed, setFollowed] = useState(() => loadList(followedKey, []));
 
   const saved = artworks.filter((art) => favorites.includes(art.id));
   const savedCategories = [...new Set(saved.map((art) => art.category))];
@@ -61,7 +67,7 @@ function Favorites() {
     if (!newName.trim()) return;
     const list = [...myCollections, { name: newName.trim() }];
     setMyCollections(list);
-    saveList('artmind-my-collections', list);
+    saveList(collectionsKey, list);
     setNewName('');
     setCreating(false);
     setTab('Collections');
@@ -70,11 +76,13 @@ function Favorites() {
   function toggleFollow(name) {
     const list = followed.includes(name) ? followed.filter((item) => item !== name) : [...followed, name];
     setFollowed(list);
-    saveList('artmind-followed-categories', list);
+    saveList(followedKey, list);
   }
 
   // Categories shown in "Favorite categories": followed ones + ones you saved from.
   const favoriteCategories = [...new Set([...followed, ...savedCategories])];
+  // Nothing followed or saved yet? Show all categories so the user can follow some.
+  const categoriesToShow = favoriteCategories.length > 0 ? favoriteCategories : categories.map((cat) => cat.name);
 
   // ---- Small pieces used in more than one tab ----
   const collectionsBlock = (list) => (
@@ -91,7 +99,7 @@ function Favorites() {
 
   const categoriesBlock = (
     <div className="grid-3">
-      {favoriteCategories.map((name) => {
+      {categoriesToShow.map((name) => {
         const inCategory = getByCategory(name);
         const savedCount = saved.filter((art) => art.category === name).length;
         return (

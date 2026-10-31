@@ -58,7 +58,7 @@ function ChatWidget() {
         <div className="chat-widget-panel" role="dialog" aria-label="ArtMind Assistant">
           <header className="chat-widget-header">
             <span className="chat-avatar">
-              <Icon name="sparkle" size={14} />
+              <Icon name="robot" size={18} />
             </span>
             <div>
               <strong>ArtMind Assistant</strong>
@@ -132,7 +132,7 @@ function ChatWidget() {
         aria-label={open ? 'Close AI Assistant' : 'Open AI Assistant'}
         aria-expanded={open}
       >
-        <Icon name={open ? 'close' : 'chat'} size={24} />
+        <Icon name={open ? 'close' : 'robot'} size={24} />
         {!open && <span className="chat-widget-label">Ask AI</span>}
       </button>
     </div>

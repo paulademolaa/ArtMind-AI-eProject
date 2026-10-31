@@ -112,7 +112,7 @@ function Assistant() {
         <section className="chat">
           <header className="chat-header">
             <span className="chat-avatar">
-              <Icon name="sparkle" size={16} />
+              <Icon name="robot" size={18} />
             </span>
             <div>
               <strong>ArtMind Assistant</strong>
@@ -135,7 +135,7 @@ function Assistant() {
             {messages.length === 0 && (
               <div className="chat-welcome">
                 <span className="chat-avatar big">
-                  <Icon name="sparkle" size={26} />
+                  <Icon name="robot" size={34} />
                 </span>
                 <h2>What would you like to know?</h2>
                 <p className="muted">Ask about painting styles, techniques or artists — or let me recommend something to look at.</p>
@@ -158,7 +158,7 @@ function Assistant() {
               ) : (
                 <div key={index} className="msg-ai">
                   <span className="chat-avatar">
-                    <Icon name="sparkle" size={14} />
+                    <Icon name="robot" size={18} />
                   </span>
                   <div>
                     <p>{message.text}</p>
@@ -187,7 +187,7 @@ function Assistant() {
             {typing && (
               <div className="msg-ai">
                 <span className="chat-avatar">
-                  <Icon name="sparkle" size={14} />
+                  <Icon name="robot" size={18} />
                 </span>
                 <span className="typing">
                   <span />

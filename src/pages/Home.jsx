@@ -448,7 +448,7 @@ function Home() {
             <div className="chat-window">
               <div className="chat-window-header">
                 <span className="chat-avatar">
-                  <Icon name="sparkle" size={14} />
+                  <Icon name="robot" size={18} />
                 </span>
                 <div>
                   <strong>ArtMind Assistant</strong>

@@ -58,7 +58,7 @@ function Dashboard() {
         {[
           ['search', 'Smart Search', 'Describe what you want to see', '/ai/search'],
           ['image', 'Image Recognition', 'Identify a painting from a photo', '/ai/recognition'],
-          ['chat', 'Art Assistant', 'Ask about styles and artists', '/ai/assistant'],
+          ['robot', 'Art Assistant', 'Ask about styles and artists', '/ai/assistant'],
         ].map(([icon, title, text, link]) => (
           <Link key={title} to={link} className="quick-card">
             <span className="quick-icon">

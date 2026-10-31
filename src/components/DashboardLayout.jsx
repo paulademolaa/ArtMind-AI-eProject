@@ -51,7 +51,7 @@ function DashboardLayout({ children }) {
               <Icon name="image" size={16} /> Recognise a painting
             </Link>
             <Link to="/ai/assistant">
-              <Icon name="chat" size={16} /> Ask the Assistant
+              <Icon name="robot" size={16} /> Ask the Assistant
             </Link>
           </div>
 

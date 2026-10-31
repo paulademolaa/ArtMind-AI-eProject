@@ -1,9 +1,3 @@
-// ------------------------------------------------------------
-// Account Settings — /settings  (matches Figma "Desktop / 14")
-// Tabs: Profile · Password & security · Personalisation · Notifications
-// "Save changes" saves through AuthContext (in the browser for now)
-// and shows a small "Profile updated" message.
-// ------------------------------------------------------------
 import { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import DashboardLayout from '../components/DashboardLayout';
@@ -18,7 +12,6 @@ import './Settings.css';
 
 const tabs = ['Profile', 'Password & security', 'Personalisation', 'Notifications'];
 
-// A simple on/off switch built from a checkbox.
 function Toggle({ title, text, checked, onChange }) {
   return (
     <label className="settings-toggle">
@@ -35,10 +28,10 @@ function Settings() {
   const { user, updateProfile, changePassword, deleteAccount } = useAuth();
   const navigate = useNavigate();
   const [tab, setTab] = useState('Profile');
-  const [toast, setToast] = useState(null); // { title, text }
+  const [toast, setToast] = useState(null);
   const [error, setError] = useState('');
 
-  // Split the saved name into first and last name for the form.
+ 
   const [firstName, ...rest] = user.name.split(' ');
   const [form, setForm] = useState({ firstName, lastName: rest.join(' '), email: user.email });
   const [passwords, setPasswords] = useState({ current: '', next: '' });
@@ -55,15 +48,14 @@ function Settings() {
   });
   const [confirmDelete, setConfirmDelete] = useState(false);
 
-  // ---- Profile photo ----
-  const fileInput = useRef(null); // the hidden <input type="file">
+
+  const fileInput = useRef(null); 
   const [photoError, setPhotoError] = useState('');
 
-  // Turn the chosen picture into a small square image (256 × 256) and save it.
-  // We shrink it so it fits in the browser's storage.
+  
   function handlePhoto(event) {
     const file = event.target.files[0];
-    event.target.value = ''; // so choosing the same file again still works
+    event.target.value = ''; 
     if (!file) return;
     if (!file.type.startsWith('image/')) return setPhotoError('Please choose an image file (JPG, PNG or WebP).');
     if (file.size > 5 * 1024 * 1024) return setPhotoError('Please choose an image smaller than 5 MB.');
@@ -76,7 +68,6 @@ function Settings() {
         const canvas = document.createElement('canvas');
         canvas.width = size;
         canvas.height = size;
-        // Crop the middle square of the picture so faces aren't squashed.
         const side = Math.min(img.width, img.height);
         const sx = (img.width - side) / 2;
         const sy = (img.height - side) / 2;
@@ -96,7 +87,6 @@ function Settings() {
     showToast('Photo removed', 'Your initials will show instead.');
   }
 
-  // The username is made from the email, e.g. "@amara.okafor".
   const username = '@' + user.email.split('@')[0];
 
   function flip(key) {
@@ -113,7 +103,7 @@ function Settings() {
     setTimeout(() => setToast(null), 3000);
   }
 
-  // Undo unsaved changes.
+
   function handleCancel() {
     setForm({ firstName, lastName: rest.join(' '), email: user.email });
     setPasswords({ current: '', next: '' });
@@ -145,8 +135,6 @@ function Settings() {
   return (
     <DashboardLayout>
       <h1>Account settings</h1>
-
-      {/* ---- Tabs ---- */}
       <div className="settings-tabs" role="tablist">
         {tabs.map((name) => (
           <button key={name} role="tab" className={tab === name ? 'active' : ''} onClick={() => { setTab(name); setError(''); }}>
@@ -155,7 +143,7 @@ function Settings() {
         ))}
       </div>
 
-      {/* ---- Profile ---- */}
+
       {tab === 'Profile' && (
         <div className="settings-profile">
           <div className="settings-photo">
@@ -193,7 +181,6 @@ function Settings() {
         </div>
       )}
 
-      {/* ---- Password & security ---- */}
       {tab === 'Password & security' && (
         <div className="settings-box">
           <h3 className="settings-box-title">Change password</h3>
@@ -208,7 +195,7 @@ function Settings() {
         </div>
       )}
 
-      {/* ---- Personalisation & privacy (shown on Profile and Personalisation tabs, as in Figma) ---- */}
+      
       {(tab === 'Profile' || tab === 'Personalisation') && (
         <div className="settings-box">
           <h3 className="settings-box-title">Personalisation &amp; privacy</h3>
@@ -238,7 +225,6 @@ function Settings() {
         </div>
       )}
 
-      {/* ---- Notifications ---- */}
       {tab === 'Notifications' && (
         <div className="settings-box">
           <h3 className="settings-box-title">Email notifications</h3>
@@ -248,7 +234,6 @@ function Settings() {
         </div>
       )}
 
-      {/* ---- Save / Cancel ---- */}
       <div className="settings-actions">
         {error && <p className="settings-error">{error}</p>}
         <button className="btn btn-outline" onClick={handleCancel}>
@@ -259,7 +244,6 @@ function Settings() {
         </button>
       </div>
 
-      {/* ---- Delete account ---- */}
       <div className="settings-box settings-delete-row">
         <div>
           <h3 className="settings-box-title">Delete account</h3>
@@ -270,7 +254,7 @@ function Settings() {
         </button>
       </div>
 
-      {/* ---- "Profile updated" message ---- */}
+      
       {toast && (
         <div className="settings-toast" role="status">
           <Icon name="check" size={16} />
@@ -284,7 +268,7 @@ function Settings() {
         </div>
       )}
 
-      {/* ---- Delete confirmation ---- */}
+
       {confirmDelete && (
         <div className="modal-backdrop" onClick={() => setConfirmDelete(false)}>
           <div className="modal" onClick={(event) => event.stopPropagation()} role="dialog" aria-modal="true">

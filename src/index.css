@@ -483,6 +483,92 @@ h4,
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+a,
+button,
+select,
+summary,
+label:has(input[type='checkbox']),
+label:has(input[type='radio']),
+input[type='checkbox'],
+input[type='radio'],
+input[type='file'],
+input[type='range'],
+[role='button'],
+[role='tab'] {
+  cursor: pointer;
+}
+
+input[type='text'],
+input[type='email'],
+input[type='password'],
+input[type='search'],
+textarea {
+  cursor: text;
+}
+
+button:disabled,
+input:disabled,
+select:disabled,
+textarea:disabled,
+[aria-disabled='true'] {
+  cursor: not-allowed;
+}
+
+a,
+button,
+input,
+select,
+textarea,
+.chip {
+  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, opacity 0.2s ease,
+    box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+a.collection-card,
+.mosaic-card,
+a.rec-card,
+.msg-artwork,
+.collection-tile,
+.quick-card,
+.style-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.2s ease;
+}
+a.collection-card:hover,
+.mosaic-card:hover,
+a.rec-card:hover,
+.msg-artwork:hover,
+.collection-tile:hover {
+  transform: translateY(-4px);
+}
+.quick-card:hover,
+.style-card:hover {
+  transform: translateY(-2px);
+}
+
+.context-item:hover strong,
+.mosaic-card:hover h4,
+a.collection-card:hover h3,
+a.collection-card:hover h4 {
+  color: var(--accent);
+}
+
+.fav-category {
+  transition: border-color 0.2s ease;
+}
+.fav-category:hover {
+  border-color: var(--ink);
+}
+
+.btn:active,
+.chip:active,
+.heart-button:active {
+  transform: scale(0.97);
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

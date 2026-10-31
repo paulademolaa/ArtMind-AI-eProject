@@ -1,7 +1,3 @@
-// ------------------------------------------------------------
-// Sign Up — /signup
-// Checks each field and shows a password-strength bar.
-// ------------------------------------------------------------
 import { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import AuthLayout from '../components/AuthLayout';
@@ -9,7 +5,6 @@ import PasswordInput from '../components/PasswordInput';
 import Icon from '../components/Icon';
 import { useAuth } from '../context/AuthContext';
 
-// Give the password a score from 0 to 4.
 function passwordStrength(password) {
   let score = 0;
   if (password.length >= 8) score++;
@@ -25,7 +20,6 @@ function SignUp() {
   const navigate = useNavigate();
   const location = useLocation();
   const { signUp } = useAuth();
-  // Where to go after signing up (the page they wanted, or the dashboard)
   const goTo = location.state?.from || '/dashboard';
   const [form, setForm] = useState({ name: '', email: '', password: '' });
   const [agreed, setAgreed] = useState(false);
@@ -61,7 +55,6 @@ function SignUp() {
       <h1>Create your account</h1>
       <p className="muted">Free forever. Save paintings, build collections and get AI recommendations.</p>
 
-      {/* Shown when a visitor tried to open a page that needs an account */}
       {location.state?.needsAccount && (
         <p className="auth-notice">
           Create a free account to see your dashboard and saved paintings. Already have one?{' '}
@@ -86,7 +79,6 @@ function SignUp() {
         <div className="field">
           Password
           <PasswordInput value={form.password} onChange={handleChange} placeholder="At least 8 characters" />
-          {/* Strength bar: 4 small bars, filled up to the score */}
           {form.password && (
             <div>
               <div className="strength">

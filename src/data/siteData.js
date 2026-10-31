@@ -1,12 +1,9 @@
 import artworks from './artworks';
 
-// How many paintings are in a category, counted from artworks.json
-// (so the numbers always tally with the real collection).
 function countIn(name) {
   return String(artworks.filter((art) => art.category === name).length);
 }
 
-// The most common styles in a category (up to 3), e.g. ['Impressionism', 'Realism'].
 function stylesIn(name) {
   const counts = {};
   artworks

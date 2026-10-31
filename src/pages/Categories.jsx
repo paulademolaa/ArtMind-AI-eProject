@@ -1,7 +1,3 @@
-// ------------------------------------------------------------
-// Categories page — the six categories as large image tiles,
-// plus "explore by style" and a prompt to take the taste quiz.
-// ------------------------------------------------------------
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import PageLayout from '../components/PageLayout';
@@ -10,7 +6,6 @@ import artworks, { getArtwork } from '../data/artworks';
 import { categories } from '../data/siteData';
 import './Categories.css';
 
-// Styles shown in the "Explore by style" band, with one example painting each.
 const styleExamples = [
   { name: 'Impressionism', artworkId: 'water-lily-pond' },
   { name: 'Expressionism', artworkId: 'painting-with-green-center' },
@@ -20,7 +15,6 @@ const styleExamples = [
   { name: 'Post-Impressionism', artworkId: 'still-life-with-flowers' },
 ];
 
-// One image tile. `size` is "large", "tall", "normal" or "wide".
 function CategoryTile({ category, size, topTag }) {
   const cover = getArtwork(category.coverId);
   return (
@@ -50,19 +44,16 @@ function CategoryTile({ category, size, topTag }) {
 }
 
 function Categories() {
-  // Find a category by name, e.g. find('Landscape')
   const find = (name) => categories.find((cat) => cat.name === name);
   const navigate = useNavigate();
   const [query, setQuery] = useState('');
-  const [sort, setSort] = useState('explored'); // order of the quick-jump links
+  const [sort, setSort] = useState('explored');
 
-  // Searching sends you to Smart Search with your words.
   function handleSearch(event) {
     event.preventDefault();
     if (query.trim()) navigate(`/ai/search?q=${encodeURIComponent(query)}`);
   }
 
-  // "Most explored" = biggest count first ("3,912" -> 3912)
   const toNumber = (count) => parseInt(count.replace(/,/g, ''));
   const jumpList =
     sort === 'explored'
@@ -115,7 +106,6 @@ function Categories() {
         </div>
       </section>
 
-      {/* Quick jump bar */}
       <div className="quick-jump">
         <div className="container quick-jump-inner">
           <Link to="/explore" className="quick-jump-all">
@@ -133,7 +123,6 @@ function Categories() {
         </div>
       </div>
 
-      {/* Bento grid of tiles */}
       <section className="container category-bento">
         <CategoryTile category={find('Landscape')} size="large" topTag="Your top category" />
         <CategoryTile category={find('Abstract')} size="tall" />
@@ -143,7 +132,6 @@ function Categories() {
         <CategoryTile category={find('Religious')} size="wide" />
       </section>
 
-      {/* Explore by style */}
       <section className="section section-surface">
         <div className="container">
           <div className="section-header">
@@ -172,7 +160,7 @@ function Categories() {
           </div>
         </div>
       </section>
-      
+
     </PageLayout>
   );
 }

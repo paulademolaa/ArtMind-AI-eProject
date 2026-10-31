@@ -1,8 +1,3 @@
-// ------------------------------------------------------------
-// User Dashboard — /dashboard
-// Welcome, quick access to AI tools, recently viewed, favourite
-// categories, recommendations, collections and saved artworks.
-// ------------------------------------------------------------
 import { Link } from 'react-router-dom';
 import DashboardLayout from '../components/DashboardLayout';
 import ArtworkCard from '../components/ArtworkCard';
@@ -20,14 +15,11 @@ function Dashboard() {
   const { user } = useAuth();
   const saved = artworks.filter((art) => favorites.includes(art.id));
   const recommended = getRecommendations(favorites, 3);
-  // Every painting this user opened (saved by the Artwork Details page).
   const viewed = getRecentlyViewed()
     .map((item) => getArtwork(item.id))
     .filter(Boolean);
-  const recentlyViewed = viewed.slice(0, 5); // the last 5 for this page
+  const recentlyViewed = viewed.slice(0, 5);
 
-  // Favourite categories = share of the paintings you viewed or saved,
-  // shown as "42% of views" (biggest first).
   const categoryCounts = {};
   [...viewed, ...saved].forEach((art) => {
     categoryCounts[art.category] = (categoryCounts[art.category] || 0) + 1;
@@ -58,7 +50,7 @@ function Dashboard() {
         {[
           ['search', 'Smart Search', 'Describe what you want to see', '/ai/search'],
           ['image', 'Image Recognition', 'Identify a painting from a photo', '/ai/recognition'],
-          ['chat', 'Art Assistant', 'Ask about styles and artists', '/ai/assistant'],
+          ['robot', 'Art Assistant', 'Ask about styles and artists', '/ai/assistant'],
         ].map(([icon, title, text, link]) => (
           <Link key={title} to={link} className="quick-card">
             <span className="quick-icon">

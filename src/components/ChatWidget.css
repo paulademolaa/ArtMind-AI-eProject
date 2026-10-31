@@ -1,6 +1,3 @@
-/* ============================================================
-   CHAT WIDGET — floating AI Assistant (bottom-right corner)
-   ============================================================ */
 .chat-widget {
   position: fixed;
   right: 24px;
@@ -12,7 +9,6 @@
   gap: 12px;
 }
 
-/* Round button (pill with "Ask AI" text when closed) */
 .chat-widget-button {
   height: 56px;
   min-width: 56px;
@@ -38,7 +34,6 @@
   width: 56px;
 }
 
-/* Chat window */
 .chat-widget-panel {
   width: 360px;
   height: 500px;
@@ -167,7 +162,6 @@
   cursor: not-allowed;
 }
 
-/* Phones: smaller button, chat window fills most of the screen */
 @media (max-width: 640px) {
   .chat-widget {
     right: 16px;

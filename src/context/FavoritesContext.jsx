@@ -1,45 +1,42 @@
-// ------------------------------------------------------------
-// FavoritesContext
-// Keeps the list of saved (favourite) artwork ids so that ANY page
-// can read or change it — the heart on a card, the Favorites page,
-// the Dashboard, etc.
-//
-// It also saves the list in the browser (localStorage) so favourites
-// are still there after a page refresh.
-// ------------------------------------------------------------
 import { createContext, useContext, useEffect, useState } from 'react';
+import { useAuth } from './AuthContext';
 
 const FavoritesContext = createContext();
 
-// Read saved favourites from the browser (or start with a few examples).
-function loadFavorites() {
+function keyFor(user) {
+  return 'artmind-favorites:' + (user ? user.email : 'guest');
+}
+
+function loadFavorites(user) {
   try {
-    const saved = localStorage.getItem('artmind-favorites');
-    if (saved) return JSON.parse(saved);
+    return JSON.parse(localStorage.getItem(keyFor(user))) || [];
   } catch (error) {
-    // localStorage can be blocked (e.g. private mode) — just ignore it.
+    return [];
   }
-  return ['water-lily-pond', 'two-sisters-on-the-terrace', 'the-herring-net'];
 }
 
 export function FavoritesProvider({ children }) {
-  const [favorites, setFavorites] = useState(loadFavorites);
+  const { user } = useAuth();
+  const [favorites, setFavorites] = useState(() => loadFavorites(user));
 
-  // Every time the list changes, save it again.
+  const email = user ? user.email : 'guest';
   useEffect(() => {
-    try {
-      localStorage.setItem('artmind-favorites', JSON.stringify(favorites));
-    } catch (error) {
-      // ignore
-    }
-  }, [favorites]);
+    setFavorites(loadFavorites(user));
+  }, [email]);
 
-  // Add the id if it is not saved yet, remove it if it is.
+  function save(list) {
+    setFavorites(list);
+    try {
+      localStorage.setItem(keyFor(user), JSON.stringify(list));
+    } catch (error) {
+    }
+  }
+
   function toggleFavorite(id) {
     if (favorites.includes(id)) {
-      setFavorites(favorites.filter((favId) => favId !== id));
+      save(favorites.filter((favId) => favId !== id));
     } else {
-      setFavorites([...favorites, id]);
+      save([...favorites, id]);
     }
   }
 
@@ -54,7 +51,6 @@ export function FavoritesProvider({ children }) {
   );
 }
 
-// Shortcut so components can write: const { isFavorite } = useFavorites();
 export function useFavorites() {
   return useContext(FavoritesContext);
 }

@@ -31,7 +31,6 @@ function Settings() {
   const [toast, setToast] = useState(null);
   const [error, setError] = useState('');
 
- 
   const [firstName, ...rest] = user.name.split(' ');
   const [form, setForm] = useState({ firstName, lastName: rest.join(' '), email: user.email });
   const [passwords, setPasswords] = useState({ current: '', next: '' });
@@ -48,14 +47,12 @@ function Settings() {
   });
   const [confirmDelete, setConfirmDelete] = useState(false);
 
-
-  const fileInput = useRef(null); 
+  const fileInput = useRef(null);
   const [photoError, setPhotoError] = useState('');
 
-  
   function handlePhoto(event) {
     const file = event.target.files[0];
-    event.target.value = ''; 
+    event.target.value = '';
     if (!file) return;
     if (!file.type.startsWith('image/')) return setPhotoError('Please choose an image file (JPG, PNG or WebP).');
     if (file.size > 5 * 1024 * 1024) return setPhotoError('Please choose an image smaller than 5 MB.');
@@ -103,7 +100,6 @@ function Settings() {
     setTimeout(() => setToast(null), 3000);
   }
 
-
   function handleCancel() {
     setForm({ firstName, lastName: rest.join(' '), email: user.email });
     setPasswords({ current: '', next: '' });
@@ -134,7 +130,7 @@ function Settings() {
 
   return (
     <DashboardLayout>
-      <h1>Account settings</h1>
+      <h1>Account settiIIIngs</h1>
       <div className="settings-tabs" role="tablist">
         {tabs.map((name) => (
           <button key={name} role="tab" className={tab === name ? 'active' : ''} onClick={() => { setTab(name); setError(''); }}>
@@ -143,12 +139,10 @@ function Settings() {
         ))}
       </div>
 
-
       {tab === 'Profile' && (
         <div className="settings-profile">
           <div className="settings-photo">
             <UserAvatar user={user} className="settings-avatar" />
-            {/* The real file picker is hidden; the button opens it */}
             <input ref={fileInput} type="file" accept="image/*" hidden onChange={handlePhoto} />
             <button className="text-button" type="button" onClick={() => fileInput.current.click()}>
               Change photo
@@ -195,7 +189,6 @@ function Settings() {
         </div>
       )}
 
-      
       {(tab === 'Profile' || tab === 'Personalisation') && (
         <div className="settings-box">
           <h3 className="settings-box-title">Personalisation &amp; privacy</h3>
@@ -254,7 +247,6 @@ function Settings() {
         </button>
       </div>
 
-      
       {toast && (
         <div className="settings-toast" role="status">
           <Icon name="check" size={16} />
@@ -267,7 +259,6 @@ function Settings() {
           </button>
         </div>
       )}
-
 
       {confirmDelete && (
         <div className="modal-backdrop" onClick={() => setConfirmDelete(false)}>

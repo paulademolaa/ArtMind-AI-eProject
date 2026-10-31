@@ -1,10 +1,7 @@
-/* ============================================================
-   ART ASSISTANT (chat) PAGE
-   ============================================================ */
 .assistant {
   display: grid;
   grid-template-columns: 280px 1fr 300px;
-  height: calc(100vh - 81px); /* full screen minus the navbar */
+  height: calc(100vh - 81px);
   min-height: 600px;
 }
 
@@ -51,7 +48,6 @@
   color: var(--ink);
 }
 
-/* ---------- Chat column ---------- */
 .chat {
   display: flex;
   flex-direction: column;
@@ -149,7 +145,6 @@
   font-weight: 400;
 }
 
-/* Three bouncing dots while the AI "types" */
 .typing {
   display: flex;
   gap: 6px;
@@ -242,7 +237,6 @@
   font-weight: 500;
 }
 
-/* ---------- Responsive ---------- */
 @media (max-width: 1024px) {
   .assistant {
     grid-template-columns: 1fr;
@@ -268,7 +262,6 @@
   }
 }
 
-/* Share + delete buttons in the chat header */
 .chat-header-actions {
   margin-left: auto;
   display: flex;
@@ -278,7 +271,6 @@
   color: var(--accent);
 }
 
-/* "You · 10:42" under messages */
 .msg-user-wrap {
   align-self: flex-end;
   display: flex;
@@ -302,7 +294,6 @@
   color: var(--accent);
 }
 
-/* Right column extras */
 .context-item {
   position: relative;
 }

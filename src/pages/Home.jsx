@@ -1,8 +1,3 @@
-// ------------------------------------------------------------
-// Home page
-// Sections: Hero · Featured · Categories · Personalised picks ·
-//           Smart search · How it works · Collections · Assistant
-// ------------------------------------------------------------
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import PageLayout from '../components/PageLayout';
@@ -16,7 +11,6 @@ function Home() {
   const navigate = useNavigate();
   const [query, setQuery] = useState('');
 
-  // Send the search text to the Smart Search page, e.g. /ai/search?q=blue+seascapes
   function handleSearch(event) {
     event.preventDefault();
     navigate('/ai/search?q=' + encodeURIComponent(query || 'calm blue seascapes'));
@@ -59,19 +53,16 @@ function Home() {
 
   const featuredCollection = collections[0];
 
-  // Paintings shown one at a time in the hero card.
   const featuredIds = ['water-lily-pond', 'cliff-walk-at-pourville', 'view-of-cotopaxi', 'valley-of-aosta', 'landscape-sunset', 'view-of-genoa'];
   const [featuredIndex, setFeaturedIndex] = useState(0);
   const heroPick = getArtwork(featuredIds[featuredIndex]);
-  // step is -1 (previous) or 1 (next); wraps around at the ends
   function showFeatured(step) {
     setFeaturedIndex((featuredIndex + step + featuredIds.length) % featuredIds.length);
   }
-  const [following, setFollowing] = useState(false); // "Follow" button on the collection
+  const [following, setFollowing] = useState(false);
 
   return (
     <PageLayout transparentNav>
-      {/* ---------- HERO ---------- */}
       <section className="hero" style={{ backgroundImage: `url(${heroArtwork.image})` }}>
         <div className="hero-overlay" />
         <div className="container hero-content">
@@ -113,7 +104,6 @@ function Home() {
               </div>
             </div>
 
-            {/* Featured painting card with previous / next (as in Figma) */}
             <div className="hero-card">
               <div className="hero-card-top">
                 <span>Featured · {heroPick.category}</span>
@@ -150,7 +140,6 @@ function Home() {
         </div>
       </section>
 
-      {/* ---------- FEATURED ARTWORKS ---------- */}
       <section className="section">
         <div className="container">
           <div className="section-header">
@@ -170,7 +159,6 @@ function Home() {
         </div>
       </section>
 
-      {/* ---------- CATEGORIES ---------- */}
       <section className="section section-surface">
         <div className="container">
           <div className="section-header">
@@ -203,7 +191,6 @@ function Home() {
         </div>
       </section>
 
-      {/* ---------- PERSONALISED RECOMMENDATIONS ---------- */}
       <section className="section">
         <div className="container taste">
           <div className="taste-copy">
@@ -260,7 +247,6 @@ function Home() {
         </div>
       </section>
 
-      {/* ---------- SMART SEARCH (dark) ---------- */}
       <section className="section section-dark smart-search">
         <div className="container smart-search-inner">
           <p className="eyebrow eyebrow-light">Natural-language search</p>
@@ -294,7 +280,6 @@ function Home() {
         </div>
       </section>
 
-      {/* ---------- HOW IT WORKS ---------- */}
       <section className="section">
         <div className="container">
           <div className="section-header">
@@ -361,7 +346,6 @@ function Home() {
         </div>
       </section>
 
-      {/* ---------- CURATED COLLECTIONS ---------- */}
       <section className="section section-surface">
         <div className="container">
           <div className="section-header">
@@ -389,7 +373,6 @@ function Home() {
               <p className="mono muted">Collection of the month</p>
               <h2>{featuredCollection.title}</h2>
               <p className="muted">{featuredCollection.description}</p>
-              {/* Small facts about the collection (as in the Figma design) */}
               <div className="collection-stats">
                 <div>
                   <strong>{featuredCollection.artworkIds.length}</strong>
@@ -441,14 +424,13 @@ function Home() {
         </div>
       </section>
 
-      {/* ---------- AI ART ASSISTANT ---------- */}
       <section className="section">
         <div className="container assistant-preview">
           <div className="chat-preview" style={{ backgroundImage: `url(${getArtwork('la-grande-jatte-oil-sketch').image})` }}>
             <div className="chat-window">
               <div className="chat-window-header">
                 <span className="chat-avatar">
-                  <Icon name="sparkle" size={14} />
+                  <Icon name="robot" size={18} />
                 </span>
                 <div>
                   <strong>ArtMind Assistant</strong>

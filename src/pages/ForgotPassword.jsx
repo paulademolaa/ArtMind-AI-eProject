@@ -1,7 +1,3 @@
-// ------------------------------------------------------------
-// Forgot Password — /forgot-password
-// After a valid email, we show a confirmation message.
-// ------------------------------------------------------------
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import AuthLayout from '../components/AuthLayout';
@@ -20,7 +16,6 @@ function ForgotPassword() {
     }
     setError('');
     setSent(true);
-    // Remember the email for the Reset Password page (there is no real email yet).
     sessionStorage.setItem('artmind-reset-email', email);
   }
 
@@ -47,7 +42,6 @@ function ForgotPassword() {
           </p>
         )}
         {sent && (
-          // No emails are sent in this demo, so we link straight to the reset page.
           <p className="auth-switch">
             Demo: <Link to="/reset-password">open the reset password page</Link>
           </p>

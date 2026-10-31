@@ -1,11 +1,3 @@
-// ------------------------------------------------------------
-// AI Smart Search — /ai/search?q=...
-// The user types a sentence. We "understand" it with smartSearch()
-// from utils/fakeAI.js and show: intent chips + matching artworks.
-// States: empty → loading → results (or no results)
-// Layout follows Figma: removable intent chips, "Refine with AI" chips,
-// masonry results with sorting, and "People who searched this also explored".
-// ------------------------------------------------------------
 import { useEffect, useRef, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import PageLayout from '../components/PageLayout';
@@ -24,12 +16,9 @@ const suggestions = [
   'Golden Renaissance panels',
 ];
 
-// Extra words you can add to (or remove from) your search with one click.
 const refineOptions = ['Golden hour', 'Water', 'Mountains', 'On canvas', '19th century', 'Large scale'];
 
-// Does the text contain this word/phrase? (ignores upper/lower case)
 const containsWord = (text, word) => text.toLowerCase().includes(word.toLowerCase());
-// Remove a word/phrase from the text and tidy up the spaces.
 const removeWord = (text, word) =>
   text
     .replace(new RegExp(word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + 's?', 'ig'), '')
@@ -37,18 +26,16 @@ const removeWord = (text, word) =>
     .trim();
 
 function SmartSearch() {
-  // The search text lives in the address bar (?q=...) so it can be shared.
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get('q') || '';
 
   const [input, setInput] = useState(query);
   const [loading, setLoading] = useState(false);
-  const [result, setResult] = useState(null); // { intent, results }
+  const [result, setResult] = useState(null);
   const [history, setHistory] = useState(['Calm blue seascapes', 'Renaissance angels with gold', 'Modern abstract paintings on canvas']);
   const [sort, setSort] = useState('relevant');
-  const inputRef = useRef(null); // used by the "Edit" button
+  const inputRef = useRef(null);
 
-  // Whenever the query in the address changes, run the search.
   useEffect(() => {
     setInput(query);
     if (!query) {
@@ -56,12 +43,11 @@ function SmartSearch() {
       return;
     }
     setLoading(true);
-    // Wait a moment to feel like the AI is "thinking".
     const timer = setTimeout(() => {
       setResult(smartSearch(query));
       setLoading(false);
     }, 900);
-    return () => clearTimeout(timer); // cancel if the user searches again quickly
+    return () => clearTimeout(timer);
   }, [query]);
 
   function runSearch(text) {
@@ -70,25 +56,21 @@ function SmartSearch() {
     if (!history.includes(text)) setHistory([text, ...history].slice(0, 5));
   }
 
-  // Remove one understood part, e.g. "Medium: Oil" removes "oil" from the search.
   function removeIntent(item) {
     const word = item.split(': ')[1];
     const newQuery = removeWord(query, word);
     if (newQuery) runSearch(newQuery);
   }
 
-  // Add or remove a "Refine with AI" word.
   function toggleRefine(word) {
     runSearch(containsWord(query, word) ? removeWord(query, word) || query : `${query} ${word.toLowerCase()}`);
   }
 
-  // Sort the results (they come "most relevant first").
   const year = (art) => parseInt(art.date.match(/\d{4}/)[0]);
   let shown = result ? result.results : [];
   if (sort === 'oldest') shown = [...shown].sort((a, b) => year(a) - year(b));
   if (sort === 'newest') shown = [...shown].sort((a, b) => year(b) - year(a));
 
-  // "People who searched this also explored": paintings not in the results.
   const alsoExplored = artworks.filter((art) => !shown.some((item) => item.id === art.id)).slice(0, 4);
 
   function handleSubmit(event) {
@@ -118,7 +100,6 @@ function SmartSearch() {
           </button>
         </form>
 
-        {/* What the AI understood */}
         {result && result.intent.length > 0 && (
           <div className="intent">
             <p className="intent-label">
@@ -139,7 +120,6 @@ function SmartSearch() {
       </section>
 
       <section className="container search-body">
-        {/* ---- Sidebar: history + suggestions ---- */}
         <aside className="search-side">
           <div className="side-title-row">
             <h4 className="side-title">Recent searches</h4>
@@ -183,9 +163,7 @@ function SmartSearch() {
           </div>
         </aside>
 
-        {/* ---- Main area: one of four states ---- */}
         <div className="search-main">
-          {/* 1. Empty state: nothing searched yet */}
           {!query && (
             <div>
               <h4 className="side-title">Suggested searches</h4>
@@ -199,7 +177,6 @@ function SmartSearch() {
             </div>
           )}
 
-          {/* 2. Loading state */}
           {query && loading && (
             <div>
               <div className="ai-progress">
@@ -218,7 +195,6 @@ function SmartSearch() {
             </div>
           )}
 
-          {/* 3. Results */}
           {query && !loading && result && result.results.length > 0 && (
             <>
               <div className="results-title">
@@ -240,7 +216,6 @@ function SmartSearch() {
             </>
           )}
 
-          {/* 4. No results */}
           {query && !loading && result && result.results.length === 0 && (
             <div className="no-results">
               <Icon name="search" size={28} />
@@ -258,7 +233,6 @@ function SmartSearch() {
         </div>
       </section>
 
-      {/* ---- People who searched this also explored ---- */}
       {query && !loading && result && (
         <section className="section section-surface">
           <div className="container">

@@ -1,4 +1,3 @@
-/* ---------- Signed-in layout (sidebar + content) ---------- */
 .dashboard-layout {
   display: grid;
   grid-template-columns: 280px 1fr;
@@ -84,7 +83,7 @@
 
 @media (max-width: 1024px) {
   .dashboard-layout {
-    grid-template-columns: minmax(0, 1fr); /* minmax stops wide content from stretching the page */
+    grid-template-columns: minmax(0, 1fr);
   }
   .dashboard-sidebar {
     border-right: none;
@@ -109,7 +108,6 @@
   margin-top: 24px;
   align-self: flex-start;
 }
-/* On small screens "Sign out" is in the navbar menu instead */
 @media (max-width: 1024px) {
   .dashboard-signout {
     display: none;

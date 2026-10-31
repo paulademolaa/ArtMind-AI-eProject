@@ -1,19 +1,7 @@
-// ------------------------------------------------------------
-// AuthContext — remembers who is signed in, for every page.
-//
-// There is no real server yet, so accounts are saved in the browser
-// (localStorage). This is for learning/demo only: a real website
-// must check passwords on a server and never store them like this.
-//
-// Usage in any component:
-//   const { user, signUp, signIn, signOut, updateProfile, changePassword, deleteAccount } = useAuth();
-//   user is null for visitors, or { name, email, joined } when signed in.
-// ------------------------------------------------------------
 import { createContext, useContext, useState } from 'react';
 
 const AuthContext = createContext(null);
 
-// Small helpers to read and save JSON in localStorage.
 function load(key, fallback) {
   try {
     return JSON.parse(localStorage.getItem(key)) || fallback;
@@ -25,14 +13,10 @@ function save(key, value) {
   try {
     localStorage.setItem(key, JSON.stringify(value));
   } catch (error) {
-    // Storage can be full or blocked (e.g. some private windows).
     console.warn('ArtMind could not save to the browser:', error);
   }
 }
 
-// The signed-in user is kept in:
-//   localStorage   when "Keep me signed in" is ticked (stays after closing the browser)
-//   sessionStorage when it is not ticked (cleared when the browser is closed)
 function loadSession() {
   try {
     return JSON.parse(localStorage.getItem('artmind-user') || sessionStorage.getItem('artmind-user')) || null;
@@ -42,9 +26,7 @@ function loadSession() {
 }
 
 export function AuthProvider({ children }) {
-  // Start with whoever was signed in last time (or nobody).
   const [user, setUser] = useState(loadSession);
-  // Remember where the current session is kept (see loadSession above).
   const [remember, setRemember] = useState(() => !sessionStorage.getItem('artmind-user'));
 
   function startSession(account, keep = remember) {
@@ -52,7 +34,7 @@ export function AuthProvider({ children }) {
       name: account.name,
       email: account.email,
       joined: account.joined,
-      photo: account.photo || '', // profile picture (a small image saved as text)
+      photo: account.photo || '',
       preferences: account.preferences || {},
     };
     setUser(signedIn);
@@ -66,7 +48,6 @@ export function AuthProvider({ children }) {
     }
   }
 
-  // Create an account. Returns an error message, or '' if it worked.
   function signUp(name, email, password) {
     const accounts = load('artmind-accounts', []);
     const cleanEmail = email.trim().toLowerCase();
@@ -75,12 +56,10 @@ export function AuthProvider({ children }) {
     }
     const account = { name: name.trim(), email: cleanEmail, password, joined: new Date().getFullYear() };
     save('artmind-accounts', [...accounts, account]);
-    startSession(account, true); // new accounts stay signed in
+    startSession(account, true);
     return '';
   }
 
-  // Sign in to an existing account. Returns an error message, or ''.
-  // keepSignedIn comes from the "Keep me signed in" checkbox.
   function signIn(email, password, keepSignedIn = true) {
     const accounts = load('artmind-accounts', []);
     const account = accounts.find((item) => item.email === email.trim().toLowerCase());
@@ -90,12 +69,8 @@ export function AuthProvider({ children }) {
     return '';
   }
 
-  // Change the details of the signed-in account (used by Account Settings).
-  // "changes" can include name, email and preferences. Returns an error or ''.
   function updateProfile(changes) {
     let accounts = load('artmind-accounts', []);
-    // If the saved account is missing (e.g. storage was cleared), re-create it
-    // from the signed-in user so nothing is lost.
     if (!accounts.some((account) => account.email === user.email)) {
       accounts = [...accounts, { ...user }];
     }
@@ -111,7 +86,6 @@ export function AuthProvider({ children }) {
     return '';
   }
 
-  // Returns an error message, or '' if the password was changed.
   function changePassword(currentPassword, newPassword) {
     const accounts = load('artmind-accounts', []);
     const account = accounts.find((item) => item.email === user.email);
@@ -120,8 +94,6 @@ export function AuthProvider({ children }) {
     return '';
   }
 
-  // Set a new password for an email (used by the Reset Password page).
-  // Returns an error message, or '' if it worked.
   function resetPassword(email, newPassword) {
     const accounts = load('artmind-accounts', []);
     const cleanEmail = email.trim().toLowerCase();
@@ -130,7 +102,6 @@ export function AuthProvider({ children }) {
     return '';
   }
 
-  // Removes the account completely and signs out.
   function deleteAccount() {
     const accounts = load('artmind-accounts', []);
     save('artmind-accounts', accounts.filter((account) => account.email !== user.email));
@@ -146,12 +117,10 @@ export function AuthProvider({ children }) {
   return <AuthContext.Provider value={{ user, signUp, signIn, signOut, updateProfile, changePassword, deleteAccount, resetPassword }}>{children}</AuthContext.Provider>;
 }
 
-// The hook pages use to read the signed-in user.
 export function useAuth() {
   return useContext(AuthContext);
 }
 
-// "Paul Ademola" -> "PA" (used for the round profile picture)
 export function initialsOf(name) {
   return name
     .split(' ')
@@ -162,7 +131,6 @@ export function initialsOf(name) {
     .toUpperCase();
 }
 
-// "Paul Ademola" -> "Paul"
 export function firstNameOf(name) {
   return name.trim().split(' ')[0];
 }

@@ -61,15 +61,15 @@ function FilterGroup({ title, options, selected, onToggle, count }) {
 function Explore() {
   const [search, setSearch] = useState('');
   const [category, setCategory] = useState('All');
-  const [styles, setStyles] = useState([]); // e.g. ['Impressionism']
+  const [styles, setStyles] = useState([]);
   const [surfaces, setSurfaces] = useState([]);
   const [mediums, setMediums] = useState([]);
   const [colours, setColours] = useState([]);
   const [popularity, setPopularity] = useState([]);
-  const [view, setView] = useState('grid'); // 'grid' (masonry) or 'list'
+  const [view, setView] = useState('grid');
   const [sort, setSort] = useState('relevant');
   const [visibleCount, setVisibleCount] = useState(12);
-  const [filtersOpen, setFiltersOpen] = useState(false); // mobile filter drawer
+  const [filtersOpen, setFiltersOpen] = useState(false);
 
   function toggle(list, setList, value) {
     if (list.includes(value)) {

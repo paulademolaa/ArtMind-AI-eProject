@@ -14,7 +14,7 @@ export function smartSearch(query) {
 
   const intent = [];
   words.forEach((word) => {
-    const single = word.endsWith('s') ? word.slice(0, -1) : word; // "flowers" -> "flower"
+    const single = word.endsWith('s') ? word.slice(0, -1) : word;
     if (knownCategories.includes(single)) intent.push('Category: ' + capitalise(single));
     if (knownMediums.includes(word)) intent.push('Medium: ' + capitalise(word));
     if (knownSurfaces.includes(word)) intent.push('Surface: ' + capitalise(word));
@@ -63,7 +63,7 @@ export function analyseImage() {
         closestMatchId: 'cliff-walk-at-pourville',
         similarIds: ['water-lily-pond', 'the-herring-net', 'view-of-genoa', 'auvers-panoramic-view'],
       });
-    }, 3000); // 3 seconds
+    }, 3000);
   });
 }
 

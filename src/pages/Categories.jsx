@@ -47,7 +47,7 @@ function Categories() {
   const find = (name) => categories.find((cat) => cat.name === name);
   const navigate = useNavigate();
   const [query, setQuery] = useState('');
-  const [sort, setSort] = useState('explored'); // order of the quick-jump links
+  const [sort, setSort] = useState('explored');
 
   function handleSearch(event) {
     event.preventDefault();

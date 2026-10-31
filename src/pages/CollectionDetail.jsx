@@ -26,7 +26,7 @@ function CollectionDetail() {
       return [];
     }
   });
-  const [view, setView] = useState('list'); // Figma shows the list view
+  const [view, setView] = useState('list');
   const [copied, setCopied] = useState(false);
 
   if (!collection) {

@@ -8,11 +8,11 @@ import { analyseImage } from '../utils/fakeAI';
 import './ImageRecognition.css';
 
 const allowedTypes = ['image/jpeg', 'image/png', 'image/webp'];
-const maxSize = 10 * 1024 * 1024; // 10 MB
+const maxSize = 10 * 1024 * 1024;
 
 function ImageRecognition() {
   const [step, setStep] = useState('upload');
-  const [file, setFile] = useState(null); // { name, size, url }
+  const [file, setFile] = useState(null);
   const [errorMessage, setErrorMessage] = useState('');
   const [result, setResult] = useState(null);
   const [dragging, setDragging] = useState(false);
@@ -32,7 +32,7 @@ function ImageRecognition() {
     setFile({
       name: chosenFile.name,
       size: (chosenFile.size / 1024 / 1024).toFixed(1) + ' MB',
-      url: URL.createObjectURL(chosenFile), // a temporary address so we can show the picture
+      url: URL.createObjectURL(chosenFile),
     });
     setStep('ready');
   }
@@ -45,7 +45,7 @@ function ImageRecognition() {
 
   async function analyse() {
     setStep('processing');
-    const data = await analyseImage(); // waits ~3 seconds
+    const data = await analyseImage();
     setResult(data);
     setStep('results');
   }

@@ -29,9 +29,9 @@ function Favorites() {
   const collectionsKey = 'artmind-my-collections:' + user.email;
   const followedKey = 'artmind-followed-categories:' + user.email;
   const [tab, setTab] = useState('Saved paintings');
-  const [view, setView] = useState('grid'); // 'grid' or 'list'
+  const [view, setView] = useState('grid');
   const [category, setCategory] = useState('All');
-  const [toRemove, setToRemove] = useState(null); // artwork waiting for confirmation
+  const [toRemove, setToRemove] = useState(null);
 
   const [myCollections, setMyCollections] = useState(() => loadList(collectionsKey, []));
   const [newName, setNewName] = useState('');

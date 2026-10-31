@@ -11,7 +11,7 @@ function loadFavorites(user) {
   try {
     return JSON.parse(localStorage.getItem(keyFor(user))) || [];
   } catch (error) {
-    return []; // localStorage can be blocked (e.g. private mode)
+    return [];
   }
 }
 

@@ -59,7 +59,7 @@ function Home() {
   function showFeatured(step) {
     setFeaturedIndex((featuredIndex + step + featuredIds.length) % featuredIds.length);
   }
-  const [following, setFollowing] = useState(false); // "Follow" button on the collection
+  const [following, setFollowing] = useState(false);
 
   return (
     <PageLayout transparentNav>

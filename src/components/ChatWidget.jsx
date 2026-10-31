@@ -11,7 +11,7 @@ function ChatWidget() {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
   const [typing, setTyping] = useState(false);
-  const bottomRef = useRef(null); // used to scroll to the newest message
+  const bottomRef = useRef(null);
 
   function sendMessage(text) {
     if (!text.trim() || typing) return;

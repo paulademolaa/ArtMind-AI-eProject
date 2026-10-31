@@ -30,8 +30,8 @@ const counterSelector = '.stats strong, .team-figures strong, .collection-stats 
 
 function countUp(element) {
   const finalText = element.textContent.trim();
-  const match = finalText.match(/^(\d[\d,]*)(\D*)$/); // a number, then an optional ending like "%"
-  if (!match) return; // not a simple number (e.g. "1830–1919"), leave it alone
+  const match = finalText.match(/^(\d[\d,]*)(\D*)$/);
+  if (!match) return;
   const target = parseInt(match[1].replace(/,/g, ''), 10);
   const ending = match[2];
   const useCommas = match[1].includes(',');
@@ -40,11 +40,11 @@ function countUp(element) {
 
   function step(now) {
     const progress = Math.min((now - start) / duration, 1);
-    const eased = 1 - Math.pow(1 - progress, 3); // starts fast, slows down at the end
+    const eased = 1 - Math.pow(1 - progress, 3);
     const value = Math.round(target * eased);
     element.textContent = (useCommas ? value.toLocaleString('en-US') : value) + ending;
     if (progress < 1) requestAnimationFrame(step);
-    else element.textContent = finalText; // finish on the exact original text
+    else element.textContent = finalText;
   }
   requestAnimationFrame(step);
 }
@@ -73,7 +73,7 @@ function ScrollAnimations() {
               element.style.transitionDelay = '';
             }, 700 + delay);
           }
-          observer.unobserve(element); // animate only once
+          observer.unobserve(element);
         });
       },
       { threshold: 0.15 }
@@ -108,7 +108,7 @@ function ScrollAnimations() {
     };
   }, [location.pathname]);
 
-  return null; // this component only adds behaviour, it shows nothing
+  return null;
 }
 
 export default ScrollAnimations;

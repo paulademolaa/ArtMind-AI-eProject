@@ -17,11 +17,11 @@ const views = [
 ];
 
 function ArtworkDetails() {
-  const { id } = useParams(); // the ":id" part of the address
+  const { id } = useParams();
   const artwork = getArtwork(id);
   const { isFavorite, toggleFavorite, favorites } = useFavorites();
-  const [view, setView] = useState(0); // which thumbnail is selected
-  const [overlay, setOverlay] = useState(null); // 'zoom' | 'room' | null
+  const [view, setView] = useState(0);
+  const [overlay, setOverlay] = useState(null);
   const [copied, setCopied] = useState(false);
 
   useEffect(() => {

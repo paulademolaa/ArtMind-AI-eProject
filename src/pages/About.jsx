@@ -44,7 +44,7 @@ function About() {
     setErrors(newErrors);
 
     if (Object.keys(newErrors).length === 0) {
-      setSent(true); // In a real app we would send the form to a server here.
+      setSent(true);
     }
   }
 

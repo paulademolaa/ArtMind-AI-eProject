@@ -8,7 +8,7 @@ function ScrollToTop() {
     window.scrollTo(0, 0);
   }, [pathname]);
 
-  return null; // this component shows nothing on screen
+  return null;
 }
 
 export default ScrollToTop;

@@ -18,7 +18,7 @@ function Dashboard() {
   const viewed = getRecentlyViewed()
     .map((item) => getArtwork(item.id))
     .filter(Boolean);
-  const recentlyViewed = viewed.slice(0, 5); // the last 5 for this page
+  const recentlyViewed = viewed.slice(0, 5);
 
   const categoryCounts = {};
   [...viewed, ...saved].forEach((art) => {

@@ -34,7 +34,7 @@ export function AuthProvider({ children }) {
       name: account.name,
       email: account.email,
       joined: account.joined,
-      photo: account.photo || '', // profile picture (a small image saved as text)
+      photo: account.photo || '',
       preferences: account.preferences || {},
     };
     setUser(signedIn);
@@ -56,7 +56,7 @@ export function AuthProvider({ children }) {
     }
     const account = { name: name.trim(), email: cleanEmail, password, joined: new Date().getFullYear() };
     save('artmind-accounts', [...accounts, account]);
-    startSession(account, true); // new accounts stay signed in
+    startSession(account, true);
     return '';
   }
 

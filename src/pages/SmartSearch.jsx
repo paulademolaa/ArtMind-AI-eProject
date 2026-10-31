@@ -31,10 +31,10 @@ function SmartSearch() {
 
   const [input, setInput] = useState(query);
   const [loading, setLoading] = useState(false);
-  const [result, setResult] = useState(null); // { intent, results }
+  const [result, setResult] = useState(null);
   const [history, setHistory] = useState(['Calm blue seascapes', 'Renaissance angels with gold', 'Modern abstract paintings on canvas']);
   const [sort, setSort] = useState('relevant');
-  const inputRef = useRef(null); // used by the "Edit" button
+  const inputRef = useRef(null);
 
   useEffect(() => {
     setInput(query);
@@ -47,7 +47,7 @@ function SmartSearch() {
       setResult(smartSearch(query));
       setLoading(false);
     }, 900);
-    return () => clearTimeout(timer); // cancel if the user searches again quickly
+    return () => clearTimeout(timer);
   }, [query]);
 
   function runSearch(text) {

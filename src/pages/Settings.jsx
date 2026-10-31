@@ -130,7 +130,7 @@ function Settings() {
 
   return (
     <DashboardLayout>
-      <h1>Account settiIIIngs</h1>
+      <h1>Account settings</h1>
       <div className="settings-tabs" role="tablist">
         {tabs.map((name) => (
           <button key={name} role="tab" className={tab === name ? 'active' : ''} onClick={() => { setTab(name); setError(''); }}>

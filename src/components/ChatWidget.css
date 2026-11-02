@@ -113,6 +113,7 @@
 .chat-widget-ai > p {
   padding: 10px 14px;
   background: var(--surface);
+  white-space: pre-line;
 }
 .chat-widget-artworks {
   display: grid;

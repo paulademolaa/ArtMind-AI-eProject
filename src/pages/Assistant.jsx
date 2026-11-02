@@ -1,8 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
-import { Link, useSearchParams } from 'react-router-dom';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import PageLayout from '../components/PageLayout';
 import Icon from '../components/Icon';
-import { getAssistantReply } from '../utils/fakeAI';
+import { askAssistant } from '../utils/assistant';
+import { useAuth } from '../context/AuthContext';
+import { useFavorites } from '../context/FavoritesContext';
 import './Assistant.css';
 
 const starterQuestions = [
@@ -25,19 +27,20 @@ function Assistant() {
   const [input, setInput] = useState('');
   const [typing, setTyping] = useState(false);
   const bottomRef = useRef(null);
+  const navigate = useNavigate();
+  const { user } = useAuth();
+  const { favorites, toggleFavorite } = useFavorites();
 
-  function sendMessage(text) {
+  async function sendMessage(text) {
     if (!text.trim() || typing) return;
     const userMessage = { from: 'user', text, time: timeNow() };
     setMessages((old) => [...old, userMessage]);
     setInput('');
     setTyping(true);
 
-    setTimeout(() => {
-      const reply = getAssistantReply(text);
-      setMessages((old) => [...old, { from: 'ai', text: reply.text, artworks: reply.artworks, question: text, time: timeNow() }]);
-      setTyping(false);
-    }, 1000);
+    const reply = await askAssistant(messages, text, { favorites, toggleFavorite, user, navigate });
+    setMessages((old) => [...old, { from: 'ai', text: reply.text, artworks: reply.artworks, question: text, time: timeNow() }]);
+    setTyping(false);
   }
 
   const askedFromLink = useRef(false);

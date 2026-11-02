@@ -80,6 +80,16 @@ npm run dev
 
 Open the address it prints (usually **http://localhost:5173**) in your browser. The page updates automatically when you save a file.
 
+### 5. Turn on the Gemini assistant (optional)
+
+The ArtMind Assistant uses Google's Gemini. Without a key it still works, but only with a few pre-written answers.
+
+1. Get a free API key at **[Google AI Studio](https://aistudio.google.com/apikey)**.
+2. Copy `.env.example` to a new file called `.env.local` and paste your key after `GEMINI_API_KEY=`.
+3. Stop the website (`Ctrl+C`) and run `npm run dev` again.
+
+`.env.local` is ignored by Git, so your key never goes to GitHub. Each teammate uses their own key. The key stays inside the dev server on your computer and is never sent to the browser.
+
 ### Adding or changing a painting
 
 1. Put the image in `public/images/` and name it after the painting's id, e.g. `public/images/my-painting.jpg`.
@@ -183,11 +193,23 @@ All AI behaviour lives in **`src/utils/fakeAI.js`**, in four small functions tha
 | `smartSearch(query)` | Smart Search | Understands the words in your sentence (category, medium, surface) and ranks the matching paintings |
 | `analyseImage()` | Image Recognition | Shows the predicted style, category, medium, era, dominant colours and closest match for an uploaded image (this version always returns the same sample analysis) |
 | `getRecommendations(favoriteIds)` | Recommendations, Dashboard, Details | Suggests paintings that share a category or style with your favourites |
-| `getAssistantReply(message)` | Art Assistant, floating chat | Recognises what you are asking about and answers, recommending paintings where useful |
+| `getAssistantReply(message)` | Art Assistant, floating chat (when no Gemini key is set) | Recognises what you are asking about and answers, recommending paintings where useful |
 
 Because each page only calls these functions, the AI logic can be improved in one place without changing the pages.
 
-**Honest AI labelling:** anything produced by "AI" in the interface is marked with a ✦ label and wording like *"AI prediction · not guaranteed"*, so it is never confused with verified catalogue facts.
+### The Gemini assistant
+
+The Art Assistant page and the floating chat use **Google Gemini** through **`src/utils/assistant.js`**:
+
+- Gemini is given the list of all 60 paintings, so it only recommends paintings that are really on the site.
+- It can **act on the site**: show paintings as cards, look up a painting's details, add or remove favourites, list your favourites, and open pages (for example "take me to my favourites" or "open Water Lily Pond").
+- The browser sends questions to `/api/gemini`, a small relay in `vite.config.js` that adds the secret key and forwards them to Google.
+- If no key is set, it falls back to `getAssistantReply` above.
+- The model can be changed with `GEMINI_MODEL` in `.env.local`.
+
+**Note:** the relay runs inside `npm run dev` and `npm run preview`. If the site is ever published online, the relay has to move to a serverless function on the host (for example Vercel or Netlify), with the key stored in the host's settings.
+
+**Honest AI labelling:** anything produced by "AI" in the interface is marked with wording like *"AI prediction · not guaranteed"*, so it is never confused with verified catalogue facts.
 
 ---
 

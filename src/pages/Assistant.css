@@ -116,6 +116,9 @@
   gap: 14px;
   max-width: 680px;
 }
+.msg-ai p {
+  white-space: pre-line;
+}
 .msg-artworks {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

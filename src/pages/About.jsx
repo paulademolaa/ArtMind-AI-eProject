@@ -166,6 +166,7 @@ function About() {
                   <img
                     src={teamPhotos[index]}
                     alt={person.name}
+                    style={{ objectPosition: person.photoPosition }}
                     onError={(event) => (event.currentTarget.style.display = 'none')}
                   />
 

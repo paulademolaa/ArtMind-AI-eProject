@@ -111,6 +111,6 @@ export const team = [
   { name: 'Ajimati Oluwatimilehin', role: 'Front-end developer', skills: 'React · CSS', github: 'https://github.com/ji-blaq', linkedin: '#' },
   { name: 'Treasure Amao', role: 'Class Rep. | Front-end developer', skills: 'React · CSS', github: 'https://github.com/temzycodes', linkedin: '#' },
   { name: 'Emeje James', role: 'Front-end developer', skills: 'React · CSS', github: 'https://github.com/sno-div', linkedin: '#' },
-  { name: 'Arogundade Louis', role: 'Front-end developer', skills: 'React · CSS', github: 'https://github.com/louis-d-great', linkedin: '#' },
+  { name: 'Arogundade Louis', role: 'Front-end developer', skills: 'React · CSS', github: 'https://github.com/louis-d-great', linkedin: '#', photoPosition: 'center 15%' },
   { name: 'Olagunju Isreal', role: 'Front-end developer', skills: 'React · CSS', github: 'https://github.com/olagunjupopizzy-coder', linkedin: '#' },
 ];

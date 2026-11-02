@@ -104,7 +104,7 @@ function About() {
         <div className="container mission-grid">
           <div className="mission-card">
             <span className="mission-icon">
-              <Icon name="sparkle" size={20} />
+              <Icon name="palette" size={20} />
             </span>
             <p className="eyebrow">Our mission</p>
             <blockquote>“Great paintings should be easy to find — and even easier to understand.”</blockquote>

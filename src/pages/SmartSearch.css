@@ -6,9 +6,6 @@
   padding-top: 72px;
   padding-bottom: 40px;
 }
-.search-eyebrow::before {
-  display: none;
-}
 .search-hero h1 {
   margin-bottom: 28px;
 }
@@ -40,9 +37,6 @@
 }
 .intent-chips .text-button {
   margin-left: auto;
-}
-.intent .spark {
-  color: var(--accent);
 }
 
 .search-body {

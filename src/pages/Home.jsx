@@ -118,7 +118,7 @@ function Home() {
               <p className="muted small">{heroPick.medium} · {heroPick.collection}</p>
               <div className="hero-card-match">
                 <span className="mono">
-                  <Icon name="sparkle" size={13} /> {96 - featuredIndex * 3}% match for you
+                  {96 - featuredIndex * 3}% match for you
                 </span>
                 <Link to={`/artwork/${heroPick.id}`} className="hero-card-link">
                   View artwork
@@ -195,7 +195,7 @@ function Home() {
         <div className="container taste">
           <div className="taste-copy">
             <span className="ai-badge">
-              <Icon name="sparkle" size={12} /> Personalised recommendations
+              Personalised recommendations
             </span>
             <h2>
               Art That Understands Your Taste.
@@ -228,7 +228,7 @@ function Home() {
                   <div className="rec-card-image">
                     <img src={art.image} alt={art.title} loading="lazy" />
                     <span className="ai-tag rec-card-tag">
-                      <Icon name="sparkle" size={12} className="spark" /> {pick.tag}
+                      {pick.tag}
                     </span>
                   </div>
                   <div className="rec-card-top">
@@ -255,7 +255,7 @@ function Home() {
             Search the way you think about art — by mood, medium, colour or subject. ArtMind understands what you mean.
           </p>
           <form className="search-bar" onSubmit={handleSearch}>
-            <Icon name="sparkle" className="search-bar-icon" />
+            <Icon name="search" className="search-bar-icon" />
             <input
               type="text"
               value={query}
@@ -312,7 +312,7 @@ function Home() {
                   {index === 1 && (
                     <div className="mini-search">
                       <span>
-                        <Icon name="sparkle" size={14} /> Calm blue seascapes
+                        Calm blue seascapes
                       </span>
                       <div className="mini-results">
                         <img src={getArtwork('the-herring-net').image} alt="" />
@@ -366,7 +366,7 @@ function Home() {
             <div className="featured-collection-image">
               <img src={getArtwork('water-lily-pond').image} alt="Water Lily Pond by Claude Monet" />
               <span className="ai-tag">
-                <Icon name="sparkle" size={12} className="spark" /> {featuredCollection.label}
+                {featuredCollection.label}
               </span>
             </div>
             <div className="featured-collection-text">
@@ -396,7 +396,7 @@ function Home() {
                 ))}
               </div>
               <div className="ai-note">
-                <Icon name="sparkle" size={14} className="spark" /> Matched on calm composition and blue-green palettes
+                Matched on calm composition and blue-green palettes
               </div>
               <div className="collection-buttons">
                 <Link to={`/collections/${featuredCollection.id}`} className="btn btn-dark">

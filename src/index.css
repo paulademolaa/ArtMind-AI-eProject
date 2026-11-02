@@ -106,12 +106,6 @@ h4,
   color: var(--accent);
   margin-bottom: 16px;
 }
-.eyebrow::before {
-  content: '';
-  width: 32px;
-  height: 1px;
-  background: currentColor;
-}
 
 .mono {
   font-family: var(--font-label);
@@ -258,9 +252,6 @@ h4,
   font-size: 12px;
   font-weight: 500;
 }
-.ai-tag .spark {
-  color: var(--accent-light);
-}
 
 .ai-note {
   display: flex;
@@ -268,9 +259,6 @@ h4,
   padding: 14px 16px;
   background: rgba(18, 54, 196, 0.06);
   font-size: 14px;
-}
-.ai-note .spark {
-  color: var(--accent);
 }
 
 .container {

@@ -39,21 +39,18 @@ const paths = {
 };
 
 function Icon({ name, size = 20, filled = false, className = '' }) {
+  const IconComponent = paths[name];
+
+  if (!IconComponent) return null;
+
   return (
-    <svg
+    <IconComponent
       className={className}
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
+      size={size}
       fill={filled ? 'currentColor' : 'none'}
-      stroke="currentColor"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
+      strokeWidth={1.5}
       aria-hidden="true"
-    >
-      {paths[name]}
-    </svg>
+    />
   );
 }
 

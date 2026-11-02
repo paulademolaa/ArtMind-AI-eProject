@@ -173,7 +173,7 @@ function Dashboard() {
             ))}
           </div>
         ) : (
-          <p className="muted">No saved artworks yet — tap the heart on any painting.</p>
+          <p className="muted">No saved artworks yet, tap the heart on any painting.</p>
         )}
       </section>
     </DashboardLayout>

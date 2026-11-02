@@ -1,12 +1,3 @@
-// ------------------------------------------------------------
-// Explore page — the full gallery with search, filters and sorting.
-// How filtering works:
-//   1. We keep the user's choices in state (search text, category, etc.)
-//   2. On every render we run artworks.filter(...) with those choices
-//   3. We show only the first `visibleCount` results ("Load more" adds 8)
-// Layout (as in Figma): masonry grid or list view, filter counts,
-// colour swatches, popularity, and removable "active filter" chips.
-// ------------------------------------------------------------
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import PageLayout from '../components/PageLayout';
@@ -16,13 +7,10 @@ import artworks from '../data/artworks';
 import './Explore.css';
 
 const categoryOptions = ['All', 'Abstract', 'Landscape', 'Flower', 'Nature', 'Figurative', 'Religious'];
-
-// Build the filter lists from the data, so they always match.
 const styleOptions = [...new Set(artworks.map((art) => art.style))].sort();
 const surfaceOptions = [...new Set(artworks.map((art) => art.surface))].sort();
 const mediumOptions = ['Oil', 'Tempera'];
 
-// Colour swatches for the "Dominant colour" filter.
 const colourOptions = [
   { name: 'Blue', hex: '#2F5D9B' },
   { name: 'Green', hex: '#5C8054' },
@@ -33,28 +21,20 @@ const colourOptions = [
   { name: 'Grey', hex: '#8C9299' },
   { name: 'Pink', hex: '#C09E99' },
 ];
-
-// Sample "popularity" lists (a real site would get these from a server).
 const trendingIds = ['water-lily-pond', 'cliff-walk-at-pourville', 'la-grande-jatte-oil-sketch', 'the-childs-bath', 'improvisation-no-30', 'view-of-cotopaxi'];
 const mostSavedIds = ['water-lily-pond', 'two-sisters-on-the-terrace', 'the-herring-net', 'chrysanthemums', 'magnolias-on-blue-velvet'];
 const popularityOptions = ['Trending this week', 'Most saved'];
 
-// How close two colours are (0 = the same). Used for the colour filter.
 function colourDistance(hexA, hexB) {
   const a = [1, 3, 5].map((i) => parseInt(hexA.slice(i, i + 2), 16));
   const b = [1, 3, 5].map((i) => parseInt(hexB.slice(i, i + 2), 16));
   return Math.sqrt((a[0] - b[0]) ** 2 + (a[1] - b[1]) ** 2 + (a[2] - b[2]) ** 2);
 }
 
-// Does one of the painting's main colours look like this swatch?
 function hasColour(art, colourName) {
   const swatch = colourOptions.find((colour) => colour.name === colourName);
   return art.palette.slice(0, 3).some((hex) => colourDistance(hex, swatch.hex) < 70);
 }
-
-// A group of checkboxes in the filter sidebar. Click the title to open/close it.
-// Props: title, options (list of names), selected (list), onToggle(name),
-//        count(name) - how many paintings have that option
 function FilterGroup({ title, options, selected, onToggle, count }) {
   const [open, setOpen] = useState(true);
   return (
@@ -78,17 +58,17 @@ function FilterGroup({ title, options, selected, onToggle, count }) {
 function Explore() {
   const [search, setSearch] = useState('');
   const [category, setCategory] = useState('All');
-  const [styles, setStyles] = useState([]); // e.g. ['Impressionism']
+  const [styles, setStyles] = useState([]); 
   const [surfaces, setSurfaces] = useState([]);
   const [mediums, setMediums] = useState([]);
   const [colours, setColours] = useState([]);
   const [popularity, setPopularity] = useState([]);
-  const [view, setView] = useState('grid'); // 'grid' (masonry) or 'list'
+  const [view, setView] = useState('grid'); 
   const [sort, setSort] = useState('relevant');
   const [visibleCount, setVisibleCount] = useState(12);
-  const [filtersOpen, setFiltersOpen] = useState(false); // mobile filter drawer
+  const [filtersOpen, setFiltersOpen] = useState(false); 
 
-  // Add or remove a value from one of the checkbox lists.
+ 
   function toggle(list, setList, value) {
     if (list.includes(value)) {
       setList(list.filter((item) => item !== value));
@@ -107,7 +87,6 @@ function Explore() {
     setPopularity([]);
   }
 
-  // ---- Apply all filters ----
   let results = artworks.filter((art) => {
     const text = (art.title + ' ' + art.artist + ' ' + art.style).toLowerCase();
     if (search && !text.includes(search.toLowerCase())) return false;
@@ -121,8 +100,7 @@ function Explore() {
     return true;
   });
 
-  // ---- Sort ----
-  if (sort === 'title') {
+    if (sort === 'title') {
     results = [...results].sort((a, b) => a.title.localeCompare(b.title));
   } else if (sort === 'artist') {
     results = [...results].sort((a, b) => a.artist.localeCompare(b.artist));
@@ -130,7 +108,6 @@ function Explore() {
     results = [...results].sort((a, b) => parseInt(a.date.replace(/\D/g, '').slice(0, 4)) - parseInt(b.date.replace(/\D/g, '').slice(0, 4)));
   }
 
-  // Every active filter, with a function that removes it (for the chips).
   const activeFilters = [
     ...styles.map((value) => ({ value, remove: () => toggle(styles, setStyles, value) })),
     ...surfaces.map((value) => ({ value, remove: () => toggle(surfaces, setSurfaces, value) })),
@@ -173,7 +150,6 @@ function Explore() {
       </section>
 
       <section className="container explore-body">
-        {/* ---- Filter sidebar (becomes a drawer on mobile) ---- */}
         <aside className={filtersOpen ? 'filters open' : 'filters'}>
           <div className="filters-header">
             <h4>
@@ -208,8 +184,6 @@ function Explore() {
             onToggle={(value) => toggle(mediums, setMediums, value)}
             count={(value) => artworks.filter((art) => art.medium.includes(value)).length}
           />
-
-          {/* Colour swatches */}
           <div className="filter-group">
             <p className="filter-title">Dominant colour</p>
             <div className="colour-swatches">
@@ -239,8 +213,6 @@ function Explore() {
             Show {results.length} artworks
           </button>
         </aside>
-
-        {/* ---- Results ---- */}
         <div className="results">
           <div className="results-toolbar">
             <div className="results-count">
@@ -283,7 +255,6 @@ function Explore() {
             </div>
           ) : (
             view === 'grid' ? (
-              // Masonry grid: every painting keeps its own shape
               <div className="results-grid">
                 {results.slice(0, visibleCount).map((art) => (
                   <ArtworkCard key={art.id} artwork={art} />

@@ -1,9 +1,3 @@
-// ------------------------------------------------------------
-// ChatWidget — the round AI Assistant button fixed to the
-// bottom-right corner of every page. Clicking it opens a small
-// chat window, so users can ask a question without leaving the page.
-// It uses the same getAssistantReply() as the full Assistant page.
-// ------------------------------------------------------------
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Icon from './Icon';
@@ -17,14 +11,14 @@ function ChatWidget() {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
   const [typing, setTyping] = useState(false);
-  const bottomRef = useRef(null); // used to scroll to the newest message
+  const bottomRef = useRef(null); 
 
   function sendMessage(text) {
     if (!text.trim() || typing) return;
     setMessages((old) => [...old, { from: 'user', text }]);
     setInput('');
     setTyping(true);
-    // Pretend the AI is thinking for a moment.
+
     setTimeout(() => {
       const reply = getAssistantReply(text);
       setMessages((old) => [...old, { from: 'ai', text: reply.text, artworks: reply.artworks }]);
@@ -32,12 +26,10 @@ function ChatWidget() {
     }, 900);
   }
 
-  // Scroll to the newest message.
   useEffect(() => {
     if (bottomRef.current) bottomRef.current.scrollIntoView({ block: 'nearest' });
   }, [messages, typing, open]);
 
-  // Close the window with the Escape key.
   useEffect(() => {
     function onKey(event) {
       if (event.key === 'Escape') setOpen(false);
@@ -53,7 +45,6 @@ function ChatWidget() {
 
   return (
     <div className="chat-widget">
-      {/* ---- The small chat window ---- */}
       {open && (
         <div className="chat-widget-panel" role="dialog" aria-label="ArtMind Assistant">
           <header className="chat-widget-header">
@@ -124,8 +115,6 @@ function ChatWidget() {
           </form>
         </div>
       )}
-
-      {/* ---- The round button ---- */}
       <button
         className={open ? 'chat-widget-button open' : 'chat-widget-button'}
         onClick={() => setOpen(!open)}

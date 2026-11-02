@@ -1,8 +1,3 @@
-// ------------------------------------------------------------
-// Collections — /collections
-// Your own collection (saved paintings) plus the AI-curated
-// collections. Click a card to open it.
-// ------------------------------------------------------------
 import { Link } from 'react-router-dom';
 import DashboardLayout from '../components/DashboardLayout';
 import Icon from '../components/Icon';
@@ -26,7 +21,6 @@ function Collections() {
         </div>
       </div>
 
-      {/* ---- Your own collection ---- */}
       <section>
         <div className="section-header">
           <h3>Your collection</h3>
@@ -54,7 +48,6 @@ function Collections() {
         </Link>
       </section>
 
-      {/* ---- AI-curated collections ---- */}
       <section>
         <div className="section-header">
           <h3>AI-curated collections</h3>

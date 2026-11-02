@@ -1,6 +1,3 @@
-/* ============================================================
-   CATEGORIES PAGE
-   ============================================================ */
 .categories-header {
   display: flex;
   justify-content: space-between;
@@ -56,9 +53,6 @@
   width: 100%;
   height: 48px;
 }
-
-/* ---------- Bento grid ---------- */
-/* A 3-column grid. Some tiles span 2 columns or 2 rows. */
 .category-bento {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -146,8 +140,6 @@
 .tile-text .small {
   opacity: 0.85;
 }
-
-/* ---------- Explore by style ---------- */
 .style-grid {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
@@ -166,7 +158,6 @@
   color: var(--accent);
 }
 
-/* ---------- AI band ---------- */
 .ai-band {
   display: flex;
   justify-content: space-between;
@@ -185,8 +176,6 @@
   gap: 12px;
   align-items: center;
 }
-
-/* ---------- Responsive ---------- */
 @media (max-width: 1024px) {
   .categories-header,
   .ai-band {

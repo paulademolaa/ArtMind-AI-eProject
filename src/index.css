@@ -124,12 +124,7 @@ h4,
   color: var(--accent);
   margin-bottom: 16px;
 }
-.eyebrow::before {
-  content: '';
-  width: 32px;
-  height: 1px;
-  background: currentColor;
-}
+
 
 .mono {
   font-family: var(--font-label);

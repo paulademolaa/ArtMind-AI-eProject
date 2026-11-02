@@ -194,7 +194,7 @@ function ImageRecognition() {
                 </li>
               </ul>
               <button className="btn btn-dark" onClick={analyse}>
-                <Icon name="sparkle" size={14} /> Analyze artwork
+                Analyze artwork
               </button>
               <p className="mono muted small-gap">Takes about 3 seconds</p>
             </>
@@ -257,7 +257,7 @@ function ImageRecognition() {
               <div className="results-top">
                 <p className="eyebrow">Analysis complete</p>
                 <span className="ai-badge">
-                  <Icon name="sparkle" size={12} /> AI prediction · not guaranteed
+                  AI prediction · not guaranteed
                 </span>
               </div>
               <h1>
@@ -301,7 +301,7 @@ function ImageRecognition() {
                   New analysis <Icon name="refresh" size={14} />
                 </button>
                 <Link to="/ai/assistant?q=What%20is%20impressionism" className="btn btn-outline">
-                  <Icon name="sparkle" size={14} /> Ask the assistant
+                  Ask the assistant
                 </Link>
               </div>
             </>

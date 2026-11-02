@@ -24,20 +24,15 @@ export function FavoritesProvider({ children }) {
     setFavorites(loadFavorites(user));
   }, [email]);
 
-  function save(list) {
-    setFavorites(list);
-    try {
-      localStorage.setItem(keyFor(user), JSON.stringify(list));
-    } catch (error) {
-    }
-  }
-
   function toggleFavorite(id) {
-    if (favorites.includes(id)) {
-      save(favorites.filter((favId) => favId !== id));
-    } else {
-      save([...favorites, id]);
-    }
+    setFavorites((old) => {
+      const list = old.includes(id) ? old.filter((favId) => favId !== id) : [...old, id];
+      try {
+        localStorage.setItem(keyFor(user), JSON.stringify(list));
+      } catch (error) {
+      }
+      return list;
+    });
   }
 
   function isFavorite(id) {

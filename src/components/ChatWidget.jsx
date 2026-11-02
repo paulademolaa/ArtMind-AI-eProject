@@ -1,7 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Icon from './Icon';
-import { getAssistantReply } from '../utils/fakeAI';
+import { askAssistant } from '../utils/assistant';
+import { useAuth } from '../context/AuthContext';
+import { useFavorites } from '../context/FavoritesContext';
 import './ChatWidget.css';
 
 const quickQuestions = ['Recommend landscape paintings.', 'Show me paintings with blue color themes.', 'What is abstract expressionism?'];
@@ -12,17 +14,18 @@ function ChatWidget() {
   const [input, setInput] = useState('');
   const [typing, setTyping] = useState(false);
   const bottomRef = useRef(null);
+  const navigate = useNavigate();
+  const { user } = useAuth();
+  const { favorites, toggleFavorite } = useFavorites();
 
-  function sendMessage(text) {
+  async function sendMessage(text) {
     if (!text.trim() || typing) return;
     setMessages((old) => [...old, { from: 'user', text }]);
     setInput('');
     setTyping(true);
-    setTimeout(() => {
-      const reply = getAssistantReply(text);
-      setMessages((old) => [...old, { from: 'ai', text: reply.text, artworks: reply.artworks }]);
-      setTyping(false);
-    }, 900);
+    const reply = await askAssistant(messages, text, { favorites, toggleFavorite, user, navigate });
+    setMessages((old) => [...old, { from: 'ai', text: reply.text, artworks: reply.artworks }]);
+    setTyping(false);
   }
 
   useEffect(() => {

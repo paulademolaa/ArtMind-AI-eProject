@@ -28,7 +28,7 @@ function CategoryTile({ category, size, topTag }) {
       </div>
       {topTag && (
         <span className="ai-tag tile-ai">
-          <Icon name="sparkle" size={12} className="spark" /> {topTag}
+          {topTag}
         </span>
       )}
       <div className="tile-text">
@@ -101,7 +101,7 @@ function Categories() {
             </div>
           </div>
           <Link to="/ai/recommendations" className="ai-note">
-            <Icon name="sparkle" size={14} className="spark" /> Not sure where to start? Let AI suggest a category →
+            Not sure where to start? Let AI suggest a category →
           </Link>
         </div>
       </section>

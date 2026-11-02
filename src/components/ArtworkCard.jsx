@@ -27,7 +27,7 @@ function ArtworkCard({ artwork, tag, label }) {
 
         {tag && (
           <span className="ai-tag artwork-card-tag">
-            <Icon name="sparkle" size={12} className="spark" /> {tag}
+            {tag}
           </span>
         )}
       </div>

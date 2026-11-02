@@ -52,7 +52,7 @@ function Recommendations() {
       <section className="container rec-header">
         <div>
           <span className="ai-badge">
-            <Icon name="sparkle" size={12} /> Updated this morning
+            Updated this morning
           </span>
           <h1>{user ? `${greeting()}, ${firstNameOf(user.name)}.` : 'Picks chosen for you.'}</h1>
           <p className="lead">Your taste leans toward Impressionist light, quiet water and earthy palettes. Here’s what we picked for you.</p>

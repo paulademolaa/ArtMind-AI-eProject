@@ -82,11 +82,11 @@ function SmartSearch() {
     <PageLayout>
       <section className="container search-hero">
         <p className="eyebrow search-eyebrow">
-          <Icon name="sparkle" size={14} /> AI Smart Search
+          AI Smart Search
         </p>
         <h1>{query ? 'Describe it. We’ll find it.' : 'What would you like to see?'}</h1>
         <form className="search-bar search-bar-bordered" onSubmit={handleSubmit}>
-          <Icon name="sparkle" className="search-bar-icon" />
+          <Icon name="search" className="search-bar-icon" />
           <input
             ref={inputRef}
             type="text"
@@ -103,7 +103,7 @@ function SmartSearch() {
         {result && result.intent.length > 0 && (
           <div className="intent">
             <p className="intent-label">
-              <Icon name="sparkle" size={14} className="spark" /> Here’s how ArtMind understood your search
+              Here’s how ArtMind understood your search
             </p>
             <div className="intent-chips">
               {result.intent.map((item) => (
@@ -141,7 +141,7 @@ function SmartSearch() {
           {query && (
             <>
               <h4 className="side-title">
-                <Icon name="sparkle" size={12} /> Refine with AI
+                Refine with AI
               </h4>
               <div className="side-chips refine-chips">
                 {refineOptions.map((word) => (
@@ -170,7 +170,7 @@ function SmartSearch() {
               <div className="suggestion-grid">
                 {suggestions.map((item) => (
                   <button key={item} className="suggestion-card" onClick={() => runSearch(item)}>
-                    <Icon name="sparkle" size={16} /> {item}
+                    {item}
                   </button>
                 ))}
               </div>
@@ -181,7 +181,7 @@ function SmartSearch() {
             <div>
               <div className="ai-progress">
                 <p>
-                  <Icon name="sparkle" size={16} /> Understanding “{query}”…
+                  Understanding “{query}”…
                 </p>
                 <div className="ai-progress-bar">
                   <span />

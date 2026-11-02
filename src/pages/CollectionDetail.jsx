@@ -68,7 +68,7 @@ function CollectionDetail() {
         </div>
         <div className="collection-head-text">
           <span className="ai-badge">
-            <Icon name="sparkle" size={12} /> {collection.label}
+            {collection.label}
           </span>
           <h1>{collection.title}</h1>
           <p className="muted">

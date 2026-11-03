@@ -63,13 +63,6 @@ function SignIn() {
         </button>
       </form>
 
-      <div className="auth-divider">
-        <span>Optional · future integration</span>
-      </div>
-      <button type="button" className="btn btn-outline auth-google" disabled>
-        Continue with Google
-      </button>
-
       <p className="auth-switch">
         New to ArtMind? <Link to="/signup" state={location.state}>Create an account</Link>
       </p>

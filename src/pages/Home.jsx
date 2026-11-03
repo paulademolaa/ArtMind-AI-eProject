@@ -67,7 +67,6 @@ function Home() {
         <div className="hero-overlay" />
         <div className="container hero-content">
           <div className="hero-top">
-            <p className="hero-eyebrow">AI-powered art discovery · {artworks.length} paintings to explore</p>
             <div className="hero-now">
               <p className="hero-now-label">
                 <span className="dot" /> On view today
@@ -144,7 +143,7 @@ function Home() {
         <div className="container">
           <div className="section-header">
             <div>
-              <p className="eyebrow">Featured this week</p>
+              <p>Featured this week</p>
               <h2>Featured Artworks</h2>
             </div>
             <Link to="/explore" className="link-arrow">
@@ -163,7 +162,7 @@ function Home() {
         <div className="container">
           <div className="section-header">
             <div>
-              <p className="eyebrow">Six ways in</p>
+              <p>Six ways in</p>
               <h2>Explore by Category</h2>
             </div>
             <Link to="/categories" className="link-arrow">
@@ -194,9 +193,6 @@ function Home() {
       <section className="section">
         <div className="container taste">
           <div className="taste-copy">
-            <span className="ai-badge">
-              Personalised recommendations
-            </span>
             <h2>
               Art That Understands Your Taste.
             </h2>
@@ -227,9 +223,6 @@ function Home() {
                 <Link to={`/artwork/${art.id}`} className="rec-card" key={art.id}>
                   <div className="rec-card-image">
                     <img src={art.image} alt={art.title} loading="lazy" />
-                    <span className="ai-tag rec-card-tag">
-                      {pick.tag}
-                    </span>
                   </div>
                   <div className="rec-card-top">
                     <span>{pick.match}</span>
@@ -239,7 +232,6 @@ function Home() {
                   <p className="muted small">
                     {art.artist} · {art.date}
                   </p>
-                  <p className="rec-card-reason">{pick.reason}</p>
                 </Link>
               );
             })}
@@ -249,7 +241,7 @@ function Home() {
 
       <section className="section section-dark smart-search">
         <div className="container smart-search-inner">
-          <p className="eyebrow eyebrow-light">Natural-language search</p>
+          <p>Natural-language search</p>
           <h2>Describe it. We’ll find it.</h2>
           <p className="smart-search-text">
             Search the way you think about art — by mood, medium, colour or subject. ArtMind understands what you mean.
@@ -280,71 +272,6 @@ function Home() {
         </div>
       </section>
 
-      <section className="section">
-        <div className="container">
-          <div className="section-header">
-            <div>
-              <p className="eyebrow">How ArtMind works</p>
-              <h2>
-                From first glance
-                <br />
-                <span className="accent">to favourite.</span>
-              </h2>
-            </div>
-            <p>
-              Three simple steps. Browse a hand-tagged collection, let AI read your taste, and keep what moves you —
-              every save makes the next suggestion sharper.
-            </p>
-          </div>
-
-          <div className="steps">
-            {steps.map((step, index) => (
-              <div className="step" key={step.number}>
-                <span className={index === 0 ? 'step-number active' : 'step-number'}>{step.number}</span>
-                <div className={`step-visual step-visual-${index + 1}`}>
-                  {index === 0 && (
-                    <>
-                      <img src={getArtwork('cliff-walk-at-pourville').image} alt="" className="fan fan-1" />
-                      <img src={getArtwork('bouquet-in-earthenware-vase').image} alt="" className="fan fan-3" />
-                      <img src={getArtwork('improvisation-no-30').image} alt="" className="fan fan-2" />
-                    </>
-                  )}
-                  {index === 1 && (
-                    <div className="mini-search">
-                      <span>
-                        Calm blue seascapes
-                      </span>
-                      <div className="mini-results">
-                        <img src={getArtwork('the-herring-net').image} alt="" />
-                        <img src={getArtwork('cliff-walk-at-pourville').image} alt="" />
-                      </div>
-                    </div>
-                  )}
-                  {index === 2 && (
-                    <div className="mini-save">
-                      <img src={getArtwork('water-lily-pond').image} alt="" />
-                      <span className="mini-heart">
-                        <Icon name="heart" size={18} filled />
-                      </span>
-                      <span className="mini-toast">
-                        <Icon name="check" size={14} /> Saved to “Quiet Waters”
-                      </span>
-                    </div>
-                  )}
-                </div>
-                <p className="step-label">
-                  Step {step.number} · {step.label}
-                </p>
-                <h3>{step.title}</h3>
-                <p className="muted">{step.text}</p>
-                <Link to={step.link} className="link-arrow">
-                  {step.linkText} <Icon name="arrowRight" size={14} />
-                </Link>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       <section className="section section-surface">
         <div className="container">
@@ -365,14 +292,10 @@ function Home() {
           <div className="featured-collection">
             <div className="featured-collection-image">
               <img src={getArtwork('water-lily-pond').image} alt="Water Lily Pond by Claude Monet" />
-              <span className="ai-tag">
-                {featuredCollection.label}
-              </span>
             </div>
             <div className="featured-collection-text">
               <p className="mono muted">Collection of the month</p>
               <h2>{featuredCollection.title}</h2>
-              <p className="muted">{featuredCollection.description}</p>
               <div className="collection-stats">
                 <div>
                   <strong>{featuredCollection.artworkIds.length}</strong>

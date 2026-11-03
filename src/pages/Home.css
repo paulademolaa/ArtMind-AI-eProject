@@ -1,8 +1,4 @@
-/* ============================================================
-   HOME PAGE
-   ============================================================ */
 
-/* ---------- Hero ---------- */
 .hero {
   position: relative;
   min-height: 900px;
@@ -41,12 +37,12 @@
   letter-spacing: 0.2em;
   text-transform: uppercase;
 }
-.hero-eyebrow::before {
+/* .hero-eyebrow::before {
   content: '';
   width: 40px;
   height: 1px;
   background: var(--white);
-}
+} */
 .hero-now {
   padding: 14px 18px;
   background: rgba(19, 19, 19, 0.35);

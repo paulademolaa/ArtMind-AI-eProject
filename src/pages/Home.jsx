@@ -1,8 +1,4 @@
-// ------------------------------------------------------------
-// Home page
-// Sections: Hero · Featured · Categories · Personalised picks ·
-//           Smart search · How it works · Collections · Assistant
-// ------------------------------------------------------------
+
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import PageLayout from '../components/PageLayout';
@@ -16,7 +12,7 @@ function Home() {
   const navigate = useNavigate();
   const [query, setQuery] = useState('');
 
-  // Send the search text to the Smart Search page, e.g. /ai/search?q=blue+seascapes
+  
   function handleSearch(event) {
     event.preventDefault();
     navigate('/ai/search?q=' + encodeURIComponent(query || 'calm blue seascapes'));
@@ -59,15 +55,15 @@ function Home() {
 
   const featuredCollection = collections[0];
 
-  // Paintings shown one at a time in the hero card.
+  
   const featuredIds = ['water-lily-pond', 'cliff-walk-at-pourville', 'view-of-cotopaxi', 'valley-of-aosta', 'landscape-sunset', 'view-of-genoa'];
   const [featuredIndex, setFeaturedIndex] = useState(0);
   const heroPick = getArtwork(featuredIds[featuredIndex]);
-  // step is -1 (previous) or 1 (next); wraps around at the ends
+  
   function showFeatured(step) {
     setFeaturedIndex((featuredIndex + step + featuredIds.length) % featuredIds.length);
   }
-  const [following, setFollowing] = useState(false); // "Follow" button on the collection
+  const [following, setFollowing] = useState(false); 
 
   return (
     <PageLayout transparentNav>
@@ -76,7 +72,7 @@ function Home() {
         <div className="hero-overlay" />
         <div className="container hero-content">
           <div className="hero-top">
-            <p className="hero-eyebrow">AI-powered art discovery · {artworks.length} paintings to explore</p>
+            
             <div className="hero-now">
               <p className="hero-now-label">
                 <span className="dot" /> On view today
@@ -155,7 +151,7 @@ function Home() {
         <div className="container">
           <div className="section-header">
             <div>
-              <p className="eyebrow">Featured this week</p>
+              <p className="">Featured this week</p>
               <h2>Featured Artworks</h2>
             </div>
             <Link to="/explore" className="link-arrow">
@@ -175,7 +171,7 @@ function Home() {
         <div className="container">
           <div className="section-header">
             <div>
-              <p className="eyebrow">Six ways in</p>
+              <p className="">Six ways in</p>
               <h2>Explore by Category</h2>
             </div>
             <Link to="/categories" className="link-arrow">
@@ -207,9 +203,9 @@ function Home() {
       <section className="section">
         <div className="container taste">
           <div className="taste-copy">
-            <span className="ai-badge">
+            {/* <span className="ai-badge">
               <Icon name="sparkle" size={12} /> Personalised recommendations
-            </span>
+            </span> */}
             <h2>
               Art That Understands Your Taste.
             </h2>
@@ -240,9 +236,9 @@ function Home() {
                 <Link to={`/artwork/${art.id}`} className="rec-card" key={art.id}>
                   <div className="rec-card-image">
                     <img src={art.image} alt={art.title} loading="lazy" />
-                    <span className="ai-tag rec-card-tag">
+                    {/* <span className="ai-tag rec-card-tag">
                       <Icon name="sparkle" size={12} className="spark" /> {pick.tag}
-                    </span>
+                    </span> */}
                   </div>
                   <div className="rec-card-top">
                     <span>{pick.match}</span>
@@ -252,7 +248,7 @@ function Home() {
                   <p className="muted small">
                     {art.artist} · {art.date}
                   </p>
-                  <p className="rec-card-reason">{pick.reason}</p>
+                  {/* <p className="rec-card-reason">{pick.reason}</p> */}
                 </Link>
               );
             })}
@@ -263,7 +259,7 @@ function Home() {
       {/* ---------- SMART SEARCH (dark) ---------- */}
       <section className="section section-dark smart-search">
         <div className="container smart-search-inner">
-          <p className="eyebrow eyebrow-light">Natural-language search</p>
+          <p className="">Natural-language search</p>
           <h2>Describe it. We’ll find it.</h2>
           <p className="smart-search-text">
             Search the way you think about art — by mood, medium, colour or subject. ArtMind understands what you mean.
@@ -294,7 +290,7 @@ function Home() {
         </div>
       </section>
 
-      {/* ---------- HOW IT WORKS ---------- */}
+      {/* ---------- HOW IT WORKS ----------
       <section className="section">
         <div className="container">
           <div className="section-header">
@@ -359,7 +355,7 @@ function Home() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* ---------- CURATED COLLECTIONS ---------- */}
       <section className="section section-surface">
@@ -381,14 +377,13 @@ function Home() {
           <div className="featured-collection">
             <div className="featured-collection-image">
               <img src={getArtwork('water-lily-pond').image} alt="Water Lily Pond by Claude Monet" />
-              <span className="ai-tag">
+              {/* <span className="ai-tag">
                 <Icon name="sparkle" size={12} className="spark" /> {featuredCollection.label}
-              </span>
+              </span> */}
             </div>
             <div className="featured-collection-text">
               <p className="mono muted">Collection of the month</p>
               <h2>{featuredCollection.title}</h2>
-              <p className="muted">{featuredCollection.description}</p>
               {/* Small facts about the collection (as in the Figma design) */}
               <div className="collection-stats">
                 <div>

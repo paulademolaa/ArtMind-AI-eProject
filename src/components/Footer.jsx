@@ -44,9 +44,9 @@ function Footer() {
               <Link to="/ai/recognition">Image Recognition</Link>
               <Link to="/ai/recommendations">Recommendations</Link>
               <Link to="/ai/assistant">Art Assistant</Link>
-              <span className="status-tag">
+              {/* <span className="status-tag">
                 <span className="dot" /> All AI services online
-              </span>
+              </span> */}
             </div>
             <div>
               <h4 className="footer-heading">Contact</h4>

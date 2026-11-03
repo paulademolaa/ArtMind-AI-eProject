@@ -107,6 +107,12 @@
 .dashboard-signout {
   margin-top: 24px;
   align-self: flex-start;
+  padding: 10px 16px;
+  text-decoration: none;
+  color: red;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  background: rgba(255, 0, 0, 0.1);
 }
 @media (max-width: 1024px) {
   .dashboard-signout {

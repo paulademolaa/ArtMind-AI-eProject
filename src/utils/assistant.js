@@ -127,7 +127,6 @@ async function callGemini(contents) {
   return data.candidates?.[0]?.content || { role: 'model', parts: [] };
 }
 
-// history is the earlier messages of this chat ({ from, text }), site holds favorites, toggleFavorite, user and navigate.
 export async function askAssistant(history, question, site) {
   const contents = history
     .filter((message) => message.text)
@@ -162,10 +161,8 @@ export async function askAssistant(history, question, site) {
       });
     }
     return { text: 'Sorry, I got stuck on that one. Could you ask it another way?', artworks: dedupe(shown) };
-  } catch (error) {
-    if (error.code === 'no-key') return getAssistantReply(question);
-    if (error.status === 429) return { text: 'I have had a lot of questions just now. Please wait a minute and try again.', artworks: [] };
-    return { text: 'I could not reach the assistant service. Check your internet connection and try again.', artworks: [] };
+  }   catch {
+    return getAssistantReply(question);
   }
 }
 

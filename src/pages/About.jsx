@@ -78,11 +78,11 @@ function About() {
       <div className="container">
         <div className="stats">
           <div>
-            <strong>12,400</strong>
+            <strong>60</strong>
             <span>Paintings catalogued</span>
           </div>
           <div>
-            <strong>2,100</strong>
+            <strong>10</strong>
             <span>Artists</span>
           </div>
           <div>
@@ -90,7 +90,7 @@ function About() {
             <span>Categories</span>
           </div>
           <div>
-            <strong>24</strong>
+            <strong>16</strong>
             <span>Artistic styles</span>
           </div>
           <div>
@@ -141,20 +141,7 @@ function About() {
                 ArtMind AI was created by a team of six as an Aptech eProject on AI-integrated web development — designed in
                 Figma and built as a React single-page app.
               </p>
-              <div className="team-figures">
-                <div>
-                  <strong>45</strong>
-                  <span>Screens designed</span>
-                </div>
-                <div>
-                  <strong>23</strong>
-                  <span>Reusable components</span>
-                </div>
-                <div>
-                  <strong>6</strong>
-                  <span>Prototype flows</span>
-                </div>
-              </div>
+              
             </div>
           </div>
 

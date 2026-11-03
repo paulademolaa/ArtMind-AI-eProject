@@ -126,8 +126,7 @@ function Explore() {
           <div>
             <h1>Explore Art</h1>
             <p className="lead">
-              Paintings tagged by AI for style, medium, surface and palette. Filter freely — or describe what you’re
-              looking for in Smart Search.
+              A collection of paintings, each tagged by AI for style, medium, surface and palette.
             </p>
           </div>
           <div className="search-input">

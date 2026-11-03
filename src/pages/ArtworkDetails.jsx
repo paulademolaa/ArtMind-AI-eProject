@@ -52,24 +52,20 @@ function ArtworkDetails() {
     setTimeout(() => setCopied(false), 2000);
   }
 
-  function downloadWord() {
-    const html = `
-      <html><body>
-        <h1>${artwork.title}</h1>
-        <p><b>Artist:</b> ${artwork.artist}<br/>
-        <b>Date:</b> ${artwork.date}<br/>
-        <b>Category:</b> ${artwork.category}<br/>
-        <b>Style:</b> ${artwork.style}<br/>
-        <b>Medium:</b> ${artwork.medium}<br/>
-        <b>Surface:</b> ${artwork.surface}</p>
-        <p>${artwork.description}</p>
-        <p>Collection: ${artwork.collection}. Public-domain image.</p>
-      </body></html>`;
-    const file = new Blob([html], { type: 'application/msword' });
-    const link = document.createElement('a');
-    link.href = URL.createObjectURL(file);
-    link.download = `${artwork.id}-details.doc`;
-    link.click();
+  async function downloadImage() {
+    const src = artwork.image; // change if your image field has another name
+    try {
+      const res = await fetch(src);
+      const blob = await res.blob();
+      const ext = blob.type.split('/')[1]?.replace('jpeg', 'jpg') || 'jpg';
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = `${artwork.id}.${ext}`;
+      link.click();
+      URL.revokeObjectURL(link.href);
+    } catch {
+      window.open(src, '_blank'); // fallback if the image host blocks fetch
+    }
   }
 
   function downloadPdf() {
@@ -160,8 +156,8 @@ function ArtworkDetails() {
             <button className="btn btn-outline" onClick={downloadPdf}>
               <Icon name="download" size={16} /> PDF
             </button>
-            <button className="btn btn-outline" onClick={downloadWord}>
-              <Icon name="download" size={16} /> Word
+            <button className="btn btn-outline" onClick={downloadImage}>
+              <Icon name="download" size={16} /> Image
             </button>
           </div>
 

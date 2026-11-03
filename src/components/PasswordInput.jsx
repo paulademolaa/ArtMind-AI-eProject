@@ -8,7 +8,12 @@ function PasswordInput({ value, onChange, placeholder = 'Enter your password', n
     <div className="password-box">
       <input type={visible ? 'text' : 'password'} name={name} value={value} onChange={onChange} placeholder={placeholder} />
       <button type="button" onClick={() => setVisible(!visible)} aria-label={visible ? 'Hide password' : 'Show password'}>
-        <Icon name="eye" size={18} />
+          {visible ? (
+          <Icon name="eyeOff" size={18} />
+        ) : (
+          <Icon name="eye" size={18} />
+        )}
+        
       </button>
     </div>
   );

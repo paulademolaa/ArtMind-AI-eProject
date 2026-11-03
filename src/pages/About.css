@@ -37,8 +37,6 @@
   border: 8px solid var(--white);
 }
 
-/* ---------- Mission ---------- */
-/* Mission + Vision: two cards side by side */
 .mission-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;

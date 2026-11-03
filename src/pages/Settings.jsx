@@ -1,9 +1,3 @@
-// ------------------------------------------------------------
-// Account Settings — /settings  (matches Figma "Desktop / 14")
-// Tabs: Profile · Password & security · Personalisation · Notifications
-// "Save changes" saves through AuthContext (in the browser for now)
-// and shows a small "Profile updated" message.
-// ------------------------------------------------------------
 import { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import DashboardLayout from '../components/DashboardLayout';

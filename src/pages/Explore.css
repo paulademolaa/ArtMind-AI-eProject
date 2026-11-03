@@ -245,7 +245,6 @@
   color: var(--accent);
 }
 
-/* ---------- Responsive ---------- */
 @media (max-width: 1024px) {
   .page-header-row {
     flex-direction: column;

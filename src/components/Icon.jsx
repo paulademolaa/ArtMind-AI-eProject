@@ -1,4 +1,4 @@
-import {Search,Heart, ArrowRight, ArrowLeft,ArrowUpRight, ChevronDown, ArrowUp,Menu, SendHorizontal, House, Trash, RotateCcw,BriefcaseBusiness,CircleUserRound, SlidersHorizontal, Check, ShieldAlert, Grid3x3, Pin, Phone, Code, X, MessageSquare, Image, Mail, LockKeyhole, ArrowDownToLine, Palette, Layers, Clock, ChartNoAxesColumnIncreasing, Upload, Sparkles, Eye, Settings } from "lucide-react";
+import {Search,Heart, ArrowRight, ArrowLeft,ArrowUpRight, ChevronDown, ArrowUp,Menu, SendHorizontal, House, Trash, RotateCcw,BriefcaseBusiness,CircleUserRound, SlidersHorizontal, Check, ShieldAlert, Grid3x3, Pin, Phone, Code, X, MessageSquare, Image, Mail, LockKeyhole, ArrowDownToLine, Palette, Layers, Clock, ChartNoAxesColumnIncreasing, Upload, Sparkles, Eye, Settings, EyeOff } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 const paths = {
   search: Search,
@@ -37,7 +37,8 @@ const paths = {
   eye: Eye,
   refresh: RotateCcw,
   trash:Trash ,
-  settings:  Settings
+  settings:  Settings,
+  eyeOff: EyeOff
 };
 
 function Icon({ name, size = 20, filled = false, className = '' }) {

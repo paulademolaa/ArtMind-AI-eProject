@@ -1,9 +1,3 @@
-// ------------------------------------------------------------
-// AI Recommendations — /ai/recommendations
-// Uses getRecommendations() (utils/fakeAI.js) with your favourites.
-// "Tune my interests" lets you pick categories you like; the
-// recommendation rows update straight away.
-// ------------------------------------------------------------
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import PageLayout from '../components/PageLayout';
@@ -23,8 +17,6 @@ const colourThemes = [
   { name: 'Harbour Blues', colours: ['#2E4A7A', '#7399BF', '#DBD1B3', '#404D59'], ids: ['the-herring-net', 'cliff-walk-at-pourville'] },
   { name: 'Golden Hour', colours: ['#C8873A', '#9E4433', '#DCCBA8', '#4C3726'], ids: ['mist-rising-in-the-catskills', 'home-of-the-heron'] },
 ];
-
-// "Good morning" / "Good afternoon" / "Good evening" from the clock
 function greeting() {
   const hour = new Date().getHours();
   if (hour < 12) return 'Good morning';
@@ -58,9 +50,6 @@ function Recommendations() {
     <PageLayout>
       <section className="container rec-header">
         <div>
-          <span className="ai-badge">
-            <Icon name="sparkle" size={12} /> Updated this morning
-          </span>
           <h1>{user ? `${greeting()}, ${firstNameOf(user.name)}.` : 'Picks chosen for you.'}</h1>
           <p className="lead">Your taste leans toward Impressionist light, quiet water and earthy palettes. Here’s what we picked for you.</p>
         </div>
@@ -68,8 +57,6 @@ function Recommendations() {
           {panelOpen ? 'Done' : 'Tune my interests'}
         </button>
       </section>
-
-      {/* Interest selection panel */}
       {panelOpen && (
         <section className="container">
           <div className="interest-panel">
@@ -96,8 +83,6 @@ function Recommendations() {
           </div>
         </section>
       )}
-
-      {/* Tabs scroll the page to each section */}
       <div className="container rec-tabs">
         {tabs.map((name) => (
           <a key={name} href={'#' + name.replace(/\s/g, '-').toLowerCase()} className={tab === name ? 'rec-tab active' : 'rec-tab'} onClick={() => setTab(name)}>

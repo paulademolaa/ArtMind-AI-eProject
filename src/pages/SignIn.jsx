@@ -1,9 +1,3 @@
-// ------------------------------------------------------------
-// Sign In — /signin
-// Checks the email and password against accounts created on the
-// Sign Up page (saved in the browser — see AuthContext.jsx), then
-// opens the Dashboard (or the page the visitor was trying to reach).
-// ------------------------------------------------------------
 import { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import AuthLayout from '../components/AuthLayout';
@@ -15,7 +9,6 @@ function SignIn() {
   const navigate = useNavigate();
   const location = useLocation();
   const { signIn } = useAuth();
-  // Where to go after signing in (the page they wanted, or the dashboard)
   const goTo = location.state?.from || '/dashboard';
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -70,7 +63,6 @@ function SignIn() {
         </button>
       </form>
 
-      {/* Placeholder for a future "Sign in with Google" (as in the Figma design) */}
       <div className="auth-divider">
         <span>Optional · future integration</span>
       </div>

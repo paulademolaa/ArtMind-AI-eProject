@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import PageLayout from '../components/PageLayout';
@@ -12,7 +11,6 @@ function Home() {
   const navigate = useNavigate();
   const [query, setQuery] = useState('');
 
-  
   function handleSearch(event) {
     event.preventDefault();
     navigate('/ai/search?q=' + encodeURIComponent(query || 'calm blue seascapes'));
@@ -55,24 +53,21 @@ function Home() {
 
   const featuredCollection = collections[0];
 
-  
   const featuredIds = ['water-lily-pond', 'cliff-walk-at-pourville', 'view-of-cotopaxi', 'valley-of-aosta', 'landscape-sunset', 'view-of-genoa'];
   const [featuredIndex, setFeaturedIndex] = useState(0);
   const heroPick = getArtwork(featuredIds[featuredIndex]);
-  
   function showFeatured(step) {
     setFeaturedIndex((featuredIndex + step + featuredIds.length) % featuredIds.length);
   }
-  const [following, setFollowing] = useState(false); 
+  const [following, setFollowing] = useState(false);
 
   return (
     <PageLayout transparentNav>
-      {/* ---------- HERO ---------- */}
       <section className="hero" style={{ backgroundImage: `url(${heroArtwork.image})` }}>
         <div className="hero-overlay" />
         <div className="container hero-content">
           <div className="hero-top">
-            
+            <p className="hero-eyebrow">AI-powered art discovery · {artworks.length} paintings to explore</p>
             <div className="hero-now">
               <p className="hero-now-label">
                 <span className="dot" /> On view today
@@ -109,7 +104,6 @@ function Home() {
               </div>
             </div>
 
-            {/* Featured painting card with previous / next (as in Figma) */}
             <div className="hero-card">
               <div className="hero-card-top">
                 <span>Featured · {heroPick.category}</span>
@@ -124,7 +118,7 @@ function Home() {
               <p className="muted small">{heroPick.medium} · {heroPick.collection}</p>
               <div className="hero-card-match">
                 <span className="mono">
-                  <Icon name="sparkle" size={13} /> {96 - featuredIndex * 3}% match for you
+                  {96 - featuredIndex * 3}% match for you
                 </span>
                 <Link to={`/artwork/${heroPick.id}`} className="hero-card-link">
                   View artwork
@@ -146,12 +140,11 @@ function Home() {
         </div>
       </section>
 
-      {/* ---------- FEATURED ARTWORKS ---------- */}
       <section className="section">
         <div className="container">
           <div className="section-header">
             <div>
-              <p className="">Featured this week</p>
+              <p className="eyebrow">Featured this week</p>
               <h2>Featured Artworks</h2>
             </div>
             <Link to="/explore" className="link-arrow">
@@ -166,12 +159,11 @@ function Home() {
         </div>
       </section>
 
-      {/* ---------- CATEGORIES ---------- */}
       <section className="section section-surface">
         <div className="container">
           <div className="section-header">
             <div>
-              <p className="">Six ways in</p>
+              <p className="eyebrow">Six ways in</p>
               <h2>Explore by Category</h2>
             </div>
             <Link to="/categories" className="link-arrow">
@@ -199,13 +191,12 @@ function Home() {
         </div>
       </section>
 
-      {/* ---------- PERSONALISED RECOMMENDATIONS ---------- */}
       <section className="section">
         <div className="container taste">
           <div className="taste-copy">
-            {/* <span className="ai-badge">
-              <Icon name="sparkle" size={12} /> Personalised recommendations
-            </span> */}
+            <span className="ai-badge">
+              Personalised recommendations
+            </span>
             <h2>
               Art That Understands Your Taste.
             </h2>
@@ -236,9 +227,9 @@ function Home() {
                 <Link to={`/artwork/${art.id}`} className="rec-card" key={art.id}>
                   <div className="rec-card-image">
                     <img src={art.image} alt={art.title} loading="lazy" />
-                    {/* <span className="ai-tag rec-card-tag">
-                      <Icon name="sparkle" size={12} className="spark" /> {pick.tag}
-                    </span> */}
+                    <span className="ai-tag rec-card-tag">
+                      {pick.tag}
+                    </span>
                   </div>
                   <div className="rec-card-top">
                     <span>{pick.match}</span>
@@ -248,7 +239,7 @@ function Home() {
                   <p className="muted small">
                     {art.artist} · {art.date}
                   </p>
-                  {/* <p className="rec-card-reason">{pick.reason}</p> */}
+                  <p className="rec-card-reason">{pick.reason}</p>
                 </Link>
               );
             })}
@@ -256,16 +247,15 @@ function Home() {
         </div>
       </section>
 
-      {/* ---------- SMART SEARCH (dark) ---------- */}
       <section className="section section-dark smart-search">
         <div className="container smart-search-inner">
-          <p className="">Natural-language search</p>
+          <p className="eyebrow eyebrow-light">Natural-language search</p>
           <h2>Describe it. We’ll find it.</h2>
           <p className="smart-search-text">
             Search the way you think about art — by mood, medium, colour or subject. ArtMind understands what you mean.
           </p>
           <form className="search-bar" onSubmit={handleSearch}>
-            <Icon name="sparkle" className="search-bar-icon" />
+            <Icon name="search" className="search-bar-icon" />
             <input
               type="text"
               value={query}
@@ -290,7 +280,6 @@ function Home() {
         </div>
       </section>
 
-      {/* ---------- HOW IT WORKS ----------
       <section className="section">
         <div className="container">
           <div className="section-header">
@@ -323,7 +312,7 @@ function Home() {
                   {index === 1 && (
                     <div className="mini-search">
                       <span>
-                        <Icon name="sparkle" size={14} /> Calm blue seascapes
+                        Calm blue seascapes
                       </span>
                       <div className="mini-results">
                         <img src={getArtwork('the-herring-net').image} alt="" />
@@ -355,9 +344,8 @@ function Home() {
             ))}
           </div>
         </div>
-      </section> */}
+      </section>
 
-      {/* ---------- CURATED COLLECTIONS ---------- */}
       <section className="section section-surface">
         <div className="container">
           <div className="section-header">
@@ -377,14 +365,14 @@ function Home() {
           <div className="featured-collection">
             <div className="featured-collection-image">
               <img src={getArtwork('water-lily-pond').image} alt="Water Lily Pond by Claude Monet" />
-              {/* <span className="ai-tag">
-                <Icon name="sparkle" size={12} className="spark" /> {featuredCollection.label}
-              </span> */}
+              <span className="ai-tag">
+                {featuredCollection.label}
+              </span>
             </div>
             <div className="featured-collection-text">
               <p className="mono muted">Collection of the month</p>
               <h2>{featuredCollection.title}</h2>
-              {/* Small facts about the collection (as in the Figma design) */}
+              <p className="muted">{featuredCollection.description}</p>
               <div className="collection-stats">
                 <div>
                   <strong>{featuredCollection.artworkIds.length}</strong>
@@ -408,7 +396,7 @@ function Home() {
                 ))}
               </div>
               <div className="ai-note">
-                <Icon name="sparkle" size={14} className="spark" /> Matched on calm composition and blue-green palettes
+                Matched on calm composition and blue-green palettes
               </div>
               <div className="collection-buttons">
                 <Link to={`/collections/${featuredCollection.id}`} className="btn btn-dark">
@@ -436,14 +424,13 @@ function Home() {
         </div>
       </section>
 
-      {/* ---------- AI ART ASSISTANT ---------- */}
       <section className="section">
         <div className="container assistant-preview">
           <div className="chat-preview" style={{ backgroundImage: `url(${getArtwork('la-grande-jatte-oil-sketch').image})` }}>
             <div className="chat-window">
               <div className="chat-window-header">
                 <span className="chat-avatar">
-                  <Icon name="sparkle" size={14} />
+                  <Icon name="robot" size={18} />
                 </span>
                 <div>
                   <strong>ArtMind Assistant</strong>

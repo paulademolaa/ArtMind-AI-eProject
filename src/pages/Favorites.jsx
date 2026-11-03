@@ -1,26 +1,17 @@
-// ------------------------------------------------------------
-// Favorites — /favorites  (matches Figma "Desktop / 11")
-// Tabs: Saved paintings · Collections · AI-curated · Favorite categories
-// - Saved paintings: category chips, masonry grid or list, remove (with confirm)
-// - Collections: your own collections ("New collection" makes one)
-// - AI-curated: the curated collections
-// - Favorite categories: categories of your saved paintings, with a follow heart
-// Your own collections and followed categories are saved in the browser.
-// ------------------------------------------------------------
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import DashboardLayout from '../components/DashboardLayout';
 import ArtworkCard from '../components/ArtworkCard';
 import Icon from '../components/Icon';
 import artworks, { getArtwork, getByCategory } from '../data/artworks';
-import { collections } from '../data/siteData';
+import { categories, collections } from '../data/siteData';
 import { useFavorites } from '../context/FavoritesContext';
+import { useAuth } from '../context/AuthContext';
 import './Dashboard.css';
 import './Favorites.css';
 
 const tabs = ['Saved paintings', 'Collections', 'AI-curated', 'Favorite categories'];
 
-// Read / save a list in the browser.
 function loadList(key, fallback) {
   try {
     return JSON.parse(localStorage.getItem(key)) || fallback;
@@ -34,18 +25,19 @@ function saveList(key, list) {
 
 function Favorites() {
   const { favorites, toggleFavorite } = useFavorites();
+  const { user } = useAuth();
+  const collectionsKey = 'artmind-my-collections:' + user.email;
+  const followedKey = 'artmind-followed-categories:' + user.email;
   const [tab, setTab] = useState('Saved paintings');
-  const [view, setView] = useState('grid'); // 'grid' or 'list'
+  const [view, setView] = useState('grid');
   const [category, setCategory] = useState('All');
-  const [toRemove, setToRemove] = useState(null); // artwork waiting for confirmation
+  const [toRemove, setToRemove] = useState(null);
 
-  // Your own collections, e.g. [{ name: 'For my living room' }]
-  const [myCollections, setMyCollections] = useState(() => loadList('artmind-my-collections', []));
+  const [myCollections, setMyCollections] = useState(() => loadList(collectionsKey, []));
   const [newName, setNewName] = useState('');
   const [creating, setCreating] = useState(false);
 
-  // Categories you follow (the heart on "Favorite categories")
-  const [followed, setFollowed] = useState(() => loadList('artmind-followed-categories', ['Landscape', 'Nature', 'Flower']));
+  const [followed, setFollowed] = useState(() => loadList(followedKey, []));
 
   const saved = artworks.filter((art) => favorites.includes(art.id));
   const savedCategories = [...new Set(saved.map((art) => art.category))];
@@ -61,7 +53,7 @@ function Favorites() {
     if (!newName.trim()) return;
     const list = [...myCollections, { name: newName.trim() }];
     setMyCollections(list);
-    saveList('artmind-my-collections', list);
+    saveList(collectionsKey, list);
     setNewName('');
     setCreating(false);
     setTab('Collections');
@@ -70,13 +62,12 @@ function Favorites() {
   function toggleFollow(name) {
     const list = followed.includes(name) ? followed.filter((item) => item !== name) : [...followed, name];
     setFollowed(list);
-    saveList('artmind-followed-categories', list);
+    saveList(followedKey, list);
   }
 
-  // Categories shown in "Favorite categories": followed ones + ones you saved from.
   const favoriteCategories = [...new Set([...followed, ...savedCategories])];
+  const categoriesToShow = favoriteCategories.length > 0 ? favoriteCategories : categories.map((cat) => cat.name);
 
-  // ---- Small pieces used in more than one tab ----
   const collectionsBlock = (list) => (
     <div className="grid-4">
       {list.map((collection) => (
@@ -91,7 +82,7 @@ function Favorites() {
 
   const categoriesBlock = (
     <div className="grid-3">
-      {favoriteCategories.map((name) => {
+      {categoriesToShow.map((name) => {
         const inCategory = getByCategory(name);
         const savedCount = saved.filter((art) => art.category === name).length;
         return (
@@ -130,7 +121,6 @@ function Favorites() {
         </button>
       </div>
 
-      {/* ---- Tabs ---- */}
       <div className="settings-tabs fav-tabs" role="tablist">
         {tabs.map((name) => (
           <button key={name} role="tab" className={tab === name ? 'active' : ''} onClick={() => setTab(name)}>
@@ -139,7 +129,6 @@ function Favorites() {
         ))}
       </div>
 
-      {/* ================= SAVED PAINTINGS ================= */}
       {tab === 'Saved paintings' && (
         <>
           {saved.length === 0 ? (
@@ -174,7 +163,6 @@ function Favorites() {
               </div>
 
               {view === 'grid' ? (
-                // Masonry grid: each painting keeps its own shape
                 <div className="fav-masonry">
                   {shown.map((art) => (
                     <ArtworkCard key={art.id} artwork={art} />
@@ -219,7 +207,6 @@ function Favorites() {
             </>
           )}
 
-          {/* Collections + favourite categories under the saved paintings (as in Figma) */}
           <section>
             <div className="section-header">
               <div>
@@ -248,7 +235,6 @@ function Favorites() {
         </>
       )}
 
-      {/* ================= YOUR COLLECTIONS ================= */}
       {tab === 'Collections' && (
         <section>
           {myCollections.length === 0 ? (
@@ -278,10 +264,8 @@ function Favorites() {
         </section>
       )}
 
-      {/* ================= AI-CURATED ================= */}
       {tab === 'AI-curated' && <section>{collectionsBlock(collections)}</section>}
 
-      {/* ================= FAVORITE CATEGORIES ================= */}
       {tab === 'Favorite categories' && (
         <section>
           <p className="muted small fav-note">Tap the heart to follow or unfollow a category. Followed categories shape your recommendations.</p>
@@ -289,7 +273,6 @@ function Favorites() {
         </section>
       )}
 
-      {/* ---- "New collection" pop-up ---- */}
       {creating && (
         <div className="modal-backdrop" onClick={() => setCreating(false)}>
           <form className="modal" onClick={(event) => event.stopPropagation()} onSubmit={createCollection} role="dialog" aria-modal="true">
@@ -310,7 +293,6 @@ function Favorites() {
         </div>
       )}
 
-      {/* ---- Remove confirmation ---- */}
       {toRemove && (
         <div className="modal-backdrop" onClick={() => setToRemove(null)}>
           <div className="modal" onClick={(event) => event.stopPropagation()} role="dialog" aria-modal="true">

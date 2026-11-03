@@ -1,8 +1,3 @@
-// ------------------------------------------------------------
-// Category Detail page — /categories/:name  (e.g. /categories/landscape)
-// A banner for the category, style chips + sort, and the artworks in it
-// (masonry grid, as in the Figma design).
-// ------------------------------------------------------------
 import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import PageLayout from '../components/PageLayout';
@@ -17,7 +12,6 @@ function CategoryDetail() {
   const [style, setStyle] = useState('All styles');
   const [sort, setSort] = useState('relevant');
 
-  // Match the address (e.g. "landscape") to a category ("Landscape").
   const category = categories.find((cat) => cat.name.toLowerCase() === name);
 
   if (!category) {
@@ -36,7 +30,6 @@ function CategoryDetail() {
   const allInCategory = getByCategory(category.name);
   const styles = ['All styles', ...new Set(allInCategory.map((art) => art.style))];
   let shown = style === 'All styles' ? allInCategory : allInCategory.filter((art) => art.style === style);
-  // The first 4-digit year in the date, e.g. "1873–75" -> 1873
   const year = (art) => parseInt(art.date.match(/\d{4}/)[0]);
   if (sort === 'oldest') shown = [...shown].sort((a, b) => year(a) - year(b));
   if (sort === 'newest') shown = [...shown].sort((a, b) => year(b) - year(a));

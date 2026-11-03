@@ -1,6 +1,3 @@
-/* ============================================================
-   DASHBOARD / FAVORITES / ANALYTICS (shared styles)
-   ============================================================ */
 .welcome {
   display: flex;
   justify-content: space-between;
@@ -59,7 +56,6 @@
   align-self: start;
 }
 
-/* Simple horizontal bar chart made with two divs */
 .bar-label {
   display: flex;
   justify-content: space-between;
@@ -79,7 +75,6 @@
 .mosaic {
   display: grid;
   grid-template-columns: 2fr 1fr;
-  /* minmax(0, 1fr) stops tall pictures from stretching the rows */
   grid-template-rows: minmax(0, 1fr) minmax(0, 1fr);
   overflow: hidden;
   gap: 4px;
@@ -96,7 +91,6 @@
   grid-row: span 2;
 }
 
-/* 5 small cards in a row (recently viewed, saved artworks) */
 .grid-5 {
   display: grid;
   grid-template-columns: repeat(5, 1fr);

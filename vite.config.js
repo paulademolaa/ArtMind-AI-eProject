@@ -1,14 +1,42 @@
-import { defineConfig } from 'vite';
+import { defineConfig, loadEnv } from 'vite';
 import react from '@vitejs/plugin-react';
 
-// Vite settings. The React plugin lets us write JSX in .jsx files.
-export default defineConfig({
-  plugins: [react()],
-  server: {
-    // Always use http://localhost:5173. Without this, Vite quietly moves to
-    // 5174, 5175… when 5173 is busy, and the browser keeps a separate storage
-    // for each address — so saved accounts and favourites seem to "disappear".
-    port: 5173,
-    strictPort: true,
-  },
-});
+function geminiRelay(env) {
+  const model = env.GEMINI_MODEL || 'gemini-3.5-flash';
+
+  async function handle(req, res) {
+    res.setHeader('Content-Type', 'application/json');
+
+    if (!env.GEMINI_API_KEY) {
+      res.statusCode = 503;
+      res.end(JSON.stringify({ error: 'no-key' }));
+      return;
+    }
+
+    let body = '';
+    for await (const chunk of req) body += chunk;
+
+    try {
+      const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'x-goog-api-key': env.GEMINI_API_KEY },
+        body,
+      });
+      res.statusCode = response.status;
+      res.end(await response.text());
+    } catch (error) {
+      res.statusCode = 502;
+      res.end(JSON.stringify({ error: 'unreachable' }));
+    }
+  }
+
+  const attach = (server) => {
+    server.middlewares.use('/api/gemini', (req, res, next) => (req.method === 'POST' ? handle(req, res) : next()));
+  };
+
+  return { name: 'gemini-relay', configureServer: attach, configurePreviewServer: attach };
+}
+
+export default defineConfig(({ mode }) => ({
+  plugins: [react(), geminiRelay(loadEnv(mode, process.cwd(), ''))],
+}));

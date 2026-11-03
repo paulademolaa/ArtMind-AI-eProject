@@ -39,7 +39,6 @@ function Navbar({ transparent = false }) {
           <ul className="nav-links">
             {links.map((link) => (
               <li key={link.to}>
-                {/* NavLink adds the "active" class when we are on that page */}
                 <NavLink to={link.to} end={link.to === '/'}>
                   {link.label}
                 </NavLink>
@@ -56,7 +55,6 @@ function Navbar({ transparent = false }) {
               {favorites.length > 0 && <span className="fav-count">{favorites.length}</span>}
             </Link>
             {user ? (
-              // Signed in: profile button with a small dropdown menu
               <div className="nav-profile">
                 <button className="nav-profile-button" onClick={() => setProfileOpen(!profileOpen)} aria-expanded={profileOpen}>
                   <UserAvatar user={user} className="nav-avatar" />
@@ -91,7 +89,6 @@ function Navbar({ transparent = false }) {
                 )}
               </div>
             ) : (
-              // Visitor: sign in / sign up buttons
               <>
                 <Link to="/signin" className="nav-signin">
                   Sign In
@@ -108,7 +105,6 @@ function Navbar({ transparent = false }) {
         </nav>
       </div>
 
-      {/* Mobile menu (only shown when menuOpen is true) */}
       {menuOpen && (
         <div className="mobile-menu">
           <div className="mobile-menu-top">

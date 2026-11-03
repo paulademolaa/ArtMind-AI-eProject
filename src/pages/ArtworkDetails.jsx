@@ -1,8 +1,3 @@
-// ------------------------------------------------------------
-// Artwork Details page — /artwork/:id
-// Shows one painting: big image, facts, description,
-// colour palette, save + download buttons, similar artworks.
-// ------------------------------------------------------------
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import PageLayout from '../components/PageLayout';
@@ -15,8 +10,6 @@ import { getRecommendations } from '../utils/fakeAI';
 import { addRecentlyViewed } from '../utils/recentlyViewed';
 import './ArtworkDetails.css';
 
-// The three thumbnails under the image: whole painting + two close-ups.
-// "position" decides which part of the painting the close-up shows.
 const views = [
   { label: 'Whole painting', zoom: 1, position: 'center' },
   { label: 'Detail, left', zoom: 2.2, position: '20% 40%' },
@@ -24,19 +17,17 @@ const views = [
 ];
 
 function ArtworkDetails() {
-  const { id } = useParams(); // the ":id" part of the address
+  const { id } = useParams();
   const artwork = getArtwork(id);
   const { isFavorite, toggleFavorite, favorites } = useFavorites();
-  const [view, setView] = useState(0); // which thumbnail is selected
-  const [overlay, setOverlay] = useState(null); // 'zoom' | 'room' | null
+  const [view, setView] = useState(0);
+  const [overlay, setOverlay] = useState(null);
   const [copied, setCopied] = useState(false);
 
-  // Remember this painting for the "Recently viewed" page.
   useEffect(() => {
     if (artwork) addRecentlyViewed(artwork.id);
   }, [id]);
 
-  // If someone types a wrong address, show a friendly message.
   if (!artwork) {
     return (
       <PageLayout>
@@ -52,19 +43,15 @@ function ArtworkDetails() {
 
   const saved = isFavorite(artwork.id);
   const similar = getSimilar(artwork, 4);
-  // Recommendations that are NOT already shown in "similar"
   const recommended = getRecommendations([...favorites, artwork.id, ...similar.map((art) => art.id)], 4);
   const worksByArtist = artworks.filter((art) => art.artist === artwork.artist).length;
 
-  // Copy the page address so it can be shared.
   function share() {
     navigator.clipboard?.writeText(window.location.href);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   }
 
-  // ---- Downloads ----
-  // Word: we build a small HTML document and save it with a .doc ending.
   function downloadWord() {
     const html = `
       <html><body>
@@ -85,7 +72,6 @@ function ArtworkDetails() {
     link.click();
   }
 
-  // PDF: open the browser's print window; choose "Save as PDF".
   function downloadPdf() {
     window.print();
   }
@@ -103,7 +89,6 @@ function ArtworkDetails() {
       </div>
 
       <section className="container details">
-        {/* ---- Big image ---- */}
         <div className="details-media">
           <div className="details-stage">
             <img
@@ -140,7 +125,6 @@ function ArtworkDetails() {
           </div>
         </div>
 
-        {/* Full-screen view: "Zoom" or "View in room" (click anywhere to close) */}
         {overlay && (
           <div className={overlay === 'room' ? 'details-overlay room' : 'details-overlay'} onClick={() => setOverlay(null)}>
             <img src={artwork.image} alt={artwork.title} />
@@ -151,7 +135,6 @@ function ArtworkDetails() {
           </div>
         )}
 
-        {/* ---- Information ---- */}
         <div className="details-info">
           <p className="eyebrow">
             {artwork.category} · {artwork.style}

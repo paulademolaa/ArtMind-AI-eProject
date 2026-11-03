@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import PageLayout from '../components/PageLayout';
@@ -17,7 +16,6 @@ const teamPhotos = [Paul, Timi, Treasure, James, Loius, Isreal];
 
 const topics = ['The collection', 'AI features', 'Partnerships', 'Press', 'Something else'];
 
-
 function initials(name) {
   return name
     .split(' ')
@@ -27,22 +25,18 @@ function initials(name) {
     .toUpperCase();
 }
 
-
 function About() {
-  // ---- Contact form state ----
   const [form, setForm] = useState({ name: '', email: '', message: '' });
   const [topic, setTopic] = useState('AI features');
   const [errors, setErrors] = useState({});
   const [sent, setSent] = useState(false);
 
-  // Update one field of the form when the user types.
   function handleChange(event) {
     setForm({ ...form, [event.target.name]: event.target.value });
   }
 
   function handleSubmit(event) {
     event.preventDefault();
-    // Simple checks before "sending".
     const newErrors = {};
     if (!form.name.trim()) newErrors.name = 'Please enter your name.';
     if (!form.email.includes('@')) newErrors.email = 'Please enter a valid email address.';
@@ -50,13 +44,12 @@ function About() {
     setErrors(newErrors);
 
     if (Object.keys(newErrors).length === 0) {
-      setSent(true); // In a real app we would send the form to a server here.
+      setSent(true);
     }
   }
 
   return (
     <PageLayout>
-      {/* ---------- HERO ---------- */}
       <section className="container about-hero">
         <div className="about-hero-copy">
           <p className="eyebrow">About ArtMind</p>
@@ -82,7 +75,6 @@ function About() {
         </div>
       </section>
 
-      
       <div className="container">
         <div className="stats">
           <div>
@@ -108,12 +100,11 @@ function About() {
         </div>
       </div>
 
-      {/* ---------- MISSION + VISION (two cards side by side) ---------- */}
       <section className="section mission">
         <div className="container mission-grid">
           <div className="mission-card">
             <span className="mission-icon">
-              <Icon name="sparkle" size={20} />
+              <Icon name="palette" size={20} />
             </span>
             <p className="eyebrow">Our mission</p>
             <blockquote>“Great paintings should be easy to find — and even easier to understand.”</blockquote>
@@ -134,7 +125,6 @@ function About() {
         </div>
       </section>
 
-      {/* ---------- BEHIND THE PROJECT (team) ---------- */}
       <section className="section" id="team">
         <div className="container">
           <div className="section-header">
@@ -151,7 +141,6 @@ function About() {
                 ArtMind AI was created by a team of six as an Aptech eProject on AI-integrated web development — designed in
                 Figma and built as a React single-page app.
               </p>
-              {/* Small project figures (as in the Figma design) */}
               <div className="team-figures">
                 <div>
                   <strong>45</strong>
@@ -173,26 +162,25 @@ function About() {
             {team.map((person, index) => (
               <div className="team-card" key={person.name || index}>
                 <div className="team-photo">
-                  {/* Initials sit behind the photo and show if the photo can't load */}
                   <span className="team-initials">{initials(person.name)}</span>
                   <img
                     src={teamPhotos[index]}
                     alt={person.name}
+                    style={{ objectPosition: person.photoPosition }}
                     onError={(event) => (event.currentTarget.style.display = 'none')}
                   />
 
-                  {/* Shown when you hover over the card */}
                   <div className="team-links">
                     <p>Connect</p>
                     <div>
                       <a href={person.github} target="_blank" rel="noreferrer" aria-label={`${person.name} on GitHub`}>
                         <span className="team-link-icon">
-                          <Icon name="github" size={22} />
+                          <Icon name="github" size={22} filled />
                         </span>
                       </a>
                       <a href={person.linkedin} target="_blank" rel="noreferrer" aria-label={`${person.name} on LinkedIn`}>
                         <span className="team-link-icon">
-                          <Icon name="linkedin" size={20} />
+                          <Icon name="linkedin" size={20} filled />
                         </span>
                       </a>
                     </div>
@@ -209,7 +197,6 @@ function About() {
         </div>
       </section>
 
-      {/* ---------- CREDITS ---------- */}
       <div className="container credits">
         <div className="credits-strip">
           {['water-lily-pond', 'the-adoration-of-the-magi', 'improvisation-no-30', 'bouquet-in-earthenware-vase', 'distant-view-of-niagara-falls', 'the-childs-bath'].map((id) => (
@@ -222,7 +209,6 @@ function About() {
         </p>
       </div>
 
-      {/* ---------- CONTACT ---------- */}
       <section className="section">
         <div className="container contact">
           <div>

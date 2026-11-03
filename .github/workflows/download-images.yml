@@ -22,8 +22,8 @@ jobs:
       - run: node scripts/download-images.mjs
       - name: Commit images
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git config user.name "Paul Ademola"
+          git config user.email "paulademolaa@gmail.com"
           git add public/images
           git diff --cached --quiet || git commit -m "Add painting images to public/images"
           # If someone pushed while this was running, add our commit on top of theirs

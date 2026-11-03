@@ -1,6 +1,3 @@
-/* ============================================================
-   ARTWORK DETAILS PAGE
-   ============================================================ */
 .details-top {
   display: flex;
   justify-content: space-between;
@@ -24,7 +21,6 @@
   align-items: start;
 }
 
-/* Grey "wall" behind the painting */
 .details-stage {
   background: var(--surface);
   padding: 48px;
@@ -65,7 +61,6 @@
   text-decoration: underline;
 }
 
-/* Image + thumbnails + tools (left column) */
 .details-media {
   position: sticky;
   top: 24px;
@@ -116,7 +111,6 @@
   color: var(--accent);
 }
 
-/* Full-screen Zoom / View in room */
 .details-overlay {
   position: fixed;
   inset: 0;
@@ -204,7 +198,6 @@
   color: var(--ink-muted);
 }
 
-
 .swatches {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -227,7 +220,6 @@
   gap: 24px;
 }
 
-/* When printing (Save as PDF), hide the menus and footer */
 @media print {
   .navbar,
   .footer,
@@ -244,7 +236,6 @@
   }
 }
 
-/* ---------- Responsive ---------- */
 @media (max-width: 1024px) {
   .details {
     grid-template-columns: 1fr;

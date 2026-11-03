@@ -1,8 +1,3 @@
-// ------------------------------------------------------------
-// Reset Password — /reset-password  (Figma "Desktop / 13c")
-// Normally you arrive here from the link in the reset email.
-// In this demo the email comes from the Forgot Password page.
-// ------------------------------------------------------------
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import AuthLayout from '../components/AuthLayout';

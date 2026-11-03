@@ -39,7 +39,7 @@ const paths = {
   trash:Trash ,
   settings:  Settings,
   eyeOff: EyeOff,
-  robot: Bot
+  robot: MessageSquare
 };
 
 function Icon({ name, size = 20, filled = false, className = '' }) {

@@ -53,7 +53,6 @@ function SignUp() {
   return (
     <AuthLayout artworkId="the-annunciation" quote="“A personal museum that grows with your curiosity.”">
       <h1>Create your account</h1>
-      <p className="muted">Free forever. Save paintings, build collections and get AI recommendations.</p>
 
       {location.state?.needsAccount && (
         <p className="auth-notice">

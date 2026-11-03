@@ -36,13 +36,11 @@
   font-weight: 700;
   font-size: 0.64em;
 }
-
 .navbar-right {
   display: flex;
   align-items: center;
   gap: 40px;
 }
-
 .nav-links {
   display: flex;
   gap: 32px;
@@ -62,7 +60,6 @@
 .nav-links a.active {
   border-bottom-color: currentColor;
 }
-
 .nav-actions {
   display: flex;
   align-items: center;
@@ -70,7 +67,6 @@
   font-size: 14px;
   font-weight: 500;
 }
-
 .fav-link {
   position: relative;
 }
@@ -88,7 +84,6 @@
   line-height: 16px;
   text-align: center;
 }
-
 .nav-cta {
   height: 44px;
   padding: 0 20px;

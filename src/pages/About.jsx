@@ -175,12 +175,12 @@ function About() {
                     <div>
                       <a href={person.github} target="_blank" rel="noreferrer" aria-label={`${person.name} on GitHub`}>
                         <span className="team-link-icon">
-                          <Icon name="github" size={22} />
+                          <Icon name="github" size={22} filled />
                         </span>
                       </a>
                       <a href={person.linkedin} target="_blank" rel="noreferrer" aria-label={`${person.name} on LinkedIn`}>
                         <span className="team-link-icon">
-                          <Icon name="linkedin" size={20} />
+                          <Icon name="linkedin" size={20} filled />
                         </span>
                       </a>
                     </div>

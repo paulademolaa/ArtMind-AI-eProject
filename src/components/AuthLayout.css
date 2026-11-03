@@ -50,6 +50,7 @@
   margin-top: 28px;
 }
 .auth-form h1 {
+  font-size: 2.2rem;
   margin-bottom: 8px;
 }
 .auth-form .btn {
@@ -157,25 +158,6 @@
   width: 16px;
   height: 16px;
   accent-color: var(--ink);
-}
-.auth-divider {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-top: 24px;
-  font-size: 12px;
-  color: var(--ink-muted);
-}
-.auth-divider::before,
-.auth-divider::after {
-  content: '';
-  flex: 1;
-  height: 1px;
-  background: var(--line);
-}
-.auth-google {
-  width: 100%;
-  margin-top: 16px;
 }
 .field .error {
   display: inline-flex;

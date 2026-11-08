@@ -177,14 +177,14 @@ ArtMind-AI-eProject/
 | `/ai/recognition` | AI Image Recognition |
 | `/ai/recommendations` | Personalised recommendations |
 | `/ai/assistant` | AI Art Assistant (chat) |
-| `/dashboard` | User dashboard 🔒 |
-| `/favorites` | Favorites & collections 🔒 |
-| `/collections`, `/collections/:id` | All collections, and one collection 🔒 |
-| `/recently-viewed` | Paintings you opened recently 🔒 |
-| `/settings` | Account settings (profile, password, preferences, delete account) 🔒 |
+| `/dashboard` | User dashboard (Locked for visitor) |
+| `/favorites` | Favorites & collections (Locked for visitor) |
+| `/collections`, `/collections/:id` | All collections, and one collection (Locked for visitor) |
+| `/recently-viewed` | Paintings you opened recently (Locked for visitor) |
+| `/settings` | Account settings (profile, password, preferences, delete account) (Locked for visitor) |
 | `/signin`, `/signup`, `/forgot-password`, `/reset-password` | Account pages |
 
-🔒 = needs an account (visitors are sent to Sign Up).
+(Locked for visitor) = needs an account (visitors are sent to Sign Up).
 
 ---
 

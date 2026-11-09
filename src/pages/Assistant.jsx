@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import PageLayout from '../components/PageLayout';
 import Icon from '../components/Icon';
-import { askAssistant } from '../utils/assistant';
+import { getAssistantReply } from '../utils/fakeAI';
 import { useAuth } from '../context/AuthContext';
 import { useFavorites } from '../context/FavoritesContext';
 import './Assistant.css';
@@ -38,7 +38,8 @@ function Assistant() {
     setInput('');
     setTyping(true);
 
-    const reply = await askAssistant(messages, text, { favorites, toggleFavorite, user, navigate });
+await new Promise((resolve) => setTimeout(resolve, 800));
+const reply = getAssistantReply(text);
     setMessages((old) => [...old, { from: 'ai', text: reply.text, artworks: reply.artworks, question: text, time: timeNow() }]);
     setTyping(false);
   }

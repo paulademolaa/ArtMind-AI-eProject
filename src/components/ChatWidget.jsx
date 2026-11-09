@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Icon from './Icon';
-import { askAssistant } from '../utils/assistant';
+import { getAssistantReply } from '../utils/fakeAI';
 import { useAuth } from '../context/AuthContext';
 import { useFavorites } from '../context/FavoritesContext';
 import './ChatWidget.css';
@@ -23,7 +23,8 @@ function ChatWidget() {
     setMessages((old) => [...old, { from: 'user', text }]);
     setInput('');
     setTyping(true);
-    const reply = await askAssistant(messages, text, { favorites, toggleFavorite, user, navigate });
+await new Promise((resolve) => setTimeout(resolve, 800));
+const reply = getAssistantReply(text);
     setMessages((old) => [...old, { from: 'ai', text: reply.text, artworks: reply.artworks }]);
     setTyping(false);
   }

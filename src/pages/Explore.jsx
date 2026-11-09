@@ -121,7 +121,7 @@ function Explore() {
   return (
     <PageLayout>
       <section className="page-header container">
-        <p className="breadcrumb">Home / Explore Art</p>
+        <p className="breadcrumb"><Link to="/">Home</Link> / <Link to="/explore">Explore Art</Link></p>
         <div className="page-header-row">
           <div>
             <h1>Explore Art</h1>

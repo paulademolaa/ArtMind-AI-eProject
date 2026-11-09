@@ -298,6 +298,7 @@ h4,
 .section-header p {
   max-width: 400px;
   color: var(--ink-muted);
+  margin-left:3px;
 }
 
 .grid-2 {

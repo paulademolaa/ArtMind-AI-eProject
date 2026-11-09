@@ -96,7 +96,7 @@ function Categories() {
               <span>Styles</span>
             </div>
             <div>
-              <strong>{new Set(artworks.map((a) => a.artist)).size}</strong>
+              <strong>10</strong>
               <span>Artists</span>
             </div>
           </div>

@@ -135,7 +135,7 @@ export const team = [
     linkedin: 'https://www.linkedin.com', 
     photoPosition: 'center 15%' },
   { 
-    name: 'Olagunju Isreal', 
+    name: 'Olagunju Israel', 
     role: 'Front-end developer', 
     skills: 'React · CSS', 
     github: 'https://github.com/olagunjupopizzy-coder', 

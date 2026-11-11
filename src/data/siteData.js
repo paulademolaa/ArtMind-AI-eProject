@@ -108,9 +108,36 @@ export const team = [
     github: 'https://github.com/paulademolaa',
     linkedin: 'https://www.linkedin.com/in/paul-ademola-68697226b',
   },
-  { name: 'Ajimati Oluwatimilehin', role: 'Front-end developer', skills: 'React · CSS', github: 'https://github.com/ji-blaq', linkedin: '#' },
-  { name: 'Treasure Amao', role: 'Class Rep. | Front-end developer', skills: 'React · CSS', github: 'https://github.com/temzycodes', linkedin: '#' },
-  { name: 'Emeje James', role: 'Front-end developer', skills: 'React · CSS', github: 'https://github.com/sno-div', linkedin: '#' },
-  { name: 'Arogundade Louis', role: 'Front-end developer', skills: 'React · CSS', github: 'https://github.com/louis-d-great', linkedin: '#', photoPosition: 'center 15%' },
-  { name: 'Olagunju Isreal', role: 'Front-end developer', skills: 'React · CSS', github: 'https://github.com/olagunjupopizzy-coder', linkedin: '#' },
+  { 
+    name: 'Ajimati Oluwatimilehin', 
+    role: 'Front-end developer', 
+    skills: 'React · CSS', 
+    github: 'https://github.com/ji-blaq', 
+    linkedin: 'https://www.linkedin.com/in/ajimati-timi' 
+  },
+  { 
+    name: 'Treasure Amao', 
+    role: 'Class Rep. | Front-end developer', 
+    skills: 'React · CSS', 
+    github: 'https://github.com/temzycodes', 
+    linkedin: 'https://www.linkedin.com/in/treasure-amao-021b73418' },
+  { 
+    name: 'Emeje James', 
+    role: 'Front-end developer', 
+    skills: 'React · CSS', 
+    github: 'https://github.com/sno-div', 
+    linkedin: 'https://www.linkedin.com' },
+  { 
+    name: 'Arogundade Louis', 
+    role: 'Front-end developer', 
+    skills: 'React · CSS', github: 
+    'https://github.com/louis-d-great', 
+    linkedin: '#', 
+    photoPosition: 'center 15%' },
+  { 
+    name: 'Olagunju Isreal', 
+    role: 'Front-end developer', 
+    skills: 'React · CSS', 
+    github: 'https://github.com/olagunjupopizzy-coder', 
+    linkedin: 'https://www.linkedin.com' },
 ];

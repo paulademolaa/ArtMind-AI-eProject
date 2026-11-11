@@ -132,7 +132,7 @@ export const team = [
     role: 'Front-end developer', 
     skills: 'React · CSS', github: 
     'https://github.com/louis-d-great', 
-    linkedin: '#', 
+    linkedin: 'https://www.linkedin.com', 
     photoPosition: 'center 15%' },
   { 
     name: 'Olagunju Isreal', 
